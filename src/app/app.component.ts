@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'MyMetaverse';
+  title = 'my metaverse';
+  showScrollOutTopButton = false;
+
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd)
+        this.scrollToTop();
+    })
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
 }

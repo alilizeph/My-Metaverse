@@ -1,0 +1,22 @@
+.carrousel-card {
+  width: 95%;
+  margin-right: 2%;
+
+  img {
+    height:165px;
+    width:100%;
+    border: 3px rgba(30, 30, 50, .75) solid;
+    border-radius: 0.525em;
+    padding: 2px;
+  }
+
+  p {
+    width: 100%;
+    margin-top: 3px;
+    opacity: 1;
+    text-align: center;
+    position: relative;
+    transition: all 250ms 550ms ease-out;
+  }
+
+}

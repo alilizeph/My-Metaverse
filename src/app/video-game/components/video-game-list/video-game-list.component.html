@@ -1,0 +1,74 @@
+<main>
+  <input type="checkbox" name="filters-btn-hidden" id="filters-btn-hidden">
+  <div class="btn-filter"><span><</span></div>
+  <form class="filter" action="#">
+    <h4>Filtrer</h4>
+    <div class="filter-inner">
+      <div class="filter-group opened-filter closed-filter">
+        <section>
+          <input name="filter" type="radio" (click)="filterByName()">
+          <label for="alpha">Par ordre alphabétique</label>
+        </section>
+      </div>
+      <div class="filter-group">
+        <h5>Par prix</h5>
+        <section>
+          <input name="filter" type="radio" (click)="filterByPriceCroi()">
+          <label for="prixDec">Décroissant</label>
+        </section>
+        <section>
+          <input name="filter" type="radio" (click)="filterByPriceDecr()">
+          <label for="prixCroi">Croissant</label>
+        </section>
+      </div>
+      <div class="filter-group">
+        <h5>Par Note</h5>
+        <section>
+          <input name="filter" type="radio" (click)="filterByNoteCroi()">
+          <label for="prixDec">Décroissant</label>
+        </section>
+        <section>
+          <input name="filter" type="radio" (click)="filterByNoteDecr()">
+          <label for="prixCroi">Croissant</label>
+        </section>
+      </div>
+      <div class="filter-group">
+        <h5>Par Plateforme</h5>
+        <select name="consoles" id="console-filter" [(ngModel)]="selectedConsoleId">
+          <option value="0">Toutes les plateformes</option>
+          <option value="1">Nintendo Switch</option>
+          <option value="2">PC Steam</option>
+          <option value="3">PlayStation 5</option>
+          <option value="4">GameBoy Advanced</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <h5>Par Genres :</h5>
+        <select name="genres" id="gender-filter" [(ngModel)]="genderSelected">
+          <option value="0">Tous les genres</option>
+          <option value="1">RPG</option>
+          <option value="2">Aventure</option>
+          <option value="3">Fantastique</option>
+          <option value="4">Création</option>
+          <option value="5">Open World</option>
+          <option value="6">Gestion</option>
+          <option value="7">Réflexion</option>
+          <option value="8">Écologie</option>
+          <option value="9">Santé</option>
+          <option value="10">Survie</option>
+          <option value="11">Tactique</option>
+          <option value="12">Stratégie</option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <div class="access-list" *ngIf="(!filterByConsoleActivated || selectedConsoleId < 1) && (!filterByGenderActivated || genderSelected < 1)">
+    <app-video-game-access class="access-elmt" *ngFor="let videoGame of videoGameList" [videoGame]="videoGame"></app-video-game-access>
+  </div>
+  <div class="access-list" *ngIf="(filterByConsoleActivated || selectedConsoleId > 0)">
+    <app-video-game-access class="access-elmt" *ngFor="let videoGame of videoGamesFilteredByConsoleId" [videoGame]="videoGame"></app-video-game-access>
+  </div>
+  <div class="access-list" *ngIf="(filterByGenderActivated || genderSelected > 0)">
+    <app-video-game-access class="access-elmt" *ngFor="let videoGame of videoGamesFilteredByGenders" [videoGame]="videoGame"></app-video-game-access>
+  </div>
+</main>

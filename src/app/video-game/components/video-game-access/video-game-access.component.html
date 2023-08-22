@@ -1,0 +1,84 @@
+<article class="video-game-access" [ngClass]="{'stay': isAnimated, 'appears': true, 'hide': !isAnimated}">
+  <section class="video-game-theme">
+    <img [src]="videoGame.imgTheme" [alt]="videoGame.nom">
+  </section>
+  <section class="video-game-head">
+    <div class="video-game-pres">
+      <h3 class="name">{{ videoGame.nom }}</h3>
+      <h4>Sur
+        <span *ngIf="videoGame.console === 1">Nintendo Switch</span>
+        <span *ngIf="videoGame.console === 2">PC Steam</span>
+        <span *ngIf="videoGame.console === 3">PlayStation 5</span>
+        <span *ngIf="videoGame.console === 4">GameBoy Advanced</span>
+        <span *ngIf="videoGame.console === 5">Gameboy/GameBoy Color</span>
+        <span *ngIf="videoGame.console === 6">PlayStation 4</span>
+        <span *ngIf="videoGame.console === 7">Nintendo DS</span>
+        <span *ngIf="videoGame.console === 8">Nintendo 3DS</span>
+        <span *ngIf="videoGame.console === 9">PlayStation 3</span>
+        <span *ngIf="videoGame.console === 10">PlayStation 2</span>
+        <span *ngIf="videoGame.console === 11">PlayStation</span>
+        <span *ngIf="videoGame.console === 12">Xbox</span>
+        <span *ngIf="videoGame.console === 13">Xbox 360</span>
+        <span *ngIf="videoGame.console === 14">Xbox One</span>
+        <span *ngIf="videoGame.console === 15">Xbox Series</span>
+      </h4>
+      <h4 class="video-game-mark" [ngClass]="{ verygood: videoGame.note >= 75 && videoGame.note <= 100,
+                     good: videoGame.note >= 60 && videoGame.note <= 74,
+                     medium: videoGame.note >= 50 && videoGame.note <= 59,
+                     notenough: videoGame.note >= 35 && videoGame.note <= 49,
+                     bad: videoGame.note >= 0 && videoGame.note <= 34
+                   }"><span>{{ videoGame.note }}</span> </h4>
+      <p><span>Date de sortie</span> : {{ videoGame.dateSortie | date: 'le dd MMMM yyyy' }}</p>
+      <p><span>Prix moyen</span> : {{ videoGame.prixMoyen }} €</p>
+      <p class="video-game-genders"><span>Genres</span> : </p>
+      <div class="video-game-genders-box">
+        <ul class="video-game-genders-list">
+          <li class="video-game-gender"
+            *ngFor="let gender of videoGame.genres"
+            [ngClass]="{ rpg: gender === 1, strat: gender === 12, tact: gender === 11,
+                gestion : gender === 6, refl : gender === 7, fant: gender === 3,
+                ecolo: gender === 8, ow : gender === 5, avent: gender === 2,
+                crea : gender === 4, sante: gender === 9, survie: gender === 10 }">
+            <span *ngIf="gender === 1">RPG</span>
+              <span *ngIf="gender === 2">Aventure</span>
+              <span *ngIf="gender === 3">Fantastique</span>
+              <span *ngIf="gender === 4">Création</span>
+              <span *ngIf="gender === 5">Open World</span>
+              <span *ngIf="gender === 6">Gestion</span>
+              <span *ngIf="gender === 7">Réflexion</span>
+              <span *ngIf="gender === 8">Écologie</span>
+              <span *ngIf="gender === 9">Santé</span>
+              <span *ngIf="gender === 10">Survie</span>
+              <span *ngIf="gender === 11">Tactique</span>
+              <span *ngIf="gender === 12">Stratégie</span>
+          </li>
+        </ul>
+      </div>
+
+      <!--<p class="video-game-genders">
+        <span>Genres : </span><br><br>
+          <span class="video-game-genders-list">
+            <span *ngFor="let gender of videoGame.genres"
+              class="video-game-gender" [ngClass]="{
+              rpg: gender === 1,
+              strat: gender === 12,
+              tact: gender === 11,
+              gestion : gender === 6,
+              refl : gender === 7,
+              fant: gender === 3,
+              ecolo: gender === 8,
+              ow : gender === 5,
+              avent: gender === 2,
+              crea : gender === 4,
+              sante: gender === 9,
+              survie: gender === 10 }">
+
+          </span>
+        </span>
+      </p>-->
+    </div>
+  </section>
+  <section class="video-game-access-button">
+    <button (click)="accessToVideoGame()">Accéder à l'avis</button>
+  </section>
+</article>

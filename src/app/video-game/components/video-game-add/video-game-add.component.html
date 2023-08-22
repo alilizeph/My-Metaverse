@@ -1,0 +1,117 @@
+<article class="video-game-form">
+  <h3>AJOUTER UN JEU VIDÉO</h3>
+  <form (ngSubmit)="onSubmitForm()" formGroupName="videoGameForm">
+    <div class="video-game-form-group">
+      <label for="nom">Titre du jeu</label>
+      <input required id="nom" type="text" formControlName="nom">
+    </div>
+    <div class="video-game-form-group">
+      <label for="console">Plateforme</label>
+      <select formControlName="console">
+        <option value="2">PC Steam</option>
+        <optgroup label="Nintendo">
+          <option value="1">Nintendo Switch</option>
+          <option value="4">GameBoy Advanced</option>
+          <option value="5">GameBoy / GameBoy Color</option>
+          <option value="7">Nintendo DS</option>
+          <option value="8">Nintendo 3DS</option>
+        </optgroup>
+        <optgroup label="Sony">
+          <option value="3">PlayStation 5</option>
+          <option value="6">PlayStation 4</option>
+          <option value="9">PlayStation 3</option>
+          <option value="10">PlayStation 2</option>
+          <option value="11">Playstation</option>
+        </optgroup>
+        <optgroup label="Microsoft">
+          <option value="12">Xbox</option>
+          <option value="13">Xbox 360</option>
+          <option value="14">Xbox One</option>
+          <option value="15">Xbox Series</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="video-game-form-group">
+      <label for="description">Description</label>
+      <textarea required id="description" formControlName="description"></textarea>
+    </div>
+    <div class="video-game-form-group">
+      <label for="avis">Avis du jeu</label>
+      <textarea required id="avis" formControlName="avis"></textarea>
+    </div>
+    <div class="video-game-form-group">
+      <label for="imgBoite">Image de la boîte</label>
+      <input id="imgBoite" type="text" formControlName="imgBoite">
+    </div>
+    <div class="video-game-form-group">
+      <label for="imgTheme">Image de fond</label>
+      <input id="imgTheme" type="text" formControlName="imgTheme">
+    </div>
+    <div class="video-game-form-group">
+      <label for="note">Note du jeu</label>
+      <input required id="note" type="text" formControlName="note">
+    </div>
+    <div class="video-game-form-group">
+      <label for="dateSortie">Date de sortie</label>
+      <input id="dateSortie" type="date" formControlName="dateSortie">
+    </div>
+    <div class="video-game-form-group">
+      <label for="prixMoyen">Prix moyen du jeu</label>
+      <input id="prixMoyen" type="text" formControlName="prixMoyen">
+    </div>
+    <div class="video-game-form-group-dispo">
+      <label for="disponibilite">Disponibilité</label>
+      <div class="dispo-choices">
+        <div class="choice">
+          <label><input type="radio" class="disponibilite" value="true" formControlName="disponibilite">
+            Disponible</label>
+        </div>
+        <div class="choice">
+          <label><input type="radio" class="disponibilite" value="false" formControlName="disponibilite">
+            Indisponible</label>
+        </div>
+      </div>
+    </div>
+    <div class="action-button">
+      <button type="submit">Ajouter le jeu</button>
+    </div>
+  </form>
+</article>
+
+
+<article class="video-game-preview" *ngIf="videoGamePreview$ | async as videoGame">
+  <section class="video-game-theme">
+    <img [src]="videoGame.imgTheme" [alt]="videoGame.nom">
+  </section>
+  <section class="video-game-head">
+    <div class="video-game-pres">
+      <h3 class="name">{{ videoGame.nom }}</h3>
+      <h4 class="platform">Sur {{ videoGame.console }}</h4>
+      <h4 class="video-game-mark" [ngClass]="{ verygood: videoGame.note >= 75 && videoGame.note <= 100,
+                     good: videoGame.note >= 65 && videoGame.note <= 74,
+                     medium: videoGame.note >= 50 && videoGame.note <= 64,
+                     notenough: videoGame.note >= 35 && videoGame.note <= 49,
+                     bad: videoGame.note >= 0 && videoGame.note <= 34
+                   }"><span>{{ videoGame.note }}</span> </h4>
+      <p><span>Date de sortie</span> : {{ videoGame.dateSortie | date: 'le dd MMMM yyyy' }}</p>
+      <p><span>Prix moyen</span> : {{ videoGame.prixMoyen }} €</p>
+      <p *ngIf="videoGame.disponibilite === true"><span>En vente en magasin</span></p>
+      <p *ngIf="videoGame.disponibilite === false"><span>indisponible</span></p>
+    </div>
+    <div class="video-game-box-zone">
+      <img class="video-game-box" [src]="videoGame.imgBoite" [alt]="videoGame.nom">
+    </div>
+  </section>
+  <section class="video-game-content">
+    <div class="video-game-description">
+      <h4>Description du jeu :</h4>
+      <p>
+        {{ videoGame.description }}
+      </p>
+    </div>
+    <div class="video-game-advice">
+      <h4>Mon avis personnel : </h4>
+      {{ videoGame.avis }}
+    </div>
+  </section>
+</article>

@@ -1,0 +1,34 @@
+<header>
+  <h1>My Metaverse</h1>
+  <input type="checkbox" name="burger-menu" id="menu-burger">
+  <svg  id="open" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="34px" height="27px" viewBox="0 0 34 27" enable-background="new 0 0 34 27" xml:space="preserve">
+    <rect fill="#FFFFFF" width="34" height="4"/>
+    <rect y="11" fill="#FFFFFF" width="34" height="4"/>
+    <rect y="23" fill="#FFFFFF" width="34" height="4"/>
+    </svg>
+  <nav>
+    <ul>
+      <li [ngClass]="{ admin: isUserAdmin() }">
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+      </li>
+      <li [ngClass]="{ admin: isUserAdmin() }">
+        <a routerLink="videogames" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Mon expertise</a>
+      </li>
+      <li *ngIf="isUserAdmin() && isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
+        <a routerLink="videogames/add" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Ajouter un avis</a>
+      </li>
+      <li *ngIf="!isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
+        <a routerLink="auth/signin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">S'inscrire</a>
+      </li>
+      <li *ngIf="!isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
+        <a routerLink="auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Connexion</a>
+      </li>
+      <li *ngIf="isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
+        <a routerLink="user/profile" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">Mon Profil</a>
+      </li>
+      <li *ngIf="isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
+        <a routerLink="" (click)="deconnexion()">Déconnexion</a>
+      </li>
+    </ul>
+  </nav>
+</header>

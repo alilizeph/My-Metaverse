@@ -1,0 +1,272 @@
+.appears {
+  animation-name: fadein;
+  animation-delay: 450ms;
+  animation-duration: 2250ms;
+  animation-timing-function: ease-in-out;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.stay {
+  opacity: 1;
+}
+
+@keyframes fadein {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0%;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}
+
+.video-game-card {
+  width: 85%;
+  margin: 25px 7.5%;
+  margin-top: 175px;
+  margin-bottom: 50px;
+  background-color: rgba(40, 40, 60, .175);
+  box-shadow: 6px 5px 3px rgba(36, 62, 125, 0.35);
+  border-radius: 1.5em;
+  padding-bottom: 15px;
+
+
+  .video-game-theme {
+    width: 100%;
+
+    img {
+      height: 450px;
+      width: 100%;
+      border-top-left-radius: 1.225em;
+      border-top-right-radius: 1.175em;
+      border-bottom: 5px solid rgb(235, 163, 39);
+    }
+  }
+
+  // video game presentation
+  .video-game-head {
+    width: 95%;
+    margin-left: 2.5%;
+    padding: 10px;
+    font-size: 105%;
+
+    .video-game-pres {
+      margin-left: 10px;
+
+      h3 {
+        margin-bottom: 10px;
+        margin-top: 15px;
+        font-size: 35px;
+        text-transform: uppercase;
+      }
+
+      .name,
+      .platform {
+        margin-bottom: 10px;
+        font-size: 30px;
+        font-weight: 800;
+      }
+
+      .video-game-mark {
+        height: 60px;
+        width: 60px;
+        padding: 20px;
+        border-radius: 0.65em;
+        position: absolute;
+        margin-left: 300px;
+        z-index: 50;
+        box-shadow: 5px 3px 3px rgba(10, 10, 10, .25);
+
+        span {
+          position: absolute;
+          top: 25%;
+          left: 25%;
+          font-size: 275%;
+        }
+      }
+
+      span {
+        font-weight: 650;
+
+        font-size: 17px;
+
+        a {
+          color: rgb(40, 40, 60);
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    // video game box
+    .video-game-box-zone {
+      position: absolute;
+      margin-left:1050px;
+      margin-top: -275px;
+      border-radius: 15px;
+      width: min-content;
+      box-shadow: 5px 3px 3px rgba(10, 10, 10, .25);
+
+      .video-game-box {
+        height: 225px;
+        width: auto;
+        border-radius:3px;
+        opacity: .85;
+      }
+    }
+
+    .video-game-genders {
+      margin-top: 20px;
+
+      .video-game-genders-list {
+        margin-left: 15px;
+        display: inline-flex;
+        width: 70%;
+
+        .video-game-gender {
+          padding: 5px 30px;
+          margin: 5px;
+          font-size: 18px;
+          color: white;
+          border-radius: 0.5em;
+        }
+      }
+
+      .rpg {
+        background-color: rgb(200, 97, 50);
+      }
+
+      .strat {
+        background-color: rgb(50, 107, 200);
+      }
+
+      .tact {
+        background-color: rgb(174, 39, 82);
+      }
+
+      .gestion {
+        background-color: rgb(170, 40, 150);
+      }
+
+      .refl {
+        background-color: rgb(185, 200, 50);
+        color: black;
+      }
+
+      .fant {
+        background-color: rgb(67, 50, 200);
+      }
+
+      .ecolo {
+        background-color: rgb(59, 174, 39);
+        color: black;
+      }
+
+      .ow {
+        background-color: rgb(30, 103, 20);
+      }
+
+      .avent {
+        background-color: rgb(174, 39, 39);
+      }
+
+      .crea {
+        background-color: rgb(39, 151, 174);
+      }
+
+      .sante {
+        background-color: rgb(45, 215, 192);
+        color: black;
+      }
+    }
+  }
+
+  .video-game-genders {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .video-game-genders-box {
+    width:70%;
+
+
+    .video-game-genders-list {
+      display:flex;
+      flex: 1;
+      width:100%;
+      list-style: none;
+      margin-left: -50px;
+      flex-flow: row wrap;
+
+      .video-game-gender {
+        padding: 5px;
+        width:150px;
+        margin: 5px;
+        text-align: center;
+        font-size: 18px;
+        color:white;
+        border-radius: 0.5em;
+
+        span {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // video game advice
+  .video-game-content {
+    width: 95%;
+    margin-left: 2.5%;
+    padding: 10px;
+
+    h4 {
+      padding: 10px;
+      font-size: 23px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .video-game-description {
+      width: 70%;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    .video-game-advice {
+      width: 70%;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+
+    button {
+      font-size: 125%;
+      border: none;
+      padding: 15px 40px;
+      position: absolute;
+      margin-left: 900px;
+      margin-top: -80px;
+      background-color: rgb(30, 30, 50);
+      color: white;
+      box-shadow: 6px 4px 4px rgba(19, 35, 72, 0.25);
+      text-transform: uppercase;
+      border-radius: 0.75em;
+      font-weight: 800;
+      transition: all 250ms 250ms ease-out;
+    }
+
+    button:hover {
+      transform: translate(5px, 2px);
+      transition: all 250ms 350ms ease-in;
+      box-shadow: none;
+
+    }
+  }
+}

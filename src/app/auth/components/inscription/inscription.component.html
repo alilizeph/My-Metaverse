@@ -1,0 +1,32 @@
+<article class="user-form">
+  <h3>FORMULAIRE D'INSCRIPTION</h3>
+  <form formGroupName="userForm">
+    <div class="user-form-group">
+      <label for="email">Email</label>
+      <input required id="email" type="email" formControlName="email">
+    </div>
+    <div class="user-form-group">
+      <label for="mdp">Mot de passe</label>
+      <input required id="mdp" type="password" formControlName="mdp">
+    </div>
+    <div class="user-form-group">
+      <label for="nom">Nom</label>
+      <input required id="nom" type="text" formControlName="nom">
+    </div>
+    <div class="user-form-group">
+      <label for="prenom">Prénom</label>
+      <input required id="prenom" type="text" formControlName="prenom">
+    </div>
+    <div class="user-form-group">
+      <label for="username">Nom utilisateur</label>
+      <input required id="username" type="text" formControlName="username">
+    </div>
+    <div class="user-form-group">
+      <label for="naissance">Date de naissance</label>
+      <input id="naissance" type="date" formControlName="naissance">
+    </div>
+    <div class="action-button">
+      <button type="submit" (click)="onSubmitForm()">S'inscrire</button>
+    </div>
+  </form>
+</article>

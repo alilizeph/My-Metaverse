@@ -1,0 +1,58 @@
+<main>
+  <article class="popup"  [ngClass]="{'stay': isAnimated, 'appears': true, 'hide': !isAnimated}">
+    <h2>Bienvenue sur My Metaverse</h2>
+    <p>
+      My Metaverse est un site Web de notation de jeu vidéo selon mes critères personnels.
+    </p>
+    <p>
+      Il s'agit de mon tout 1er projet Angular.
+      <br>J'ai donc choisi un sujet qui me plait beaucoup et qui peut être très intéressant à exploiter : les Jeux
+      Vidéos.
+    </p>
+    <p>
+      Merci pour l'attention que vous portez à ce projet qui me plaît.
+    </p>
+    <button class="access" (click)="navigateToAdvices()">Accéder aux avis</button>
+  </article>
+  <article class="carousel"  [ngClass]="{'stay': isAnimated, 'appears': true, 'hide': !isAnimated}">
+    <h2>exemple d'expertises</h2>
+    <div class="carousel-inner ">
+      <div *ngFor="let videoGame of videoGames">
+        <app-video-game-carrousel-card [videoGame]="videoGame" style="margin-top:5px;"></app-video-game-carrousel-card>
+      </div>
+    </div>
+  </article>
+  <article class="contact-block" [ngClass]="{'stay': isAnimated, 'appears': true, 'hide': !isAnimated}">
+    <h2>Des suggestions ? </h2>
+    <form class="contact-form" action="mailto:buffardalex492@hotmail.fr">
+      <div class="contact-form-head">
+        <div class="contact-form-group">
+          <label for="mail">Votre email*</label>
+          <input type="email" name="email" id="email" required>
+        </div>
+        <div class="contact-form-group">
+          <label for="nom">Votre Nom</label>
+          <input type="text" name="nom" id="nom">
+        </div>
+        <div class="contact-form-group">
+          <label for="prenom">Votre prénom</label>
+          <input type="text" name="prenom" id="prenom">
+        </div>
+      </div>
+      <div class="contact-form-content">
+        <div class="contact-form-group">
+          <label for="nom-jeu">Nom du jeu*</label>
+          <input type="text" name="nom-jeu" id="nom-jeu" required>
+        </div>
+        <div class="contact-form-group">
+          <label for="avis">Votre avis/conseil*</label>
+          <textarea name="avis" id="avis" required></textarea>
+        </div>
+      </div>
+      <div class="contact-form-footer">
+        <input type="submit" name="submit" value="envoyer">
+        <p id="advertisement">* : Veuillez remplir ces champs obligatoires</p>
+      </div>
+    </form>
+  </article>
+</main>
