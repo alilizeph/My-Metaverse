@@ -1,6 +1,6 @@
 {
   "name": "my-metaverse",
-  "version": "0.0.0",
+  "version": "1.3.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -34,5 +34,22 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.9.4"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alilizeph/My-Metaverse.git"
+  },
+  "keywords": [
+    "Metaverse",
+    "VideoGames",
+    "Angular"
+  ],
+  "author": "BUFFARD Alexandre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alilizeph/My-Metaverse/issues"
+  },
+  "homepage": "https://github.com/alilizeph/My-Metaverse#readme"
 }
