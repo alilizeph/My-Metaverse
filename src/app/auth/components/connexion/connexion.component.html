@@ -1,16 +1,16 @@
 <article class="user-form">
   <h3>CONNEXION</h3>
-  <form formGroupName="connexionForm">
+  <form [formGroup]="connexionForm">
     <div class="user-form-group">
       <label for="username">Nom utilisateur</label>
-      <input required id="email" type="username" formControlName="username" required>
+      <input id="email" type="text" formControlName="username">
     </div>
     <div class="user-form-group">
       <label for="mdp">Mot de passe</label>
-      <input required id="mdp" type="password" formControlName="mdp" required>
+      <input id="mdp" type="password" formControlName="mdp">
     </div>
     <div class="action-button">
-      <button type="submit" (click)="onSubmitForm()">Se connecter</button>
+      <button type="submit" (click)="onLogin()" >Se connecter</button>
     </div>
   </form>
 </article>

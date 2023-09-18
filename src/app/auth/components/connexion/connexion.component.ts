@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../../core/models/user.model';
 import { UsersService } from '../../../core/services/user.service';
-import { AuthentificationService } from '../../../core/services/authentification.service';
 
 @Component({
   selector: 'app-connexion',
@@ -26,21 +24,15 @@ export class ConnexionComponent implements OnInit {
     });
   }
 
-  onConnexonSuccess(user: User) {
-    this.usersService.setConnexion(user.username);
-  }
-
-  onSubmitForm() {
-    this.usersService.connexion(this.connexionForm.value);
-
-    const user = this.usersService.getUserByUserNameAndMdp(this.connexionForm.value[0], this.connexionForm.value[1]);
+  onLogin() {
+    const { username, mdp } = this.connexionForm.value;
+    const user = this.usersService.loginUser(username, mdp);
 
     if (user) {
-      this.onConnexonSuccess(user);
-      this.router.navigateByUrl('user/profile');
+      this.usersService.loginUser(username, mdp);
+      this.router.navigateByUrl("/user/profile");
     } else {
-      throw new Error('Erreur de connexion : identifiants invalides');
-      this.router.navigateByUrl('/');
+      throw new Error("Erreur de connexion : Identifiant ou Mot de passe invalides");
     }
   }
 }

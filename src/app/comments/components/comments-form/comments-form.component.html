@@ -1,0 +1,30 @@
+<article class="comment-form" [ngClass]="{'stay': isAnimated, 'appears': true, 'hide': false }">
+  <h3>Ajouter un commentaire</h3>
+  <form [formGroup]="commentForm">
+    <div class="comment-form-group">
+      <label for="name">Votre nom</label>
+      <input type="text" formControlName="name">
+    </div>
+    <div class="comment-form-group">
+      <label for="title">Titre du commentaire</label>
+      <input type="text" formControlName="title">
+    </div>
+    <div class="comment-form-group">
+      <label for="comment">Commentaire</label>
+      <textarea formControlName="comment"></textarea>
+    </div>
+    <div class="comment-grade">
+      <label for="grade">Note</label>
+      <select formControlName="grade">
+        <option *ngFor="let n of tableOneToHundred" [value]="n">
+          {{ n }}
+        </option>
+      </select>
+    </div>
+    <button type="submit">Envoyer</button>
+  </form>
+</article>
+
+<article class="comments-preview" *ngIf="commentPreview$">
+
+</article>

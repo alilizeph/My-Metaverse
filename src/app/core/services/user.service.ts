@@ -1,87 +1,73 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-// import { end } from '@popperjs/core';
+
 import { User } from '../models/user.model';
+import { Comments } from '../models/comments.model';
+import { CommentsService } from './comments.service';
+import { MyMetaverseService } from './my-metaverse.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  users: User[] = [
-    {
-      id: 1,
-      nom: "Buffard",
-      prenom: "Alexandre",
-      email: "ab@gmail.com",
-      username: "alilizeph",
-      mdp: "#MonMDPAdMiN",
-      anniversaire: new Date(1997, 3, 21),
-      nbLikes: 0,
-      commentaires: [],
-      nbCommentaires: 0,
-      avatar: "assets/images/users/avatar/eevee.png",
-      isAdmin: true,
-      connected: false
-    }
-  ];
-
-  private isAuthentified: boolean = false;
-  private isAdmin: boolean = false;
-  private currentUser!: User;
+  private currentUser: User | null = null;
+  private userIsConnected: boolean = false;
+  private userIsAdmin: boolean = false;
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private myMetaverseService: MyMetaverseService) { }
 
   getAllUsers(): User[] {
-    return this.users;
+    return this.myMetaverseService.getAllUsers();
+  }
+
+  checkCurrentUser() {
+    if (this.currentUser) {
+      if (this.currentUser != this.myMetaverseService.getUserById(this.currentUser.id))
+        this.currentUser = this.myMetaverseService.getUserById(this.currentUser.id);
+    }
   }
 
   length(): number {
-    return this.users[this.users.length - 1].id + 1;
+    return this.getAllUsers().length + 1;
   }
 
   getUserById(userId: number): User {
-    const user = this.users.find(user => user.id === userId);
-
-    if (!user)
-      throw new Error('This User not found !');
-    else
-      return user;
+    return this.myMetaverseService.getUserById(userId);
   }
 
-  setConnexion(username: string): void {
-    const user = this.users.find(user => user.username === username);
-    if (user) {
-      this.currentUser = user;
-      this.isAuthentified = true;
-
-      if (user.isAdmin)
-        this.isAdmin = true;
-      else
-        this.isAdmin = false;
-    } else {
-      this.isAdmin = false;
-      this.isAuthentified = false;
-      throw new Error('Utilisateur introuvable');
-    }
-  }
-
-  getCurrentUser(): User {
+  getCurrentUser(): User | null {
     return this.currentUser;
   }
 
-  getUserByUserName(username: string) {
-    return this.users.find(user => user.username === username);
+  getUserIsConnected(): boolean {
+    if (this.currentUser)
+      return this.currentUser.connected;
+    else
+      return false;
   }
 
-  getUserByUserNameAndMdp(username: string, mdp: string) {
-    return this.users.find(user => user.username === username && user.mdp === mdp);
+  getUserIsAdmin(): boolean {
+    if (this.currentUser)
+      return this.currentUser.isAdmin;
+    else
+      return false;
+  }
+
+  getUserByUserName(username: string) {
+    return this.myMetaverseService.getUserByUsername(username);
+  }
+
+  getUserByUserNameAndMdp(username: string, pwd: string) {
+    return this.myMetaverseService.getUserByUsernameAndPwd(username, pwd);
   }
 
   isUserConnected() {
     var isConnected = false;
 
-    this.users.forEach(user => {
+    this.myMetaverseService.getAllUsers().forEach(user => {
       if (user.connected) {
         isConnected = true;
       }
@@ -93,7 +79,7 @@ export class UsersService {
   isUserAdmin() {
     var isAdmin = false;
 
-    this.users.forEach(user => {
+    this.myMetaverseService.getAllUsers().forEach(user => {
       if (user.isAdmin) {
         isAdmin = true;
       }
@@ -102,35 +88,54 @@ export class UsersService {
     return isAdmin;
   }
 
-  addUser(formValue: { nom: string, prenom: string, email: string, username: string, anniversaire: Date, avatar: string, mdp: string}) {
+  loginUser(username: string, pwd: string): User | null {
+    const user = this.getUserByUserNameAndMdp(username, pwd);
+
+    if (user) {
+      this.currentUser = user;
+      user.connected = true;
+      this.userIsConnected = true;
+
+      if (user.isAdmin)
+        this.userIsAdmin = true;
+      else
+        this.userIsAdmin = false;
+      return user;
+    } else {
+      this.userIsConnected = false;
+      this.userIsAdmin = false;
+      return null;
+    }
+  }
+
+  logoutUser() {
+    if (this.currentUser) {
+      this.currentUser.connected = false;
+      this.currentUser = null;
+    }
+  }
+
+  deconnexion() {
+    this.currentUser = null;
+    this.userIsAdmin = false;
+    this.router.navigateByUrl('/');
+  }
+
+  addUser(formValue: { surname: string, firstName: string, email: string, username: string, gender: "Homme" | "Femme" | "ielle" | "indéterminé", birthday: Date, avatar: string, pwd: string}) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (emailPattern.test(formValue.email)){
       const user: User = {
         ...formValue,
-        id: this.length(),
-        commentaires: [],
-        nbLikes: 0,
-        nbCommentaires: 0,
+        id: this.length() + 1,
+        likes: 0,
+        nbComments: 0,
         isAdmin: false,
-        connected: false
+        connected: false,
+        presentation: ""
       };
 
-      this.users.push(user);
+      this.myMetaverseService.addUser(user);
     }
-  }
-
-  connexion(formValue: { username: string, mdp: string }) {
-      var user = this.users.find(user => user.username === formValue.username && user.mdp === formValue.mdp);
-      if (user) {
-        this.setConnexion(user.username);
-      } else {
-        throw new Error('This Video Game not found!');
-      }
-  }
-
-  deconnexion() {
-    this.setConnexion(this.currentUser.username);
-    this.router.navigateByUrl('/');
   }
 }

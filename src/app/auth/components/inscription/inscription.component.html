@@ -1,6 +1,6 @@
 <article class="user-form">
   <h3>FORMULAIRE D'INSCRIPTION</h3>
-  <form formGroupName="userForm">
+  <form [formGroup]="userForm">
     <div class="user-form-group">
       <label for="email">Email</label>
       <input required id="email" type="email" formControlName="email">
@@ -12,6 +12,15 @@
     <div class="user-form-group">
       <label for="nom">Nom</label>
       <input required id="nom" type="text" formControlName="nom">
+    </div>
+    <div class="user-form-group">
+      <label for="genre">Genre</label>
+      <select required formControlName="genre">
+        <option value="Homme">Homme</option>
+        <option value="Femme">Femme</option>
+        <option value="ielle">Ielle</option>
+        <option value="indéterminé">indéterminé</option>
+      </select>
     </div>
     <div class="user-form-group">
       <label for="prenom">Prénom</label>

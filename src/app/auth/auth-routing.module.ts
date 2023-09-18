@@ -5,8 +5,8 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 
 const routes: Routes = [
-  { path: 'auth/login', component: ConnexionComponent },
-  { path: 'auth/signin', component: InscriptionComponent }
+  { path: 'login', component: ConnexionComponent },
+  { path: 'signin', component: InscriptionComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,191 @@
+@media all {
+
+}
+
+
+@media (max-width:2500px) and (min-width:1400px) {
+
+}
+
+
+@media (max-width:1399px) and (min-width:1200px) {
+
+}
+
+
+@media (max-width:1199px) and (min-width:993px) {
+
+}
+
+
+@media (max-width:992px) and (min-width:768px) {
+
+}
+
+
+@media (max-width:767px) and (min-width:620px) {
+
+}
+
+
+@media (max-width:619px) and (min-width:0px) {
+
+}
+
+.profil {
+  margin-top: 150px;
+  width: 90%;
+  margin-left: 5%;
+  height: 600px;
+  margin-bottom: 50px;
+  border: rgba(54, 46, 46, .25) 5px solid;
+  border-radius: 0.425em;
+  background-color: rgb(30, 30, 40);
+  color:whitesmoke;
+
+  .profil-head {
+    width:95%;
+    margin:2.5% 1%;
+
+    .profil-head-avatar {
+      width:30%;
+      margin:1%;
+
+      img {
+        height:150px;
+        width: 150px;
+        border-radius: 0.450em;
+      }
+    }
+
+    .profil-head-group {
+      width:74%;
+      margin:1%;
+      position: relative;
+      top:-150px;
+
+      h3 {
+        font-size:28px;
+        width: 75%;
+        text-align: center;
+      }
+
+      h4 {
+        font-size:24px;
+        margin-top:20px;
+        width: 75%;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .profil-presentation {
+    width:95%;
+    margin:2.5% 1%;
+    padding-bottom:120px;
+
+    h5 {
+      font-size:22px;
+      padding:20px;
+      margin-left:5%;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 18px;
+      margin:15px;
+    }
+
+    button {
+      font-size: 115%;
+      border: none;
+      position: absolute;
+      padding:10px;
+      background-color: rgb(235, 163, 39);
+      color: white;
+      box-shadow: 5px 4px 4px rgb(71, 76, 88);
+      text-transform: uppercase;
+      border-radius: 0.725em;
+      font-weight: 800;
+      transition: all 250ms 250ms ease-out;
+    }
+
+    .presentation-form {
+      width: 100%;
+
+      .presentation-form-open {
+        width: 400px;
+        margin-top:25px;
+        margin-left: 30%;
+
+        &:hover {
+          transform: translate(5px, 2px);
+          transition: all 250ms 350ms ease-in;
+          box-shadow: none;
+        }
+      }
+
+      .presentation-form-activated {
+        display: none;
+      }
+
+      .presentation-form-deactivated {
+        display: block;
+      }
+
+      form {
+        width: 80%;
+        margin-left:10%;
+
+        textarea {
+          width:70%;
+          margin-left:15%;
+          height:150px;
+          border-radius: 0.645em;
+        }
+
+        .presentation-form-validate {
+          font-size: 115%;
+          width:15%;
+          margin-top:25px;
+          margin-left:17.5%;
+
+
+          &:hover {
+            transform: translate(5px, 2px);
+            transition: all 250ms 350ms ease-in;
+            box-shadow: none;
+          }
+        }
+
+        .presentation-form-close {
+          font-size: 115%;
+          width:15%;
+          margin-top:25px;
+          margin-left:37.5%;
+
+          &:hover {
+            transform: translate(5px, 2px);
+            transition: all 250ms 350ms ease-in;
+            box-shadow: none;
+          }
+        }
+      }
+
+      .form-animating-open {
+        transform:scaleY(100%);
+        opacity: 100%;
+        transform-origin: top;
+        transition: all 350ms 550ms ease-in;
+      }
+
+      .form-animating-close {
+        opacity:0%;
+        transform:scaleY(0%);
+        transform-origin: top;
+        transition: all 350ms 450ms ease-out;
+      }
+    }
+  }
+}

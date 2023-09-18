@@ -4,7 +4,8 @@
   width: 70%;
   margin-left: 15%;
 
-  background-color: rgba(40, 40, 60, .175);
+  background-color: rgb(30, 30, 40);
+  color:white;
   box-shadow: 6px 5px 3px rgba(36, 62, 125, 0.35);
   padding-bottom: 25px;
   padding-top: 10px;
@@ -16,6 +17,7 @@
     text-align: center;
     font-weight: 800;
     padding: 15px;
+    text-transform: uppercase;
   }
 
   .video-game-form-group {

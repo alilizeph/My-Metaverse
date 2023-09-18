@@ -28,7 +28,8 @@
 .video-game-access {
   width: 80%;
   margin: 35px 22%;
-  background-color: rgba(40, 40, 60, .175);
+  background-color: rgb(30, 30, 40);
+  color: white;
   box-shadow: 6px 5px 3px rgba(36, 62, 125, 0.35);
   border-radius: 1.5em;
   padding-bottom: 35px;
@@ -107,13 +108,13 @@
     button {
       font-size: 125%;
       border: 3px solid rgba(56, 99, 200, .15);
-      padding: 15px 40px;
+      padding: 15px 60px;
       position: relative;
-      margin-left: 800px;
-      margin-top: -35px;
-      background-color: rgb(30, 30, 50);
+      margin-left: 700px;
+      margin-top: -10px;
+      background-color: rgb(235, 163, 39);
       color: white;
-      box-shadow: 6px 4px 4px rgba(19, 35, 72, 0.25);
+      box-shadow: 5px 4px 4px rgb(71, 76, 88);
       text-transform: uppercase;
       border-radius: 0.75em;
       font-weight: 800;

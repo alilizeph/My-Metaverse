@@ -4,22 +4,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomePageComponent } from './components/home-page/home-page.component';
 
-import { VideoGameModule } from '../video-game/video-game.module';
+import { LandingPageRoutingModule } from './landing-page-routing.module';
+import { VideoGameCarrouselCardComponent } from './components/video-game-carrousel-card/video-game-carrousel-card.component';
 
 
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+    VideoGameCarrouselCardComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    VideoGameModule
+    LandingPageRoutingModule,
   ],
   exports: [
-    HomePageComponent
+    HomePageComponent,
+    VideoGameCarrouselCardComponent,
   ]
 })
 export class LandingPageModule { }

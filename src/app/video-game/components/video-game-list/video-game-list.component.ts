@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { VideoGame } from '../../../core/models/video-game.model';
 import { VideoGamesService } from '../../../core/services/video-games.service';
 import { Observable, filter } from 'rxjs';
-import { AuthentificationService } from '../../../core/services/authentification.service';
 
 
 @Component({
@@ -14,14 +13,13 @@ import { AuthentificationService } from '../../../core/services/authentification
 export class VideoGameListComponent implements OnInit {
   videoGameList: VideoGame[] = [];
 
-  selectedConsoleId: number = 0;
+  selectedPlatformId: number = 0;
   genderSelected: number = 0;
 
   filterByConsoleActivated: boolean = false;
   filterByGenderActivated: boolean = false;
 
-  constructor(private videoGamesService: VideoGamesService,
-    private authentificationService: AuthentificationService) { }
+  constructor(private videoGamesService: VideoGamesService) { }
 
   ngOnInit(): void {
 
@@ -46,40 +44,40 @@ export class VideoGameListComponent implements OnInit {
 
       // FEW BASICS FILTERS
   filterByName() {
-    return this.videoGameList.sort((a, b) => a.nom.localeCompare(b.nom));
+    return this.videoGameList.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  filterByPriceDecr() {
-    return this.videoGameList.sort((a, b) => { return a.prixMoyen - b.prixMoyen; });
+  filterByPriceDescending() {
+    return this.videoGameList.sort((a, b) => { return a.averagePrice - b.averagePrice; });
   }
 
-  filterByPriceCroi() {
-    return this.videoGameList.sort((a, b) => { return b.prixMoyen - a.prixMoyen; });
+  filterByPriceAscending() {
+    return this.videoGameList.sort((a, b) => { return b.averagePrice - a.averagePrice; });
   }
 
-  filterByNoteDecr() {
-    return this.videoGameList.sort((a, b) => { return a.note - b.note; });
+  filterByGradeDescending() {
+    return this.videoGameList.sort((a, b) => { return a.grade - b.grade; });
   }
 
-  filterByNoteCroi() {
-    return this.videoGameList.sort((a, b) => { return b.note - a.note; });
+  filterByGradeAscending() {
+    return this.videoGameList.sort((a, b) => { return b.grade - a.grade; });
   }
 
-  get videoGamesFilteredByConsoleId(): VideoGame[] {
+  get videoGamesFilteredByPlatformId(): VideoGame[] {
     this.genderSelected = 0;
     this.filterByGenderActivated = false;
 
-    if (this.selectedConsoleId === 0) {
+    if (this.selectedPlatformId === 0) {
       this.filterByConsoleActivated = false;
       return this.videoGameList;
     } else {
       this.filterByConsoleActivated = true;
-      return this.videoGameList.filter(videoGame => videoGame.console == this.selectedConsoleId);
+      return this.videoGameList.filter(videoGame => videoGame.platform == this.selectedPlatformId);
     }
   }
 
   get videoGamesFilteredByGenders(): VideoGame[] {
-    this.selectedConsoleId = 0;
+    this.selectedPlatformId = 0;
     this.filterByConsoleActivated = false;
 
     if (this.genderSelected === 0) {

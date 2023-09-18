@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+
 import { VideoGame } from '../../../core/models/video-game.model';
-import { VideoGamesService } from '../../../core/services/video-games.service';
+
 
 @Component({
   selector: 'app-video-game-access',
@@ -13,11 +14,7 @@ export class VideoGameAccessComponent implements OnInit {
   isAnimated: boolean = false;
 
 
-  constructor(private videoGamesService: VideoGamesService,
-    private router: Router,
-    private route: ActivatedRoute) {
-
-  }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -26,6 +23,6 @@ export class VideoGameAccessComponent implements OnInit {
   }
 
   accessToVideoGame():void {
-    this.router.navigateByUrl(`videoGames/${this.videoGame.id}`);
+    this.router.navigateByUrl(`videogames/${this.videoGame.id}`);
   }
 }

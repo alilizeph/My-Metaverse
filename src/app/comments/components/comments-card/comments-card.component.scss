@@ -1,0 +1,522 @@
+@media all {
+  .appears {
+    animation-name: fadein;
+    animation-delay: 450ms;
+    animation-duration: 2250ms;
+    animation-timing-function: ease-in-out;
+  }
+
+  .hide {
+    opacity: 0;
+  }
+
+  .stay {
+    opacity: 1;
+  }
+
+  @keyframes fadein {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0%;
+    }
+
+    100% {
+      transform: translateY(0%);
+      opacity: 100%;
+    }
+  }
+
+  .comment-card {
+    margin-top: 75px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    background-color: rgba(20, 20, 30, .15);
+    border-radius: 0.625em;
+    box-shadow: 4px 4px 4px 4px rgba(10, 10, 10, .25);
+
+    .comment-head {
+
+      h4, h5 {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      h4 {
+        padding:10px;
+      }
+
+      h5 {
+        padding: 5px;
+      }
+
+      .comment-avatar {
+        background-color: rgba(112, 108, 108, 0.25);
+        border-radius: 1em;
+        z-index: 50;
+        position: absolute;
+
+        img {
+          height: 100%;
+          width: 100%;
+          margin-left: 5%;
+        }
+      }
+
+      .comment-avatar-verygood {
+        border: rgb(8, 78, 25) solid 4px;
+      }
+
+      .comment-avatar-good {
+        border: rgb(8, 199, 56) solid 4px;
+      }
+
+      .comment-avatar-medium {
+        border: rgb(196, 199, 8) solid 4px;
+      }
+
+      .comment-avatar-notenough {
+        border: rgb(199, 126, 8) solid 4px;
+      }
+
+      .comment-avatar-bad {
+        border: rgb(199, 68, 8) solid 4px;
+      }
+    }
+
+    .comment-grade {
+      height:60px;
+      width: 60px;
+      padding: 20px;
+      border-radius: 0.65em;
+      position: absolute;
+      z-index: 50;
+      box-shadow: 5px 3px 3px rgba(10, 10, 10, .25);
+
+      span {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 275%;
+      }
+    }
+
+    .comment-body {
+      margin-top: 5%;
+      margin-left: 2.5%;
+    }
+  }
+
+  .verygood-comment {
+    border: rgb(8, 78, 25) 3px solid;
+    background-color: rgba(8, 78, 25, 0.75);
+    color: white;
+  }
+
+  .good-comment {
+    border: rgb(8, 199, 56) 3px solid;
+    background-color: rgba(11, 133, 41, 0.35);
+  }
+
+  .medium-comment {
+    border: rgb(196, 199, 8) 3px solid;
+    background-color: rgba(196, 199, 8, .75);
+  }
+
+  .notenough-comment {
+    border: rgb(199, 126, 8) 3px solid;
+    background-color: rgba(199, 126, 8, .65);
+  }
+
+  .bad-comment {
+    border: rgb(199, 68, 8) 3px solid;
+    background-color: rgba(199, 68, 8, .75);
+  }
+}
+
+@media (max-width:2500px) and (min-width: 1400px) {
+  .comment-card {
+    width:70%;
+    margin-left:13%;
+    height: 300px;
+
+    .comment-head {
+      width: 60%;
+      margin: 2.5% 200px;
+      height:100px;
+
+      h4, h5 {
+        text-transform: uppercase;
+        font-weight: 750;
+      }
+
+      h4 {
+        font-size:28px;
+        padding:10px;
+      }
+
+      h5 {
+        font-size: 24px;
+        padding: 5px;
+      }
+
+      .comment-avatar {
+        height:150px;
+        width:150px;
+        margin-left:-175px;
+        margin-top:-125px;
+
+        img {
+          height: 100%;
+          width: 100%;
+
+          margin-left: 5%;
+        }
+      }
+    }
+
+    .comment-grade {
+      margin-left: 820px;
+      margin-top: -130px;
+
+      span {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 275%;
+      }
+    }
+
+    .comment-body {
+      width: 80%;
+      margin-top: 5%;
+      margin-left: 2.5%;
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width:1399px) and (min-width:1200px) {
+  .comment-card {
+    width:70%;
+    margin-left:11%;
+    height: 300px;
+
+    .comment-head {
+      width: 60%;
+      margin: 2.5% 200px;
+      height:100px;
+
+      h4, h5 {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      h4 {
+        font-size:28px;
+        padding:10px;
+      }
+
+      h5 {
+        font-size: 24px;
+        padding: 5px;
+      }
+
+      .comment-avatar {
+        height:150px;
+        width:150px;
+        margin-left:-175px;
+        margin-top:-125px;
+
+        img {
+          height: 100%;
+          width: 100%;
+
+          margin-left: 5%;
+        }
+      }
+    }
+
+    .comment-grade {
+      margin-left: 820px;
+      margin-top: -130px;
+
+      span {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 275%;
+      }
+    }
+
+    .comment-body {
+      width: 80%;
+      margin-top: 5%;
+      margin-left: 2.5%;
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width:1199px) and (min-width: 993px) {
+  .comment-card {
+    width:75%;
+    margin-left:11%;
+    height: 300px;
+
+    .comment-head {
+      width: 80%;
+      margin: 2.5% 200px;
+      height:100px;
+
+      h4, h5 {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      h4 {
+        font-size:26px;
+        padding:10px;
+      }
+
+      h5 {
+        font-size: 22px;
+        padding: 5px;
+      }
+
+      .comment-avatar {
+        height:125px;
+        width:125px;
+        margin-left:-175px;
+        margin-top:-110px;
+
+        img {
+          height: 100%;
+          width: 100%;
+
+          margin-left: 5%;
+        }
+      }
+    }
+
+    .comment-grade {
+      margin-left: 600px;
+      margin-top: -130px;
+
+      span {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 275%;
+      }
+    }
+
+    .comment-body {
+      width: 80%;
+      margin-top: 7.5%;
+      margin-left: 2.5%;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width:992px) and (min-width:768px) {
+  .comment-card {
+    width:80%;
+    margin-left:7.5%;
+    height: 300px;
+
+    .comment-head {
+      width: 90%;
+      margin: 2.5% 125px;
+      height:150px;
+
+      h4, h5 {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      h4 {
+        font-size:26px;
+        padding:10px;
+      }
+
+      h5 {
+        font-size: 22px;
+        padding: 5px;
+      }
+
+      .comment-avatar {
+        height:125px;
+        width:125px;
+        margin-left:-130px;
+        margin-top:-110px;
+
+        img {
+          height: 100%;
+          width: 100%;
+
+          margin-left: 5%;
+        }
+      }
+    }
+
+    .comment-grade {
+      margin-left: 480px;
+      margin-top: -175px;
+
+      span {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 275%;
+      }
+    }
+
+    .comment-body {
+      width: 80%;
+      margin-top: 2.5%;
+      margin-left: 2.5%;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width:767px) and (min-width:620px) {
+  .comment-card {
+    width:80%;
+    margin-left:7.5%;
+    height: 350px;
+
+    .comment-head {
+      width: 90%;
+      margin: 2.5% 125px;
+      height:150px;
+
+      h4, h5 {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      h4 {
+        font-size:26px;
+        padding:10px;
+      }
+
+      h5 {
+        font-size: 22px;
+        padding: 5px;
+      }
+
+      .comment-avatar {
+        height:125px;
+        width:125px;
+        margin-left:-130px;
+        margin-top:-110px;
+
+        img {
+          height: 100%;
+          width: 100%;
+
+          margin-left: 5%;
+        }
+      }
+    }
+
+    .comment-grade {
+      margin-left: 250px;
+      margin-top: -70px;
+
+      span {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 275%;
+      }
+    }
+
+    .comment-body {
+      width: 80%;
+      text-justify: newspaper;
+      margin-top: 11%;
+      margin-left: 2.5%;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width:619px) and (min-width:0px) {
+  .comment-card {
+    width:90%;
+    margin-left:1%;
+    height: 350px;
+
+    .comment-head {
+      width: 90%;
+      margin: 0% 125px;
+      height:150px;
+
+      h4, h5 {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      h4 {
+        font-size:24px;
+        padding:10px;
+        margin-left:-125px;
+      }
+
+      h5 {
+        font-size: 18px;
+        padding: 5px;
+        margin-left:-125px;
+      }
+
+      .comment-avatar {
+        height:100px;
+        width:100px;
+        margin-left:-130px;
+        margin-top:0px;
+
+        img {
+          height: 100%;
+          width: 100%;
+
+          margin-left: 5%;
+        }
+      }
+    }
+
+    .comment-grade {
+      margin-left: 250px;
+      margin-top: -65px;
+
+      span {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 275%;
+      }
+    }
+
+    .comment-body {
+      width: 90%;
+      text-justify: newspaper;
+      margin-top: 50px;
+      margin-left: 2.5%;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}

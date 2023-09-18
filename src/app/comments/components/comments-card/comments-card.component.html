@@ -1,0 +1,36 @@
+<article class="comment-card" *ngIf="comment" [ngClass]="{
+  'stay': isAnimated,
+  'appears': true,
+  'hide': false,
+  'verygood-comment' : comment.grade >= 75 && comment.grade <= 100,
+  'good-comment' : comment.grade >= 60 && comment.grade <= 74,
+  'medium-comment' : comment.grade >= 50 && comment.grade <= 59,
+  'notenough-comment': comment.grade >= 35 && comment.grade <= 49,
+  'bad-comment': comment.grade >= 0 && comment.grade <= 34
+   }">
+  <section class="comment-head">
+    <h4>Posté par : {{ comment.user.username }}</h4>
+    <h5>Le {{ comment.postDate | date: "dd MMMM yyyy, à hh:mm" }}</h5>
+    <section class="comment-avatar" [ngClass]="{
+                    'comment-avatar-verygood': comment.grade >= 75 && comment.grade <= 100,
+                    'comment-avatar-good': comment.grade >= 60 && comment.grade <= 74,
+                    'comment-avatar-medium': comment.grade >= 50 && comment.grade <= 59,
+                    'comment-avatar-notenough': comment.grade >= 35 && comment.grade <= 49,
+                    'comment-avatar-bad': comment.grade >= 0 && comment.grade <= 34
+                   }">
+      <img [src]="comment.user.avatar" [alt]="comment.user.username" >
+    </section>
+
+  </section>
+  <h4 class="comment-grade" [ngClass]="{ verygood: comment.grade >= 75 && comment.grade <= 100,
+                     good: comment.grade >= 60 && comment.grade <= 74,
+                     medium: comment.grade >= 50 && comment.grade <= 59,
+                     notenough: comment.grade >= 35 && comment.grade <= 49,
+                     bad: comment.grade >= 0 && comment.grade <= 34
+                   }">
+    <span>{{ comment.grade }}</span>
+  </h4>
+  <section class="comment-body">
+    <p>{{ comment.content }}</p>
+  </section>
+</article>

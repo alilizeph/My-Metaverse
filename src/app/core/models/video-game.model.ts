@@ -1,7 +1,10 @@
+import { Comments } from "./comments.model";
+import { UsersService } from "../services/user.service";
+
 export class VideoGame {
   id!: number;
-  nom!: string;
-  console!: number;
+  name!: string;
+  platform!: number;
   /**
    * Possible values :
    * 1 = Nintendo Switch,
@@ -21,11 +24,11 @@ export class VideoGame {
    * 15 = XBox Series
    */
   description!: string;
-  avis!: string;
-  imgBoite!: string;
+  advice!: string;
+  imgBox!: string;
   imgTheme!: string;
-  note!: number;
-  genres!: number[];
+  grade!: number;
+  genders!: number[];
   /**
   * Possible values :
   * 1 = RPG
@@ -41,30 +44,36 @@ export class VideoGame {
   * 11 = Tactique
   * 12 = Stratégie
   */
-  dateSortie!: Date;
-  prixMoyen!: number;
-  disponibilite!: boolean;
-  lien!: string;
-  commentaires!: Comment[];
+  releaseDate!: Date;
+  averagePrice!: number;
+  disponibility!: boolean;
+  link!: string;
+  //comments!: Comments[];
+  nbLikes!: number;
+  averageUsersGrade!: number;
 
-  constructor(id: number, nom: string, console: number,
-    description: string, avis: string,
-    imgBoite: string, imgTheme: string,
-    sortie: Date, disponibilite: boolean,
-    lien: string, genres: number[]) {
+
+  constructor(id: number, name: string, platform: number,
+    description: string, advice: string, grade: number,
+    imgBoite: string, imgTheme: string, price: number,
+    release: Date, disponibilite: boolean, lien: string,
+    genders: number[], nbLikes: number, averageUsersGrade: number) {
     this.id = id;
-    this.nom = nom;
-    this.console = console;
+    this.name = name;
+    this.platform = platform;
     this.description = description;
-    this.avis = avis;
-    this.imgBoite = imgBoite;
+    this.advice = advice;
+    this.imgBox = imgBoite;
+    this.grade = grade;
+    this.averagePrice = price;
     this.imgTheme = imgTheme;
-    this.dateSortie = sortie;
-    this.genres = genres;
-    this.disponibilite = disponibilite;
-    this.lien = lien;
-    this.commentaires = [];
-    //this.genres.sort((a, b) => a.localeCompare(b));
+    this.releaseDate = release;
+    this.genders = genders;
+    this.disponibility = disponibilite;
+    this.link = lien;
+    //this.comments = [];
+    this.nbLikes = nbLikes;
+    this.averageUsersGrade = averageUsersGrade;
   }
 
 }

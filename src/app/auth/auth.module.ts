@@ -4,6 +4,7 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -15,7 +16,12 @@ import { AuthRoutingModule } from './auth-routing.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    CoreModule
+  ],
+  exports: [
+    ConnexionComponent,
+    InscriptionComponent
   ]
 })
 export class AuthModule { }

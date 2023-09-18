@@ -1,0 +1,118 @@
+* {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  margin: 0px;
+}
+
+body {
+  width: 99%;
+}
+
+main {
+  margin-top: 200px;
+  color: rgb(30, 30, 40);
+}
+
+.rpg {
+  background-color: rgb(200, 97, 50);
+}
+
+.strat {
+  background-color: rgb(50, 107, 200);
+}
+
+.tact {
+  background-color: rgb(174, 39, 82);
+}
+
+.gestion {
+  background-color: rgb(170, 40, 150);
+}
+
+.refl {
+  background-color: rgb(185, 200, 50);
+  color: rgb(30, 30, 50);
+}
+
+.fant {
+  background-color: rgb(67, 50, 200);
+}
+
+.ecolo {
+  background-color: rgb(59, 174, 39);
+  color: rgb(30, 30, 50);
+}
+
+.ow {
+  background-color: rgb(30, 103, 20);
+}
+
+.avent {
+  background-color: rgb(174, 39, 39);
+}
+
+.crea {
+  background-color: rgb(39, 151, 174);
+}
+
+.sante {
+  background-color: rgb(45, 215, 192);
+  color: rgb(30, 30, 50);
+}
+
+.survie {
+  background-color: rgb(199, 126, 8);
+  color: rgb(30, 30, 50);
+}
+
+.verygood {
+  background-color: rgba(8, 78, 25, 0.75);
+  color: white;
+}
+
+.good {
+  background-color: rgb(8, 199, 56);
+  color: white;
+}
+
+.medium {
+  background-color: rgb(196, 199, 8);
+  color: rgb(30, 30, 50);
+}
+
+.notenough {
+  background-color: rgb(199, 126, 8);
+  color: white;
+}
+
+.bad {
+  background-color: rgb(199, 68, 8);
+  color: white;
+}
+
+.switch,
+.gb,
+.gba,
+.ds,
+.ds3,
+.wii,
+.wiiU {
+  border: 5px solid rgba(187, 23, 23, 0.45);
+}
+
+.playstation1,
+.playstation2,
+.playstation3,
+.playstation4,
+.playstation5 {
+  border: 5px solid rgba(16, 16, 188, 0.45);
+}
+
+.xbox,
+.xboxOne,
+.xboxSeries {
+  border: 5px solid rgba(36, 134, 36, 0.45);
+}
+
+.computer {
+  border: 5px solid rgba(190, 63, 17, 0.45);
+}/*# sourceMappingURL=styles.css.map */

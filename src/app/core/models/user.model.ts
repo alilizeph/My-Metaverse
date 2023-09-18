@@ -1,33 +1,39 @@
+import { Comments } from "./comments.model";
+
 export class User {
   id!: number;
-  nom!: string;
-  prenom!: string;
+  surname!: string;
+  firstName!: string;
   email!: string;
   username!: string;
-  mdp!: string;   // non crypté pour l'instant car pas encore de backend
-  anniversaire!: Date;
-  nbLikes!: number;
-  commentaires!: Comment[];
-  nbCommentaires!: number;
+  pwd!: string;   // non crypté pour l'instant car pas encore de backend
+  gender!: string;
+  birthday!: Date;
+  likes!: number; // a voir pour améliorer
+  //comments!: Comments[];
+  nbComments!: number;
   avatar!: string;
+  presentation!: string;
   isAdmin!: boolean;
   connected!: boolean;
 
-  constructor(id: number, nom: string, prenom: string,
-    email: string, username: string, anniversaire: Date, avatar: string, mdp: string) {
+  constructor(id: number, surname: string, fsName: string, gender: "Homme" | "Femme" | "ielle" | "indéterminé",
+    email: string, username: string, birthdayDate: Date, avatar: string, pwd: string, presentation: string) {
     this.id = id;
-    this.nom = nom;
-    this.prenom = prenom;
+    this.surname = surname;
+    this.firstName = fsName;
     this.email = email;
     this.username = username;
-    this.mdp = mdp;
-    this.anniversaire = anniversaire;
-    this.commentaires = [];
-    this.nbLikes = 0;
-    this.nbCommentaires = 0;
+    this.pwd = pwd;
+    this.birthday = birthdayDate;
+    //this.comments = [];
+    this.likes = 0;
+    this.nbComments = 0;
     this.avatar = avatar;
     this.isAdmin = false;
     this.connected = false;
+    this.gender = gender;
+    this.presentation = presentation;
   }
 
 

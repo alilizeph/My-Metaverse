@@ -45,6 +45,7 @@
             "polyfills": [
               "zone.js"
             ],
+            "poll": 1500,
             "tsConfig": "./tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [

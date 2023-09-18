@@ -13,28 +13,28 @@
       <div class="filter-group">
         <h5>Par prix</h5>
         <section>
-          <input name="filter" type="radio" (click)="filterByPriceCroi()">
-          <label for="prixDec">Décroissant</label>
+          <input name="filter" type="radio" (click)="filterByPriceAscending()">
+          <label for="descendingPrice">Décroissant</label>
         </section>
         <section>
-          <input name="filter" type="radio" (click)="filterByPriceDecr()">
-          <label for="prixCroi">Croissant</label>
+          <input name="filter" type="radio" (click)="filterByPriceDescending()">
+          <label for="ascendingPrice">Croissant</label>
         </section>
       </div>
       <div class="filter-group">
         <h5>Par Note</h5>
         <section>
-          <input name="filter" type="radio" (click)="filterByNoteCroi()">
-          <label for="prixDec">Décroissant</label>
+          <input name="filter" type="radio" (click)="filterByGradeAscending()">
+          <label for="descendingGrade">Décroissant</label>
         </section>
         <section>
-          <input name="filter" type="radio" (click)="filterByNoteDecr()">
-          <label for="prixCroi">Croissant</label>
+          <input name="filter" type="radio" (click)="filterByGradeDescending()">
+          <label for="ascendingGrade">Croissant</label>
         </section>
       </div>
       <div class="filter-group">
         <h5>Par Plateforme</h5>
-        <select name="consoles" id="console-filter" [(ngModel)]="selectedConsoleId">
+        <select name="consoles" id="console-filter" [(ngModel)]="selectedPlatformId">
           <option value="0">Toutes les plateformes</option>
           <option value="1">Nintendo Switch</option>
           <option value="2">PC Steam</option>
@@ -62,11 +62,11 @@
       </div>
     </div>
   </form>
-  <div class="access-list" *ngIf="(!filterByConsoleActivated || selectedConsoleId < 1) && (!filterByGenderActivated || genderSelected < 1)">
+  <div class="access-list" *ngIf="(!filterByConsoleActivated || selectedPlatformId < 1) && (!filterByGenderActivated || genderSelected < 1)">
     <app-video-game-access class="access-elmt" *ngFor="let videoGame of videoGameList" [videoGame]="videoGame"></app-video-game-access>
   </div>
-  <div class="access-list" *ngIf="(filterByConsoleActivated || selectedConsoleId > 0)">
-    <app-video-game-access class="access-elmt" *ngFor="let videoGame of videoGamesFilteredByConsoleId" [videoGame]="videoGame"></app-video-game-access>
+  <div class="access-list" *ngIf="(filterByConsoleActivated || selectedPlatformId > 0)">
+    <app-video-game-access class="access-elmt" *ngFor="let videoGame of videoGamesFilteredByPlatformId" [videoGame]="videoGame"></app-video-game-access>
   </div>
   <div class="access-list" *ngIf="(filterByGenderActivated || genderSelected > 0)">
     <app-video-game-access class="access-elmt" *ngFor="let videoGame of videoGamesFilteredByGenders" [videoGame]="videoGame"></app-video-game-access>

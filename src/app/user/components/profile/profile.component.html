@@ -1,0 +1,55 @@
+<article class="profil">
+  <section class="profil-head">
+    <section class="profil-head-avatar">
+      <img [src]="getUsersAvatar()" [alt]="getUsersUserName() + ' avatar'">
+    </section>
+    <section class="profil-head-group">
+      <h3 *ngIf="user">{{  user.username }}</h3>
+      <h4 *ngIf="user">{{ user.firstName }} {{ user.surname }}</h4>
+    </section>
+  </section>
+  <section class="profil-presentation">
+    <h5 *ngIf="user && userHasPresentation()">Présentation : </h5>
+    <p *ngIf="user && userHasPresentation()" class="profil-presentation-content">{{ user.presentation }}</p>
+    <section class="presentation-form">
+      <button class="presentation-form-open" *ngIf="userHasPresentation()" (click)="setUsersPresentationActivate()" [ngClass]="{
+        'presentation-form-activated': presentationFormActivate,
+        'presentation-form-deactivated': !presentationFormActivate
+      }">Modifier ma présentation</button>
+      <button class="presentation-form-open" *ngIf="!userHasPresentation()" (click)="setUsersPresentationActivate()" [ngClass]="{
+        'presentation-form-activated': presentationFormActivate,
+        'presentation-form-deactivated': !presentationFormActivate
+      }">Ajouter une présentation</button>
+      <form *ngIf="presentationFormActivate" [formGroup]="presentationForm">
+        <section class="presentation-form-group">
+          <textarea formControlName="presentation">Votre présentation</textarea>
+        </section>
+        <section class="presentation-form-group">
+          <button (click)="onSubmitNewPresentation()" class="presentation-form-validate">Modifier</button>
+          <button (click)="closePresentationForm()" class="presentation-form-close">Annuler</button>
+        </section>
+      </form>
+    </section>
+
+  </section>
+<!--
+  <section class="profil-stats">
+    <h5>Quelques chiffres</h5>
+    <section class="profil-stats-group">
+      <h6>Nombre de likes</h6>
+      <p>{{ getUsersNbLikes() }}</p>
+    </section>
+    <section class="profil-stats-group">
+      <h6>Nombre de commentaires</h6>
+      <p>{{ getUsersNbComments() }}</p>
+    </section>
+    <section class="profil-stats-group" *ngIf="getUsersComments()">
+      <h6>Moyenne des notes</h6>
+      <p>{{ getAverageGradeComments() }}</p>
+    </section>
+  </section>
+  <section class="profil-cener">
+
+  </section>
+-->
+</article>

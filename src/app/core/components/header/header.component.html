@@ -5,17 +5,17 @@
     <rect fill="#FFFFFF" width="34" height="4"/>
     <rect y="11" fill="#FFFFFF" width="34" height="4"/>
     <rect y="23" fill="#FFFFFF" width="34" height="4"/>
-    </svg>
+  </svg>
   <nav>
     <ul>
       <li [ngClass]="{ admin: isUserAdmin() }">
         <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
       </li>
       <li [ngClass]="{ admin: isUserAdmin() }">
-        <a routerLink="videogames" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Mon expertise</a>
+        <a routerLink="videogames" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Mes critiques</a>
       </li>
       <li *ngIf="isUserAdmin() && isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
-        <a routerLink="videogames/add" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Ajouter un avis</a>
+        <a routerLink="new" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Ajouter un avis</a>
       </li>
       <li *ngIf="!isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
         <a routerLink="auth/signin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">S'inscrire</a>
@@ -26,7 +26,7 @@
       <li *ngIf="isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
         <a routerLink="user/profile" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">Mon Profil</a>
       </li>
-      <li *ngIf="isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
+      <li class="deconnexion" *ngIf="isUserConnected()" [ngClass]="{ admin: isUserAdmin() }">
         <a routerLink="" (click)="deconnexion()">Déconnexion</a>
       </li>
     </ul>
