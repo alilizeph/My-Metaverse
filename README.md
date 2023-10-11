@@ -1,4 +1,4 @@
-# <h1 style="text-align:center">My Metaverse Project</h1>
+# <h1 style="text-align:center">My Metaverse Angular V1.7</h1>
 
 ## My First Great Project with frontend and backend
 
