@@ -37,7 +37,7 @@ I will have a long work but this is my goal in three stages and the three of the
 * __averagePrice__: number
 * __disponibility__:boolean
 * __link__: string
-* __likes__* : { likes: number, users: User[] } __//Before v1.7: nbLikes* : number__
+* __likes__* : { likes: number, users: User[] } __//Before v1.7 likes was nbLikes* : number__
 * __averageUsersGrade__ : number __// few problems to calculate this property if a user creates or modifies a comment, but it works when there isn't any new entries in the VideoGames table of MyMetaverseService. I think it could be fixed when I'll work with a database.__
 
 #### **__Users__** :
