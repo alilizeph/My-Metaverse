@@ -67,4 +67,4 @@ I will have a long work but this is my goal in three stages and the three of the
 
 #### By BUFFARD Alexandre
 #### Email : buffardalex492@hotmail.fr
-#### LinkedIn : [My LinkedIn profil](https://www.linkedin.com/in/alexandre-buffard-973997153/)
+#### LinkedIn : [My LinkedIn profile](https://www.linkedin.com/in/alexandre-buffard-973997153/)

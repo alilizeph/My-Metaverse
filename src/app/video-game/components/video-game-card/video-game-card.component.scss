@@ -30,7 +30,7 @@
   .video-game-card {
     margin-top: 175px;
     margin-bottom: 50px;
-    background-color: rgb(120, 120, 140);
+    background-color: rgba(40, 40, 50, .75);
     color: whitesmoke;
     box-shadow: 6px 5px 3px rgba(36, 62, 125, 0.35);
     border-radius: 1.5em;
@@ -141,6 +141,40 @@
         }
       }
 
+      .likes-zone {
+        position: absolute;
+        margin-top: -200px;
+        margin-left: 400px;
+
+        i {
+          font-size: 300%;
+          cursor: pointer;
+          color: rgb(235, 163, 39);
+        }
+
+        .fa-thumb-remove {
+          display: none;
+        }
+
+        .fa-thumb-return {
+          display: block;
+        }
+
+
+        .likes-nb-title {
+          font-size: 110%;
+          text-transform: uppercase;
+        }
+
+        .likes-nb {
+          font-size: 150%;
+          width: 100%;
+          padding-top: 15px;
+          text-align: center;
+        }
+
+      }
+
       .video-game-genders {
         margin-top: 20px;
 
@@ -156,6 +190,7 @@
             color: whitesmoke;
             border-radius: 0.5em;
             text-align: center;
+            box-shadow: 2px 1px 2px rgb(30, 30, 40);
           }
         }
 
@@ -231,6 +266,7 @@
           color: whitesmoke;
           border-radius: 0.5em;
           text-align: center;
+          box-shadow: 2px 1px 2px rgb(30, 30, 40);
 
           span {
             width: 100%;
@@ -266,7 +302,7 @@
         width: 300px;
         background-color: rgb(235, 163, 39);
         color: white;
-        box-shadow: 5px 4px 4px rgb(71, 76, 88);
+        box-shadow: 3px 2px 1px rgb(30, 30, 40);
         text-transform: uppercase;
         border-radius: 0.75em;
         font-weight: 800;
@@ -281,7 +317,8 @@
     }
   }
 
-  .comment-list {
+
+  .comments-form, .comments-list {
     width: 100%;
   }
 
@@ -364,7 +401,7 @@
     }
 
     .video-game-box-zone {
-      margin-left: 1050px;
+      margin-left: 1000px;
       margin-top: -300px;
 
       .video-game-box {
@@ -988,7 +1025,7 @@
 
     // video game advice
     .video-game-content {
-      margin-top: 120px;
+      margin-top: 175px;
 
       h4 {
         font-size: 23px;

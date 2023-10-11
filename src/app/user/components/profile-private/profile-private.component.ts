@@ -8,11 +8,11 @@ import { MyMetaverseService } from 'src/app/core/services/my-metaverse.service';
 import { UsersService } from 'src/app/core/services/user.service';
 
 @Component({
-  selector: 'app-profil',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-profile-private',
+  templateUrl: './profile-private.component.html',
+  styleUrls: ['./profile-private.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ProfilePrivateComponent implements OnInit {
   user!: User;
   presentationForm!: FormGroup;
   usersPresentation: string = "";
@@ -32,9 +32,9 @@ export class ProfileComponent implements OnInit {
 
     this.updateUser();
 
-    this.myMetaverseService.userPresentation$.subscribe(presentation => {
+    this.myMetaverseService.getUserPresentationAsObservable$().subscribe(presentation => {
       this.usersPresentation = presentation;
-    })
+    });
 
     this.presentationForm = this.formBuilder.group(
       {
@@ -180,9 +180,6 @@ export class ProfileComponent implements OnInit {
       let userId = this.getUsersId();
       if (userId && this.user) {
         this.myMetaverseService.setUsersPresentation(userId, presentation);
-        console.log(presentation);
-        console.log(this.user.presentation);
-        console.log(this.usersService.getCurrentUser()?.presentation);
 
         this.presentationFormActivate = false;
       }

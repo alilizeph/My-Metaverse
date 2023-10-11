@@ -1,5 +1,4 @@
-import { Comments } from "./comments.model";
-import { UsersService } from "../services/user.service";
+import { User } from "./user.model";
 
 export class VideoGame {
   id!: number;
@@ -48,8 +47,7 @@ export class VideoGame {
   averagePrice!: number;
   disponibility!: boolean;
   link!: string;
-  //comments!: Comments[];
-  nbLikes!: number;
+  likes!: { likes: number, users: User[] };
   averageUsersGrade!: number;
 
 
@@ -57,7 +55,7 @@ export class VideoGame {
     description: string, advice: string, grade: number,
     imgBoite: string, imgTheme: string, price: number,
     release: Date, disponibilite: boolean, lien: string,
-    genders: number[], nbLikes: number, averageUsersGrade: number) {
+    genders: number[], averageUsersGrade: number) {
     this.id = id;
     this.name = name;
     this.platform = platform;
@@ -71,8 +69,7 @@ export class VideoGame {
     this.genders = genders;
     this.disponibility = disponibilite;
     this.link = lien;
-    //this.comments = [];
-    this.nbLikes = nbLikes;
+    this.likes = { likes: 0, users: []};
     this.averageUsersGrade = averageUsersGrade;
   }
 

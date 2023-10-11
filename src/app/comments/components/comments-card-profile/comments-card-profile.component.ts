@@ -10,11 +10,11 @@ import { UsersService } from 'src/app/core/services/user.service';
 import { VideoGamesService } from 'src/app/core/services/video-games.service';
 
 @Component({
-  selector: 'app-comments-card',
-  templateUrl: './comments-card.component.html',
-  styleUrls: ['./comments-card.component.scss']
+  selector: 'app-comments-card-profile',
+  templateUrl: './comments-card-profile.component.html',
+  styleUrls: ['./comments-card-profile.component.scss']
 })
-export class CommentsCardComponent implements OnInit {
+export class CommentsCardProfileComponent implements OnInit {
   @Input() comment!: Comments;
   isAnimated: boolean = false;
 
@@ -47,7 +47,7 @@ export class CommentsCardComponent implements OnInit {
       grade: [this.comment.grade, [Validators.required]]
     });
 
-    
+
     if (this.usersService.getCurrentUser())
       this.currentUser = this.usersService.getCurrentUser();
 
@@ -111,4 +111,3 @@ export class CommentsCardComponent implements OnInit {
     }
   }
 }
-

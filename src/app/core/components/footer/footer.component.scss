@@ -4,25 +4,27 @@
     color: white;
     height: 75px;
     padding: 5px;
-    width: 100%;
+    width: 101%;
 
-    section {
-      h4 {
-        padding: 10px;
-        width: 95%;
-        text-align: right;
-      }
+      section {
+        h4 {
+          font-size: 20px;
+          padding: 10px;
+          width: 95%;
+          text-align: right;
+        }
 
-      h5 {
-        padding-left: 10px;
-        width: 95%;
-        text-align: right;
-      }
+        h5 {
+          padding-left: 10px;
+          font-size: 17px;
+          width: 95%;
+          text-align: right;
+        }
 
-      a {
-        color: white;
+        a {
+          color: white;
+        }
       }
-    }
   }
 
 }
@@ -99,36 +101,6 @@
 
     h5 {
       font-size:13px;
-    }
-  }
-}
-
-
-
-footer {
-  background-color: rgb(30, 30, 40);
-  color: white;
-  height: 75px;
-  padding: 5px;
-  width: 100%;
-
-  section {
-    h4 {
-      font-size: 20px;
-      padding: 10px;
-      width: 95%;
-      text-align: right;
-    }
-
-    h5 {
-      padding-left: 10px;
-      font-size: 17px;
-      width: 95%;
-      text-align: right;
-    }
-
-    a {
-      color: white;
     }
   }
 }

@@ -5,12 +5,16 @@ import * as fr from '@angular/common/locales/fr';
 
 import { CommentsFormComponent } from './components/comments-form/comments-form.component';
 import { CommentsCardComponent } from './components/comments-card/comments-card.component';
+import { CommentsUserComponent } from './components/comments-user/comments-user.component';
+import { CommentsCardProfileComponent } from './components/comments-card-profile/comments-card-profile.component';
 
 
 @NgModule({
   declarations: [
     CommentsFormComponent,
-    CommentsCardComponent
+    CommentsCardComponent,
+    CommentsUserComponent,
+    CommentsCardProfileComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { CommentsCardComponent } from './components/comments-card/comments-card.
   ],
   exports: [
     CommentsFormComponent,
-    CommentsCardComponent
+    CommentsCardComponent,
+    CommentsUserComponent,
+    CommentsCardProfileComponent
   ],
 })
 export class CommentsModule {

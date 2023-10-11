@@ -1,5 +1,3 @@
-import { Comments } from "./comments.model";
-
 export class User {
   id!: number;
   surname!: string;
@@ -10,14 +8,13 @@ export class User {
   gender!: string;
   birthday!: Date;
   likes!: number; // a voir pour améliorer
-  //comments!: Comments[];
   nbComments!: number;
   avatar!: string;
   presentation!: string;
   isAdmin!: boolean;
   connected!: boolean;
 
-  constructor(id: number, surname: string, fsName: string, gender: "Homme" | "Femme" | "ielle" | "indéterminé",
+  constructor(id: number, surname: string, fsName: string, gender: "Homme" | "Femme" | "Ielle" | "Indéterminé",
     email: string, username: string, birthdayDate: Date, avatar: string, pwd: string, presentation: string) {
     this.id = id;
     this.surname = surname;
@@ -26,7 +23,6 @@ export class User {
     this.username = username;
     this.pwd = pwd;
     this.birthday = birthdayDate;
-    //this.comments = [];
     this.likes = 0;
     this.nbComments = 0;
     this.avatar = avatar;
@@ -35,6 +31,4 @@ export class User {
     this.gender = gender;
     this.presentation = presentation;
   }
-
-
 }

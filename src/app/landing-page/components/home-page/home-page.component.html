@@ -15,10 +15,12 @@
     <button class="access" (click)="navigateToAdvices()">Accéder aux avis</button>
   </article>
   <article class="carousel"  [ngClass]="{'stay': isAnimated, 'appears': true, 'hide': !isAnimated}">
-    <h2>exemple d'expertises</h2>
+    <h2>exemple de jeux testés</h2>
     <div class="carousel-inner ">
       <div *ngFor="let videoGame of videoGames">
-        <app-video-game-carrousel-card [videoGame]="videoGame" style="margin-top:5px;"></app-video-game-carrousel-card>
+        <a (click)="navigateToAdviceId(videoGame.id)">
+           <app-video-game-carrousel-card [videoGame]="videoGame" style="margin-top:5px;"></app-video-game-carrousel-card>
+        </a>
       </div>
     </div>
   </article>

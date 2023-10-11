@@ -1,16 +1,16 @@
-<article class="profil">
-  <section class="profil-head">
-    <section class="profil-head-avatar">
+<article class="profile" [ngStyle]="{'padding-bottom.px': presentationFormActivate ? '75' : '50' }">
+  <section class="profile-head">
+    <section class="profile-head-avatar">
       <img [src]="getUsersAvatar()" [alt]="getUsersUserName() + ' avatar'">
     </section>
-    <section class="profil-head-group">
+    <section class="profile-head-group">
       <h3 *ngIf="user">{{  user.username }}</h3>
       <h4 *ngIf="user">{{ user.firstName }} {{ user.surname }}</h4>
     </section>
   </section>
-  <section class="profil-presentation">
-    <h5 *ngIf="user && userHasPresentation()">Présentation : </h5>
-    <p *ngIf="user && userHasPresentation()" class="profil-presentation-content">{{ user.presentation }}</p>
+  <section class="profile-presentation">
+    <h5 *ngIf="user && userHasPresentation()">Présentation </h5>
+    <p *ngIf="user && userHasPresentation()" class="profile-presentation-content">{{ user.presentation }}</p>
     <section class="presentation-form">
       <button class="presentation-form-open" *ngIf="userHasPresentation()" (click)="setUsersPresentationActivate()" [ngClass]="{
         'presentation-form-activated': presentationFormActivate,

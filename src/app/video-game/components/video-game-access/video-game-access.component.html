@@ -1,6 +1,6 @@
 <article class="video-game-access" [ngClass]="{'stay': isAnimated, 'appears': true, 'hide': !isAnimated }">
   <section class="video-game-theme">
-    <img [src]="videoGame.imgTheme" [alt]="videoGame.name + ' theme'">
+    <img [ngClass]="{ 'bg-img-transparent': videoGame.id === 3 }" [src]="videoGame.imgTheme" [alt]="videoGame.name + ' theme'">
   </section>
   <section class="video-game-head">
     <div class="video-game-pres">
@@ -56,7 +56,5 @@
       </div>
     </div>
   </section>
-  <section class="video-game-access-button">
-    <button (click)="accessToVideoGame()">Accéder à l'expertise</button>
-  </section>
+  <button class="video-game-access-btn" (click)="accessToVideoGame()">Accéder à l'expertise</button>
 </article>

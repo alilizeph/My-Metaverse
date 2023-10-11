@@ -6,13 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersRoutingModule } from './user-routing.module';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { ProfilePublicComponent } from './components/profile-public/profile-public.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { CoreModule } from '../core/core.module';
+import { ProfilePrivateComponent } from './components/profile-private/profile-private.component';
+import { CommentsModule } from '../comments/comments.module';
 
 @NgModule({
   declarations: [
-    ProfileComponent,
-    ProfilePublicComponent
+    ProfilePublicComponent,
+    ProfilePrivateComponent
   ],
   imports: [
     CommonModule,
@@ -20,10 +21,11 @@ import { CoreModule } from '../core/core.module';
     FormsModule,
     ReactiveFormsModule,
     UsersRoutingModule,
-    CoreModule
+    CoreModule,
+    CommentsModule
   ],
   exports: [
-    ProfileComponent,
+    ProfilePrivateComponent,
     ProfilePublicComponent
   ],
   providers: [

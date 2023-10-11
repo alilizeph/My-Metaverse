@@ -22,7 +22,6 @@ export class VideoGameListComponent implements OnInit {
   constructor(private videoGamesService: VideoGamesService) { }
 
   ngOnInit(): void {
-
     this.resetFilters();
   }
 

@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { VideoGame } from '../models/video-game.model';
-import { Comments } from '../models/comments.model';
-import { UsersService } from './user.service';
-import { CommentsService } from './comments.service';
 import { MyMetaverseService } from './my-metaverse.service';
 
 @Injectable({
@@ -78,7 +75,7 @@ export class VideoGamesService {
       this.currentVideoGame = videoGame;
   }
 
-  calculateAverageUsersGrade(seletectedId: number): number {
-    return this.myMetaverseService.calculateAverageUsersGrade(seletectedId);
+  calculateAverageUsersGrade(seletectedId: number): void {
+    this.myMetaverseService.calculateAverageUsersGrade(seletectedId);
   }
 }

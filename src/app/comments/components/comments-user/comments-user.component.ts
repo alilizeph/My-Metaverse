@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
@@ -11,11 +11,11 @@ import { UsersService } from 'src/app/core/services/user.service';
 import { VideoGamesService } from 'src/app/core/services/video-games.service';
 
 @Component({
-  selector: 'app-comments-form',
-  templateUrl: './comments-form.component.html',
-  styleUrls: ['./comments-form.component.scss']
+  selector: 'app-comments-user',
+  templateUrl: './comments-user.component.html',
+  styleUrls: ['./comments-user.component.scss']
 })
-export class CommentsFormComponent implements OnInit {
+export class CommentsUserComponent {
   commentForm!: FormGroup;
   commentPreview$!: Observable<Comments>;
   tableOneToHundred!: number[];
@@ -29,6 +29,7 @@ export class CommentsFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private commentsService: CommentsService,
+    private usersSeervice: UsersService,
     private videoGamesService: VideoGamesService,
     private myMetaverseService: MyMetaverseService,
     private router: Router) { }
@@ -36,7 +37,6 @@ export class CommentsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.commentForm = this.formBuilder.group({
-      name: [null, [Validators.required]],
       title: [null, [Validators.required]],
       content: [null, [Validators.required]],
       grade: [null, [Validators.required]]
@@ -49,7 +49,8 @@ export class CommentsFormComponent implements OnInit {
     if (this.videoGamesService.getCurrentVideoGame())
       this.currentVG = this.videoGamesService.getCurrentVideoGame();
 
-    this.tmp_user = new User(999, "", "", "Indéterminé", "", this.commentForm.value["name"], new Date(), "", "", "");
+    if (this.usersSeervice.isUserConnected())
+      this.currentUser = this.usersSeervice.getCurrentUser();
 
     this.commentPreview$ = this.commentForm.valueChanges.pipe(
       map(formValue => ({
@@ -57,7 +58,7 @@ export class CommentsFormComponent implements OnInit {
         id: this.commentsService.length() + 1,
         postDate: new Date(),
         videoGame: this.currentVG,
-        user: this.tmp_user
+        user: this.currentUser
       }))
     );
 
@@ -68,44 +69,24 @@ export class CommentsFormComponent implements OnInit {
   }
 
   onSubmitMyComment() {
+    if (this.currentUser && this.currentVG) {
+      let new_com = new Comments(this.myMetaverseService.getAllComments().length + 1, this.currentUser, this.currentVG, this.commentForm.value["title"], this.commentForm.value["content"], this.commentForm.value["grade"], new Date());
+      this.myMetaverseService.addCommentUser(new_com);
 
-    if (this.videoGamesService.getCurrentVideoGame())
-      this.currentVG = this.videoGamesService.getCurrentVideoGame();
-
-    if (this.currentVG && this.tmp_user) {
-      if (this.commentForm.valid) {
-        let new_com = new Comments(this.myMetaverseService.getAllComments().length + 1, this.tmp_user, this.currentVG, this.commentForm.value["title"], this.commentForm.value["content"], this.commentForm.value["grade"], new Date());
-        this.myMetaverseService.addCommentUnknown(new_com);
-        console.log(this.myMetaverseService.getAllComments());
+      setTimeout(() => {
         this.isSentComment = true;
+      }, 850);
 
-        let name = document.getElementById("name") as HTMLInputElement;
-        let title = document.getElementById("title") as HTMLInputElement;
-        let content = document.getElementById("content") as HTMLInputElement;
-        let grade = document.getElementById("grade") as HTMLInputElement;
+      let title = document.getElementById("title") as HTMLInputElement;
+      let content = document.getElementById("content") as HTMLInputElement;
+      let grade = document.getElementById("grade") as HTMLInputElement;
 
-        name.value = "";
-        title.value = "";
-        content.value = "";
-        grade.value = "";
-      } else {
-        this.isSentComment = false;
-
-        alert("Erreur avec votre commentaire ! Veuillez remplir tous les champs obligatories.");
-
-        let name = document.getElementById("name") as HTMLInputElement;
-        let title = document.getElementById("title") as HTMLInputElement;
-        let content = document.getElementById("content") as HTMLInputElement;
-        let grade = document.getElementById("grade") as HTMLInputElement;
-
-        name.value = "";
-        title.value = "";
-        content.value = "";
-        grade.value = "";
-      }
+      title.value = "";
+      content.value = "";
+      grade.value = "";
       this.router.navigateByUrl(`/videogames/${this.currentVG.id}`);
     } else {
-      throw new Error("Erreur avec le jeu vidéo courrant");
+      throw new Error("Erreur de connexion et/ou avec le jeu vidéo courrant");
     }
 
   }

@@ -2,10 +2,6 @@
   <h3>Ajouter un commentaire</h3>
   <form [formGroup]="commentForm">
     <div class="comment-form-group">
-      <label for="name">Votre nom</label>
-      <input type="text" formControlName="name" id="name">
-    </div>
-    <div class="comment-form-group">
       <label for="title">Titre du commentaire</label>
       <input type="text" formControlName="title" id="title">
     </div>
@@ -15,7 +11,7 @@
     </div>
     <div class="comment-grade">
       <label for="grade">Note</label>
-      <select formControlName="grade" class="grade" id="grade">
+      <select formControlName="grade" id="grade">
         <option *ngFor="let n of tableOneToHundred" [value]="n">
           {{ n }}
         </option>
@@ -25,8 +21,7 @@
   </form>
 </article>
 
-
-<div *ngIf="!isSentComment" style="width: 100%;">
+<div *ngIf="!isSentComment">
   <h3 class="comments-preview-title" *ngIf="commentPreview$ | async as comments">Aperçu de votre commentaire</h3>
   <article class="comments-preview" *ngIf="commentPreview$ | async as comments" [ngClass]="{
     'stay': isAnimated,
@@ -42,11 +37,11 @@
       <h4 *ngIf="comments.user">{{ comments.user.username }}</h4>
       <h5 *ngIf="comments.postDate">Le {{ comments.postDate | date: "dd MMMM yyyy, à hh:mm" }}</h5>
       <section *ngIf="comments.user.avatar" class="commments-preview-avatar" [ngClass]="{
-                      'comment-avatar-verygood': comments.grade >= 75 && comments.grade <= 100,
-                      'comment-avatar-good': comments.grade >= 60 && comments.grade <= 74,
-                      'comment-avatar-medium': comments.grade >= 50 && comments.grade <= 59,
-                      'comment-avatar-notenough': comments.grade >= 35 && comments.grade <= 49,
-                      'comment-avatar-bad': comments.grade >= 0 && comments.grade <= 34
+                      'comments-avatar-verygood': comments.grade >= 75 && comments.grade <= 100,
+                      'comments-avatar-good': comments.grade >= 60 && comments.grade <= 74,
+                      'comments-avatar-medium': comments.grade >= 50 && comments.grade <= 59,
+                      'comments-avatar-notenough': comments.grade >= 35 && comments.grade <= 49,
+                      'comments-avatar-bad': comments.grade >= 0 && comments.grade <= 34
                     }">
         <img [src]="comments.user.avatar" [alt]="comments.user.username">
       </section>

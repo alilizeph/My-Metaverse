@@ -348,7 +348,7 @@
 
 @media (max-width:1399px) and (min-width:1200px) {
   .comment-card {
-    width:70%;
+    width:80%;
     margin-left:11%;
     height: 300px;
 
@@ -476,8 +476,8 @@
 
 @media (max-width:992px) and (min-width:768px) {
   .comment-card {
-    width:80%;
-    margin-left:7.5%;
+    width:82.5%;
+    margin-left:9%;
     height: 300px;
 
     .comment-head {
@@ -488,15 +488,16 @@
       h4, h5 {
         text-transform: uppercase;
         font-weight: 800;
+        margin-left: 5%;
       }
 
       h4 {
-        font-size:26px;
+        font-size:24px;
         padding:10px;
       }
 
       h5 {
-        font-size: 22px;
+        font-size: 20px;
         padding: 5px;
       }
 
@@ -516,7 +517,7 @@
     }
 
     .comment-grade {
-      margin-left: 480px;
+      margin-left: 550px;
       margin-top: -175px;
 
       span {
@@ -528,8 +529,8 @@
     }
 
     .comment-body {
-      width: 80%;
-      margin-top: 2.5%;
+      width: 95%;
+      margin-top: 1.5%;
       margin-left: 2.5%;
       p {
         font-size: 16px;
@@ -540,18 +541,19 @@
 
 @media (max-width:767px) and (min-width:620px) {
   .comment-card {
-    width:80%;
-    margin-left:7.5%;
+    width:84%;
+    margin-left:8%;
     height: 350px;
 
     .comment-head {
       width: 90%;
-      margin: 2.5% 125px;
+      margin: 5% 125px;
       height:150px;
 
       h4, h5 {
         text-transform: uppercase;
         font-weight: 800;
+        margin-left: 7.5%;
       }
 
       h4 {
@@ -580,8 +582,8 @@
     }
 
     .comment-grade {
-      margin-left: 250px;
-      margin-top: -70px;
+      margin-left: 400px;
+      margin-top: -80px;
 
       span {
         position: absolute;
@@ -592,9 +594,9 @@
     }
 
     .comment-body {
-      width: 80%;
+      width: 90%;
       text-justify: newspaper;
-      margin-top: 11%;
+      margin-top: 7.5%;
       margin-left: 2.5%;
       p {
         font-size: 16px;
@@ -605,9 +607,9 @@
 
 @media (max-width:619px) and (min-width:0px) {
   .comment-card {
-    width:90%;
+    width:95%;
     margin-left:1%;
-    height: 350px;
+    height: 400px;
 
     .comment-head {
       width: 90%;
@@ -661,10 +663,10 @@
     .comment-body {
       width: 90%;
       text-justify: newspaper;
-      margin-top: 50px;
+      margin-top: 75px;
       margin-left: 2.5%;
       p {
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }

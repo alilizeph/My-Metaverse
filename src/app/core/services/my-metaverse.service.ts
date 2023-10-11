@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { VideoGame } from '../models/video-game.model';
 import { Comments } from '../models/comments.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, concatMap, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyMetaverseService {
+  private jsonUrl = "./../../../../db.json";
+
   private users: User[] = [
     {
       id: 1,
@@ -19,11 +22,11 @@ export class MyMetaverseService {
       gender: "Homme",
       birthday: new Date(1997, 3, 21),
       likes: 0,
-      nbComments: 0,
+      nbComments: 1,
       avatar: "assets/images/users/avatar/eevee.png",
       isAdmin: true,
       connected: false,
-      presentation: "Je me présente, je m'appelle Alexandre BUFFARD, j'ai 26 ans et je suis le développeur de cette Application Web Angular (pour l'instant) en autodidacte. J'espère qu'elle vous plaît, que vous la trouvez accessible. N'hésitez pas à vous servir du formulaire à la page d'accueil. Je vous souhaite une bonne visite et une bonne journée"
+      presentation: "Je me présente, je m'appelle Alexandre BUFFARD, j'ai 26 ans et je suis le développeur de cette Application Web Angular (pour l'instant) en autodidacte. \nJ'espère qu'elle vous plaît, que vous la trouvez accessible. N'hésitez pas à vous servir du formulaire à la page d'accueil. \nJe vous souhaite une bonne visite et une bonne journée !"
     },
     {
       id: 2,
@@ -39,7 +42,7 @@ export class MyMetaverseService {
       avatar: "",
       isAdmin: false,
       connected: false,
-      presentation: ""
+      presentation: `Je suis Arthur, j'ai 24 ans et je suis jeune diplômé d'un lycée hôtelier et mon truc c'est les jeux de plateforme et les FPS. J'aime aussi bien les Open-Worlds mais avec parcimonie.`
     },
     {
       id: 3,
@@ -55,13 +58,13 @@ export class MyMetaverseService {
       avatar: "assets/images/users/avatar/ichikuro_avatar.jpg",
       isAdmin: false,
       connected: false,
-      presentation: ""
+      presentation: "Je m'appelle Ichigo, je suis un lycéen comme les autres ... Si ce n'est que j'ai la capacité de voir les fantômes, les esprits ... appelez ça comme vous voulez.\nUn jour, alors que ma famille était en danger, j'ai fait la rencontre d'une Shinigami nommée Rukia Kuchiki, après de grandes difficultés, elle m'a proposé de me préter ses pouvoirs pour protéger ma famille, j'ai accepté et je suis devenu à mon tour.\nJe vous passe les détails de la suite de l'histoire, mais on pourrait faire une histoire de plusieurs tomes de mangas haha !"
     },
     {
       id: 4,
       surname: "La Cookie",
       firstName: "Lamia",
-      email: "lamia.elkhouhki.etudiant@univ-lr.fr",
+      email: "lamia.lacookie.etudiant@univ-lr.fr",
       username: "elDiableteDu17",
       pwd: "MmEUwp567f89Bd",
       gender: "Femme",
@@ -71,11 +74,172 @@ export class MyMetaverseService {
       avatar: "",
       isAdmin: false,
       connected: false,
+      presentation: "Salut, je m'appelle Lamia, je suis une amie de Alexandre, alilizeph, avec qui j'ai passé une partie de mes études à L'Université de La Rochelle en licence informatique. Le développement Web c'est ma spécialité, actuellement, je suis en train de faire une licence professionnelle. \nQuand j'ai le temps, et j'en ai que trop peu à cause de la LP, je joue aux jeux vidéo et parfois, on essaye de se voir avec mon ami, mais c'est pas facile parce qu'il est actuellement dans sa campagne. (il fait pas d'effort aussi, l'Université encore moins !)"
+    },
+    {
+      id: 5,
+      surname: "Doe",
+      firstName: "John",
+      email: "john.doe@gmail.com",
+      username: "johndoe",
+      birthday: new Date(1990, 5, 15),
+      pwd: "pwdN5PaSec",
+      gender: "Homme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: "Salut, je suis John Doe. J'adore les nouvelles technologies et l'informatique en général. J'aime résoudre des énigmes complexes et apprendre de nouvelles compétences en ligne. N'hésitez pas à me contacter si vous avez des questions sur la programmation ou si vous voulez discuter de sujets technologiques passionnants."
+    },
+    {
+      id: 6,
+      surname: "Smith",
+      firstName: "Alice",
+      email: "asmith@outlook.fr",
+      username: "alsmith",
+      birthday: new Date(1985, 8, 21),
+      pwd: "pwdN6PaSec",
+      gender: "Femme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: "Bonjour à tous, je suis Alice Smith. Je suis une passionnée de photographie et de voyage. J'adore capturer des moments spéciaux à travers mon objectif et partager mes aventures avec le monde. Si vous partagez ces intérêts ou si vous avez des conseils de voyage à partager, faites-moi signe !"
+    },
+    {
+      id: 7,
+      surname: "Brown",
+      firstName: "Robert",
+      email: "brob@orange.fr",
+      username: "brob",
+      birthday: new Date(1993, 3, 8),
+      pwd: "pwdN7PaSec",
+      gender: "Homme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: "Salut, je m'appelle Robert Brown. Je suis un amateur de musique et de guitare. J'aime jouer de la guitare acoustique et je suis toujours à la recherche de nouveaux morceaux à apprendre. Si vous êtes un passionné de musique ou si vous cherchez quelqu'un avec qui jouer, n'hésitez pas à me contacter."
+    },
+    {
+      id: 8,
+      surname: "Johnson",
+      firstName: "Emily",
+      email: "emily.johnson@wanadoo.fr",
+      username: "jemily",
+      birthday: new Date(1988, 3, 8),
+      pwd: "pwdN8PaSec",
+      gender: "Femme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: "Coucou, je suis Emily Johnson. Je suis une fanatique de fitness et de bien-être. J'adore pratiquer le yoga et la méditation pour rester en forme mentalement et physiquement. Si vous partagez ces intérêts ou si vous avez des conseils pour vivre une vie saine, parlons-en !"
+    },
+    {
+      id: 9,
+      surname: "Lee",
+      firstName: "Michael",
+      email: "lckael@gmail.com",
+      username: "lKaL",
+      birthday: new Date(1991, 11, 30),
+      pwd: "pwdN9PaSec",
+      gender: "Homme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: ""
+    },
+    {
+      id: 10,
+      surname: "Wang",
+      firstName: "Lily",
+      email: "lily.wang@univ-bdx.fr",
+      username: "lilyWang",
+      birthday: new Date(1995, 2, 18),
+      pwd: "pwdN10PaSec",
+      gender: "Femme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: ""
+    },
+    {
+      id: 11,
+      surname: "Garcia",
+      firstName: "Davis",
+      email: "dave.garcia@gmail.com",
+      username: "garvis",
+      birthday: new Date(1982, 6, 6),
+      pwd: "pwdN11PaSec",
+      gender: "Homme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: ""
+    },
+    {
+      id: 12,
+      surname: "Kim",
+      firstName: "Sophia",
+      email: "ksophia@hotmail.com",
+      username: "ksophia",
+      birthday: new Date(1991, 7, 25),
+      pwd: "pwdN12PaSec",
+      gender: "Ielle",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: ""
+    },
+    {
+      id: 13,
+      surname: "Lopez",
+      firstName: "Daniel",
+      email: "lop.dan@gmail.com",
+      username: "yodan",
+      birthday: new Date(1984, 1, 10),
+      pwd: "pwdN13PaSec",
+      gender: "Homme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
+      presentation: ""
+    },
+    {
+      id: 14,
+      surname: "Chen",
+      firstName: "Olivia",
+      email: "olivia.chen@gmail.com",
+      username: "profChen",
+      birthday: new Date(1998, 4, 3),
+      pwd: "pwdN14PaSec",
+      gender: "Femme",
+      likes: 0,
+      nbComments: 0,
+      avatar: "",
+      isAdmin: false,
+      connected: false,
       presentation: ""
     }
   ];
 
-  private userPresentation = new BehaviorSubject<string>("");
+  private userPresentationSubject  = new BehaviorSubject<string>("");
+
 
   private videoGames: VideoGame[] = [
     {
@@ -92,7 +256,7 @@ export class MyMetaverseService {
       averagePrice: 54.99,
       disponibility: true,
       link: "https://www.amazon.fr/L%C3%A9gendes-Pok%C3%A9mon-Arceus-Nintendo-Switch/dp/B096FZ5ZRQ/ref=sr_1_1?keywords=pok%C3%A9mon+legend+arceus&qid=1689945200&sprefix=pok%C3%A9mon+legen%2Caps%2C162&sr=8-1",
-      nbLikes: 0,
+      likes: { likes: 4, users: [this.getUserById(3), this.getUserById(4), this.getUserById(8)]},
       averageUsersGrade: 0
     },
     {
@@ -109,12 +273,12 @@ export class MyMetaverseService {
       averagePrice: 59.99,
       disponibility: true,
       link: "https://www.amazon.fr/Nintendo-Pok%C3%A9mon-%C3%89carlate/dp/B0B31VDKKV/ref=sr_1_1?keywords=pok%C3%A9mon+%C3%A9carlate+switch&qid=1689945103&sprefix=pok%C3%A9mon+%C3%A9ca%2Caps%2C87&sr=8-1",
-      nbLikes: 0,
+      likes: { likes: 2, users: [this.getUserById(7), this.getUserById(12)]},
       averageUsersGrade: 0
     },
     {
       id: 3,
-      name: "Hogwarts Legacy",
+      name: "Hogwarts Legacy : L'Héritage de Poudlard",
       platform: 3,
       description: "Hogwarts Legacy prend place au 19ème siècle environ dans la plus célèbre des écoles de magie : Poudlard de J.K. Rowling ! Vous incarnez un(e) jeune élève sur le point d'intégrer la 5ème année de l'école. Accompagné(e) du professeur Fig, vous allez découvrir des phénomènes liés à une magie ancienne que vous semblez pouvoir utiliser. A vous de découvrir le monde qui entoure l'école, de choisir entre Gryffondor, Serdaigle, Poufsouffle et Serpentard et partez à l'aventure avec d'autres élèves !",
       advice: "Ce jeu a été pour moi une excellente aventure ! Étant un grand fan de la saga Harry Potter et des Animaux Fantastiques, découvrir l'école de Poudlard au 19ème siècle a été un pur plaisir ! Ce jeu rend honneur à la saga, les personnages pouvant vous accompagner sont attachants, (Poppy <3 ), rien de plus agréable que de partir à la rescousse de créatures fantastiques qui sont mis à mal par les braconniers de Rockwood. L'apprentissage des sorts, comment les utiliser, lesquels vont avec les autres etc... L'histoire en elle-même est prenante, on découvre une magie ancienne qui semble puissante et dangereuse entre de mauvaises mains, et Ranrok semble la convoiter pour monter sa rébellion.",
@@ -126,7 +290,7 @@ export class MyMetaverseService {
       averagePrice: 79.99,
       disponibility: true,
       link: "https://www.amazon.fr/HOGWARTS-LEGACY-LHERITAGE-DE-POUDLARD/dp/B09M96C12Z/ref=sr_1_1?keywords=hogwarts+legacy+ps5&qid=1689945252&sprefix=howart%2Caps%2C130&sr=8-1",
-      nbLikes: 0,
+      likes: { likes: 6, users: [this.getUserById(4), this.getUserById(7), this.getUserById(9), this.getUserById(11), this.getUserById(13), this.getUserById(5)]},
       averageUsersGrade: 0
     }, {
       id: 4,
@@ -142,7 +306,7 @@ export class MyMetaverseService {
       averagePrice:39.99,
       disponibility: false,
       link: "",
-      nbLikes: 0,
+      likes: { likes: 2, users: [this.getUserById(9), this.getUserById(10)]},
       averageUsersGrade: 0
     },
     {
@@ -159,7 +323,7 @@ export class MyMetaverseService {
       averagePrice: 24.99,
       disponibility: true,
       link: "https://store.steampowered.com/app/1593030/Terra_Nil/",
-      nbLikes: 0,
+      likes: { likes: 1, users: [this.getUserById(1) ]},
       averageUsersGrade: 0
     },
     {
@@ -176,7 +340,7 @@ export class MyMetaverseService {
       averagePrice: 28.99,
       disponibility: true,
       link: "https://store.steampowered.com/app/1044720/Farthest_Frontier/",
-      nbLikes: 0,
+      likes: { likes: 2, users: [this.getUserById(5), this.getUserById(9)]},
       averageUsersGrade: 0
     },
     {
@@ -193,8 +357,8 @@ export class MyMetaverseService {
       averagePrice: 44.99,
       disponibility: true,
       link: "https://store.steampowered.com/app/648350/Jurassic_World_Evolution/",
-      nbLikes: 0,
-      averageUsersGrade: 0
+      likes: { likes: 4, users: [this.getUserById(5), this.getUserById(3), this.getUserById(8), this.getUserById(1)]},
+      averageUsersGrade: 0,
     },
     {
       id: 8,
@@ -210,7 +374,7 @@ export class MyMetaverseService {
       averagePrice: 24.99,
       disponibility: true,
       link: "https://store.steampowered.com/app/868360/Project_Hospital/",
-      nbLikes: 0,
+      likes: { likes: 0, users: []},
       averageUsersGrade: 0
     },
     {
@@ -227,7 +391,7 @@ export class MyMetaverseService {
       averagePrice: 19.99,
       disponibility: true,
       link: "https://store.steampowered.com/app/1244800/Terraformers/",
-      nbLikes: 0,
+      likes: { likes: 2, users: [this.getUserById(10), this.getUserById(5)]},
       averageUsersGrade: 0
     },
     {
@@ -244,7 +408,7 @@ export class MyMetaverseService {
       averagePrice: 54.99,
       disponibility: true,
       link: "https://www.amazon.fr/Nintendo-Legend-Zelda-Kingdom-Switch/dp/B07SNRGQC4/ref=sr_1_1?keywords=tears+of+the+kingdom&qid=1691410380&sprefix=tears%2Caps%2C134&sr=8-1",
-      nbLikes: 0,
+      likes: { likes: 4, users: [this.getUserById(1), this.getUserById(3), this.getUserById(13), this.getUserById(9)]},
       averageUsersGrade: 0
     },
     {
@@ -261,7 +425,7 @@ export class MyMetaverseService {
       averagePrice: 54.99,
       disponibility: true,
       link: "https://www.amazon.fr/Legend-Zelda-Breath-Wild/dp/B01MUAFFPA/ref=sr_1_1?keywords=breath+of+the+wild&qid=1691411304&sprefix=breat%2Caps%2C88&sr=8-1",
-      nbLikes: 0,
+      likes:  { likes: 4, users: [this.getUserById(1), this.getUserById(6), this.getUserById(3), this.getUserById(7)]},
       averageUsersGrade: 0
     },
     {
@@ -278,11 +442,17 @@ export class MyMetaverseService {
       averagePrice: 54.99,
       disponibility: true,
       link: "https://www.amazon.fr/Dragon-Quest-XI-Elusive-Definitive/dp/B07SJFWCSL/ref=sr_1_6?crid=HA6R71H41LCS&keywords=dragon+quest+switch&qid=1691759327&sprefix=%2Caps%2C130&sr=8-6",
-      nbLikes: 0,
+      likes:  { likes: 3, users: [this.getUserById(1), this.getUserById(5), this.getUserById(10)]},
       averageUsersGrade: 0
     }
   ];
+
+  private averageUsersGradeSubject = new BehaviorSubject<number>(0);
+  //sumUsersGrade: number = 0;
+  //roundedAverageUsersGrade: number = 0;
+
   private comments: Comments[] = [
+      /** COMMENTS FOR Pokémon : Légende Arceus */
     {
       id: 1,
       user: this.getUserById(3),
@@ -291,20 +461,309 @@ export class MyMetaverseService {
       content: "Ce jeu Pokémon est vraiment sympathique, ce fut un plaisir d'explorer Sinho à sa création, malgré tout de même quelques bugs embêtants parfois il y a des idées intéressantes ... Juste, les formes régionales et nouvelles évolutions il faut se calmer les gars ... Mais un pur plaisir tout de même.",
       grade: 65,
       postDate: new Date(2022, 7, 3, 17, 52)
+    },
+    {
+      id: 2,
+      videoGame: this.getVideoGameById(1),
+      user: this.getUserById(6),
+      title: 'Super jeu !',
+      content: "J'adore ce jeu, l'histoire est captivante et les graphismes sont superbes.",
+      grade: 78,
+      postDate: new Date(2023, 1, 15)
+    },
+    {
+      id: 3,
+      user: this.getUserById(2),
+      videoGame: this.getVideoGameById(1),
+      title: "Pas mal du tout",
+      content: "Pokémon : Légendes Arceus est une expérience unique dans la série Pokémon.",
+      grade: 71,
+      postDate: new Date(2023, 2, 5)
+    },
+    {
+      id: 4,
+      user: new User(999, "", "", "Indéterminé", "", "Jack", new Date(), "", "", ""),
+      videoGame: this.getVideoGameById(1),
+      title: "Bonne aventure",
+      content: "J'ai apprécié l'aventure, mais j'aurais aimé plus de Pokémon disponibles.",
+      grade: 65,
+      postDate: new Date(2023, 2, 20)
+    },
+    {
+      id: 5,
+      user: this.getUserById(7),
+      videoGame: this.getVideoGameById(1),
+      title: "Un peu décevant",
+      content: "Je m'attendais à plus de nouveautés, mais le jeu est solide.",
+      grade: 55,
+      postDate: new Date(2023, 3, 10)
+    },
+    {
+      id: 6,
+      user: this.getUserById(8),
+      videoGame: this.getVideoGameById(1),
+      title: "À essayer",
+      content: "Pokémon : Légendes Arceus offre une expérience Pokémon différente et vaut le coup d'œil.",
+      grade: 80,
+      postDate: new Date(2023, 4, 2)
+    },
+    /** COMMENTS FOR Pokémon : Ecarlate et Violet */
+    {
+      id: 7,
+      user: this.getUserById(2),
+      videoGame: this.getVideoGameById(2),
+      title: "Décevant",
+      content: "Je m'attendais à mieux de la part de Pokémon.",
+      grade: 54,
+      postDate: new Date(2022, 12, 5)
+    },
+    {
+      id: 8,
+      user: this.getUserById(5),
+      videoGame: this.getVideoGameById(2),
+      title: "Mouais ...",
+      content: "Ces jeux restent agréables pour les fans de Pokémon, mais trop de problèmes je trouve.",
+      grade: 61,
+      postDate: new Date(2022, 12, 15)
+    },
+    {
+      id: 9,
+      user: this.getUserById(9),
+      videoGame: this.getVideoGameById(2),
+      title: "Graphismes vieillots",
+      content: "Les graphismes n'ont pas été traités correctement, mais l'expérience Pokémon est là, en partie ...",
+      grade: 57,
+      postDate: new Date(2023, 1, 2)
+    },
+    /** COMMENTS FOR Hogwarts Legacy */
+    {
+      id: 10,
+      user: new User(999, "", "", "Indéterminé", "", "René", new Date(), "", "", ""),
+      videoGame: this.getVideoGameById(3),
+      title: "Fantastique !",
+      content: "Ce jeu est un rêve devenu réalité pour les fans d'Harry Potter.",
+      grade: 90,
+      postDate: new Date(2022, 10, 18)
+    },
+    {
+      id: 11,
+      user: this.getUserById(7),
+      videoGame: this.getVideoGameById(3),
+      title: "Bons souvenirs",
+      content: "Retourner à Poudlard est toujours une expérience magique.",
+      grade: 83,
+      postDate: new Date(2022, 11, 2)
+    },
+    {
+      id: 12,
+      user: this.getUserById(6),
+      videoGame: this.getVideoGameById(3),
+      title: "A explorer",
+      content: "L'univers d'Harry Potter est magnifiquement recréé.",
+      grade: 86,
+      postDate: new Date(2022, 11, 25)
+    },
+    {
+      id: 13,
+      user: this.getUserById(2),
+      videoGame: this.getVideoGameById(3),
+      title: "Un peu décevant",
+      content: "Je m'attendais à plus de profondeur dans le gameplay.",
+      grade: 67,
+      postDate: new Date(2023, 1, 12)
+    },
+    /** COMMENTS FOR Pokémon rouge feu / vert feuille */
+    {
+      id: 14,
+      user: this.getUserById(1),
+      videoGame: this.getVideoGameById(4),
+      title: "Nostalgie",
+      content: "Ces remakes me rappellent mon enfance.",
+      grade: 74,
+      postDate: new Date(2021, 12, 10)
+    },
+    {
+      id: 15,
+      user: new User(999, "", "", "Indéterminé", "", "René", new Date(), "", "", ""),
+      videoGame: this.getVideoGameById(4),
+      title: "Classique",
+      content: "Pokémon Rouge Feu/Vert Feuille reste un classique intemporel.",
+      grade: 76,
+      postDate: new Date(2022, 1, 6)
+    },
+    {
+      id: 16,
+      user: this.getUserById(10),
+      videoGame: this.getVideoGameById(4),
+      title: "Un peu trop surestimé",
+      content: "Ils ont fait un bon travail avec ces remakes, mais peut mieux faire, par exemple : pas beaucoup de contenu rajouté aux jeux par rapport aux originaux ...",
+      grade: 62,
+      postDate: new Date(2022, 5, 20)
+    },
+    /** COMMENTS FOR Terra Nil */
+    {
+      id: 17,
+      user: this.getUserById(7),
+      videoGame: this.getVideoGameById(5),
+      title: "Unique !",
+      content: "Terra Nil propose une expérience de gestion écologique unique.",
+      grade: 83,
+      postDate: new Date(2021, 7, 8)
+    },
+    {
+      id: 18,
+      user: this.getUserById(5),
+      videoGame: this.getVideoGameById(5),
+      title: "Addictif",
+      content: "Je ne peux pas m'arrêter de jouer à ce jeu.",
+      grade: 87,
+      postDate: new Date(2022, 7, 28)
+    },
+    /** COMMENTS FOR Farthest Frontier */
+    {
+      id: 19,
+      user: this.getUserById(8),
+      videoGame: this.getVideoGameById(6),
+      title: "Du potentiel",
+      content: "Le jeu a du potentiel, mais il a encore besoin de travail.",
+      grade: 61,
+      postDate: new Date(2022, 9, 10)
+    },
+    {
+      id: 20,
+      user: this.getUserById(12),
+      videoGame: this.getVideoGameById(6),
+      title: "Affaire à suivre ...",
+      content: "Je vais suivre l'évolution de ce jeu.",
+      grade: 59,
+      postDate: new Date(2022, 9, 25)
+    },
+    /** COMMENTS FOR Jurassic World Evolution */
+    {
+      id: 21,
+      user: new User(999, "", "", "Indéterminé", "", "René", new Date(), "", "", ""),
+      videoGame: this.getVideoGameById(7),
+      title: "Juste UN mot : DINOSAURES !",
+      content: "Jurassic World Evolution réalise le rêve de créer un parc de dinosaures.",
+      grade: 88,
+      postDate: new Date(2019, 7, 15)
+    },
+    {
+      id: 22,
+      user: this.getUserById(6),
+      videoGame: this.getVideoGameById(7),
+      title: "Bonne rejouabilité !",
+      content: "Beaucoup de contenu pour les fans de dinosaures.",
+      grade: 90,
+      postDate: new Date(2020, 8, 1)
+    },
+    {
+      id: 23,
+      user: this.getUserById(11),
+      videoGame: this.getVideoGameById(7),
+      title: "Génial !",
+      content: "J'adore ce jeu, je construis des parcs depuis des heures et je commence juste ! (plus de 200h de jeux !!!)",
+      grade: 93,
+      postDate: new Date(2021, 2, 9)
+    },
+    /** COMMENTS FOR Project Hospital */
+    {
+      id: 24,
+      user: this.getUserById(2),
+      videoGame: this.getVideoGameById(8),
+      title: "Décevant ...",
+      content: "Ce jeu est sympathique aux premiers abords, mais c'est tout malheureusement, il est mou et limité que ce soit niveau gameplay ou graphismes ...",
+      grade: 46,
+      postDate: new Date(2019, 2, 5)
+    },
+    /** COMMENTS FOR Terra Nil */
+    {
+      id: 25,
+      user: this.getUserById(9),
+      videoGame: this.getVideoGameById(9),
+      title: "Exploration et aménagements",
+      content: "J'adore explorer Mars avec Terraformers ! Il faut bien réfléchir à comment agencer nos différentes colonies et trouver les bonnes ressources pou espérer rendre Mars viable pour l'Homme !",
+      grade: 78,
+      postDate: new Date(2022, 3, 10)
+    },
+    {
+      id: 26,
+      user: this.getUserById(3),
+      videoGame: this.getVideoGameById(9),
+      title: "Colonisation spatiale",
+      content: "Excellent jeu rempli de bonnes idées, parfois un peu frustrant mais une fois pris en main, on passe un bon moment.",
+      grade: 68,
+      postDate: new Date(2022, 3, 14)
+    },
+    /** COMMENTS FOR Zelda TOTK */
+    {
+      id: 27,
+      user: this.getUserById(6),
+      videoGame: this.getVideoGameById(10),
+      title: "Une infinité de possibilités !",
+      content: "Un autre chef-d'œuvre de la série Zelda !",
+      grade: 95,
+      postDate: new Date(2023, 4, 15)
+    },
+    {
+      id: 28,
+      user: new User(999, "", "", "Indéterminé", "", "René", new Date(), "", "", ""),
+      videoGame: this.getVideoGameById(10),
+      title: "Un jeu à couper le souffle !",
+      content: "Les graphismes, l'histoire, les personnages, les combats, le gameplay ... tout est à couper le souffle !",
+      grade: 98,
+      postDate: new Date(2023, 5, 1)
+    },
+    /** COMMENTS FOR Zelda BOTW */
+    {
+      id: 29,
+      user: this.getUserById(2),
+      videoGame: this.getVideoGameById(11),
+      title: "Un chef-d'œuvre",
+      content: "Breath of the Wild est un chef-d'œuvre du jeu vidéo.",
+      grade: 93,
+      postDate: new Date(2019, 4, 10)
+    },
+    {
+      id: 30,
+      user: this.getUserById(11),
+      videoGame: this.getVideoGameById(11),
+      title: "Immersion totale",
+      content: "L'immersion dans cet univers est incroyable.",
+      grade: 96,
+      postDate: new Date(2020, 4, 25)
+    },
+    /** COMMENTS FOR DQ XI */
+    {
+      id: 31,
+      user: this.getUserById(9),
+      videoGame: this.getVideoGameById(12),
+      title: "Jeu chouette",
+      content: "Un jeu cool qui a sû s'adapter proprement sur toutes les plateformes (même sur Switch ça fonctionne bien !), de longues heures de jeux à mon actif et plusieurs essais car il existe beaucoup de possibilités de personnalisation pour chaque personnage (notamment le choix des armes et de la façon dont vous voulez les jouer)",
+      grade: 68,
+      postDate: new Date(2019, 6, 18)
     }
   ];
 
+  private commentsTitleSubject  = new BehaviorSubject<string>("");
+  private commentsContentSubject  = new BehaviorSubject<string>("");
+  private commentsGradeSubject  = new BehaviorSubject<number>(0);
 
-  constructor() { }
 
+  constructor(private http: HttpClient) {
+    //this.fetchAllJsonData();
+  }
+
+  //  _____________________ ALL GETTERS AND SETTERS _____________________
 
     //    GETTERS AND SETTERS FOR USERS
   getAllUsers(): User[] {
     return this.users;
   }
 
-  get userPresentation$(): Observable<string> {
-    return this.userPresentation.asObservable();
+
+  getUserPresentationAsObservable$(): Observable<string> {
+    return this.userPresentationSubject.asObservable();
   }
 
   getUserById(userId: number): User {
@@ -331,13 +790,20 @@ export class MyMetaverseService {
       throw new Error("username et mot de passe incorrectes ou introuvables")
   }
 
-
   setUser(user: User): void {
     let userIndex = this.users.findIndex(u => u.id === user.id);
     if (userIndex !== -1)
       this.users[userIndex] = user;
   }
 
+  isUserExists(user: User): boolean {
+    let userIndex = this.users.findIndex(u => u.id === user.id);
+
+    if (userIndex !== -1)
+      return true;
+    else
+      return false;
+  }
 
   addUser(user: User): void {
     this.users.push(user);
@@ -347,13 +813,21 @@ export class MyMetaverseService {
     let userIndex = this.users.findIndex(u => u.id === usersId);
     if (userIndex !== -1) {
       this.users[userIndex].presentation = presentation;
-      this.userPresentation.next(presentation);
+      this.userPresentationSubject.next(presentation);
     }
   }
 
     //    GETTERS AND SETTERS FOR VIDEOGAMES
   getAllVideoGames(): VideoGame[] {
     return this.videoGames;
+  }
+
+  getAverageUsersGradeAsObservable$(): Observable<number> {
+    return this.averageUsersGradeSubject.asObservable();
+  }
+
+  setAverageUsersGrade(newValue: number): void {
+    this.averageUsersGradeSubject.next(newValue);
   }
 
   getVideoGameById(videoGameId: number): VideoGame {
@@ -369,31 +843,89 @@ export class MyMetaverseService {
     return this.videoGames[random];
   }
 
-  setAverageVideoGame(selectedId: number, newValue: number): void {
-
+  setAverageUsersGradeVideoGame(selectedId: number, newValue: number): void {
     this.getVideoGameById(selectedId).averageUsersGrade = newValue;
   }
 
-  calculateAverageUsersGrade(selectedId: number): number {
-    let comment = this.getCommentsByVideoGame(selectedId);
-    if (comment.length === 0)
-      return 0;
-    else {
-      let averageUsersGrade = 0;
+  updateAverageUsersGrade(selectedId: number, gradeDifference: number): void {
+    const videoGame = this.getVideoGameById(selectedId);
+    videoGame.averageUsersGrade -= gradeDifference;
 
-      comment.forEach(comment => {
-        if(comment.videoGame.id === selectedId)
-          averageUsersGrade += comment.grade;
-      });
+    videoGame.averageUsersGrade += gradeDifference;
 
-      averageUsersGrade = Math.round(averageUsersGrade / comment.length);
+    videoGame.averageUsersGrade = Math.min(Math.max(videoGame.averageUsersGrade, 0), 100);
 
-      this.setAverageVideoGame(selectedId, averageUsersGrade);
+    this.averageUsersGradeSubject.next(videoGame.averageUsersGrade);
+  }
 
-      return averageUsersGrade;
+  calculateUsersGrade(comments: Comments[], selectedId: number): number {
+    const sumUserGrade = comments.reduce((sum, user) => sum + user.grade, 0);
+    return Math.round(sumUserGrade / comments.length);
+  }
+
+  calculateAverageUsersGrade(selectedId: number): void {
+    const vgComments = this.getCommentsByVideoGame(selectedId);
+
+    const selectedGameComments = vgComments.filter(comment => comment.videoGame.id === selectedId);
+
+    if (selectedGameComments.length === 0) {
+      this.averageUsersGradeSubject.next(0);
+    } else {
+      const averageUsersGrade = this.calculateUsersGrade(vgComments, selectedId);
+
+      this.averageUsersGradeSubject.next(averageUsersGrade);
+      this.getVideoGameById(selectedId).averageUsersGrade = averageUsersGrade;
+
+      console.log(this.averageUsersGradeSubject.value);
+      console.log(this.getVideoGameById(selectedId).averageUsersGrade);
     }
   }
 
+  /** VERSION 2 AVEC OBSERVABLE - MARCHE PAS
+   *
+  calculateAverageUsersGrade(selectedId: number): void {
+    const vgComments = this.getCommentsByVideoGame(selectedId);
+    const commentsObs$ = of(vgComments);
+
+    setTimeout(() => {
+      commentsObs$.pipe(
+        concatMap(comments => {
+          const selectedGameComments = comments.filter(comment => comment.videoGame);
+
+          if (selectedGameComments.length === 0)
+            return of(0);
+
+          const averageUsersGrade = this.calculateUsersGrade(comments, selectedId);
+          return of(averageUsersGrade);
+        })
+      ).subscribe(averageUsersGrade => {
+        this.getVideoGameById(selectedId).averageUsersGrade = averageUsersGrade;
+        this.averageUsersGradeSubject.next(averageUsersGrade);
+      });
+
+      console.log(this.getVideoGameById(selectedId).averageUsersGrade);
+      console.log(this.averageUsersGradeSubject.value);
+    }, 450);
+  } */
+/** VERSION 1 "A LA MAIN"
+  calculateAverageUsersGrade(selectedId: number): void {
+    let sumUsersGrade = 0;
+    let roundedAverageUsersGrade = 0;
+
+    let comments = this.getCommentsByVideoGame(selectedId);
+
+    if (comments.length > 0) {
+      sumUsersGrade = comments.reduce((sum, user) => sum + user.grade, 0);
+      roundedAverageUsersGrade = Math.round(sumUsersGrade / comments.length);
+    }
+
+    const videoGame = this.getVideoGameById(selectedId);
+    videoGame.averageUsersGrade = roundedAverageUsersGrade;
+    this.averageUsersGradeSubject.next(roundedAverageUsersGrade);
+    console.log("somme = "+ sumUsersGrade);
+    console.log("moyenne = " + roundedAverageUsersGrade);
+    console.log("affichage = " + this.averageUsersGradeSubject.value);
+  } */
 
   setVideoGame(videoGame: VideoGame): void {
     let videoGameIndex = this.videoGames.findIndex(vg => vg.id === videoGame.id);
@@ -401,6 +933,19 @@ export class MyMetaverseService {
       this.videoGames[videoGameIndex] = videoGame;
   }
 
+  addVideoGamesLikes(videoGameId: number, usersId: number) {
+    const videoGame = this.getVideoGameById(videoGameId);
+    const user = this.getUserById(usersId);
+
+    if(videoGame && user) {
+      videoGame.likes.likes++;
+      videoGame.likes.users.push(user);
+      videoGame.likes.users.filter((user, index) => videoGame.likes.users.indexOf(user) === index);
+    } else {
+      alert('Un problème est survenu avec le jeu vidéo courant ou l\'utilisateur courant.');
+      throw new Error('Un problème est survenu avec le jeu vidéo courant ou l\'utilisateur courant.');
+    }
+  }
 
   addVideoGame(videoGame: VideoGame): void {
     this.videoGames.push(videoGame);
@@ -421,30 +966,30 @@ export class MyMetaverseService {
 
   getCommentByUser(userId: number): Comments[] {
     let user = this.getUserById(userId);
-    let comments: Comments[] = [];
+    let coms: Comments[] = [];
 
     this.comments.forEach(comment => {
       if (comment.user === user)
-        this.comments.push(comment);
+        coms.push(comment);
     });
 
-    if (comments && user)
-      return comments;
+    if (coms && user)
+      return coms;
     else
       throw new Error("Commentaire de l'utilisateur n°" + userId + " introuvable");
   }
 
   getCommentsByVideoGame(videoGameId: number): Comments[] {
     let videoGame = this.getVideoGameById(videoGameId);
-    let comments: Comments[] = [];
+    let coms: Comments[] = [];
 
     this.comments.forEach(comment => {
       if (comment.videoGame === videoGame)
-        comments.push(comment);
+        coms.push(comment);
     });
 
-    if (comments && videoGame)
-      return comments;
+    if (coms && videoGame)
+      return coms;
     else
       throw new Error("Commentaire du jeu vidéo n°" + videoGameId + " introuvable");
   }
@@ -464,9 +1009,197 @@ export class MyMetaverseService {
       this.comments[commentsIndex] = comment;
   }
 
+  getCommentsTitleAsObservable$(): Observable<string> {
+    return this.commentsTitleSubject.asObservable();
+  }
+
+  getCommentsContentAsObservable$(): Observable<string> {
+    return this.commentsContentSubject.asObservable();
+  }
+
+  getCommentsGradeAsObservable$(): Observable<number> {
+    return this.commentsGradeSubject.asObservable();
+  }
+
+  setCommentsAllContents(commentsId: number, title: string, content: string, grade: number): void {
+    let commentsIndex = this.comments.findIndex(c => c.id === commentsId);
+
+    if (commentsIndex !== -1) {
+      this.comments[commentsIndex].title = title;
+      this.commentsTitleSubject.next(title);
+
+      this.comments[commentsIndex].content = content;
+      this.commentsContentSubject.next(content);
+
+      this.comments[commentsIndex].grade = grade;
+      this.commentsGradeSubject.next(grade);
+
+      //this.resetAverageUsersGrade();
+      //this.calculateAverageUsersGrade(this.comments[commentsIndex].videoGame.id);
+    }
+  }
+
 
   addComment(comment: Comments): void {
+    const newGrade = comment.grade;
+    const oldGrade = this.averageUsersGradeSubject.value;
+    const gradeDifference = newGrade - oldGrade;
+
     this.comments.push(comment);
+
+    this.updateAverageUsersGrade(comment.videoGame.id, gradeDifference);
+    //this.calculateAverageUsersGrade(comment.videoGame.id);
+    console.log(this.averageUsersGradeSubject.value);
+    console.log(this.getVideoGameById(comment.videoGame.id).averageUsersGrade);
+    //
   }
+
+  addCommentUser(comment: Comments): void {
+    this.addComment(comment);
+    this.users[comment.user.id + 1].nbComments++;
+  }
+
+  addCommentUnknown(comment: Comments): void {
+    this.addComment(comment);
+  }
+
+  getTwoRandomUsersComments(usersId: number): Comments {
+    const usersComments = this.getCommentByUser(usersId);
+    const random = Math.floor(Math.random() * usersComments.length);
+    return usersComments[random];
+  }
+
+  //  _____________________ ALL HttpClient REQUESTS _____________________
+
+/**
+  fetchAllJsonData() {
+      this.http.get<any>(this.jsonUrl).subscribe(data => {
+        this.videoGames = data.videogames;
+        this.users = data.users;
+        this.comments = data.comments;
+      });
+  }
+
+
+    //    HttpClient REQUESTS FOR VIDEOGAMES
+  fetchAllVideoGamesFromJSon() {
+    this.http.get<VideoGame[]>(this.jsonUrl).subscribe(videoGamesData => {
+      this.videoGames = videoGamesData;
+    });
+  }
+
+  addVideoGameToJson(newVideoGame: VideoGame): void {
+    this.videoGames.push(newVideoGame);
+    this.updateVideoGamesJson();
+  }
+
+  private updateVideoGamesJson(): void {
+    this.http.get<VideoGame[]>(this.jsonUrl).subscribe(videoGamesData => {
+      this.http.put(
+        this.jsonUrl, videoGamesData, {
+        headers: { "Content-Type": 'application/json' }
+      }).subscribe(() => {
+        console.log("Fichier JSON successfull updated !");
+      });
+    });
+  }
+
+  updateVideoGame(updatedVideoGame: VideoGame):void {
+    const id = this.videoGames.findIndex(vg => vg.id === updatedVideoGame.id);
+    if (id !== -1) {
+      this.videoGames[id] = updatedVideoGame;
+      this.updateVideoGamesJson();
+    }
+  }
+
+  deleteVideoGame(deletedVideoGame: VideoGame): void {
+    const id = this.videoGames.findIndex(vg => vg.id = deletedVideoGame.id);
+    if (id !== -1) {
+      this.videoGames.splice(id, 1);
+      this.updateVideoGamesJson();
+    }
+  }
+
+
+
+    //    HttpClient REQUESTS FOR USERS
+  fetchAllUsersFromJson() {
+    this.http.get<User[]>(this.jsonUrl).subscribe(usersData => {
+      this.users = usersData;
+    });
+  }
+
+  addUserToJson(newUser: User): void {
+    this.users.push(newUser);
+    this.updateUsersJson();
+  }
+
+  private updateUsersJson(): void {
+    this.http.get<User[]>(this.jsonUrl).subscribe(usersData => {
+      this.http.put(
+        this.jsonUrl, usersData, {
+        headers: { "Content-Type": 'application/json' }
+      }).subscribe(() => {
+        console.log("Fichier JSON successfull updated !");
+      });
+    });
+  }
+
+  updateUser(updatedUser: User):void {
+    const id = this.users.findIndex(u => u.id === updatedUser.id);
+    if (id !== -1) {
+      this.users[id] = updatedUser;
+      this.updateUsersJson();
+    }
+  }
+
+  deleteUser(deletedUser: User): void {
+    const id = this.users.findIndex(u => u.id = deletedUser.id);
+    if (id !== -1) {
+      this.users.splice(id, 1);
+      this.updateUsersJson();
+    }
+  }
+
+
+    //    HttpClient REQUESTS FOR COMMENTS
+  fetchAllCommentsFromJson() {
+    this.http.get<Comments[]>(this.jsonUrl).subscribe(commentsData => {
+      this.comments = commentsData;
+    });
+  }
+
+  addCommentsToJson(newComments: Comments): void {
+    this.comments.push(newComments);
+    this.updateCommentsJson();
+  }
+
+  private updateCommentsJson(): void {
+    this.http.get<Comments[]>(this.jsonUrl).subscribe(commentsData => {
+      this.http.put(
+        this.jsonUrl, commentsData, {
+        headers: { "Content-Type": 'application/json' }
+      }).subscribe(() => {
+        console.log("Fichier JSON successfull updated !");
+      });
+    });
+  }
+
+  updateComment(updatedComments: Comments):void {
+    const id = this.comments.findIndex(c => c.id === updatedComments.id);
+    if (id !== -1) {
+      this.comments[id] = updatedComments;
+      this.updateUsersJson();
+    }
+  }
+
+  deleteComments(deletedComments: Comments): void {
+    const id = this.comments.findIndex(c => c.id = deletedComments.id);
+    if (id !== -1) {
+      this.users.splice(id, 1);
+      this.updateUsersJson();
+    }
+  }
+ */
 
 }

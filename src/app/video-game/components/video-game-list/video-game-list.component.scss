@@ -5,28 +5,18 @@
     margin-top: 250px;
 
     #filters-btn-hidden {
-      z-index:1015;
+      z-index:1300;
       position: fixed;
-      opacity: 0;
-      top:145px;
-      left:350px;
       opacity: 0;
       width: 70px;
       height:70px;
 
-
-      &:checked ~ .btn-filter {
-        transform: rotate(90deg);
-      }
-
-      &:checked ~ .filter {
+      & ~ .filter {
         height:80px;
-        transition-delay: 450ms;
 
         & .filter-inner {
-          transform: scaleY(0%);
-          transform-origin: top;
-          transition: all 350ms 450ms ease-in;
+          height: 0%;
+          display: none;
 
           & input, & select {
             display: none;
@@ -34,28 +24,38 @@
         }
       }
 
-      &:checked ~ .access-list {
-        width:100%;
-        transition: all 350ms 450ms ease-in;
 
-        & .access-elmt {
-          width: 80%;
+      &:checked ~ .filter {
+        height:auto;
+        transition-delay: 450ms;
+
+        & .filter-inner {
+          height: auto;
+          transform-origin: top;
+          display: inline-block;
+
+          & input, & select {
+            display: inline-block;
+          }
         }
+      }
+
+      &:checked ~ .access-list {
+        width:99%;
+        transition: all 350ms 450ms ease-in;
       }
     }
 
     .btn-filter {
-        font-size: 200%;
+        font-size: 250%;
         height: 70px;
         text-align: center;
         width: 70px;
-        left:350px;
-        top:145px;
         position: fixed;
         transition: all 350ms 450ms ease-out;
         background-color: rgb(30, 30, 40);
         color:white;
-        z-index: 1000;
+        z-index: 1250;
         transform: rotate(-90deg);
 
 
@@ -67,10 +67,6 @@
     }
 
     .filter {
-      left:0px;
-      top: 140px;
-      width: 350px;
-      z-index: 999;
       position: fixed;
       background-color: rgb(30, 30, 40);
       color: white;
@@ -144,32 +140,45 @@
 
 }
 
-@media (max-width:2500px) and (min-width:1400px) {
+@media (max-width:2500px) and (min-width:993px) {
   main {
+    #filters-btn-hidden {
+      top:130px;
+      left:350px;
+    }
+
+    .btn-filter {
+        left:350px;
+        top:140px;
+    }
+
     .filter {
+      left:0px;
+      top: 135px;
+      z-index: 1200;
       h4 {
-        margin-top: 25px;
+        margin-top: 28px;
         margin-bottom: 15px;
-        font-size: 25px;
+        font-size: 22px;
+        width: 420px;
       }
 
       h5 {
-        font-size: 22px;
+        font-size: 20px;
         margin: 10px;
         width: 100%;
         margin-left: 20%;
-        margin-top: 30px;
+        margin-top: 15px;
       }
 
       h6 {
-        font-size: 20px;
-        margin: 3px;
+        font-size: 18px;
         margin-left: 10%;
         margin-top: 5px;
       }
 
       .filter-group {
-        font-size: 18px;
+        font-size: 16px;
         width: 100%;
         margin-bottom: 10px;
 
@@ -200,23 +209,147 @@
   }
 }
 
-@media (max-width:1399px) and (min-width:1200px) {
+@media (max-width:992px) and (min-width:573px) {
+  main {
+    #filters-btn-hidden {
+      top:130px;
+      left:300px;
+    }
 
-}
+    .btn-filter {
+        left:300px;
+        top:140px;
+    }
 
-@media (max-width:1199px) and (min-width:993px) {
+    .filter {
+      width: 370px;
+      left:0px;
+      top: 125px;
+      z-index: 1200;
 
-}
+      h4 {
+        margin-top: 28px;
+        margin-bottom: 15px;
+        font-size: 22px;
+      }
 
-@media (max-width:992px) and (min-width:768px) {
+      h5 {
+        font-size: 20px;
+        margin: 10px;
+        width: 100%;
+        margin-left: 20%;
+        margin-top: 15px;
+      }
 
-}
+      h6 {
+        font-size: 18px;
+        margin-left: 10%;
+        margin-top: 5px;
+      }
 
-@media (max-width:767px) and (min-width:573px) {
+      .filter-group {
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+
+        section {
+          margin-top: 15px;
+
+          label,
+          input {
+            padding: 3px;
+            margin-top: 5px;
+          }
+
+          input {
+            margin-left: 25px;
+            margin-right: 10px;
+          }
+        }
+
+        #console-filter,
+        #gender-filter {
+          width: 85%;
+          margin-left: 7.5%;
+          font-size: 105%;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 
 }
 
 @media (max-width:572px) and (min-width:0px) {
+  main {
+    #filters-btn-hidden {
+      top:140px;
+      right: 0px;
+      z-index: 902;
+      opacity: 0;
+    }
 
+    .btn-filter {
+        right: 0px;
+        top:140px;
+        z-index: 901;
+    }
+
+    .filter {
+      width: 100%;
+      left:0px;
+      top: 140px;
+      z-index: 900;
+
+      h4 {
+        margin-top: 28px;
+        margin-bottom: 15px;
+        font-size: 22px;
+      }
+
+      h5 {
+        font-size: 20px;
+        margin: 10px;
+        width: 100%;
+        margin-left: 20%;
+        margin-top: 15px;
+      }
+
+      h6 {
+        font-size: 18px;
+        margin-left: 10%;
+        margin-top: 5px;
+      }
+
+      .filter-group {
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+
+        section {
+          margin-top: 15px;
+
+          label,
+          input {
+            padding: 3px;
+            margin-top: 5px;
+          }
+
+          input {
+            margin-left: 25px;
+            margin-right: 10px;
+          }
+        }
+
+        #console-filter,
+        #gender-filter {
+          width: 85%;
+          margin-left: 7.5%;
+          font-size: 105%;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 }
 

@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
   }
 
   navigateToAdvices() {
-    this.router.navigateByUrl('/videoGames');
+    this.router.navigateByUrl('/videogames');
   }
 
   generateRandomVideoGame(count: number): void {
@@ -39,5 +39,9 @@ export class HomePageComponent implements OnInit {
       if (!this.randomIndices.includes(randomIndex))
         this.randomIndices.push(randomIndex);
     }
+  }
+
+  navigateToAdviceId(id: number) {
+    this.router.navigateByUrl(`/videogames/${id}`);
   }
 }

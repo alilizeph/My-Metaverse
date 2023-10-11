@@ -5,8 +5,9 @@
   img {
     height:165px;
     width:100%;
-    border: 3px rgba(30, 30, 50, .75) solid;
+    border: 3px rgba(200, 200, 210, .75) solid;
     border-radius: 0.525em;
+    box-shadow: rgb(30, 30, 40) 2px 1px 2px;
     padding: 2px;
   }
 
@@ -19,4 +20,7 @@
     transition: all 250ms 550ms ease-out;
   }
 
+  .bg-img-transparent {
+      background-color: rgba(200, 200, 205);
+    }
 }

@@ -29,18 +29,18 @@
                      notenough: videoGame.grade >= 35 && videoGame.grade <= 49,
                      bad: videoGame.grade >= 0 && videoGame.grade <= 34
                    }" ><span>{{ videoGame.grade }}</span> </h4>
-      <p class="users-grade">Note utilisateur</p>
+      <p class="users-grade" *ngIf="comments.length > 0">Note utilisateur</p>
       <h4 class="video-game-users-grade" *ngIf="comments.length > 0" [ngClass]="{ verygood: videoGame.averageUsersGrade >= 75 && videoGame.averageUsersGrade <= 100,
                      good: videoGame.averageUsersGrade >= 60 && videoGame.averageUsersGrade <= 74,
                      medium: videoGame.averageUsersGrade >= 50 && videoGame.averageUsersGrade <= 59,
                      notenough: videoGame.averageUsersGrade >= 35 && videoGame.averageUsersGrade <= 49,
                      bad: videoGame.averageUsersGrade >= 0 && videoGame.averageUsersGrade <= 34
-                   }" ><span>{{ videoGame.averageUsersGrade }}</span>
+                   }" ><span> {{ averageUsersGrade$ | async }}</span>
       </h4>
       <p><span>Date de sortie</span> : {{ videoGame.releaseDate | date: 'le dd MMMM yyyy' }}</p>
       <p><span>Prix moyen</span> : {{ videoGame.averagePrice }} €</p>
       <p *ngIf="videoGame.disponibility === true"><span>En vente en magasin</span></p>
-      <p *ngIf="videoGame.disponibility === false"><span>indisponible en magasin (hors magasin spécialisé et occasion)</span></p>
+      <p *ngIf="videoGame.disponibility === false"><span>indisponible en magasin (hors spécialiste et occasion)</span></p>
       <p *ngIf="videoGame.disponibility === true"><span><a href="{{ videoGame.link }}" target="_blank" style="text-transform:uppercase;">Lien vers achat</a></span> </p>
       <p class="video-game-genders"><span>Genres</span> : </p>
       <div class="video-game-genders-box">
@@ -69,6 +69,12 @@
       <img class="video-game-box" [src]="videoGame.imgBox" [alt]="videoGame.name + ' theme'">
     </div>
   </section>
+  <section class="likes-zone">
+    <i (click)="onAddLikes()" *ngIf="currentUser && !onLike" class="fa fa-thumbs-up"></i>
+    <i (click)="onRemoveLikes()" *ngIf="currentUser && onLike" class="fa fa-thumbs-down"></i>
+    <h6 class="likes-nb-title" *ngIf="!currentUser"> Nb likes</h6>
+    <h5 class="likes-nb">{{ videoGame.likes.likes }}</h5>
+  </section>
   <section class="video-game-content">
     <div class="video-game-description">
       <h4>Description du jeu :</h4>
@@ -83,7 +89,12 @@
     <button (click)="returnToVideoGameList()">Retour à la liste</button>
   </section>
 </article>
-<app-comments-form></app-comments-form>
+<div class="comments-form">
+  <app-comments-form *ngIf="!isConnected()"></app-comments-form>
+</div>
+<div class="comments-form">
+  <app-comments-user *ngIf="isConnected()"></app-comments-user>
+</div>
 
 <div class="comments-list" *ngIf="comments.length > 0">
   <app-comments-card *ngFor="let comment of comments" [comment]="comment"></app-comments-card>

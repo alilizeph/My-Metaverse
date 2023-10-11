@@ -25,6 +25,15 @@
   }
 }
 
+.comments-preview-title {
+  text-transform: uppercase;
+      font-weight: 800;
+      font-size:35px;
+      width: 100%;
+      text-align: center;
+      color: white;
+}
+
 
 .comment-form {
   margin-top: 75px;
@@ -52,10 +61,9 @@
     margin-left: 5%;
     width: 90%;
     display: flex;
-    flex: auto;
 
     label {
-      font-size: 18px;
+      font-size: 16px;
       width: 30%;
       padding: 10px;
       text-transform: uppercase;
@@ -101,15 +109,6 @@
   }
 }
 
-.comments-preview-title {
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size:35px;
-  margin-bottom: 25px;
-  width: 100%;
-  text-align: center;
-  color: whitesmoke;
-}
 
 .comments-preview {
   margin-bottom: 25px;
@@ -141,42 +140,7 @@
       padding: 5px;
     }
 
-    .comment-preview-avatar {
-      background-color: rgba(112, 108, 108, 0.25);
-      border-radius: 1em;
-      z-index: 50;
-      position: absolute;
-      height:150px;
-      width:150px;
-      margin-left:-175px;
-      margin-top:-125px;
 
-      img {
-        height: 100%;
-        width: 100%;
-        margin-left: 5%;
-      }
-    }
-
-    .comment-avatar-verygood {
-      border: rgb(8, 78, 25) solid 4px;
-    }
-
-    .comment-avatar-good {
-      border: rgb(8, 199, 56) solid 4px;
-    }
-
-    .comment-avatar-medium {
-      border: rgb(196, 199, 8) solid 4px;
-    }
-
-    .comment-avatar-notenough {
-      border: rgb(199, 126, 8) solid 4px;
-    }
-
-    .comment-avatar-bad {
-      border: rgb(199, 68, 8) solid 4px;
-    }
   }
 
   .comments-preview-grade {
@@ -228,7 +192,7 @@
   .good-comment {
     border: rgb(8, 199, 56) 3px solid;
     background-color: rgba(11, 133, 41, 0.35);
-      color: whitesmoke;
+    color: white;
   }
 
   .medium-comment {
@@ -239,16 +203,49 @@
   .notenough-comment {
     border: rgb(199, 126, 8) 3px solid;
     background-color: rgba(199, 126, 8, .65);
-      color: whitesmoke;
+    color: white;
   }
 
   .bad-comment {
     border: rgb(199, 68, 8) 3px solid;
     background-color: rgba(199, 68, 8, .75);
-      color: whitesmoke;
+    color: white;
   }
 
 
-.comment-preview-disapear {
-  display: none;
-}
+    .comments-preview-avatar {
+        background-color: rgba(112, 108, 108, 0.25);
+        border-radius: 1em;
+        z-index: 50;
+        position: relative;
+        height:150px;
+        width:150px;
+        margin-left:-175px;
+        margin-top:-125px;
+
+        img {
+          height: 100%;
+          width: 100%;
+          margin-left: 5%;
+        }
+      }
+
+    .comments-avatar-verygood {
+      border: rgb(8, 78, 25) solid 4px;
+    }
+
+    .comments-avatar-good {
+      border: rgb(8, 199, 56) solid 4px;
+    }
+
+    .comments-avatar-medium {
+      border: rgb(196, 199, 8) solid 4px;
+    }
+
+    .comments-avatar-notenough {
+      border: rgb(199, 126, 8) solid 4px;
+    }
+
+    .comments-avatar-bad {
+      border: rgb(199, 68, 8) solid 4px;
+    }

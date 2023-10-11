@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   private user: User | null = null;
+  logo: string = 'assets/images/logo.png';
 
   constructor(private usersService: UsersService,
     private router: Router) {

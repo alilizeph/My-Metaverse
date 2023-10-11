@@ -1,1 +1,48 @@
-<p>profile-public works!</p>
+<article class="profile-public">
+  <section class="profile-public-head">
+    <div class="profile-public-avatar" *ngIf="user.avatar !== '' || user.avatar !== null">
+      <img [src]="user.avatar" [alt]="user.username">
+    </div>
+    <div class="profile-public-info">
+      <h3>{{ user.username }}</h3>
+      <h4>{{ user.surname }} {{ user.firstName }}</h4>
+      <h5>Email : <a class="" href="mailto:{{ user.email }}">{{ user.email }}</a> *<span *ngIf="user.id > 1" class="hidden-text">* ces adresses mail sont fictives</span></h5>
+      <h5>Age : {{ calculateAge() }} ans</h5>
+    </div>
+  </section>
+  <section class="profile-public-presentation-bloc">
+    <div class="profile-public-presentation">
+      <h4>Présentation</h4>
+      <h6><span>Genre :</span> {{ user.gender }}</h6>
+      <p>{{user.presentation }}</p>
+    </div>
+  </section>
+  <section class="profile-public-stats">
+    <h4>Statistiques</h4>
+    <div class="profile-public-stats-zone">
+      <div class="profile-public-stats-group">
+        <h5>nb commentaires</h5>
+        <h6>{{ user.nbComments }}</h6>
+      </div>
+      <div class="profile-public-stats-group">
+        <h5>nb likes</h5>
+        <h6>{{ user.likes }}</h6>
+      </div>
+      <div class="profile-public-stats-group">
+        <h5>Note moyenne</h5>
+        <h6>{{ averageCommentsGrade }}</h6>
+      </div>
+    </div>
+
+  </section>
+  <section class="profile-public-randomcom" *ngIf="randomComments.length > 0">
+    <h3 *ngIf="usersComments.length == 1">1 Commentaire aléatoire</h3>
+    <h3 *ngIf="usersComments.length >= 2">2 Commentaires aléatoire</h3>
+    <div class="profile-public-randomcom-list" *ngFor="let comment of randomComments">
+      <div class="profile-public-randomcom-elmt">
+        <h4 (click)="goToVideoGame(comment.videoGame.id)">Pour le jeu : {{ comment.videoGame.name }}</h4>
+        <app-comments-card-profile [comment]="comment"></app-comments-card-profile>
+      </div>
+    </div>
+  </section>
+</article>
