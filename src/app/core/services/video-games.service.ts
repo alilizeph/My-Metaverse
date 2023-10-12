@@ -43,7 +43,7 @@ export class VideoGamesService {
     const videoGame: VideoGame = {
       ...formValue,
       id: this.length() + 1,
-      nbLikes: 0,
+      likes: { likes: 0, users: [] },
       averageUsersGrade: 0
     };
 

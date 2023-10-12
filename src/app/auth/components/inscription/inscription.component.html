@@ -6,16 +6,16 @@
       <input required id="email" type="email" formControlName="email">
     </div>
     <div class="user-form-group">
-      <label for="mdp">Mot de passe</label>
-      <input required id="mdp" type="password" formControlName="mdp">
+      <label for="pwd">Mot de passe</label>
+      <input required id="pwd" type="password" formControlName="pwd">
     </div>
     <div class="user-form-group">
       <label for="nom">Nom</label>
-      <input required id="nom" type="text" formControlName="nom">
+      <input required id="nom" type="text" formControlName="firstName">
     </div>
     <div class="user-form-group">
       <label for="genre">Genre</label>
-      <select required formControlName="genre">
+      <select required formControlName="gender">
         <option value="Homme">Homme</option>
         <option value="Femme">Femme</option>
         <option value="ielle">Ielle</option>
@@ -24,7 +24,7 @@
     </div>
     <div class="user-form-group">
       <label for="prenom">Prénom</label>
-      <input required id="prenom" type="text" formControlName="prenom">
+      <input required id="prenom" type="text" formControlName="surname">
     </div>
     <div class="user-form-group">
       <label for="username">Nom utilisateur</label>
@@ -32,7 +32,7 @@
     </div>
     <div class="user-form-group">
       <label for="naissance">Date de naissance</label>
-      <input id="naissance" type="date" formControlName="naissance">
+      <input id="naissance" type="date" formControlName="birthday">
     </div>
     <div class="action-button">
       <button type="submit" (click)="onSubmitForm()">S'inscrire</button>

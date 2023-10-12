@@ -135,7 +135,7 @@ export class UsersService {
         presentation: ""
       };
 
-      this.myMetaverseService.addUser(user);
+      //this.myMetaverseService.addUser(user);
     }
   }
 }

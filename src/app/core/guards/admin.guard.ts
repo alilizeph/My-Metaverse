@@ -15,8 +15,12 @@ export class AdminGuard implements CanActivate{
     if (this.userService.isUserConnected() && this.userService.isUserAdmin()) {
       return this.userService.isUserAdmin() && this.userService.isUserConnected();
     } else {
-      console.log(new Error("Vous n'avez pas les droits pour accéder à cette route"));
-      this.router.navigateByUrl("/");
+      alert(new Error("Vous n'avez pas les droits pour accéder à cette page !\n Retour à la page d'accueil."));
+      setTimeout(() => {
+        this.router.navigateByUrl("/");
+      }, 450);
+
+
       return false;
     }
   }

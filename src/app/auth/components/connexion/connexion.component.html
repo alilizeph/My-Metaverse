@@ -3,11 +3,11 @@
   <form [formGroup]="connexionForm">
     <div class="user-form-group">
       <label for="username">Nom utilisateur</label>
-      <input id="email" type="text" formControlName="username">
+      <input id="username" type="text" formControlName="username">
     </div>
     <div class="user-form-group">
       <label for="mdp">Mot de passe</label>
-      <input id="mdp" type="password" formControlName="mdp">
+      <input id="pwd" type="password" formControlName="pwd">
     </div>
     <div class="action-button">
       <button type="submit" (click)="onLogin()" >Se connecter</button>

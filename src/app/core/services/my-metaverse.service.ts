@@ -805,8 +805,28 @@ export class MyMetaverseService {
       return false;
   }
 
-  addUser(user: User): void {
-    this.users.push(user);
+  addUser(formValue: { email:string, pwd: string, firstName: string, surname: string, username: string, birthday: Date, gender: "Homme" | "Femme" | "Ielle" | "Indéfini"}): void {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (emailPattern.test(formValue.email)){
+      const user: User = {
+        ...formValue,
+        id: this.getAllUsers().length + 1,
+        likes: 0,
+        nbComments: 0,
+        avatar: "",
+        presentation: "",
+        isAdmin: false,
+        connected: false
+      };
+      //console.log(user);
+
+
+      this.users.push(user);
+    }
+
+
+      //console.log(this.users);
   }
 
   setUsersPresentation(usersId: number, presentation: string): void {

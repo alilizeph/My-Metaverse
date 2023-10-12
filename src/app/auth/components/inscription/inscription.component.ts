@@ -1,3 +1,4 @@
+import { MyMetaverseService } from 'src/app/core/services/my-metaverse.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable, map } from 'rxjs';
@@ -15,6 +16,7 @@ export class InscriptionComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private usersService: UsersService,
+    private myMetaverseService: MyMetaverseService,
     private router: Router) {
 
   }
@@ -22,16 +24,17 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
       email: [null, [Validators.required]],
-      mdp: [null, [Validators.required]],
-      nom: [null, [Validators.required]],
-      prenom: [null, [Validators.required]],
+      pwd: [null, [Validators.required]],
+      firstName: [null, [Validators.required]],
+      surname: [null, [Validators.required]],
       username: [null, [Validators.required]],
-      naissance: [null, [Validators.required]]
+      birthday: [null, [Validators.required]],
+      gender: [null]
     });
   }
 
   onSubmitForm() {
-    this.usersService.addUser(this.userForm.value);
+    this.myMetaverseService.addUser(this.userForm.value);
     this.router.navigateByUrl("/");
   }
 }
