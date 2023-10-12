@@ -16,8 +16,11 @@ export class AuthGuard implements CanActivate{
     if (this.userService.isUserConnected()) {
       return this.userService.isUserConnected();
     } else {
-      console.log(new Error("Veuillez être connecté si vous voulez accéder à cette page."));
-      this.router.navigateByUrl("auth/login");
+      alert(new Error("Veuillez être connecté si vous voulez accéder à cette page.\n Retour à la page de connexion."));
+      setTimeout(() => {
+        this.router.navigateByUrl("auth/login")
+      }, 450);
+
       return false;
     }
   }
