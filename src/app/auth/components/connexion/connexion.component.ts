@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '../../../core/services/user.service';
+import { MyMetaverseService }from '../../../core/services/my-metaverse.service';
 
 @Component({
   selector: 'app-connexion',
@@ -13,6 +14,7 @@ export class ConnexionComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private usersService: UsersService,
+    private myMetaverseService: MyMetaverseService,
     private router: Router) {
 
   }
@@ -20,16 +22,16 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
     this.connexionForm = this.formBuilder.group({
       username: [null, [Validators.required]],
-      mdp: [null, [Validators.required]]
+      pwd: [null, [Validators.required]]
     });
   }
 
   onLogin() {
-    const { username, mdp } = this.connexionForm.value;
-    const user = this.usersService.loginUser(username, mdp);
+    const { username, pwd } = this.connexionForm.value;
+    const user = this.usersService.loginUser(username, pwd);
 
     if (user) {
-      this.usersService.loginUser(username, mdp);
+      this.usersService.loginUser(username, pwd);
       this.router.navigateByUrl("/user/profile");
     } else {
       throw new Error("Erreur de connexion : Identifiant ou Mot de passe invalides");
