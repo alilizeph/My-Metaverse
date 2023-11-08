@@ -1,4 +1,6 @@
 <div class="carrousel-card">
-  <a [routerLink]="['videoGames', videoGame.id]" href="" ><img [ngClass]="{ 'bg-img-transparent': videoGame.id === 3 }" [src]="videoGame.imgTheme" [alt]="videoGame.name + ' theme'"></a>
+  <a [routerLink]="['videoGames', videoGame.id]" href="" >
+    <img [ngClass]="{ 'bg-img-transparent': videoGame.id === 3 }" [src]="videoGame.imgTheme" [alt]="videoGame.name + ' theme'">
+  </a>
   <p class="video-game-title">{{ videoGame.name }}</p>
 </div>

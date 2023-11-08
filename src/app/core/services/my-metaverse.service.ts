@@ -203,7 +203,7 @@ export class MyMetaverseService {
       isAdmin: false,
       connected: false,
       presentation: ""
-    },
+    }/**,
     {
       id: 13,
       surname: "Lopez",
@@ -235,7 +235,7 @@ export class MyMetaverseService {
       isAdmin: false,
       connected: false,
       presentation: ""
-    }
+    } */
   ];
 
   private userPresentationSubject  = new BehaviorSubject<string>("");
@@ -676,7 +676,7 @@ export class MyMetaverseService {
       grade: 46,
       postDate: new Date(2019, 2, 5)
     },
-    /** COMMENTS FOR Terra Nil */
+    /** COMMENTS FOR Terraformers */
     {
       id: 25,
       user: this.getUserById(9),
