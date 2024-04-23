@@ -1,0 +1,123 @@
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('./css/comments/comment-videogame.css') }}">
+{% endblock %}
+
+{% block comments %}
+    {% if (comment.grade >= 75 and  comment.grade <= 100) %}
+        <article class="comment-card verygood-comment hide">
+    {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+        <article class="comment-card good-comment hide">
+    {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+        <article class="comment-card medium-comment hide">
+    {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+        <article class="comment-card notenough-comment hide">
+    {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+        <article class="comment-card bad-comment hide">
+    {% endif %}
+            {% if (comment.grade >= 75 and  comment.grade <= 100) %}
+                <section class="comment-head hide-2 verygood-comment-head">
+            {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+                <section class="comment-head hide-2 good-comment-head">
+            {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+                <section class="comment-head hide-2 medium-comment-head">
+            {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+                <section class="comment-head hide-2 notenough-comment-head">
+            {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+                <section class="comment-head hide-2 bad-comment-head">
+            {% endif %}
+                {% if comment.user.avatarNewFileName != null %}
+                    <img src="{{ vich_uploader_asset(comment.user, 'avatarFile') }}" alt="{{ comment.user.username }}" class="avatar hide-2">
+                {% endif %}
+                <h4>
+                    {% if (comment.user.isRegistered) %}
+                        <a class="user-profile-access" href="{{ path('user_public_profile', {'id': comment.user.id }) }}">{{ comment.user.username }}</a>
+                    {% else %}
+                        {{ comment.user.username }}
+                    {% endif %}
+                    {% if(comment.user.isAdmin) %}
+                        <span class="user-isAdmin" style="color: rgb(250, 20, 50)">A</span>
+                    {% endif %}
+                </h4>
+                
+                    
+            </section>
+            {% if (comment.grade >= 75 and  comment.grade <= 100) %}
+                <h4 class="comment-grade verygood hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+                <h4 class="comment-grade good hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+                <h4 class="comment-grade medium hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+                <h4 class="comment-grade notenough hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+                <h4 class="comment-grade bad hide-2">{{ comment.grade }}</h4>
+            {% endif %}
+            <section class="comment-body hide-2">
+                <h5>{{ comment.title }}</h5>
+                <p>{{ comment.content }}</p>
+            </section>
+            {# TO MODIFY COMMENT IF YOU ARE CONNECTED
+            {% if(comment.user.id == pp.user.id and is_granted("IS_AUTHENCATED_FULLY")) %}
+                <section class="set-comment-box">
+                    <button>Modifier le commentaire</button>
+                </section>
+            {% endif %}
+            #}
+        </article>
+    {#
+            <section class="comment-head hide-2">
+                <h4>Posté par : 
+                    {% if (comment.user.isRegistered) %}
+                        <a class="user-profile-access" href="{{ path('user_public_profile', {'id': comment.user.id }) }}">{{ comment.user.username }}</a>
+                    {% else %}
+                        <span>{{ comment.user.username }}</span>
+                    {% endif %}
+                </h4>
+                <div class="hidden-text"><p>Accès au profil de {{ comment.user.username}} </p></div>
+                {% if(comment.user.isAdmin) %}
+                    <span class="user-isAdmin" style="color: rgb(250, 20, 50)">A</span>
+                {% else %}
+                    <span style="display:none">A</span>
+                {% endif %}
+                <h5>Le {{ comment.postDate| date("d M Y", "Europe/Paris") }}</h5>
+            </section>
+
+            {% if(comment.user.avatar != "" and comment.user.avatar != null) %}
+                {%if(comment.grade >= 75 and  comment.grade <= 100) %}
+                    <section class="comment-avatar comment-avatar-verygood hide-2">
+                {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+                    <section class="comment-avatar comment-avatar-good hide-2">
+                {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+                    <section class="comment-avatar comment-avatar-medium hide-2">
+                {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+                    <section class="comment-avatar comment-avatar-notenough hide-2">
+                {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+                    <section class="comment-avatar comment-avatar-bad hide-2">
+                {% endif %}
+                        <img src="{{ asset(comment.user.avatar) }}" alt="{{ comment.user.username }}" class=" hide-2">
+                    </section>
+            {% endif %}
+
+            {% if (comment.grade >= 75 and  comment.grade <= 100) %}
+                <h4 class="comment-grade verygood hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+                <h4 class="comment-grade good hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+                <h4 class="comment-grade medium hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+                <h4 class="comment-grade notenough hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+                <h4 class="comment-grade bad hide-2">{{ comment.grade }}</h4>
+            {% endif %}
+
+            <section class="comment-body hide-3">
+                <h5>{{ comment.title }}</h5>
+                <p>{{ comment.content }}</p>
+            </section> 
+            {% if(comment.user.id == pp.user.id and is_granted("IS_AUTHENCATED_FULLY")) %}
+                <section class="set-comment-box">
+                    <button>Modifier le commentaire</button>
+                </section>
+            {% endif %}
+            #}
+{% endblock %}

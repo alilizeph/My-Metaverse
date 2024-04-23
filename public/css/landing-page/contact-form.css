@@ -1,0 +1,113 @@
+main .contact-card {
+    width: 100%;
+    background-color: rgb(235, 163, 39);
+    box-shadow: 6px 4px 4px rgba(19, 35, 72, 0.25);
+    padding: 20px 0px 50px 0px;
+    margin-top:50px;
+}
+
+.contact-card h2 {
+    text-align: center;
+    font-weight: 1500!important;
+    padding: 20px 0px;
+    font-size: 220%;
+    text-transform: uppercase;
+}
+
+
+.contact-card form {
+    width: 95%;
+    margin-left: 2.5%;
+    font-weight: 650;
+    font-size: 125%;
+    display: flexbox;
+}
+
+
+form .form-group {
+    width: 90%;
+    padding: 10px;
+    margin-left: 5%;
+    display: inline-flex;
+}
+
+.form-group label {
+    width: 30%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.form-group input {
+    width: 50%;
+    margin-left: 2.5%;
+    padding: 3px 10px;
+    border-radius:0.355em;
+    font-size: 16px;
+}
+
+
+.form-group textarea {
+    width: 50%;
+    height: 125px;
+    padding: 3px 10px;
+    margin-left: 2.5%;
+}
+
+
+form button {
+    font-size: 32px!important;
+    margin-left: 40%;
+    margin-top: 25px;
+    border: 3px solid rgba(56, 99, 200, .15);
+    color: white;
+    background-color: rgb(15, 15, 25);
+    width: 300px;
+    padding: 5px;
+    transition: 350ms 450ms ease-out;
+    transform: translate(-2px, -2px);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+ form button:hover {
+    box-shadow: none;
+    transition: 350ms 550ms ease-in-out;
+    transform: translate(2px, 2px);
+}
+
+
+.contact-form-head, .contact-form-content, .contact-form-footer {
+    margin: 10px 15px;
+}
+
+
+@media (max-width:767px) {
+    form .form-group {
+        width: 95%;
+        padding: 10px;
+        margin-left: 2.5%;
+        display: block;
+    }
+
+    .form-group label {
+        width: 80%;
+        padding-left: 5%;
+        padding-right: 5%;
+        text-align: center!important;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 90%;
+        margin-left: 0px;
+        padding: 3px 10px;
+        border-radius:0.355em;
+        font-size: 16px;
+    }
+    
+
+    form button {
+        font-size: 24px;
+        margin-left: 10%;
+        cursor:pointer;
+    }
+}

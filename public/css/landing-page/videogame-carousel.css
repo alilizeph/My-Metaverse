@@ -1,0 +1,40 @@
+.carrousel-card {
+    margin-left: 3%;
+    margin-top: 25px;
+    padding-bottom: 50px;
+}
+
+.carrousel-card a img {
+      height:265px;
+      width:100%;
+      border: 3px rgb(235, 163, 39) solid;
+      border-radius: 5px;
+      box-shadow: rgb(30, 30, 40) 2px 1px 2px;
+      opacity: 75%;
+}
+  
+.carrousel-card p {
+      width: 95%;
+      margin-left: 2.5%;
+      margin-top: 5px;
+      font-size: 110%;
+      opacity: 1;
+      text-align: center;
+      position: relative;
+      text-transform: uppercase;
+      transition: all 250ms 550ms ease-out;
+} 
+
+.carrousel-card .video-game-grade {
+      height: 40px;
+      width: 40px;
+      padding: 15px;
+      border-radius: 0.345em;
+      position:relative;
+      margin-top:-120px;
+      margin-left: 5px;
+      z-index: 50;
+      font-size: 220%;
+      box-shadow: 5px 3px 3px rgba(10, 10, 10, .25);
+      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'!important;
+}

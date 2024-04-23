@@ -1,0 +1,169 @@
+.profile {
+  background-color: rgba(20, 20, 30, .55);
+  padding: 20px 0px;
+  width: 90%;
+  margin-left: 5%;  
+  border: 3px solid rgb(235, 163, 39);
+  margin-top : 200px;
+  color: rgb(240, 240, 240);
+  margin-bottom: 75px;
+  padding-bottom: 150px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .45);
+  font-size: 18px;
+}
+
+.profile h3, h4, h5 {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.profile .profile-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 2.5%;
+  width: 80%;
+}
+   
+.profile .profile-head-avatar img {
+  width: 145px;
+  height: 145px;
+  border-radius: 0.75em;
+  margin: 10px;
+}
+
+.profile .profile-head-group {
+  width: 60%;
+}
+
+.profile .profile-head-group h3, h4 {
+  text-align: center;
+  padding-left: 50px;
+}
+
+.profile-head-group h3 {
+  font-size: 40px;
+  width: 80%;
+  margin-left: 15%;
+}
+
+.profile-head-group h4 {
+  font-size: 35px;
+  width: 80%;
+  margin-left: 15%;
+}
+
+.profile button {
+  border: none;
+  position: absolute;
+  padding:10px 20px;
+  background-color: rgb(235, 163, 39);
+  color: rgb(25, 25, 35)!important;
+  box-shadow: 5px 4px 4px rgb(71, 76, 88);
+  text-transform: uppercase;
+  border-radius: 1.225em;
+  font-weight: 800;
+  width: 35%;
+  margin-left: 32.5%;
+  cursor:pointer;
+  font-size:125%;
+  transition: all 250ms 250ms ease-out;
+}
+
+button:hover {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.profile .presentation-form {
+  width: 97%;
+  margin-left: 5%;
+}
+
+.presentation-form .presentation-form-open {
+  margin-top:25px;
+  position: relative;
+  margin-left: 30%;
+}
+
+.presentation-form-open:hover {
+  transform: translate(5px, 2px);
+  transition: all 250ms 350ms ease-in;
+  box-shadow: none;
+}
+
+.presentation-form .presentation-form-activated {
+  display: none;
+}
+
+.presentation-form .presentation-form-deactivated {
+  display: block;
+}
+
+.presentation-form form {
+  width: 90%;
+  margin: 5% 10px;
+}
+
+.presentation-form  textarea {
+  height:150px;
+  width: 75%;
+  margin-left: 12.5%;
+  border-radius: 0.645em;
+}
+
+.presentation-form .presentation-form-validate, 
+.presentation-form .presentation-form-close {
+  margin-top:25px;
+  margin-left:13.5%;
+  width:20%;
+}
+            
+.presentation-form-validate:hover, .presentation-form-close:hover {
+  transform: translate(5px, 2px);
+  transition: all 250ms 350ms ease-in;
+  box-shadow: none;
+}
+
+.presentation-form .presentation-form-close {
+  margin-left: 40%;
+}
+
+.form-animating-open {
+  transform:scaleY(100%);
+  opacity: 100%;
+  transform-origin: top;
+  transition: all 350ms 550ms ease-in;
+}
+
+.form-animating-close {
+  opacity:0%;
+  transform:scaleY(0%);
+  transform-origin: top;
+  transition: all 350ms 450ms ease-out;
+}
+
+.profile-presentation {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+   
+.profile-presentation h5 {
+  font-size: 28px;
+  margin-left: 5%;
+}
+
+.profile-presentation .profile-presentation-content {
+  font-size: 18px;
+  margin-top: 25px;
+}
+
+.presentation-form-zone {
+  display: none;
+}
+
+.form-open {
+  display: block;
+}

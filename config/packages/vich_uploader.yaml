@@ -1,0 +1,17 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        user_avatars:
+            uri_prefix: '/uploads/avatar'
+            upload_destination: '%avatar_directory%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        videogame_themes:
+            uri_prefix: '/uploads/themes'
+            upload_destination: '%theme_directory%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        videogame_box:
+            uri_prefix: '/uploads/box'
+            upload_destination: '%box_directory%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+

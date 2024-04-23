@@ -1,0 +1,83 @@
+{% set current_page = app.request.attributes.get('_route') %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Metaverse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My Metaverse est un site de critiques de jeux vidéo, basées sur mes critères, mes ressentis et expériences personnelles. Vous aurez la possibilité de vous-mêmes donner votre avis sur le jeu pour enrichir le contenu de ce site Web.">
+    <meta name="keywords" content="Projet Symfony, Premier projet, first project, Symfony project, Critiques, Jeux Vidéo, videogames, Critiques de Jeux, Critiques, avis, classements">
+    <meta name="author" content="BUFFARD Alexandre - alilizeph">
+    <meta name="copyright" content="BUFFARD Alexandre - alilizeph">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset("css/styles.css") }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="{{ asset('javascript/app.js') }}" type="text/javascript"></script>
+    
+    <link rel="stylesheet" href="{{ asset('./css/animated-block.css') }}">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        
+    {% endblock %}
+
+    {%block head %}
+    {% endblock %}
+
+  </head>
+  <body>
+    <header>
+      <img src="{{ asset('img/test.png') }}" alt="logo de My Metaverse" id="logo">
+      
+      <input type="checkbox" name="burger-menu" id="menu-burger">
+      <div id="menu-icon">
+        <span></span>
+      </div>
+      <nav>
+        <ul>
+          <li {% if current_page == 'homepage' %} class="active"{% endif %}>
+            <a href="{{ path('homepage') }}" >Accueil</a>
+          </li>
+          <li {% if current_page == 'videogames_list' or current_page == 'videogame_card' %} class="active"{% endif %}>
+            <a href="{{ path('videogames_list')}}">Mes critiques</a>
+          </li>
+          {% if is_granted('ROLE_ADMIN') %}
+          <li {% if current_page == 'app_admin' %} class="active"{% endif %}>
+            <a href="{{ path('app_admin') }}">Espace administrateur</a>
+          </li>
+          {% endif %}
+          {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+          <li {% if current_page == 'user_public_profile' %} class="active"{% endif %}>
+            <a href="{{ path('user_private_profile', {'id': app.user.id }) }}">Mon Profil</a>
+          </li>
+          <li>
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+          </li>
+          {% else %}
+          <li {% if current_page == 'app_registration' %} class="active"{% endif %}>
+            <a href="{{ path('app_registration') }}">S'inscrire</a>
+          </li>
+          <li {% if current_page == 'app_login' %} class="active"{% endif %}>
+            <a href="{{ path('app_login') }}">Connexion</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+      {% block body %}{% endblock %}
+      <footer>
+        <section>
+          <h4>Copyright © 2023-2024 BUFFARD Alexandre</h4>
+          <h5>Licence CC Creative Commons BY-NC</h5>
+          <h5>Contact: <a href="mailto:buffardalex492@hotmail.fr">buffardalex492@hotmail.fr</a></h5>
+        </section>
+        <img src="{{ asset('./img/by-nc.png') }}" alt="Licence Creative Commons BY-NC">
+      </footer>
+  </body>
+</html>

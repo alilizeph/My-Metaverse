@@ -1,0 +1,109 @@
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('./css/comments/comment-public-profile.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% if (comment.grade >= 75 and  comment.grade <= 100) %}
+        <article class="profile-public-randomcom-elmt comment-card verygood-comment hide">
+    {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+        <article class="profile-public-randomcom-elmt comment-card good-comment hide">
+    {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+        <article class="profile-public-randomcom-elmt comment-card medium-comment hide">
+    {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+        <article class="profile-public-randomcom-elmt comment-card notenough-comment hide">
+    {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+        <article class="profile-public-randomcom-elmt comment-card bad-comment hide">
+    {% endif %}
+            {% if (comment.grade >= 75 and  comment.grade <= 100) %}
+                <section class="comment-head hide-2 verygood-comment-head">
+            {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+                <section class="comment-head hide-2 good-comment-head">
+            {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+                <section class="comment-head hide-2 medium-comment-head">
+            {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+                <section class="comment-head hide-2 notenough-comment-head">
+            {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+                <section class="comment-head hide-2 bad-comment-head">
+            {% endif %}
+                <img src="{{ vich_uploader_asset(comment.videoGame, 'imgTheme') }}" alt="" class="video-game-theme">
+            </section>
+            {% if (comment.grade >= 75 and  comment.grade <= 100) %}
+                <h4 class="comment-grade verygood hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+                <h4 class="comment-grade good hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+                <h4 class="comment-grade medium hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+                <h4 class="comment-grade notenough hide-2">{{ comment.grade }}</h4>
+            {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+                <h4 class="comment-grade bad hide-2">{{ comment.grade }}</h4>
+            {% endif %}
+            <section class="comment-body hide-2">
+                <h5>{{ comment.title }}</h5>
+                <p>{{ comment.content }}</p>
+            </section>
+        </article>
+    {#
+    {% if (comment.grade >= 75 and comment.grade <= 100) %}
+        <article class="profile-public-randomcom-elmt comment-card verygood-comment hide">
+    {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+        <article class="profile-public-randomcom-elmt comment-card good-comment hide">
+    {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+        <article class="profile-public-randomcom-elmt comment-card medium-comment hide">
+    {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+        <article class="profile-public-randomcom-elmt comment-card notenough-comment hide">
+    {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+        <article class="profile-public-randomcom-elmt comment-card bad-comment hide">
+    {% endif %}
+            <section class="comment-head hide-2">
+                <h4>Posté par : 
+                    {% if (comment.user.isRegistered) %}
+                        {{ comment.user.username }}
+                    {% else %}
+                        <span>{{ comment.user.username }}</span>
+                    {% endif %}
+                </h4>
+                <div class="hidden-text"><p>Accès au profil de {{ comment.user.username }} </p></div>
+                {% if(comment.user.isAdmin) %}
+                    <span class="user-isAdmin" style="color: rgb(250, 20, 50)">A</span>
+                {% else %}
+                    <span style="display:none">A</span>
+                {% endif %}
+                <h5>Le {{ comment.postDate| date("d M Y", "Europe/Paris") }}</h5>
+            </section>
+
+            {% if(comment.user.avatar != "" and comment.user.avatar != null) %}
+                {%if(comment.grade >= 75 and  comment.grade <= 100) %}
+                    <section class="comment-avatar comment-avatar-verygood hide-2">
+                {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+                    <section class="comment-avatar comment-avatar-good hide-2">
+                {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+                    <section class="comment-avatar comment-avatar-medium hide-2">
+                {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+                    <section class="comment-avatar comment-avatar-notenough hide-2">
+                {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+                    <section class="comment-avatar comment-avatar-bad hide-2">
+                {% endif %}
+                        <img src="{{ asset(comment.user.avatar) }}" alt="{{ comment.user.username }}">
+                    </section>
+            {% endif %}
+
+            {% if (comment.grade >= 75 and  comment.grade <= 100) %}
+                <h4 class="comment-grade verygood hide-2"><span>{{ comment.grade }}</span></h4>
+            {% elseif (comment.grade >= 60 and  comment.grade <= 74) %}
+                <h4 class="comment-grade good hide-2"><span>{{ comment.grade }}</span></h4>
+            {% elseif (comment.grade >= 50 and  comment.grade <= 59) %}
+                <h4 class="comment-grade medium hide-2"><span>{{ comment.grade }}</span></h4>
+            {% elseif (comment.grade >= 35 and  comment.grade <= 49) %}
+                <h4 class="comment-grade notenough hide-2"><span>{{ comment.grade }}</span></h4>
+            {% elseif (comment.grade >= 0 and  comment.grade <= 34) %}
+                <h4 class="comment-grade bad"><span>{{ comment.grade }}</span></h4>
+            {% endif %}
+
+            <section class="comment-body hide-3">
+                <h5>{{ comment.title }}</h5>
+                <p>{{ comment.content }}</p>
+                
+            </section>
+        </article> #}
+{% endblock %}

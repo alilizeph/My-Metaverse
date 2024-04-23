@@ -1,0 +1,56 @@
+{{ form_start(form) }}
+    <div class="form-group hide-2">
+        {{ form_label(form.surname) }}
+        {{ form_widget(form.surname) }}
+    </div>
+    <div class="form-group hide-2">
+        {{ form_label(form.firstName) }}
+        {{ form_widget(form.firstName) }}
+    </div>
+    <div class="form-group hide-2">
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+    </div>
+    <div class="form-group hide-2">
+        {{ form_label(form.username) }}
+        {{ form_widget(form.username) }}
+    </div>
+     {% if app.flashes('error') %}
+        <p class="warning">Cette adresse email ou ce nom utilisateur existent déjà</p>
+    {% endif %}
+    <div class="form-group hide-2">
+        {{ form_label(form.password) }}
+        {{ form_widget(form.password) }}
+    </div>
+    <div class="form-group hide-2">
+        {{ form_label(form.gender) }}
+        {{ form_widget(form.gender) }}
+    </div>
+    <div class="form-group hide-2">
+        {{ form_label(form.birthday) }}
+        {{ form_widget(form.birthday) }}
+        
+    </div>
+    {% if isMinimumAgeMet is defined %}
+        {% if not isMinimumAgeMet %}
+            <p class="warning">** L'âge requis pour s'inscrire à <span class="warning-2">My Metaverse</span> est de <span class="warning-2">12 ans</span>.</p>
+        {% endif %}
+    {% endif %}
+    <div class="form-group hide-2">
+        {{ form_label(form.avatarFile) }}
+        {{ form_widget(form.avatarFile) }}
+    </div>
+    {% if isAvatarValid is defined %}
+        {% if not isAvatarValid %}
+            <p class="warning">** Votre fichier doit être de type .png, .jpg ou .jpeg</p>
+        {% endif %}
+    {% else %}
+        <p class="info">** Votre fichier doit être de type <span class="warning-2">.png</span> <span class="warning-2">.jpg</span> ou <span class="warning-2">.jpeg</span> </p>
+    {% endif %}
+    <div class="form-group hide-2">
+        {{ form_label(form.presentation) }}
+        {{ form_widget(form.presentation) }}
+    </div>
+    
+    <button type="submit" class="btn hide-3">{{ button_label|default("Inscription") }}</button>
+{{ form_end(form) }}

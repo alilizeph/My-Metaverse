@@ -1,0 +1,61 @@
+@keyframes revealAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  60% {
+    opacity: .75;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+@keyframes appearsAnimation {
+  0% {
+    opacity: .0001%;
+    transform: translateY(30px);
+  }
+  60% {
+    opacity: .75;
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+/**
+  IT CONSISTS TO HIDE / REVEAL ELEMENTS 
+*/
+.hide [class*="hide-"], .appears [class*="hide-"] {
+  animation: revealAnimation 1500ms 250ms cubic-bezier(.35,0,0,1) both;
+}
+
+.appears {
+  animation: appearsAnimation 1450ms 450ms cubic-bezier(.35,0,0,1) both;
+}
+  
+.hide-2 {
+  transition-delay: 250ms;
+  transition-duration: 1650ms;
+}
+
+.hide-3 {
+  transition-delay: 350ms;
+  transition-duration: 1650ms;
+}
+
+.hide-4 {
+  transition-delay: 450ms;
+  transition-duration: 1650ms;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(-30px);
+}

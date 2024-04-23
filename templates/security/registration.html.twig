@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/users/registration.css') }}">
+{% endblock %}
+
+{% block body %}
+    <main>
+        <article class="registration-card open-form hide">
+            <h3>Inscription</h3>
+            {% include 'security/_form-registration.html.twig' %}
+        </article>
+    </main>
+    
+{% endblock %}

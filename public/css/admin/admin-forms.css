@@ -1,0 +1,69 @@
+body main {
+    margin-top: 155px;
+    padding-bottom: 70px;
+}
+
+.admin-form-card {
+    width: 95%;
+    margin-left:2.5%;
+    background-color: rgb(235, 163, 39);
+    color:rgb(25, 25, 40);
+    text-transform: 750;
+    padding-bottom: 25px;
+    font-size: 16px;
+}
+
+.admin-form-card h3 {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-transform: uppercase;
+    font-size:32px;
+    text-align: center;
+}
+
+.admin-form-card .admin-form {
+    padding-top: 15px;
+    padding-bottom: 25px;
+    width: 90%;
+    font-weight: 800;
+    margin-left:5%;
+    display: flexbox;
+}
+
+.admin-form section {
+    margin-bottom: 20px;
+}
+
+.admin-form .form-group {
+    width: 100%;
+    margin-top:15px;
+    display: flex;
+}
+
+.form-group label {
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.form-group input {
+    width: 50%;
+    margin-left: 5%;
+}
+
+.form-group .genders-label {
+    width: 30%;
+}
+
+.form-group .genders-checkbox-list {
+    width: 100%;
+    display: flexbox;
+    flex-wrap:wrap;
+    flex-basis:50%;
+    justify-content:flex-start;
+}
+
+.gender-checkbox {
+    display: inline-block;
+}

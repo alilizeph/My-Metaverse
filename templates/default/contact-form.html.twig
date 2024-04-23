@@ -1,0 +1,40 @@
+
+
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/landing-page/contact-form.css') }}">
+{% endblock %}
+{% block contactform %}
+    <article class="contact-card hide">
+        <h2 class="hide-2">Des suggestions ?</h2>
+        <form class="contact-form" action="mailto:buffardalex492@hotmail.fr">
+            <div class="contact-form-head">
+                <div class="form-group hide-2">
+                    <label for="mail">Votre email*</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group hide-2">
+                    <label for="nom">Votre Nom</label>
+                    <input type="text" name="nom" id="nom">
+                </div>
+                <div class="form-group hide-2">
+                    <label for="prenom">Votre prénom</label>
+                    <input type="text" name="prenom" id="prenom">
+                </div>
+            </div>
+            <div class="contact-form-content">
+                <div class="form-group hide-2">
+                    <label for="nom-jeu">Nom du jeu*</label>
+                    <input type="text" name="nom-jeu" id="nom-jeu" required>
+                </div>
+                <div class="form-group hide-2">
+                    <label for="avis">Votre avis/conseil*</label>
+                    <textarea name="avis" id="avis" required></textarea>
+                </div>
+            </div>
+            <div class="form-footer hide-3">
+                <button type="submit">Envoyer</button>
+                <p id="advertisement">* : Veuillez remplir ces champs obligatoires</p>
+            </div>
+        </form>    
+    </article>
+{% endblock %}

@@ -1,0 +1,185 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('./css/videogames/video-game-card.css') }}">
+    <link rel="stylesheet" gref="{{ asset('./css/users/login.css') }}">
+    <link rel="stylesheet" gref="{{ asset('./css/styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+{% endblock %}
+
+{% block body %}
+    <main>
+        <article class="video-game-card hide"> 
+            <section class="video-game-card-theme hide-2">
+                <img src="{{ vich_uploader_asset(videoGame, 'imgTheme') }}" alt="{{ videoGame.name }}" class="hide-2">
+            </section>
+            <section class="video-game-card-head hide-2">
+                <div class="video-game-pres hide-2">
+                    <h3 class=" hide-2">{{ videoGame.name }}</h3>
+                    {% if platformName == 1 %}
+                    <h4 class=" hide-2">Sur : <span>Nintendo Switch</span></h4>
+                    {% elseif platformName == 2 %}
+                    <h4 class=" hide-2">Sur : <span>PC Steam</span></h4>
+                    {% elseif platformName == 3 %}
+                    <h4 class=" hide-2">Sur : <span>PlayStation 5</span></h4>
+                    {% elseif platformName == 4 %}
+                    <h4 class=" hide-2">Sur : <span>GameBoy Advanced</span></h4>
+                    {% elseif platformName == 5 %}
+                    <h4 class=" hide-2">Sur : <span>GameBoy / GameBoy Color</span></h4>
+                    {% elseif platformName == 6 %}
+                    <h4 class=" hide-2">Sur : <span>PlayStation 4</span></h4>
+                    {% elseif platformName == 7 %}
+                    <h4 class=" hide-2">Sur : <span>Nintendo DS</span></h4>
+                    {% elseif platformName == 8 %}
+                    <h4 class=" hide-2">Sur : <span>Nintendo 3DS</span></h4>
+                    {% elseif platformName == 9 %}
+                    <h4 class=" hide-2">Sur : <span>PlayStation 3</span></h4>
+                    {% elseif platformName == 10 %}
+                    <h4 class=" hide-2">Sur : <span>PlayStation 2</span></h4>
+                    {% elseif platformName == 11 %}
+                    <h4 class=" hide-2">Sur : <span>PlayStation</span></h4>
+                    {% elseif platformName == 12 %}
+                    <h4 class=" hide-2">Sur : <span>XBox</span></h4>
+                    {% elseif platformName == 13 %}
+                    <h4 class=" hide-2">Sur : <span>XBox 360</span></h4>
+                    {% elseif platformName == 14 %}
+                    <h4 class=" hide-2">Sur : <span>XBox One</span></h4>
+                    {% elseif platformName == 15 %}
+                    <h4 class=" hide-2">Sur : <span>XBox Series</span></h4>
+                    {% endif %}
+                    <p class="perso-grade hide-2">Note personnelle :</p>
+                    {% if videoGame.grade >= 75 %}
+                    <h4 class="video-game-grade verygood hide-3">{{ videoGame.grade }}</h4>
+                    {% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
+                    <h4 class="video-game-grade good hide-3">{{ videoGame.grade }}</h4>
+                    {% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
+                    <h4 class="video-game-grade medium hide-3">{{ videoGame.grade }}</h4>
+                    {% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
+                    <h4 class="video-game-grade notenough hide-3">{{ videoGame.grade }}</h4>
+                    {% elseif videoGame.grade <= 34 %}
+                    <h4 class="video-game-grade bad hide-3">{{ videoGame.grade }}</h4>
+                    {% endif %}
+
+                    <p class="users-grade hide-2">Note utilisateur :</p>
+                    <h4 class="video-game-users-grade hide-3">{{ videoGame.averageUsersGrade }}</h4>
+                    {% if videoGame.averageUsersGrade >= 75 %}
+                    <h4 class="video-game-users-grade verygood hide-3">{{ videoGame.averageUsersGrade }}</h4>
+                    {% elseif videoGame.averageUsersGrade <= 74 and videoGame.averageUsersGrade >= 60 %}
+                    <h4 class="video-game-users-grade good hide-3">{{ videoGame.averageUsersGrade }}</h4>
+                    {% elseif videoGame.averageUsersGrade <= 59 and videoGame.averageUsersGrade >= 50 %}
+                    <h4 class="video-game-users-grade medium hide-3">{{ videoGame.averageUsersGrade }}</h4>
+                    {% elseif videoGame.averageUsersGrade <= 49 and videoGame.averageUsersGrade >= 35 %}
+                    <h4 class="video-game-users-grade notenough hide-3">{{ videoGame.averageUsersGrade }}</h4>
+                    {% elseif videoGame.averageUsersGrade <= 34 %}
+                    <h4 class="video-game-users-grade bad hide-3">{{ videoGame.averageUsersGrade }}</h4>
+                    {% endif %}
+                    <p class=" hide-3"><span>Date de sortie</span> : le {{ videoGame.releaseDate | date('d F Y') }}</p>
+                    <p class=" hide-3"><span>Prix moyen</span> : {{ videoGame.averagePrice }} €</p>
+                    <div class="video-game-genders-box hide-3">
+                        <ul class="video-game-genders-list">
+                            {% for gender in videoGame.genders %}
+                                {% if gender.id == 1 %}
+                                <li class="video-game-gender rpg">
+                                    RPG
+                                </li>
+                                {% elseif gender.id == 2 %}
+                                <li class="video-game-gender avent">
+                                    Aventure
+                                </li>
+                                {% elseif gender.id == 3 %}
+                                <li class="video-game-gender fant">
+                                    Fantastique
+                                </li>
+                                {% elseif gender.id == 4 %}
+                                <li class="video-game-gender crea">
+                                    Création
+                                </li>
+                                {% elseif gender.id == 5 %}
+                                <li class="video-game-gender ow">
+                                    Open-World
+                                </li>
+                                {% elseif gender.id == 6 %}
+                                <li class="video-game-gender gestion">
+                                    Gestion
+                                </li>
+                                {% elseif gender.id == 7 %}
+                                <li class="video-game-gender refl">
+                                    Réflexion
+                                </li>
+                                {% elseif gender.id == 8 %}
+                                <li class="video-game-gender ecolo">
+                                    Écologie
+                                </li>
+                                {% elseif gender.id == 9 %}
+                                <li class="video-game-gender sante">
+                                    Santé
+                                </li>
+                                {% elseif gender.id == 10 %}
+                                <li class="video-game-gender survie">
+                                    Survie
+                                </li>
+                                {% elseif gender.id == 11 %}
+                                <li class="video-game-gender tact">
+                                    Tactique
+                                </li>
+                                {% elseif gender.id == 12 %}
+                                <li class="video-game-gender strat">
+                                    Stratégie
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="video-game-box-zone">
+                        <img class="video-game-box" src="{{ vich_uploader_asset(videoGame, 'imgBox') }}" alt="boîte de {{ videoGame.name }}">
+                    </div>
+                </div>
+            </section>
+            {#
+            <section class="video-game-likes">
+                <input type="checkbox" id="thumb-rotate">
+                <span class="material-symbols-outlined thumb">
+                    thumb_up
+                </span>
+                <h4>{{ videoGame.likes.nblikes }}</h4>
+            </section>
+            #}            
+            <section class="video-game-content hide-3">
+                <div class="video-game-description hide-4">
+                    <h4>Description du jeu : </h4>
+                    <p>
+                        {{ videoGame.description }}
+                    </p>
+                </div>
+                <div class="video-game-advice hide-4">
+                    <h4>Avis et Critiques sur le jeu :</h4>
+                    <p>
+                        {{ videoGame.advice}}
+                    </p>
+                </div>
+                <button id="return-to-list" class="hide-4">Retour à la liste</button>
+            </section>
+            
+            <script>
+                let btn = document.getElementById("return-to-list");
+                btn.addEventListener('click', function() {
+                    window.location.href="{{ path('videogames_list') }}";
+                })
+            </script>
+        </article>
+        <section class="comment-form">
+        {% if (is_granted("IS_AUTHENTICATED_FULLY")) %}
+            {% include 'comments/form-comments.html.twig' with {'user': app.user, 'vg': videoGame, 'form': form} %}
+        {% else %}
+            {% include 'comments/form-comments-guest.html.twig' with { 'vg': videoGame, 'guestForm': guestForm } %}
+        {% endif %}
+        </section>
+        <section class="comments-list">
+            {% block comments %}
+            {% for comment in comments %}
+                {% include '/comments/comment-videogame-card.html.twig' with { 'comment' : comment } %}
+            {% endfor %}
+            {% endblock %}
+        </section>
+    </main>
+{% endblock %}

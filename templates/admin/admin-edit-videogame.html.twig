@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('./css/admin-home.css') }}">
+{% endblock %}
+
+{% block body %}
+    <main>
+        <article class='admin-homepage'>
+            <h3>Bienvenue dans l'espace administrateur ! </h3>
+            <section class="admin-group">
+                <a href="">
+                    <buton>Ajouter une critique</button>
+                </a>
+            <section>
+            <section class="admin-group">
+                <a href="">
+                    <buton>Modifier une critique</button>
+                </a>
+            </section>
+            <section class="admin-group">
+                <a href="">
+                    <buton>Supprimer une critique</button>
+                </a>
+            </section>
+        <article>
+    </main>
+{% endblock %}
