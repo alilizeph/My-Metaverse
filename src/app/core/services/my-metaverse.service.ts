@@ -203,7 +203,7 @@ export class MyMetaverseService {
       isAdmin: false,
       connected: false,
       presentation: ""
-    }/**,
+    },
     {
       id: 13,
       surname: "Lopez",
@@ -235,7 +235,7 @@ export class MyMetaverseService {
       isAdmin: false,
       connected: false,
       presentation: ""
-    } */
+    }
   ];
 
   private userPresentationSubject  = new BehaviorSubject<string>("");

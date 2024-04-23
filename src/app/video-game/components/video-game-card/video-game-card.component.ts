@@ -69,7 +69,7 @@ export class VideoGameCardComponent implements OnInit {
   onAddLikes() {
     let iconUp = document.getElementsByClassName('fa-thumbs-up')[0];
     let iconDown = document.getElementsByClassName('fa-thumbs-down')[0];
-    let nbs = document.getElementsByClassName('likes-nb')[0];
+    //let nbs = document.getElementsByClassName('likes-nb')[0];
 
     if(this.currentUser) {
       this.videoGame.likes.likes++;

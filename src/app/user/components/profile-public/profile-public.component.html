@@ -6,7 +6,7 @@
     <div class="profile-public-info">
       <h3>{{ user.username }}</h3>
       <h4>{{ user.surname }} {{ user.firstName }}</h4>
-      <h5>Email : <a class="" href="mailto:{{ user.email }}">{{ user.email }}</a> *<span *ngIf="user.id > 1" class="hidden-text">* ces adresses mail sont fictives</span></h5>
+      <h5>Email : <a class="" href="mailto:{{ user.email }}">{{ user.email }}</a> <span *ngIf="user.id > 1" class="hidden-text">* ces adresses mail sont fictives</span></h5>
       <h5>Age : {{ calculateAge() }} ans</h5>
     </div>
   </section>
@@ -33,7 +33,6 @@
         <h6>{{ averageCommentsGrade }}</h6>
       </div>
     </div>
-
   </section>
   <section class="profile-public-randomcom" *ngIf="randomComments.length > 0">
     <h3 *ngIf="usersComments.length == 1">1 Commentaire aléatoire</h3>

@@ -143,13 +143,17 @@
 
       .likes-zone {
         position: absolute;
-        margin-top: -200px;
-        margin-left: 400px;
+        font-weight: 800;
 
         i {
           font-size: 300%;
           cursor: pointer;
           color: rgb(235, 163, 39);
+        }
+
+        .fa {
+          margin-left: 15px;
+          margin-bottom: 15px;
         }
 
         .fa-thumb-remove {
@@ -398,6 +402,41 @@
           }
         }
       }
+    }
+    .likes-zone {
+      position: absolute;
+      margin-top: -10px;
+      margin-left: 1025px;
+
+      i {
+        font-size: 300%;
+        cursor: pointer;
+        opacity: 1;
+        position: relative;
+        color: rgb(235, 163, 39);
+      }
+
+      .fa-thumb-remove {
+        display: none;
+      }
+
+      .fa-thumb-return {
+        display: block;
+      }
+
+
+      .likes-nb-title {
+        font-size: 110%;
+        text-transform: uppercase;
+      }
+
+      .likes-nb {
+        font-size: 150%;
+        width: 100%;
+        padding-top: 15px;
+        text-align: center;
+      }
+
     }
 
     .video-game-box-zone {

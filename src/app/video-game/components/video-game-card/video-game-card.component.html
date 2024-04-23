@@ -68,13 +68,14 @@
     <div class="video-game-box-zone">
       <img class="video-game-box" [src]="videoGame.imgBox" [alt]="videoGame.name + ' theme'">
     </div>
+    <section class="likes-zone">
+      <i (click)="onAddLikes()" *ngIf="currentUser && !onLike" class="fa fa-thumbs-up"></i>
+      <i (click)="onRemoveLikes()" *ngIf="currentUser && onLike" class="fa fa-thumbs-down"></i>
+      <h6 class="likes-nb-title"> Nb likes</h6>
+      <h5 class="likes-nb">{{ videoGame.likes.likes }}</h5>
+    </section>
   </section>
-  <section class="likes-zone">
-    <i (click)="onAddLikes()" *ngIf="currentUser && !onLike" class="fa fa-thumbs-up"></i>
-    <i (click)="onRemoveLikes()" *ngIf="currentUser && onLike" class="fa fa-thumbs-down"></i>
-    <h6 class="likes-nb-title" *ngIf="!currentUser"> Nb likes</h6>
-    <h5 class="likes-nb">{{ videoGame.likes.likes }}</h5>
-  </section>
+
   <section class="video-game-content">
     <div class="video-game-description">
       <h4>Description du jeu :</h4>

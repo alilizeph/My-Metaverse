@@ -25,6 +25,12 @@
           color: white;
         }
       }
+
+      img {
+        position: absolute;
+        height: 50px;
+        width: 125px;
+      }
   }
 
 }
@@ -54,6 +60,11 @@
     h5 {
       font-size:17px;
     }
+
+    img {
+      margin-top: -75px;
+      margin-left: 25px;
+    }
   }
 }
 
@@ -82,13 +93,21 @@
     h5 {
       font-size:15px;
     }
+
+    img {
+      margin-top: -75px;
+      margin-left: 25px;
+    }
   }
 }
 
 
 // sm screens
 @media (max-width:767px) and (min-width: 576px) {
-
+  footer img {
+    margin-top: -75px;
+    margin-left: 5px;
+  }
 }
 
 
@@ -102,5 +121,13 @@
     h5 {
       font-size:13px;
     }
+
+    img {
+      margin-top: -55px;
+      margin-left: 5px;
+      height: 40px;
+      width: 100px;
+    }
+
   }
 }
