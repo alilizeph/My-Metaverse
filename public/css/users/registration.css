@@ -1,42 +1,28 @@
-@media all {
-
-}
+@media all {}
 
 
 
-@media (min-width:1400px) {
-
-}
+@media (min-width:1400px) {}
 
 
 
-@media (max-width:1399px) and (min-width:1200px) {
-
-}
+@media (max-width:1399px) and (min-width:1200px) {}
 
 
 
-@media (max-width: 1199px) and (min-width: 993px) {
-
-}
+@media (max-width: 1199px) and (min-width: 993px) {}
 
 
 
-@media (max-width:992px) and (min-width: 768px) {
-
-}
+@media (max-width:992px) and (min-width: 768px) {}
 
 
 
-@media (max-width:767px) and (min-width:576px) {
-
-}
+@media (max-width:767px) and (min-width:576px) {}
 
 
 
-@media (max-width:576px) and (min-width:0px) {
-
-}
+@media (max-width:576px) and (min-width:0px) {}
 
 
 
@@ -51,12 +37,12 @@ main .registration-card {
     background-color: rgb(235, 163, 39);
     box-shadow: 6px 4px 4px rgba(19, 35, 72, 0.25);
     padding: 20px 0px 50px 0px;
-    margin-top:50px;
+    margin-top: 50px;
 }
 
 .registration-card h3 {
     text-align: center;
-    font-weight: 1500!important;
+    font-weight: 1500 !important;
     padding: 20px 0px;
     font-size: 220%;
     text-transform: uppercase;
@@ -87,7 +73,7 @@ form .form-group {
     width: 50%;
     margin-left: 2.5%;
     padding: 3px 10px;
-    border-radius:0.355em;
+    border-radius: 0.355em;
     font-size: 16px;
 }
 
@@ -103,17 +89,18 @@ form .form-group {
     margin-left: 2.5%;
 }
 
-.info, .warning {
-    width:50%; 
-    margin-left: 20%; 
-    text-align:right;
+.info,
+.warning {
+    width: 50%;
+    margin-left: 20%;
+    text-align: right;
     margin-bottom: 10px;
 
 }
 
 .info {
-    font-size:12px;
-    font-weight:bold; 
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .warning {
@@ -126,7 +113,7 @@ form .form-group {
 }
 
 form button {
-    font-size: 32px!important;
+    font-size: 32px !important;
     border-radius: 2em;
     margin-left: 40%;
     margin-top: 25px;
@@ -139,7 +126,7 @@ form button {
     transform: translate(-2px, -2px);
     text-transform: uppercase;
     margin-bottom: 15px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .registration-card form button:hover {
@@ -160,21 +147,22 @@ form button {
         width: 80%;
         padding-left: 5%;
         padding-right: 5%;
-        text-align: center!important;
+        text-align: center !important;
     }
 
-    .form-group input, .form-group textarea {
+    .form-group input,
+    .form-group textarea {
         width: 90%;
         margin-left: 0px;
         padding: 3px 10px;
-        border-radius:0.355em;
+        border-radius: 0.355em;
         font-size: 16px;
     }
-    
+
 
     form button {
         font-size: 24px;
         margin-left: 10%;
-        cursor:pointer;
+        cursor: pointer;
     }
 }

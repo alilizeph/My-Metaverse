@@ -21,7 +21,7 @@ class UserController extends AbstractController
 {
     /**
      *  @param UserPasswordHasherInterface  $passwordEncoder     to generate encoded password
-    */
+     */
     private $passwordEncoder;
 
     public function __construct(UserPasswordHasherInterface $passwordEncoder)
@@ -34,18 +34,18 @@ class UserController extends AbstractController
     public function publicProfile(User $user, CommentsRepository $cr): Response
     {
         $comments = $cr->findCommentsByUser($user);
-        if($comments && count($comments) > 0) {
-                
+        if ($comments && count($comments) > 0) {
+
             $average = 0;
 
-            foreach($comments as $comment)
+            foreach ($comments as $comment)
                 $average += (int)($comment->getGrade());
-            
-            if(count($comments) >= 2) {
+
+            if (count($comments) >= 2) {
                 $user->setNbComments(count($cr->findCommentsByUser($user->getId())));
                 $randomKeys = array_rand($comments, 2);
                 $randomComments = array_intersect_key($comments, array_flip($randomKeys));
-            
+
                 return $this->render('user/public-profile.html.twig', [
                     'user' => $user,
                     'averageComments' => (int)($average / count($cr->findCommentsByUser($user->getId()))),
@@ -53,7 +53,7 @@ class UserController extends AbstractController
                     'randomComments' => $randomComments,
                     'nbRandomComments' => count($randomComments)
                 ]);
-            } else if(count($comments) == 1 ) {
+            } else if (count($comments) == 1) {
                 return $this->render('user/public-profile.html.twig', [
                     'user' => $user,
                     'averageComments' => (int)($average / count($cr->findCommentsByUser($user->getId()))),
@@ -62,7 +62,7 @@ class UserController extends AbstractController
                 ]);
             }
         } else {
-        
+
             return $this->render('user/public-profile.html.twig', [
                 'user' => $user,
                 'nbLikes' => count($user->getLikes())
@@ -73,76 +73,61 @@ class UserController extends AbstractController
 
     // path to the private profile (only if the user is connected)
     #[Route('/{id}/private', name: 'user_private_profile', methods: ['GET'])]
-    public function privateProfile(AuthenticationUtils $au, EntityManagerInterface $em): Response
+    public function privateProfile(): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        /** @var App\Entity\User */ 
+        /** @var App\Entity\User */
         $user = $this->getUser();
-
-
-
-        $isAdmin = $this->isGranted('ROLE_ADMIN');
-        $isConnected = $this->isGranted('IS_AUTHENTICATED_FULLY');
 
         return $this->render('user/private-profile.html.twig', [
             'user' => $user,
-            'isAdmin' => $isAdmin,
-            'isConnected' => $isConnected,
             'id' => $user->getId()
         ]);
     }
 
+    // path to the editing profile fields page (only if the user is connected)
     #[Route("/{id}/private/edit", name: "update_user", methods: ["GET", "POST"])]
     public function updateProfileFields(EntityManagerInterface $em, Request $request): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        
+
+        /** @var User */
         $user = $this->getUser();
 
-        if($user instanceof User && $user !== null){
+        $form = $this->createForm(
+            EditUserProfileFormType::class,
+            $user,
+            [
+                'attr' => [
+                    'enctype' => 'multipart/form-data'
+                ]
+            ]
+        );
+        $form->get('surname')->setData($user->getSurname());
+        $form->get('firstName')->setData($user->getFirstName());
+        $form->get('gender')->setData($user->getGender());
+        $form->get('birthday')->setData($user->getBirthday());
+        $form->get('presentation')->setData('');
+        $presentation = $user->getPresentation();
 
-            $form = $this->createForm(EditUserProfileFormType::class, 
-                $user, [
-                    'attr' => [
-                        'enctype' => 'multipart/form-data'
-                        ]
-                    ]
-                );
+        $form->handleRequest($request);
 
-            $form->handleRequest($request);
 
-            $form->setData('surname', $user->getSurname());
-            $form->setData('firstName', $user->getFirstName());
-            $form->setData('gender', $user->getGender());
-            $form->setData('birthday', $user->getBirthday());        
-            $presentation = $user->getPresentation();
+        if ($form->isSubmitted()) {
 
-            if($form->isSubmitted() && $form->isValid())
-            {
-                if($user instanceof PasswordHasherAwareInterface) {
-                    $hashPassword = $this->passwordEncoder->hashPassword($user, $form['password']->getData());
-                    $user->setPassword($hashPassword);
-                }
-
-                if(!$form->get('presentation')->getData())
-                    $user->setPresentation('');
-                else
-                    $user->setPresentation($form->get('presentation')->getData());
-
-                if($user) {
-                    $em->persist($user);
-                    $em->flush();
-                }
-                
-                return $this->redirectToRoute('user_private_profile', ['id' => $user->getId()]);
+            if ($user) {
+                $em->persist($user);
+                $em->flush();
             }
-            
-            if($user->getId() !== $user->getId())
-                throw $this->createAccessDeniedException("Vous n'êtes pas autorisé à modifier cette présentation");
+
+            return $this->redirectToRoute('user_private_profile', ['id' => $user->getId()]);
         }
-        
-        return $this->redirectToRoute('user/update-user.html.twig', [
-            'form' => $form->createView(),
+
+        if ($user->getId() !== $user->getId())
+            throw $this->createAccessDeniedException("Vous n'êtes pas autorisé à accéder à cette page");
+
+        return $this->render('user/update-user.html.twig', [
+            'form' => $form,
             'presentation' => $presentation,
             'user' => $user
         ]);

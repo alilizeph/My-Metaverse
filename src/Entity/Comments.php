@@ -29,10 +29,10 @@ class Comments
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity:User::class, inversedBy:"comments", cascade: ["persist"])]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: "comments", cascade: ["persist"])]
     private User $user;
 
-    #[ORM\ManyToOne(targetEntity:VideoGame::class, inversedBy:"comments", cascade: ["persist"])]
+    #[ORM\ManyToOne(targetEntity: VideoGame::class, inversedBy: "comments", cascade: ["persist"])]
     private VideoGame $videoGame;
 
     #[ORM\Column(length: 255)]
@@ -42,20 +42,25 @@ class Comments
     private ?string $content = null;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\Range(min:0, max:100)]
+    #[Assert\Range(min: 0, max: 100)]
     private ?int $grade = null;
 
     #[ORM\Column()]
     private ?DateTime $postDate = null;
 
-    public function __construct(User $user = null, VideoGame $videoGame = null, string $title = "",
-        string $content = "", int $grade = 0, DateTime $postDate = null)
-    {
+    public function __construct(
+        User $user = null,
+        VideoGame $videoGame = null,
+        string $title = "",
+        string $content = "",
+        int $grade = 0,
+        DateTime $postDate = null
+    ) {
         $this->user = $user ?? new User();
         $this->videoGame = $videoGame ?? new VideoGame();
         $this->title = $title;
         $this->content = $content;
-        if($grade != null && $grade >= 0 && $grade <= 100)
+        if ($grade != null && $grade >= 0 && $grade <= 100)
             $this->grade = $grade;
         else
             $this->grade = 0;
@@ -79,7 +84,7 @@ class Comments
 
         return $this;
     }
-    
+
     public function getVideoGame(): VideoGame
     {
         return $this->videoGame;
@@ -91,7 +96,7 @@ class Comments
 
         return $this;
     }
-    
+
     public function getTitle(): string
     {
         return $this->title;
@@ -103,7 +108,7 @@ class Comments
 
         return $this;
     }
-    
+
     public function getContent(): string
     {
         return $this->content;
@@ -115,7 +120,7 @@ class Comments
 
         return $this;
     }
-    
+
     public function getGrade(): int
     {
         return $this->grade;

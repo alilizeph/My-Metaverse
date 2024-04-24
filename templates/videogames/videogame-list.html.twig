@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Liste des jeux vidéo{% endblock %}
+{% block title %}Liste des jeux vidéo
+{% endblock %}
 {% block  head %}
-    <link rel="stylesheet" href="{{ asset('./css/videogames/video-game-card-list.css') }}">
+	<link rel="stylesheet" href="{{ asset('./css/videogames/video-game-card-list.css') }}">
 {% endblock %}
 {% block body %}
-    <main>
-        
-        {% block vglist %}
-        {% for videoGame in videoGames %}
-            {% include './videogames/videogame-list-card.html.twig' with {'videoGame' : videoGame } %}
-        {% endfor %}
+	<main>
 
-        {% endblock %}
-        
-    </main>
+		{% block vglist %}
+			{% for videoGame in videoGames %}
+				{% include './videogames/videogame-list-card.html.twig' with {'videoGame' : videoGame } %}
+			{% endfor %}
+
+		{% endblock %}
+
+	</main>
 {% endblock %}

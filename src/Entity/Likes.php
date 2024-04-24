@@ -28,7 +28,7 @@ class Likes
     #[ORM\Column()]
     private ?int $nbLikes = null;
 
-    #[ORM\ManyToMany(targetEntity:User::class, inversedBy: 'likes', cascade: ["persist"])]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'likes', cascade: ["persist"])]
     private Collection $users;
 
     public function __construct(int $nbLikes = 0)
@@ -55,7 +55,7 @@ class Likes
         return $this;
     }
 
-    public function getUsers():ArrayCollection
+    public function getUsers(): ArrayCollection
     {
         return $this->users;
     }
@@ -81,13 +81,13 @@ class Likes
     public function getUserById(int $id): ?User
     {
         $user = null;
-        for($i = 0; $i < sizeof($this->users); $i++) {
-            if($this->users[$i]->id === $id){
+        for ($i = 0; $i < sizeof($this->users); $i++) {
+            if ($this->users[$i]->id === $id) {
                 $user = $this->users[$i];
             }
         }
 
-        if($user){
+        if ($user) {
             return $user;
         } else {
             throw new Error("Utilisateur introuvable !");
@@ -95,12 +95,13 @@ class Likes
         }
     }
 
-    public function setUserById(User $user) {
+    public function setUserById(User $user)
+    {
         $u = $this->getUserById($user->getId());
-        if($u){
-            for($i = 0; $i < sizeof($this->users); $i++) {
-                if($this->users[$i]->id === $u->getId()){
-                    $this->users[$i] = $user;       
+        if ($u) {
+            for ($i = 0; $i < sizeof($this->users); $i++) {
+                if ($this->users[$i]->id === $u->getId()) {
+                    $this->users[$i] = $user;
                     break;
                 }
             }

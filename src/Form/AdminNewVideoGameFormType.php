@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Comments;
 use App\Entity\Gender;
 use App\Entity\Platform;
+use App\Entity\VideoGame;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
@@ -33,7 +34,7 @@ class AdminNewVideoGameFormType extends AbstractType
                 'label' => 'Description du jeu',
                 'required' => true
                 ])
-            ->add('advice', TextType::class, [
+            ->add('advice', TextareaType::class, [
                 'label' => 'Votre avis sur le jeu',
                 'required' => true
                 ])
@@ -72,7 +73,9 @@ class AdminNewVideoGameFormType extends AbstractType
             ->add('platform', EntityType::class, [
                     'class' => Platform::class,
                     'choice_label' => 'platformName',
-                    'label' => 'Plateforme de jeu'
+                    'label' => 'Plateforme de jeu',
+                    'mapped' => false
+
                 ])
             ->add('genders', EntityType::class, [
                 'class' => Gender::class,
@@ -80,16 +83,15 @@ class AdminNewVideoGameFormType extends AbstractType
                 'label' => 'Genres',
                 'multiple' => true,
                 'expanded' => true,
-                
-                
-            ])
-        ;
+                'mapped' => false
+            ]
+        );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Comments::class,
+            'data_class' => VideoGame::class,
         ]);
     }
 }

@@ -66,7 +66,7 @@ class __TwigTemplate_9782be6f720ca9d7a32e7b58adfe6d73 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "head"));
 
         // line 4
-        echo "    <link rel=\"stylesheet\" href=\"";
+        echo "\t<link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/users/registration.css"), "html", null, true);
         echo "\">
 ";
@@ -89,16 +89,16 @@ class __TwigTemplate_9782be6f720ca9d7a32e7b58adfe6d73 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "    <main>
-        <article class=\"registration-card open-form hide\">
-            <h3>Inscription</h3>
-            ";
+        echo "\t<main>
+\t\t<article class=\"registration-card open-form hide\">
+\t\t\t<h3>Inscription</h3>
+\t\t\t";
         // line 11
         $this->loadTemplate("security/_form-registration.html.twig", "security/registration.html.twig", 11)->display($context);
         // line 12
-        echo "        </article>
-    </main>
-    
+        echo "\t\t</article>
+\t</main>
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -137,17 +137,18 @@ class __TwigTemplate_9782be6f720ca9d7a32e7b58adfe6d73 extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block head %}
-    <link rel=\"stylesheet\" href=\"{{ asset('css/users/registration.css') }}\">
+\t<link rel=\"stylesheet\" href=\"{{ asset('css/users/registration.css') }}\">
 {% endblock %}
 
 {% block body %}
-    <main>
-        <article class=\"registration-card open-form hide\">
-            <h3>Inscription</h3>
-            {% include 'security/_form-registration.html.twig' %}
-        </article>
-    </main>
-    
-{% endblock %}", "security/registration.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\security\\registration.html.twig");
+\t<main>
+\t\t<article class=\"registration-card open-form hide\">
+\t\t\t<h3>Inscription</h3>
+\t\t\t{% include 'security/_form-registration.html.twig' %}
+\t\t</article>
+\t</main>
+
+{% endblock %}
+", "security/registration.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\security\\registration.html.twig");
     }
 }

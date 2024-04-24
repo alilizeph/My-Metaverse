@@ -37,8 +37,6 @@ class SecurityController extends AbstractController
     {
         $user = new User('', '', '', '', '', 'Indéterminé', new DateTime(), false, "", "", true);
         $isMinimumAgeMet = false;
-        //$avatar = new AvatarPicture();
-        //$user->setAvatar($avatar);
         
         // generating a registration form
         $form = $this->createForm(RegistrationFormType::class, 

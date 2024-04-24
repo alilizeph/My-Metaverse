@@ -2,9 +2,9 @@
   main {
     margin-bottom: 25px;
     margin-top: 125px;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
   }
 
 
@@ -28,7 +28,8 @@
   }
 
 
-  main h2, main h3 {
+  main h2,
+  main h3 {
     color: rgb(220, 150, 25);
   }
 
@@ -67,7 +68,7 @@
     text-align: center;
     text-transform: uppercase;
     font-size: 110%;
-    color: rgb(220, 150, 25)!important;
+    color: rgb(220, 150, 25) !important;
   }
 
   .video-game-card-head .video-game-grade {
@@ -119,10 +120,10 @@
   }
 
   .likes-zone i {
-      font-size: 300%;
-      cursor: pointer;
-      color: rgb(235, 163, 39);
-    }
+    font-size: 300%;
+    cursor: pointer;
+    color: rgb(235, 163, 39);
+  }
 
   .likes-zone .fa-thumb-remove {
     display: none;
@@ -152,7 +153,6 @@
 
   .video-game-genders-box .video-game-genders-list {
     display: flex;
-    width: 100%;
     list-style: none;
     flex-flow: row wrap;
     font-weight: 750;
@@ -195,7 +195,7 @@
     margin-left: 5%;
     height: 50px;
     display: inline-flex;
-    flex:content;
+    flex: content;
   }
 
   .video-game-likes #thumb-rotate {
@@ -203,7 +203,7 @@
     height: 40px;
     width: 40px;
     opacity: 0;
-    z-index:10;
+    z-index: 10;
   }
 
   .thumb {
@@ -212,7 +212,7 @@
     transition: all 250ms 450ms ease-out;
   }
 
-  #thumb-rotate:checked + .thumb {
+  #thumb-rotate:checked+.thumb {
     transform: rotate(0.5turn);
     transition: all 250ms 450ms ease-in;
   }
@@ -236,20 +236,20 @@
     padding: 15px;
     width: 300px;
     background-color: rgb(235, 163, 39);
-    color: rgb(15,15,25)!important;
+    color: rgb(15, 15, 25) !important;
     box-shadow: 3px 2px 1px rgb(80, 80, 95);
     text-transform: uppercase;
     border-radius: 1.75em;
     font-weight: 800;
     transition: all 250ms 250ms ease-out;
-    cursor:pointer;
+    cursor: pointer;
   }
 
   .video-game-content #return-to-list:hover {
     transform: translate(5px, 2px);
     transition: all 250ms 350ms ease-in;
     box-shadow: none;
-    cursor:pointer;
+    cursor: pointer;
   }
 
   main .comment-form {
@@ -257,13 +257,13 @@
     background-color: rgb(235, 163, 39);
     box-shadow: 6px 4px 4px rgba(19, 35, 72, 0.25);
     margin-top: 50px;
-    margin-bottom:50px;
+    margin-bottom: 50px;
   }
 
   .comment-form h3 {
     text-align: center;
-    font-weight: 1500!important;
-    color:  rgb(15, 15, 25)!important;
+    font-weight: 1500 !important;
+    color: rgb(15, 15, 25) !important;
     padding: 20px 0px;
     font-size: 220%;
     text-transform: uppercase;
@@ -275,7 +275,7 @@
     font-weight: 650;
     font-size: 125%;
     display: flexbox;
-  } 
+  }
 
   form .form-group {
     width: 90%;
@@ -294,7 +294,7 @@
     width: 50%;
     margin-left: 2.5%;
     padding: 3px 10px;
-    border-radius:0.355em;
+    border-radius: 0.355em;
     font-size: 16px;
   }
 
@@ -306,7 +306,7 @@
   }
 
   form button {
-    font-size: 32px!important;
+    font-size: 32px !important;
     border-radius: 2em;
     margin-left: 40%;
     margin-top: 5px;
@@ -329,11 +329,11 @@
 
   main .comments-list {
     width: 100%;
-    margin-top:25px;
+    margin-top: 25px;
   }
 
   footer {
-    text-transform: none!important;
+    text-transform: none !important;
   }
 }
 
@@ -382,28 +382,29 @@
 
   .video-game-pres .users-grade {
     margin-left: 75.5%;
-    margin-top: -65px;
+    margin-top: -45px;
   }
 
   .video-game-pres .video-game-users-grade {
     position: absolute;
     margin-left: 80%;
-    margin-top:-35px;
+    margin-top: -15px;
     z-index: 50;
   }
 
-  .video-game-users-grade, .video-game-grade {
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 50px;
   }
 
   .video-game-pres .video-game-grade {
     margin-left: 60%;
-    margin-top:-35px;
+    margin-top: -15px;
   }
 
   .video-game-pres .perso-grade {
     margin-left: 55.5%;
-    margin-top: -65px;
+    margin-top: -45px;
   }
 
 
@@ -421,7 +422,7 @@
 
   .video-game-pres .video-game-box-zone {
     margin-left: -30px;
-    margin-top: -430px;
+    margin-top: -460px;
   }
 
   .video-game-box-zone .video-game-box {
@@ -434,9 +435,9 @@
   }
 
   .video-game-genders-box .video-game-genders-list {
+    width: 70%;
     display: flex;
     list-style: none;
-    flex-flow: row wrap;
     font-weight: 750;
   }
 
@@ -460,7 +461,7 @@
 
 
   .video-game-content h4 {
-    font-size:24px;
+    font-size: 24px;
   }
 
   .video-game-content .video-game-description,
@@ -473,9 +474,10 @@
     margin-left: 800px;
     margin-top: -80px;
   }
-  
-  footer h4, footer h5 {
-    text-transform: none!important;
+
+  footer h4,
+  footer h5 {
+    text-transform: none !important;
   }
 }
 
@@ -488,7 +490,7 @@
     margin-top: 200px;
   }
 
-  
+
   .video-game-card-theme {
     height: 450px;
     width: 100%;
@@ -535,7 +537,8 @@
     margin-top: 5px;
   }
 
-  .video-game-users-grade, .video-game-grade {
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 50px;
   }
 
@@ -575,7 +578,7 @@
   }
 
   .video-game-content h4 {
-    font-size:24px;
+    font-size: 24px;
   }
 
   .video-game-content .video-game-description,
@@ -583,12 +586,12 @@
     width: 85%;
     font-size: 15px;
   }
-  
+
   .video-game-content button {
     margin-left: 5%;
     margin-top: 15px;
     font-weight: 800;
-    cursor:pointer;
+    cursor: pointer;
   }
 }
 
@@ -648,7 +651,8 @@
     z-index: 50;
   }
 
-  .video-game-users-grade, .video-game-grade {
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 50px;
   }
 
@@ -687,7 +691,7 @@
   }
 
   .video-game-content h4 {
-    font-size:24px;
+    font-size: 24px;
   }
 
   .video-game-content .video-game-description,
@@ -706,12 +710,12 @@
     font-weight: 800;
     transition: all 250ms 250ms ease-out;
   }
-  
+
   .video-game-content #return-to-list:hover {
     transform: translate(5px, 2px);
     transition: all 250ms 350ms ease-in;
     box-shadow: none;
-    cursor:pointer;
+    cursor: pointer;
   }
 }
 
@@ -781,7 +785,8 @@
     margin-top: 60px;
   }
 
-  .video-game-users-grade, .video-game-grade {
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 50px;
   }
 
@@ -811,7 +816,7 @@
   }
 
   .video-game-content h4 {
-    font-size:24px;
+    font-size: 24px;
   }
 
   .video-game-content .video-game-description,
@@ -820,12 +825,12 @@
     font-size: 15px;
   }
 
-  
+
   .video-game-content #return-to-list {
     margin-left: 5%;
     margin-top: 15px;
     font-weight: 800;
-    cursor:pointer;
+    cursor: pointer;
   }
 }
 
@@ -840,12 +845,12 @@
 
 
   .video-game-card .video-game-card-theme {
-    width:100%;
+    width: 100%;
   }
 
   .video-game-card-theme img {
-    width:100%;
-    border:none; 
+    width: 100%;
+    border: none;
   }
 
 
@@ -868,7 +873,7 @@
   }
 
   .video-game-pres .users-grade {
-    margin-left:50%;
+    margin-left: 50%;
     margin-top: 60px;
   }
 
@@ -880,7 +885,7 @@
   }
 
   .video-game-pres .video-game-grade {
-    margin-left:17%;
+    margin-left: 17%;
     margin-top: 95px;
   }
 
@@ -889,7 +894,8 @@
     margin-top: 60px;
   }
 
-  .video-game-users-grade, .video-game-grade {
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 50px;
   }
 
@@ -932,7 +938,7 @@
   .video-game-content .video-game-advice {
     width: 95%;
     font-size: 16px;
-    margin-left:-15px;
+    margin-left: -15px;
   }
 
   .video-game-content button {
@@ -950,12 +956,12 @@
 
 
   .video-game-card .video-game-card-theme {
-    width:100%;
+    width: 100%;
   }
 
   .video-game-card-theme img {
-    width:100%;
-    border:none; 
+    width: 100%;
+    border: none;
   }
 
 
@@ -986,7 +992,7 @@
   }
 
   .video-game-pres .users-grade {
-    margin-left:49%;
+    margin-left: 49%;
     margin-top: 60px;
   }
 
@@ -998,7 +1004,7 @@
   }
 
   .video-game-pres .video-game-grade {
-    margin-left:10%;
+    margin-left: 10%;
     margin-top: 95px;
   }
 
@@ -1007,7 +1013,8 @@
     margin-top: 60px;
   }
 
-  .video-game-users-grade, .video-game-grade {
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 50px;
   }
 
@@ -1031,7 +1038,7 @@
     margin-left: 15px;
     margin-top: 175px;
   }
-  
+
   .video-game-genders-box .video-game-genders-list {
     margin-left: -50px;
     justify-content: center;
@@ -1041,10 +1048,10 @@
     width: 90px;
   }
 
-  
+
   .video-game-content {
     margin-top: 0px;
-    padding-bottom:90px;
+    padding-bottom: 90px;
   }
 
   .video-game-content h4 {
@@ -1055,7 +1062,7 @@
   .video-game-content .video-game-advice {
     width: 95%;
     font-size: 14px;
-    margin-left:-15px;
+    margin-left: -15px;
   }
 
   .video-game-content button {

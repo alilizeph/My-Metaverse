@@ -67,7 +67,8 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Liste des jeux vidéo";
+        echo "Liste des jeux vidéo
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -76,7 +77,7 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
 
     }
 
-    // line 5
+    // line 6
     public function block_head($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -86,8 +87,8 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "head"));
 
-        // line 6
-        echo "    <link rel=\"stylesheet\" href=\"";
+        // line 7
+        echo "\t<link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("./css/videogames/video-game-card-list.css"), "html", null, true);
         echo "\">
 ";
@@ -99,7 +100,7 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
 
     }
 
-    // line 8
+    // line 9
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -109,15 +110,15 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 9
-        echo "    <main>
-        
-        ";
-        // line 11
+        // line 10
+        echo "\t<main>
+
+\t\t";
+        // line 12
         $this->displayBlock('vglist', $context, $blocks);
-        // line 17
-        echo "        
-    </main>
+        // line 18
+        echo "
+\t</main>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -127,7 +128,7 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
 
     }
 
-    // line 11
+    // line 12
     public function block_vglist($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -137,10 +138,10 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "vglist"));
 
-        // line 12
-        echo "        ";
+        // line 13
+        echo "\t\t\t";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["videoGames"]) || array_key_exists("videoGames", $context) ? $context["videoGames"] : (function () { throw new RuntimeError('Variable "videoGames" does not exist.', 12, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["videoGames"]) || array_key_exists("videoGames", $context) ? $context["videoGames"] : (function () { throw new RuntimeError('Variable "videoGames" does not exist.', 13, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -155,11 +156,11 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["videoGame"]) {
-            // line 13
-            echo "            ";
-            $this->loadTemplate("./videogames/videogame-list-card.html.twig", "videogames/videogame-list.html.twig", 13)->display(twig_array_merge($context, ["videoGame" => $context["videoGame"]]));
             // line 14
-            echo "        ";
+            echo "\t\t\t\t";
+            $this->loadTemplate("./videogames/videogame-list-card.html.twig", "videogames/videogame-list.html.twig", 14)->display(twig_array_merge($context, ["videoGame" => $context["videoGame"]]));
+            // line 15
+            echo "\t\t\t";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -172,9 +173,9 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['videoGame'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 15
+        // line 16
         echo "
-        ";
+\t\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -204,7 +205,7 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  176 => 15,  162 => 14,  159 => 13,  141 => 12,  131 => 11,  119 => 17,  117 => 11,  113 => 9,  103 => 8,  90 => 6,  80 => 5,  61 => 4,  38 => 1,);
+        return array (  177 => 16,  163 => 15,  160 => 14,  142 => 13,  132 => 12,  120 => 18,  118 => 12,  114 => 10,  104 => 9,  91 => 7,  81 => 6,  61 => 4,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -212,21 +213,22 @@ class __TwigTemplate_4469da9b65e40c86628abf72f9563ecb extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 
-{% block title %}Liste des jeux vidéo{% endblock %}
+{% block title %}Liste des jeux vidéo
+{% endblock %}
 {% block  head %}
-    <link rel=\"stylesheet\" href=\"{{ asset('./css/videogames/video-game-card-list.css') }}\">
+\t<link rel=\"stylesheet\" href=\"{{ asset('./css/videogames/video-game-card-list.css') }}\">
 {% endblock %}
 {% block body %}
-    <main>
-        
-        {% block vglist %}
-        {% for videoGame in videoGames %}
-            {% include './videogames/videogame-list-card.html.twig' with {'videoGame' : videoGame } %}
-        {% endfor %}
+\t<main>
 
-        {% endblock %}
-        
-    </main>
+\t\t{% block vglist %}
+\t\t\t{% for videoGame in videoGames %}
+\t\t\t\t{% include './videogames/videogame-list-card.html.twig' with {'videoGame' : videoGame } %}
+\t\t\t{% endfor %}
+
+\t\t{% endblock %}
+
+\t</main>
 {% endblock %}
 ", "videogames/videogame-list.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\videogames\\videogame-list.html.twig");
     }

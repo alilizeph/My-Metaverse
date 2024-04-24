@@ -2,11 +2,11 @@
   main {
     margin-bottom: 25px;
     margin-top: 140px;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
   }
-  
+
   main .video-game-card {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -17,7 +17,7 @@
     text-transform: none;
     border: 3px solid rgb(235, 163, 39);
   }
-  
+
   h2,
   h3,
   h4,
@@ -26,11 +26,13 @@
     text-transform: uppercase;
   }
 
-  h2, h3, .perso-grade {
+  h2,
+  h3,
+  .perso-grade {
     color: rgb(220, 150, 25);
   }
 
-  
+
   .video-game-card .video-game-card-theme {
     width: 100%;
     border-bottom: 5px solid rgb(235, 163, 39);
@@ -40,24 +42,24 @@
   .video-game-card-theme img {
     border: 2px solid rgb(235, 163, 39);
   }
-  
+
 
   .video-game-card .video-game-card-head {
     margin-left: 40px;
   }
-  
+
   .video-game-card-head h3 {
     margin-bottom: 10px;
     margin-top: 15px;
     text-transform: uppercase;
   }
 
-  
+
   .video-game-card-head .name,
   .video-game-card-head .platform {
     margin-bottom: 10px;
   }
-  
+
 
   .video-game-card-head .perso-grade {
     position: absolute;
@@ -65,7 +67,7 @@
     text-transform: uppercase;
     font-size: 110%;
   }
-  
+
   .video-game-card-head .video-game-grade {
     height: 60px;
     width: 60px;
@@ -76,13 +78,13 @@
     box-shadow: 5px 3px 3px rgba(10, 10, 10, .25);
   }
 
-  
+
   .video-game-card-head span a {
     color: whitesmoke;
     margin-top: 10px;
     font-size: 16px;
   }
-  
+
 
   .video-game-card-head .video-game-box-zone {
     position: absolute;
@@ -90,25 +92,25 @@
     width: min-content;
     box-shadow: 5px 3px 3px rgba(10, 10, 10, .25);
   }
-  
+
   .video-game-box-zone .video-game-box {
     width: auto;
     border-radius: 3px;
     opacity: .85;
   }
-  
+
 
   .video-game-card-head .video-game-genders-box {
     font-weight: 750;
   }
-  
+
   .video-game-genders-box .video-game-genders-list {
     display: flex;
     list-style: none;
     flex-flow: row wrap;
     font-weight: 750;
   }
-  
+
   .video-game-genders-list .video-game-gender {
     padding: 5px;
     width: 200px;
@@ -120,13 +122,13 @@
     text-align: center;
     box-shadow: 2px 1px 2px rgb(30, 30, 40);
   }
-  
+
   .video-game-gender {
     width: 100%;
     text-align: center;
     font-weight: 750;
   }
-  
+
 
   .video-game-content {
     width: 95%;
@@ -134,18 +136,18 @@
     padding: 10px;
     padding-bottom: 25px;
   }
-  
+
   .video-game-content h4 {
     padding: 10px;
     font-weight: 800;
     text-transform: uppercase;
   }
-  
+
   .video-game-content .video-game-description,
   .video-game-content .video-game-advice {
     padding: 10px;
   }
-  
+
   .video-game-content .go-to-vg {
     font-size: 125%;
     border: none;
@@ -154,60 +156,61 @@
     width: 300px;
     background-color: rgb(235, 163, 39);
     text-decoration: none;
-    color:rgb(30, 30, 45);
+    color: rgb(30, 30, 45);
     text-transform: uppercase;
     border-radius: 2em;
     font-weight: 800;
     text-align: center;
     transition: all 250ms 250ms ease-out;
     box-shadow: 4px 3px 3px rgb(45, 45, 60);
-    cursor:pointer;
+    cursor: pointer;
   }
-  
+
   .video-game-content .go-to-vg:hover {
-    transform : translate(3px, 2px);
+    transform: translate(3px, 2px);
     box-shadow: none;
   }
-  
-  .comments-form, .comments-list {
+
+  .comments-form,
+  .comments-list {
     width: 100%;
   }
 }
-  
+
 
 
 @media (min-width:1400px) {
   .video-game-card {
     width: 80%;
   }
-  
+
   .video-game-card-theme img {
     height: 400px;
     width: 80%;
     margin-left: 10%;
   }
-  
+
   .video-game-head .video-game-pres {
     margin-left: 10px;
   }
-  
+
   .video-game-pres h3 {
     font-size: 26px;
   }
-  
+
 
   .video-game-pres .name,
   .video-game-pres .platform {
     font-size: 23px;
     font-weight: 800;
   }
-  
+
 
   .video-game-pres span {
     font-weight: 650;
     font-size: 17px;
   }
-  
+
   .video-game-pres span a {
     color: whitesmoke;
     margin-top: 10px;
@@ -224,55 +227,55 @@
 
   .video-game-grade {
     margin-left: 805px;
-    margin-top:-25px;
+    margin-top: -25px;
     font-size: 50px;
   }
 
   .video-game-pres .video-game-genders-box {
     width: 60%;
   }
-  
+
   .video-game-genders-box .video-game-genders-list {
-    margin-top:50px;
+    margin-top: 50px;
   }
 
   .video-game-gender {
     font-weight: 750;
   }
-  
+
 
   .video-game-content h4 {
-    font-size:24px;
+    font-size: 24px;
   }
-  
+
   .video-game-content .video-game-description,
   .video-game-content .video-game-advice {
     width: 75%;
     font-size: 18px;
   }
-  
+
   .video-game-content .go-to-vg {
     margin-left: 70%;
     margin-top: -25px;
     font-weight: 800;
   }
 }
-  
+
 
 
 @media(max-width:1399px) and (min-width:1300px) {
   .video-game-card {
     width: 85%;
-    margin-left:initial;
+    margin-left: initial;
     padding-bottom: 25px;
   }
-  
+
 
   .video-game-card-theme img {
     width: 80%;
-    margin-left:10%;
+    margin-left: 10%;
   }
- 
+
 
   .video-game-head .video-game-pres {
     margin-left: 10px;
@@ -282,9 +285,10 @@
   .video-game-pres h3 {
     font-size: 26px;
   }
-    
-  
-  .video-game-users-grade, .video-game-grade {
+
+
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 50px;
   }
 
@@ -292,7 +296,7 @@
     margin-left: 750px;
     margin-top: -25px;
   }
-  
+
   .video-game-pres .perso-grade {
     margin-left: 710px;
     margin-top: -60px;
@@ -302,12 +306,12 @@
   .video-game-pres .video-game-genders-box {
     width: 60%;
   }
-  
+
   .video-game-pres .video-game-genders-box .video-game-genders-list {
     margin-left: -5px;
     margin-top: 10px;
   }
-  
+
 
   .video-game-content h4 {
     font-size: 22px;
@@ -320,20 +324,20 @@
 }
 
 
-  
+
 @media (max-width:1299px) and (min-width:1200px) {
   .video-game-card {
     width: 85%;
     margin-left: 7.5%;
     padding-bottom: 25px;
   }
-  
+
 
   .video-game-card-theme img {
     width: 80%;
-    margin-left:10%;
+    margin-left: 10%;
   }
-  
+
 
   .video-game-head .video-game-pres {
     margin-left: 10px;
@@ -344,15 +348,16 @@
     font-size: 26px;
   }
 
-  
+
   .video-game-pres .name,
   .video-game-pres .platform {
     font-size: 22px;
     font-weight: 800;
   }
 
-  
-  .video-game-users-grade, .video-game-grade {
+
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 50px;
   }
 
@@ -360,12 +365,12 @@
     margin-left: 730px;
     margin-top: -25px;
   }
-  
+
   .video-game-pres .perso-grade {
     margin-left: 690px;
     margin-top: -60px;
   }
-  
+
   .perso-grade span a {
     color: whitesmoke;
     margin-top: 10px;
@@ -376,67 +381,68 @@
   .video-game-genders-box {
     width: 60%;
   }
-  
+
   .video-game-genders-box .video-game-genders-list {
     margin-left: -25px;
     margin-top: 40px;
-    width:100%;
+    width: 100%;
   }
-  
+
 
   .video-game-content h4 {
     font-size: 22px;
   }
-  
+
   .video-game-content .go-to-vg {
     margin-left: 67.5%;
     margin-top: -55px;
   }
 }
-  
-  
-  
+
+
+
 @media (max-width:1199px) and (min-width:993px) {
   .video-game-card {
     width: 90%;
     margin-left: 6.5%;
     padding-bottom: 75px;
   }
-  
+
 
   .video-game-card .video-game-card-theme img {
     margin-left: 5%;
     width: 90%;
   }
-  
+
 
   .video-game-head .video-game-pres {
     margin-left: 10px;
   }
-  
+
   .video-game-pres h3 {
     font-size: 24px;
   }
 
-  
+
   .video-game-pres .name,
   .video-game-pres .platform {
     font-size: 22px;
     font-weight: 800;
   }
 
-  
-  .video-game-users-grade, .video-game-grade {
+
+  .video-game-users-grade,
+  .video-game-grade {
     font-size: 42px;
-    width: 40px!important;
-    height: 40px!important;
+    width: 40px !important;
+    height: 40px !important;
   }
 
   .video-game-pres .video-game-grade {
     margin-left: 630px;
     margin-top: 5px;
   }
-  
+
   .video-game-pres .perso-grade {
     margin-left: 590px;
     margin-top: -30px;
@@ -446,92 +452,93 @@
   .video-game-genders-box {
     width: 60%;
   }
-  
+
   .video-game-genders-box .video-game-genders-list {
     margin-left: -5px;
     margin-top: 10px;
     padding-bottom: 50px;
   }
-  
+
 
   .video-game-content h4 {
     font-size: 22px;
   }
-  
+
   .video-game-content .go-to-vg {
     margin-left: 35%;
     margin-top: -50px;
   }
 }
-  
 
-  
+
+
 @media (max-width: 992px) and (min-width:768px) {
   .video-game-card {
     width: 98%;
     margin-left: 0.5%;
     padding-bottom: 25px;
   }
-  
+
 
   .video-game-card .video-game-card-theme img {
     margin-left: 5%;
     width: 90%;
   }
-  
-    .video-game-head .video-game-pres {
-      margin-left: 10px;
-    }
-  
-    .video-game-pres h3 {
-      font-size: 22px;
-    }
-  
-    .video-game-users-grade, .video-game-grade {
-      font-size: 42px;
-      width: 40px!important;
-      height: 40px!important;
-    }
-  
-    .video-game-pres .name,
-    .video-game-pres .platform {
-      font-size: 18px;
-      font-weight: 800;
-    }
 
-    .video-game-pres .video-game-grade {
-      margin-left: 50px;
-      margin-top: 75px;
-    }
-  
-    .video-game-pres .perso-grade {
-      margin-left: 0px;
-      margin-top: 50px;
-    }
-
-    .video-game-genders-box {
-      margin-top: 25px;
-      width: 95%;
-      padding-bottom: 50px;
-    }
-  
-    .video-game-genders-box .video-game-genders-list {
-      margin-left: 165px;
-      margin-top: 10px;
-    }
-  
-    .video-game-gender {
-      font-size: 16px!important;
-    }
-  
-    .video-game-content .go-to-vg {
-      margin-left: 25%;
-      font-size: 100%;
-      margin-top: -50px;
-    }
-
+  .video-game-head .video-game-pres {
+    margin-left: 10px;
   }
-  
+
+  .video-game-pres h3 {
+    font-size: 22px;
+  }
+
+  .video-game-users-grade,
+  .video-game-grade {
+    font-size: 42px;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .video-game-pres .name,
+  .video-game-pres .platform {
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .video-game-pres .video-game-grade {
+    margin-left: 50px;
+    margin-top: 75px;
+  }
+
+  .video-game-pres .perso-grade {
+    margin-left: 0px;
+    margin-top: 50px;
+  }
+
+  .video-game-genders-box {
+    margin-top: 25px;
+    width: 95%;
+    padding-bottom: 50px;
+  }
+
+  .video-game-genders-box .video-game-genders-list {
+    margin-left: 165px;
+    margin-top: 10px;
+  }
+
+  .video-game-gender {
+    font-size: 16px !important;
+  }
+
+  .video-game-content .go-to-vg {
+    margin-left: 25%;
+    font-size: 100%;
+    margin-top: -50px;
+  }
+
+}
+
 @media(max-width:767px) and (min-width:620px) {
   main {
     margin-top: 110px;
@@ -539,7 +546,7 @@
 
   main .video-game-card {
     width: 98%;
-    margin-left:0.5%;
+    margin-left: 0.5%;
     padding-bottom: 25px;
     height: auto;
     background-color: rgba(25, 25, 35, .4);
@@ -547,20 +554,20 @@
 
 
   .video-game-card .video-game-card-theme {
-    width:100%;
+    width: 100%;
   }
 
   .video-game-card-theme img {
-    width:100%;
-    border:none; 
+    width: 100%;
+    border: none;
   }
 
 
   .video-game-head {
     padding-top: 50px;
   }
-    
-  .video-game-head .video-game-pres {     
+
+  .video-game-head .video-game-pres {
     margin-left: 10px;
   }
 
@@ -568,27 +575,27 @@
     font-size: 24px;
     margin-top: 25px;
   }
-  
-    .video-game-pres .name,
-    .video-game-pres .platform {
-      font-size: 18px;
-      font-weight: 800;
-    }
 
-  
+  .video-game-pres .name,
+  .video-game-pres .platform {
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+
   .video-game-grade {
     font-size: 42px;
-    width: 40px!important;
-    height: 40px!important;
+    width: 40px !important;
+    height: 40px !important;
   }
-  
+
   .video-game-pres .video-game-grade {
     margin-left: 375px;
     margin-top: 0px;
   }
-  
+
   .video-game-pres .perso-grade {
-    margin-left: 325px;      
+    margin-left: 325px;
     margin-top: -25px;
     font-size: 18px;
   }
@@ -598,29 +605,29 @@
     margin-top: 40px;
     padding-bottom: 50px;
   }
-  
+
   .video-game-genders-box .video-game-genders-list {
     margin-left: -25px;
     margin-top: 25px;
     width: 125%;
     z-index: 20;
   }
-  
+
   .video-game-gender {
-    font-size: 16px!important;
-    width: 125px!important;
+    font-size: 16px !important;
+    width: 125px !important;
   }
-  
-    
+
+
   .video-game-content .go-to-vg {
     margin-left: 22.5%;
     font-size: 100%;
     margin-top: -40px;
-    width: 50%!important;
+    width: 50% !important;
   }
 }
-  
-  
+
+
 @media (max-width:619px) and (min-width:0px) {
   main {
     margin-top: 110px;
@@ -635,26 +642,26 @@
     background-color: rgba(25, 25, 35, .4);
   }
 
-  
+
   .video-game-card .video-game-card-theme {
-    width:100%;  
-  }
-  
-  .video-game-card-theme img {
-    width:100%;
-    border:none; 
+    width: 100%;
   }
 
-    
+  .video-game-card-theme img {
+    width: 100%;
+    border: none;
+  }
+
+
   .video-game-card-head .video-game-pres {
     margin-left: -20px;
   }
-  
+
   .video-game-pres h3 {
     font-size: 23px;
     margin-top: 25px;
   }
-  
+
   .video-game-pres h4 {
     font-size: 16px;
   }
@@ -672,46 +679,46 @@
 
 
   .video-game-grade {
-    font-size: 42px!important;
-    width: 40px!important;
-    height: 40px!important;
+    font-size: 42px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
-  
+
 
   .video-game-pres .video-game-grade {
     margin-left: 50px;
     margin-top: 80px;
   }
-  
+
   .video-game-pres .perso-grade {
     margin-left: 5px;
     margin-top: 50px;
     font-size: 18px;
   }
 
-    
+
   .video-game-genders-box {
     margin-top: 50px;
     padding-bottom: 50px;
     width: 100%;
   }
-  
+
   .video-game-genders-box .video-game-genders-list {
     margin-left: -5px;
     margin-top: 125px;
     width: 100%;
     z-index: 20;
   }
-  
+
   .video-game-gender {
-    font-size: 16px!important;
+    font-size: 16px !important;
   }
-  
+
 
   .video-game-content .go-to-vg {
     margin-left: 25%;
     font-size: 90%;
     margin-top: -50px;
-    width: 250px!important;
+    width: 250px !important;
   }
 }

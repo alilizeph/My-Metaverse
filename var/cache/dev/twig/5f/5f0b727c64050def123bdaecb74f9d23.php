@@ -67,10 +67,10 @@ class __TwigTemplate_7add27bd896d8be9b37c3d4ca85e416f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "head"));
 
         // line 4
-        echo "    <link rel=\"stylesheet\" href=\"";
+        echo "\t<link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("./css/landing-page/homepage.css"), "html", null, true);
         echo "\">
-    
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -90,7 +90,8 @@ class __TwigTemplate_7add27bd896d8be9b37c3d4ca85e416f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello DefaultController! Homepage";
+        echo "Hello DefaultController! Homepage
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -99,7 +100,7 @@ class __TwigTemplate_7add27bd896d8be9b37c3d4ca85e416f extends Template
 
     }
 
-    // line 10
+    // line 11
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -109,66 +110,66 @@ class __TwigTemplate_7add27bd896d8be9b37c3d4ca85e416f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 11
-        echo "<main>
-  ";
         // line 12
+        echo "\t<main>
+\t\t";
+        // line 13
         if (array_key_exists("errorAvatar", $context)) {
-            // line 13
-            echo "    <section>
-      <p>";
             // line 14
-            echo twig_escape_filter($this->env, (isset($context["errorAvatar"]) || array_key_exists("errorAvatar", $context) ? $context["errorAvatar"] : (function () { throw new RuntimeError('Variable "errorAvatar" does not exist.', 14, $this->source); })()), "html", null, true);
+            echo "\t\t\t<section>
+\t\t\t\t<p>";
+            // line 15
+            echo twig_escape_filter($this->env, (isset($context["errorAvatar"]) || array_key_exists("errorAvatar", $context) ? $context["errorAvatar"] : (function () { throw new RuntimeError('Variable "errorAvatar" does not exist.', 15, $this->source); })()), "html", null, true);
             echo "</p>
-    </section>
-  ";
+\t\t\t</section>
+\t\t";
         }
-        // line 17
-        echo "    <article class=\"popup hide\" >
-      <h2 class=\"hide-2\">Bienvenue sur My Metaverse</h2>
-      ";
-        // line 19
-        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 19, $this->source); })()), "user", [], "any", false, false, false, 19) && $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("AUTHENTICATED_FULLY"))) {
-            // line 20
-            echo "      <h3 class=\"hide-2\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 20, $this->source); })()), "user", [], "any", false, false, false, 20), "username", [], "any", false, false, false, 20), "html", null, true);
+        // line 18
+        echo "\t\t<article class=\"popup hide\">
+\t\t\t<h2 class=\"hide-2\">Bienvenue sur My Metaverse</h2>
+\t\t\t";
+        // line 20
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 20, $this->source); })()), "user", [], "any", false, false, false, 20) && $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("AUTHENTICATED_FULLY"))) {
+            // line 21
+            echo "\t\t\t\t<h3 class=\"hide-2\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 21, $this->source); })()), "user", [], "any", false, false, false, 21), "username", [], "any", false, false, false, 21), "html", null, true);
             echo "</h3>
-      ";
+\t\t\t";
         }
-        // line 22
-        echo "      <p class=\"hide-3\">
-        My Metaverse est un site Web de notation de jeu vidéo selon mes critères personnels.
-      </p>
-      <p class=\"hide-3\">
-        Il s'agit de mon tout 1er projet Symfony professionnel.
-        <br>J'ai donc choisi un sujet qui me plait beaucoup et qui peut être très intéressant à exploiter : les Jeux
-        Vidéos.
-      </p>
-      <p class=\"hide-3\">
-        Merci pour l'attention que vous portez à ce projet qui me plaît.
-      </p>
-      <button id=\"access\" class=\"hide-4\">Accéder aux avis</button>
-      <script>
-        let btn = document.getElementById('access');
-        btn.addEventListener('click', function() {
-          window.location.href=\"";
-        // line 37
+        // line 23
+        echo "\t\t\t<p class=\"hide-3\">
+\t\t\t\tMy Metaverse est un site Web de notation de jeu vidéo selon mes critères personnels.
+\t\t\t</p>
+\t\t\t<p class=\"hide-3\">
+\t\t\t\tIl s'agit de mon tout 1er projet Symfony professionnel.
+\t\t\t\t<br>J'ai donc choisi un sujet qui me plait beaucoup et qui peut être très intéressant à exploiter : les Jeux
+\t\t\t\t        Vidéos.
+\t\t\t</p>
+\t\t\t<p class=\"hide-3\">
+\t\t\t\tMerci pour l'attention que vous portez à ce projet qui me plaît.
+\t\t\t</p>
+\t\t\t<button id=\"access\" class=\"hide-4\">Accéder aux avis</button>
+\t\t\t<script>
+\t\t\t\tlet btn = document.getElementById('access');
+          btn.addEventListener('click', function () {
+          window.location.href =\"";
+        // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogames_list");
         echo "\";
-        })
-      </script>
-    </article>
-    ";
-        // line 41
+        });
+\t\t\t</script>
+\t\t</article>
+\t\t";
+        // line 42
         if (array_key_exists("videoGames", $context)) {
-            // line 42
-            echo "      <article class=\"carousel hide\">
-        <h2>exemples de jeux testés</h2>
-        <div class=\"carousel-inner\">
-            ";
-            // line 45
+            // line 43
+            echo "\t\t\t<article class=\"carousel hide\">
+\t\t\t\t<h2>exemples de jeux testés</h2>
+\t\t\t\t<div class=\"carousel-inner\">
+\t\t\t\t\t";
+            // line 46
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["videoGames"]) || array_key_exists("videoGames", $context) ? $context["videoGames"] : (function () { throw new RuntimeError('Variable "videoGames" does not exist.', 45, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["videoGames"]) || array_key_exists("videoGames", $context) ? $context["videoGames"] : (function () { throw new RuntimeError('Variable "videoGames" does not exist.', 46, $this->source); })()));
             $context['loop'] = [
               'parent' => $context['_parent'],
               'index0' => 0,
@@ -183,11 +184,11 @@ class __TwigTemplate_7add27bd896d8be9b37c3d4ca85e416f extends Template
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["videoGame"]) {
-                // line 46
-                echo "              ";
-                $this->loadTemplate("./default/videogame-carousel-card.html.twig", "default/index.html.twig", 46)->display(twig_array_merge($context, ["videoGame" => $context["videoGame"]]));
                 // line 47
-                echo "            ";
+                echo "\t\t\t\t\t\t";
+                $this->loadTemplate("./default/videogame-carousel-card.html.twig", "default/index.html.twig", 47)->display(twig_array_merge($context, ["videoGame" => $context["videoGame"]]));
+                // line 48
+                echo "\t\t\t\t\t";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
                 $context['loop']['first'] = false;
@@ -200,16 +201,16 @@ class __TwigTemplate_7add27bd896d8be9b37c3d4ca85e416f extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['videoGame'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 48
-            echo "        </div>
-      </article>
-    ";
+            // line 49
+            echo "\t\t\t\t</div>
+\t\t\t</article>
+\t\t";
         }
-        // line 51
-        echo "    ";
-        $this->loadTemplate("./default/contact-form.html.twig", "default/index.html.twig", 51)->display($context);
         // line 52
-        echo "  </main>
+        echo "\t\t";
+        $this->loadTemplate("./default/contact-form.html.twig", "default/index.html.twig", 52)->display($context);
+        // line 53
+        echo "\t</main>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -240,7 +241,7 @@ class __TwigTemplate_7add27bd896d8be9b37c3d4ca85e416f extends Template
      */
     public function getDebugInfo()
     {
-        return array (  212 => 52,  209 => 51,  204 => 48,  190 => 47,  187 => 46,  170 => 45,  165 => 42,  163 => 41,  156 => 37,  139 => 22,  133 => 20,  131 => 19,  127 => 17,  121 => 14,  118 => 13,  116 => 12,  113 => 11,  103 => 10,  84 => 8,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  213 => 53,  210 => 52,  205 => 49,  191 => 48,  188 => 47,  171 => 46,  166 => 43,  164 => 42,  157 => 38,  140 => 23,  134 => 21,  132 => 20,  128 => 18,  122 => 15,  119 => 14,  117 => 13,  114 => 12,  104 => 11,  84 => 8,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -248,55 +249,56 @@ class __TwigTemplate_7add27bd896d8be9b37c3d4ca85e416f extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block head %}
-    <link rel=\"stylesheet\" href=\"{{ asset('./css/landing-page/homepage.css') }}\">
-    
+\t<link rel=\"stylesheet\" href=\"{{ asset('./css/landing-page/homepage.css') }}\">
+
 {% endblock %}
 
-{% block title %}Hello DefaultController! Homepage{% endblock %}
+{% block title %}Hello DefaultController! Homepage
+{% endblock %}
 
 {% block body %}
-<main>
-  {% if errorAvatar is defined %}
-    <section>
-      <p>{{ errorAvatar }}</p>
-    </section>
-  {% endif %}
-    <article class=\"popup hide\" >
-      <h2 class=\"hide-2\">Bienvenue sur My Metaverse</h2>
-      {% if(app.user and is_granted('AUTHENTICATED_FULLY')) %}
-      <h3 class=\"hide-2\">{{ app.user.username }}</h3>
-      {% endif %}
-      <p class=\"hide-3\">
-        My Metaverse est un site Web de notation de jeu vidéo selon mes critères personnels.
-      </p>
-      <p class=\"hide-3\">
-        Il s'agit de mon tout 1er projet Symfony professionnel.
-        <br>J'ai donc choisi un sujet qui me plait beaucoup et qui peut être très intéressant à exploiter : les Jeux
-        Vidéos.
-      </p>
-      <p class=\"hide-3\">
-        Merci pour l'attention que vous portez à ce projet qui me plaît.
-      </p>
-      <button id=\"access\" class=\"hide-4\">Accéder aux avis</button>
-      <script>
-        let btn = document.getElementById('access');
-        btn.addEventListener('click', function() {
-          window.location.href=\"{{ path('videogames_list') }}\";
-        })
-      </script>
-    </article>
-    {% if videoGames is defined %}
-      <article class=\"carousel hide\">
-        <h2>exemples de jeux testés</h2>
-        <div class=\"carousel-inner\">
-            {% for videoGame in videoGames %}
-              {% include './default/videogame-carousel-card.html.twig' with {'videoGame' : videoGame } %}
-            {% endfor %}
-        </div>
-      </article>
-    {% endif %}
-    {% include(\"./default/contact-form.html.twig\") %}
-  </main>
+\t<main>
+\t\t{% if errorAvatar is defined %}
+\t\t\t<section>
+\t\t\t\t<p>{{ errorAvatar }}</p>
+\t\t\t</section>
+\t\t{% endif %}
+\t\t<article class=\"popup hide\">
+\t\t\t<h2 class=\"hide-2\">Bienvenue sur My Metaverse</h2>
+\t\t\t{% if(app.user and is_granted('AUTHENTICATED_FULLY')) %}
+\t\t\t\t<h3 class=\"hide-2\">{{ app.user.username }}</h3>
+\t\t\t{% endif %}
+\t\t\t<p class=\"hide-3\">
+\t\t\t\tMy Metaverse est un site Web de notation de jeu vidéo selon mes critères personnels.
+\t\t\t</p>
+\t\t\t<p class=\"hide-3\">
+\t\t\t\tIl s'agit de mon tout 1er projet Symfony professionnel.
+\t\t\t\t<br>J'ai donc choisi un sujet qui me plait beaucoup et qui peut être très intéressant à exploiter : les Jeux
+\t\t\t\t        Vidéos.
+\t\t\t</p>
+\t\t\t<p class=\"hide-3\">
+\t\t\t\tMerci pour l'attention que vous portez à ce projet qui me plaît.
+\t\t\t</p>
+\t\t\t<button id=\"access\" class=\"hide-4\">Accéder aux avis</button>
+\t\t\t<script>
+\t\t\t\tlet btn = document.getElementById('access');
+          btn.addEventListener('click', function () {
+          window.location.href =\"{{ path('videogames_list') }}\";
+        });
+\t\t\t</script>
+\t\t</article>
+\t\t{% if videoGames is defined %}
+\t\t\t<article class=\"carousel hide\">
+\t\t\t\t<h2>exemples de jeux testés</h2>
+\t\t\t\t<div class=\"carousel-inner\">
+\t\t\t\t\t{% for videoGame in videoGames %}
+\t\t\t\t\t\t{% include './default/videogame-carousel-card.html.twig' with {'videoGame' : videoGame } %}
+\t\t\t\t\t{% endfor %}
+\t\t\t\t</div>
+\t\t\t</article>
+\t\t{% endif %}
+\t\t{% include(\"./default/contact-form.html.twig\") %}
+\t</main>
 {% endblock %}
 ", "default/index.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\default\\index.html.twig");
     }

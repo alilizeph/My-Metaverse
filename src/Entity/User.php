@@ -19,7 +19,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[Vich\Uploadable]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
-{ 
+{
     /**
      * __________________________________________________________________________________________________________________________________________________________________________________________________________________________________
      *        |                  type                    |    property name    |                          constraints / Relations                   |                                informations
@@ -45,14 +45,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * __________________________________________________________________________________________________________________________________________________________________________________________________________________________________
      * 
      */
-   
-    
+
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 180, unique: true, options:[ "nullable" => false])]
+    #[ORM\Column(length: 180, unique: true, options: ["nullable" => false])]
     #[Assert\NotBlank]
     private ?string $username = null;
 
@@ -61,13 +61,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column()]
     #[Assert\Regex(
-        pattern:"/^(?=.*[0-9].*){3,}(?=.*[!@#$%^&*])(?=.*[A-Z].*[A-Z]).{8,15}$/",
-        message:"Pour votre sécurité, votre mot de passe doit :\n
+        pattern: "/^(?=.*[0-9].*){3,}(?=.*[!@#$%^&*])(?=.*[A-Z].*[A-Z]).{8,15}$/",
+        message: "Pour votre sécurité, votre mot de passe doit :\n
             - faire entre 8 et 15 caractères\n
             - poséder minimum 3 chiffres\n
             - posséder au moins 1 caractère spécial (# , @ , _ , - , \" , \\ , = , & , ...)\n
             - posséder minimum 2 majuscules."
-        )]
+    )]
     private array $roles = [];
 
     /**
@@ -77,23 +77,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank]
     private ?string $password = null;
 
-    #[ORM\Column(length: 255, options:[ "nullable" => false])]
+    #[ORM\Column(length: 255, options: ["nullable" => false])]
     #[Assert\NotBlank]
     private ?string $surname = null;
 
-    #[ORM\Column(length: 255, options:[ "nullable" => false])]
+    #[ORM\Column(length: 255, options: ["nullable" => false])]
     #[Assert\NotBlank]
     private ?string $firstName = null;
 
     #[Assert\Email(message: 'Adresse mail "{{ value }}" invalide.',)]
-    #[ORM\Column(length: 255, options:[ "nullable" => false])]
+    #[ORM\Column(length: 255, options: ["nullable" => false])]
     private ?string $email = null;
 
-    #[ORM\Column(length: 255, options:[ "nullable" => false, "required" => true])]
+    #[ORM\Column(length: 255, options: ["nullable" => false, "required" => true])]
     #[Assert\NotBlank]
     private ?string $gender = null;
 
-    #[ORM\Column(options:[ "nullable" => false, "required" => true])]
+    #[ORM\Column(options: ["nullable" => false, "required" => true])]
     #[Assert\NotBlank]
     private ?DateTime $birthday = null;
 
@@ -102,37 +102,45 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column()]
     private ?int $nbComments = null;
-    
+
     // the avatar upladed File
     #[Vich\UploadableField(mapping: 'user_avatars', fileNameProperty: 'avatarNewFileName', size: 'avatarFileSize')]
     private ?File $avatarFile = null;
 
-    #[ORM\Column(nullable:true)]
+    #[ORM\Column(nullable: true)]
     private ?string $avatarNewFileName = null;
 
-    #[ORM\Column(nullable:true)]
+    #[ORM\Column(nullable: true)]
     private ?int $avatarFileSize = null;
 
-    #[ORM\Column(length: 1555, options:[ "nullable" => true, "required" => false])]
+    #[ORM\Column(length: 1555, options: ["nullable" => true, "required" => false])]
     private ?string $presentation = null;
-    
-    #[ORM\Column(length: 255, options:["default" => false, "nullable" => false, "required" => false])]
+
+    #[ORM\Column(length: 255, options: ["default" => false, "nullable" => false, "required" => false])]
     private ?bool $isAdmin = false;
-    
-    #[ORM\Column(type:"boolean", options:["default" => false, "nullable" => false, "required" => false])]
+
+    #[ORM\Column(type: "boolean", options: ["default" => false, "nullable" => false, "required" => false])]
     private ?bool $isRegestered = true;
-    
-    #[ORM\ManyToMany(targetEntity:Likes::class, mappedBy:"users", cascade: ["persist"])]
+
+    #[ORM\ManyToMany(targetEntity: Likes::class, mappedBy: "users", cascade: ["persist"])]
     private Collection $likes;
 
-    #[ORM\OneToMany(targetEntity:Comments::class, mappedBy:"user", cascade: ["persist"])]
+    #[ORM\OneToMany(targetEntity: Comments::class, mappedBy: "user", cascade: ["persist"])]
     private Collection $comments;
-    
 
-    public function __construct(string $firstName = "", string $surname = "", string $email = "", 
-        string $username = "", string $pwd = "", string $gender = "Homme" | "Femme" | "Ielle" | "Indéterminé",
-        DateTime $birthday = new DateTime(), bool $isAdmin = false, string $presentation = "", bool $isRegestered = false)
-    {
+
+    public function __construct(
+        string $firstName = "",
+        string $surname = "",
+        string $email = "",
+        string $username = "",
+        string $pwd = "",
+        string $gender = "Homme" | "Femme" | "Ielle" | "Indéterminé",
+        DateTime $birthday = new DateTime(),
+        bool $isAdmin = false,
+        string $presentation = "",
+        bool $isRegestered = false
+    ) {
 
         $this->firstName = $firstName;
         $this->surname = $surname;
@@ -142,19 +150,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->gender = $gender;
         $this->birthday = $birthday;
         //$this->isAdmin = $isAdmin;
-        
+
         $this->setIsAdmin($isAdmin);
         $this->nbLikes = 0;
         $this->nbComments = 0;
         $this->isRegestered = $isRegestered;
 
-        if($presentation)
+        if ($presentation)
             $this->presentation = $presentation;
         else
             $this->presentation = "";
 
-         
-        
+
+
         $this->likes = new ArrayCollection();
 
         $this->comments = new ArrayCollection();
@@ -204,7 +212,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setEmail(string $email): static
     {
-        if(preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email)) {
+        if (preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email)) {
             $this->email = $email;
             return $this;
         } else {
@@ -275,10 +283,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setGender(string $gender): static
     {
-        if($gender == 'Homme' || $gender == 'Femme' || $gender == 'Indéterminé' || $gender == 'Ielle')
+        if ($gender == 'Homme' || $gender == 'Femme' || $gender == 'Indéterminé' || $gender == 'Ielle')
             $this->gender = $gender;
         else
-            throw new Error('Erreur avec la valeur du genre : "'.$gender.'" saisie !');
+            throw new Error('Erreur avec la valeur du genre : "' . $gender . '" saisie !');
 
         return $this;
     }
@@ -319,19 +327,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /*
-    public function getAvatar(): ?AvatarPicture
-    {
-        return $this->avatar;
-    }
-
-    public function setAvatar(?AvatarPicture $avatar): static
-    {
-        $this->avatar = $avatar;
-
-        return $this;
-    }*/
-
     public function getPresentation(): ?string
     {
         return $this->presentation;
@@ -353,18 +348,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->isAdmin = $isAdmin;
 
-        if($isAdmin) {
+        if ($isAdmin) {
             $this->roles[] = 'ROLE_ADMIN';
-        }   
+        }
 
         return $this;
     }
 
-    public function isRegistered(): bool {
+    public function isRegistered(): bool
+    {
         return $this->isRegestered;
     }
 
-    public function setIsRegistered(bool $isRegestered): static {
+    public function setIsRegistered(bool $isRegestered): static
+    {
         $this->isRegestered = $isRegestered;
         return $this;
     }
@@ -405,7 +402,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get the value of avatarFile
-     */ 
+     */
     public function getAvatarFile()
     {
         return $this->avatarFile;
@@ -415,7 +412,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of avatarFile
      *
      * @return  self
-     */ 
+     */
     public function setAvatarFile($avatarFile)
     {
         $this->avatarFile = $avatarFile;
@@ -425,7 +422,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get the value of avatarFileSize
-     */ 
+     */
     public function getAvatarFileSize()
     {
         return $this->avatarFileSize;
@@ -435,7 +432,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of avatarFileSize
      *
      * @return  self
-     */ 
+     */
     public function setAvatarFileSize($avatarFileSize)
     {
         $this->avatarFileSize = $avatarFileSize;
@@ -445,7 +442,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get the value of avatarNewFileName
-     */ 
+     */
     public function getAvatarNewFileName()
     {
         return $this->avatarNewFileName;
@@ -455,7 +452,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of avatarNewFileName
      *
      * @return  self
-     */ 
+     */
     public function setAvatarNewFileName($avatarNewFileName)
     {
         $this->avatarNewFileName = $avatarNewFileName;
@@ -463,7 +460,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function updateAvatarNewFileName() {
-        $this->setAvatarNewFileName($this->avatarFile->getFilename().'.'.$this->avatarFile->getExtension());
+    public function updateAvatarNewFileName()
+    {
+        $this->setAvatarNewFileName($this->avatarFile->getFilename() . '.' . $this->avatarFile->getExtension());
     }
 }

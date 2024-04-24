@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Platform;
 use App\Entity\VideoGame;
 use App\Form\AdminNewVideoGameFormType;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,18 +18,30 @@ class AdminController extends AbstractController
     public function admin(EntityManagerInterface $em): Response
     {
         $videoGamesList = $em->getRepository(VideoGame::class)->findAll();
-
+        $user = $this->getUser();
         return $this->render('admin/admin-home.html.twig', [
             'controller_name' => 'AdminController',
-            'videogames' => $videoGamesList
+            'videogames' => $videoGamesList,
+            'user' => $user
         ]);
     }
 
     #[Route('/admin/new', name:'app_admin_new', methods:["GET", "POST"])]
-    public function  adminAddVideoGame(Request $request, EntityManagerInterface $em): Response
+    public function adminAddVideoGame(Request $request, EntityManagerInterface $em): Response
     {
         $videoGame = new VideoGame();
-        $form = $this->createForm(AdminNewVideoGameFormType::class);
+        $platforms = $em->getRepository(Platform::class)->findAll();
+        $form = $this->createForm(
+            AdminNewVideoGameFormType::class,
+            $videoGame, [
+                'attr' => [
+                    'enctype' => 'multipart/form-data'
+                ]
+                ]
+                ,
+        );
+
+        $isAvailable = $form->get('disponibility')->getData();
 
         $form->handleRequest($request);
 
@@ -35,16 +49,15 @@ class AdminController extends AbstractController
             $em->persist($videoGame);
             $em->flush();
 
-            return $this->redirectToRoute('videogame_card', 
-                [
-                    'id' => $videoGame->getId()
-                ]
+            return $this->redirectToRoute('videogames_list'
             );
         }
 
         return $this->render('admin/admin-add-videogame.html.twig', [
             'controller_name' => 'AdminController',
-            'form' => $form
+            'form' => $form->createView(),
+            'dispo' => $isAvailable,
+            'platforms' => $platforms
         ]);
     }
 

@@ -1,43 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ asset('./css/users/registration.css') }}">
+	<link rel="stylesheet" href="{{ asset('./css/users/edit-user-form.css') }}">
 {% endblock %}
 {% block body %}
-    <article class="registration-card">
-        <h3>Changement d'informations</h3>
-        <h5>{{ user.username }}</h5>
-        <h5>{{ user.email }}</h5>
-        {{ form_start('form') }}
-            <section class="form-group">
-                {{ form_label('form.surname') }}
-                {{ form_widget('form.surname') }}
-            </section>
-            <section class="form-group">
-                {{ form_label('form.firstName') }}
-                {{ form_widget('form.firstName') }}
-            </section>
-            <section class="form-group">
-                {{ form_label('form.password') }}
-                {{ form_widget('form.password') }}
-            </section>
-            <section class="form-group">
-                {{ form_label('form.birthday') }}
-                {{ form_widget('form.birthday') }}
-            </section>
-            <section class="form-group">
-                {{ form_label('form.gender') }}
-                {{ form_widget('form.gender') }}
-            </section>
-            <section class="form-group">
-                {{ form_label('form.presentation') }}
-                {{ form_widget('form.presentation') }}
-            </section>
-            <section class="form-group">
-                {{ form_label('form.avatarFile') }}
-                {{ form_widget('form.avatarFile') }}
-            </section>
-            <button type="submit" id="confirm">Confirmer<button>
-        {{ form_end('form') }}
-    </article>
+	<main>
+		<article class="registration-card">
+			<h3>Changement d'informations</h3>
+			<h5>{{ user.username }}</h5>
+			<h5>{{ user.email }}</h5>
+			{{ form_start(form) }}
+				<section class="form-group">
+					{{ form_label(form.surname) }}
+					{{ form_widget(form.surname) }}
+				</section>
+				<section class="form-group">
+					{{ form_label(form.firstName) }}
+					{{ form_widget(form.firstName) }}
+				</section>
+				<section class="form-group">
+					{{ form_label(form.birthday) }}
+					{{ form_widget(form.birthday) }}
+				</section>
+				<section class="form-group">
+					{{ form_label(form.gender) }}
+					{{ form_widget(form.gender) }}
+				</section>
+				<section class="form-group">
+					{{ form_label(form.presentation) }}
+					{{ form_widget(form.presentation) }}
+				</section>
+				<p id="last-presentation"><span>Précédente présentation : </span><br>
+					{{ presentation }}</p>
+				<section class="form-group">
+					{{ form_label(form.avatarFile) }}
+					{{ form_widget(form.avatarFile) }}
+				</section>
+			{{ form_end(form) }}
+		</article>
+	</main>
 {% endblock %}

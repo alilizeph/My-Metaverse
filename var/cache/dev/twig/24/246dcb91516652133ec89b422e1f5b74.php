@@ -49,169 +49,171 @@ class __TwigTemplate_be743ce8fa3c5ca345261d6152a61059 extends Template
         echo "
 <!DOCTYPE html>
 <html lang=\"fr\">
-  <head>
-    <meta charset=\"utf-8\">
-    <title>My Metaverse</title>
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-    <meta name=\"description\" content=\"My Metaverse est un site de critiques de jeux vidéo, basées sur mes critères, mes ressentis et expériences personnelles. Vous aurez la possibilité de vous-mêmes donner votre avis sur le jeu pour enrichir le contenu de ce site Web.\">
-    <meta name=\"keywords\" content=\"Projet Symfony, Premier projet, first project, Symfony project, Critiques, Jeux Vidéo, videogames, Critiques de Jeux, Critiques, avis, classements\">
-    <meta name=\"author\" content=\"BUFFARD Alexandre - alilizeph\">
-    <meta name=\"copyright\" content=\"BUFFARD Alexandre - alilizeph\">
-    <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+\t<head>
+\t\t<meta charset=\"utf-8\">
+\t\t<title>My Metaverse</title>
+\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+\t\t<meta name=\"description\" content=\"My Metaverse est un site de critiques de jeux vidéo, basées sur mes critères, mes ressentis et expériences personnelles. Vous aurez la possibilité de vous-mêmes donner votre avis sur le jeu pour enrichir le contenu de ce site Web.\">
+\t\t<meta name=\"keywords\" content=\"Projet Symfony, Premier projet, first project, Symfony project, Critiques, Jeux Vidéo, videogames, Critiques de Jeux, Critiques, avis, classements\">
+\t\t<meta name=\"author\" content=\"BUFFARD Alexandre - alilizeph\">
+\t\t<meta name=\"copyright\" content=\"BUFFARD Alexandre - alilizeph\">
+\t\t<link rel=\"icon\" type=\"image/x-icon\" href=\"";
         // line 13
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\">
-    <link rel=\"stylesheet\" href=\"";
+\t\t<link rel=\"stylesheet\" href=\"";
         // line 14
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/reset.css"), "html", null, true);
         echo "\">
-    <link rel=\"stylesheet\" href=\"";
+\t\t<link rel=\"stylesheet\" href=\"";
         // line 15
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/styles.css"), "html", null, true);
         echo "\">
-    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"> 
-    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-    <link href=\"https://fonts.googleapis.com/css2?family=Poppins&display=swap\" rel=\"stylesheet\">
-    <script src=\"";
+\t\t<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
+\t\t<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
+\t\t<link href=\"https://fonts.googleapis.com/css2?family=Poppins&display=swap\" rel=\"stylesheet\">
+\t\t<script src=\"";
         // line 19
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("javascript/app.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
-    
-    <link rel=\"stylesheet\" href=\"";
+
+\t\t<link rel=\"stylesheet\" href=\"";
         // line 21
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("./css/animated-block.css"), "html", null, true);
         echo "\">
-    ";
+\t\t";
         // line 22
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 25
-        echo "    ";
+        echo "\t\t";
         $this->displayBlock('javascripts', $context, $blocks);
         // line 29
         echo "
-    ";
+\t\t";
         // line 30
         $this->displayBlock('head', $context, $blocks);
-        // line 32
+        // line 31
         echo "
-  </head>
-  <body>
-    <header>
-      <img src=\"";
-        // line 36
+\t</head>
+\t<body>
+\t\t<header>
+\t\t\t<img src=\"";
+        // line 35
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/test.png"), "html", null, true);
         echo "\" alt=\"logo de My Metaverse\" id=\"logo\">
-      
-      <input type=\"checkbox\" name=\"burger-menu\" id=\"menu-burger\">
-      <div id=\"menu-icon\">
-        <span></span>
-      </div>
-      <nav>
-        <ul>
-          <li ";
+
+\t\t\t<input type=\"checkbox\" name=\"burger-menu\" id=\"menu-burger\">
+\t\t\t<div id=\"menu-icon\">
+\t\t\t\t<span></span>
+\t\t\t</div>
+\t\t\t<nav>
+\t\t\t\t<ul>
+\t\t\t\t\t<li ";
+        // line 43
+        if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 43, $this->source); })()) == "homepage")) {
+            echo " class=\"active\" ";
+        }
+        echo ">
+\t\t\t\t\t\t<a href=\"";
         // line 44
-        if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 44, $this->source); })()) == "homepage")) {
-            echo " class=\"active\"";
-        }
-        echo ">
-            <a href=\"";
-        // line 45
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
-        echo "\" >Accueil</a>
-          </li>
-          <li ";
-        // line 47
-        if ((((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 47, $this->source); })()) == "videogames_list") || ((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 47, $this->source); })()) == "videogame_card"))) {
-            echo " class=\"active\"";
+        echo "\">Accueil</a>
+\t\t\t\t\t</li>
+\t\t\t\t\t<li ";
+        // line 46
+        if ((((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 46, $this->source); })()) == "videogames_list") || ((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 46, $this->source); })()) == "videogame_card"))) {
+            echo " class=\"active\" ";
         }
         echo ">
-            <a href=\"";
-        // line 48
+\t\t\t\t\t\t<a href=\"";
+        // line 47
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogames_list");
         echo "\">Mes critiques</a>
-          </li>
-          ";
-        // line 50
+\t\t\t\t\t</li>
+\t\t\t\t\t";
+        // line 49
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 51
-            echo "          <li ";
-            if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 51, $this->source); })()) == "app_admin")) {
-                echo " class=\"active\"";
+            // line 50
+            echo "\t\t\t\t\t\t<li ";
+            if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 50, $this->source); })()) == "app_admin")) {
+                echo " class=\"active\" ";
             }
             echo ">
-            <a href=\"";
-            // line 52
+\t\t\t\t\t\t\t<a href=\"";
+            // line 51
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin");
             echo "\">Espace administrateur</a>
-          </li>
-          ";
+\t\t\t\t\t\t</li>
+\t\t\t\t\t";
         }
-        // line 55
-        echo "          ";
+        // line 54
+        echo "\t\t\t\t\t";
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 56
-            echo "          <li ";
-            if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 56, $this->source); })()) == "user_public_profile")) {
-                echo " class=\"active\"";
+            // line 55
+            echo "\t\t\t\t\t\t<li ";
+            if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 55, $this->source); })()) == "user_public_profile")) {
+                echo " class=\"active\" ";
             }
             echo ">
-            <a href=\"";
-            // line 57
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_private_profile", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 57, $this->source); })()), "user", [], "any", false, false, false, 57), "id", [], "any", false, false, false, 57)]), "html", null, true);
+\t\t\t\t\t\t\t<a href=\"";
+            // line 56
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_private_profile", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 56, $this->source); })()), "user", [], "any", false, false, false, 56), "id", [], "any", false, false, false, 56)]), "html", null, true);
             echo "\">Mon Profil</a>
-          </li>
-          <li>
-            <a href=\"";
-            // line 60
+\t\t\t\t\t\t</li>
+\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t<a href=\"";
+            // line 59
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Déconnexion</a>
-          </li>
-          ";
+\t\t\t\t\t\t</li>
+\t\t\t\t\t";
         } else {
-            // line 63
-            echo "          <li ";
-            if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 63, $this->source); })()) == "app_registration")) {
-                echo " class=\"active\"";
+            // line 62
+            echo "\t\t\t\t\t\t<li ";
+            if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 62, $this->source); })()) == "app_registration")) {
+                echo " class=\"active\" ";
             }
             echo ">
-            <a href=\"";
-            // line 64
+\t\t\t\t\t\t\t<a href=\"";
+            // line 63
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_registration");
             echo "\">S'inscrire</a>
-          </li>
-          <li ";
-            // line 66
-            if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 66, $this->source); })()) == "app_login")) {
-                echo " class=\"active\"";
+\t\t\t\t\t\t</li>
+\t\t\t\t\t\t<li ";
+            // line 65
+            if (((isset($context["current_page"]) || array_key_exists("current_page", $context) ? $context["current_page"] : (function () { throw new RuntimeError('Variable "current_page" does not exist.', 65, $this->source); })()) == "app_login")) {
+                echo " class=\"active\" ";
             }
             echo ">
-            <a href=\"";
-            // line 67
+\t\t\t\t\t\t\t<a href=\"";
+            // line 66
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Connexion</a>
-          </li>
-          ";
+\t\t\t\t\t\t</li>
+\t\t\t\t\t";
         }
-        // line 70
-        echo "        </ul>
-      </nav>
-    </header>
-      ";
-        // line 73
+        // line 69
+        echo "\t\t\t\t</ul>
+\t\t\t</nav>
+\t\t</header>
+\t\t";
+        // line 72
         $this->displayBlock('body', $context, $blocks);
-        // line 74
-        echo "      <footer>
-        <section>
-          <h4>Copyright © 2023-2024 BUFFARD Alexandre</h4>
-          <h5>Licence CC Creative Commons BY-NC</h5>
-          <h5>Contact: <a href=\"mailto:buffardalex492@hotmail.fr\">buffardalex492@hotmail.fr</a></h5>
-        </section>
-        <img src=\"";
-        // line 80
+        // line 73
+        echo "\t\t<footer>
+\t\t\t<section>
+\t\t\t\t<h4>Copyright © 2023-2024 BUFFARD Alexandre</h4>
+\t\t\t\t<h5>Licence CC Creative Commons BY-NC</h5>
+\t\t\t\t<h5>Contact:
+\t\t\t\t\t<a href=\"mailto:buffardalex492@hotmail.fr\">buffardalex492@hotmail.fr</a>
+\t\t\t\t</h5>
+\t\t\t</section>
+\t\t\t<img src=\"";
+        // line 81
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("./img/by-nc.png"), "html", null, true);
         echo "\" alt=\"Licence Creative Commons BY-NC\">
-      </footer>
-  </body>
+\t\t</footer>
+\t</body>
 </html>
 ";
         
@@ -233,10 +235,10 @@ class __TwigTemplate_be743ce8fa3c5ca345261d6152a61059 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 23
-        echo "        ";
+        echo "\t\t\t";
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_link_tags')->getCallable()("app"), "html", null, true);
         echo "
-    ";
+\t\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -256,11 +258,11 @@ class __TwigTemplate_be743ce8fa3c5ca345261d6152a61059 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 26
-        echo "        ";
+        echo "\t\t\t";
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_script_tags')->getCallable()("app"), "html", null, true);
         echo "
-        
-    ";
+
+\t\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -279,8 +281,6 @@ class __TwigTemplate_be743ce8fa3c5ca345261d6152a61059 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "head"));
 
-        // line 31
-        echo "    ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -289,7 +289,7 @@ class __TwigTemplate_be743ce8fa3c5ca345261d6152a61059 extends Template
 
     }
 
-    // line 73
+    // line 72
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -328,7 +328,7 @@ class __TwigTemplate_be743ce8fa3c5ca345261d6152a61059 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  293 => 73,  283 => 31,  273 => 30,  259 => 26,  249 => 25,  236 => 23,  226 => 22,  211 => 80,  203 => 74,  201 => 73,  196 => 70,  190 => 67,  184 => 66,  179 => 64,  172 => 63,  166 => 60,  160 => 57,  153 => 56,  150 => 55,  144 => 52,  137 => 51,  135 => 50,  130 => 48,  124 => 47,  119 => 45,  113 => 44,  102 => 36,  96 => 32,  94 => 30,  91 => 29,  88 => 25,  86 => 22,  82 => 21,  77 => 19,  70 => 15,  66 => 14,  62 => 13,  49 => 2,  47 => 1,);
+        return array (  293 => 72,  275 => 30,  261 => 26,  251 => 25,  238 => 23,  228 => 22,  213 => 81,  203 => 73,  201 => 72,  196 => 69,  190 => 66,  184 => 65,  179 => 63,  172 => 62,  166 => 59,  160 => 56,  153 => 55,  150 => 54,  144 => 51,  137 => 50,  135 => 49,  130 => 47,  124 => 46,  119 => 44,  113 => 43,  102 => 35,  96 => 31,  94 => 30,  91 => 29,  88 => 25,  86 => 22,  82 => 21,  77 => 19,  70 => 15,  66 => 14,  62 => 13,  49 => 2,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -337,84 +337,85 @@ class __TwigTemplate_be743ce8fa3c5ca345261d6152a61059 extends Template
 
 <!DOCTYPE html>
 <html lang=\"fr\">
-  <head>
-    <meta charset=\"utf-8\">
-    <title>My Metaverse</title>
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-    <meta name=\"description\" content=\"My Metaverse est un site de critiques de jeux vidéo, basées sur mes critères, mes ressentis et expériences personnelles. Vous aurez la possibilité de vous-mêmes donner votre avis sur le jeu pour enrichir le contenu de ce site Web.\">
-    <meta name=\"keywords\" content=\"Projet Symfony, Premier projet, first project, Symfony project, Critiques, Jeux Vidéo, videogames, Critiques de Jeux, Critiques, avis, classements\">
-    <meta name=\"author\" content=\"BUFFARD Alexandre - alilizeph\">
-    <meta name=\"copyright\" content=\"BUFFARD Alexandre - alilizeph\">
-    <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('favicon.ico') }}\">
-    <link rel=\"stylesheet\" href=\"{{ asset('css/reset.css') }}\">
-    <link rel=\"stylesheet\" href=\"{{ asset(\"css/styles.css\") }}\">
-    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"> 
-    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-    <link href=\"https://fonts.googleapis.com/css2?family=Poppins&display=swap\" rel=\"stylesheet\">
-    <script src=\"{{ asset('javascript/app.js') }}\" type=\"text/javascript\"></script>
-    
-    <link rel=\"stylesheet\" href=\"{{ asset('./css/animated-block.css') }}\">
-    {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-    {% endblock %}
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-        
-    {% endblock %}
+\t<head>
+\t\t<meta charset=\"utf-8\">
+\t\t<title>My Metaverse</title>
+\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+\t\t<meta name=\"description\" content=\"My Metaverse est un site de critiques de jeux vidéo, basées sur mes critères, mes ressentis et expériences personnelles. Vous aurez la possibilité de vous-mêmes donner votre avis sur le jeu pour enrichir le contenu de ce site Web.\">
+\t\t<meta name=\"keywords\" content=\"Projet Symfony, Premier projet, first project, Symfony project, Critiques, Jeux Vidéo, videogames, Critiques de Jeux, Critiques, avis, classements\">
+\t\t<meta name=\"author\" content=\"BUFFARD Alexandre - alilizeph\">
+\t\t<meta name=\"copyright\" content=\"BUFFARD Alexandre - alilizeph\">
+\t\t<link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('favicon.ico') }}\">
+\t\t<link rel=\"stylesheet\" href=\"{{ asset('css/reset.css') }}\">
+\t\t<link rel=\"stylesheet\" href=\"{{ asset(\"css/styles.css\") }}\">
+\t\t<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
+\t\t<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
+\t\t<link href=\"https://fonts.googleapis.com/css2?family=Poppins&display=swap\" rel=\"stylesheet\">
+\t\t<script src=\"{{ asset('javascript/app.js') }}\" type=\"text/javascript\"></script>
 
-    {%block head %}
-    {% endblock %}
+\t\t<link rel=\"stylesheet\" href=\"{{ asset('./css/animated-block.css') }}\">
+\t\t{% block stylesheets %}
+\t\t\t{{ encore_entry_link_tags('app') }}
+\t\t{% endblock %}
+\t\t{% block javascripts %}
+\t\t\t{{ encore_entry_script_tags('app') }}
 
-  </head>
-  <body>
-    <header>
-      <img src=\"{{ asset('img/test.png') }}\" alt=\"logo de My Metaverse\" id=\"logo\">
-      
-      <input type=\"checkbox\" name=\"burger-menu\" id=\"menu-burger\">
-      <div id=\"menu-icon\">
-        <span></span>
-      </div>
-      <nav>
-        <ul>
-          <li {% if current_page == 'homepage' %} class=\"active\"{% endif %}>
-            <a href=\"{{ path('homepage') }}\" >Accueil</a>
-          </li>
-          <li {% if current_page == 'videogames_list' or current_page == 'videogame_card' %} class=\"active\"{% endif %}>
-            <a href=\"{{ path('videogames_list')}}\">Mes critiques</a>
-          </li>
-          {% if is_granted('ROLE_ADMIN') %}
-          <li {% if current_page == 'app_admin' %} class=\"active\"{% endif %}>
-            <a href=\"{{ path('app_admin') }}\">Espace administrateur</a>
-          </li>
-          {% endif %}
-          {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-          <li {% if current_page == 'user_public_profile' %} class=\"active\"{% endif %}>
-            <a href=\"{{ path('user_private_profile', {'id': app.user.id }) }}\">Mon Profil</a>
-          </li>
-          <li>
-            <a href=\"{{ path('app_logout') }}\">Déconnexion</a>
-          </li>
-          {% else %}
-          <li {% if current_page == 'app_registration' %} class=\"active\"{% endif %}>
-            <a href=\"{{ path('app_registration') }}\">S'inscrire</a>
-          </li>
-          <li {% if current_page == 'app_login' %} class=\"active\"{% endif %}>
-            <a href=\"{{ path('app_login') }}\">Connexion</a>
-          </li>
-          {% endif %}
-        </ul>
-      </nav>
-    </header>
-      {% block body %}{% endblock %}
-      <footer>
-        <section>
-          <h4>Copyright © 2023-2024 BUFFARD Alexandre</h4>
-          <h5>Licence CC Creative Commons BY-NC</h5>
-          <h5>Contact: <a href=\"mailto:buffardalex492@hotmail.fr\">buffardalex492@hotmail.fr</a></h5>
-        </section>
-        <img src=\"{{ asset('./img/by-nc.png') }}\" alt=\"Licence Creative Commons BY-NC\">
-      </footer>
-  </body>
+\t\t{% endblock %}
+
+\t\t{%block head %}{% endblock %}
+
+\t</head>
+\t<body>
+\t\t<header>
+\t\t\t<img src=\"{{ asset('img/test.png') }}\" alt=\"logo de My Metaverse\" id=\"logo\">
+
+\t\t\t<input type=\"checkbox\" name=\"burger-menu\" id=\"menu-burger\">
+\t\t\t<div id=\"menu-icon\">
+\t\t\t\t<span></span>
+\t\t\t</div>
+\t\t\t<nav>
+\t\t\t\t<ul>
+\t\t\t\t\t<li {% if current_page == 'homepage' %} class=\"active\" {% endif %}>
+\t\t\t\t\t\t<a href=\"{{ path('homepage') }}\">Accueil</a>
+\t\t\t\t\t</li>
+\t\t\t\t\t<li {% if current_page == 'videogames_list' or current_page == 'videogame_card' %} class=\"active\" {% endif %}>
+\t\t\t\t\t\t<a href=\"{{ path('videogames_list')}}\">Mes critiques</a>
+\t\t\t\t\t</li>
+\t\t\t\t\t{% if is_granted('ROLE_ADMIN') %}
+\t\t\t\t\t\t<li {% if current_page == 'app_admin' %} class=\"active\" {% endif %}>
+\t\t\t\t\t\t\t<a href=\"{{ path('app_admin') }}\">Espace administrateur</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t{% endif %}
+\t\t\t\t\t{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+\t\t\t\t\t\t<li {% if current_page == 'user_public_profile' %} class=\"active\" {% endif %}>
+\t\t\t\t\t\t\t<a href=\"{{ path('user_private_profile', {'id': app.user.id }) }}\">Mon Profil</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t<a href=\"{{ path('app_logout') }}\">Déconnexion</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t{% else %}
+\t\t\t\t\t\t<li {% if current_page == 'app_registration' %} class=\"active\" {% endif %}>
+\t\t\t\t\t\t\t<a href=\"{{ path('app_registration') }}\">S'inscrire</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t\t<li {% if current_page == 'app_login' %} class=\"active\" {% endif %}>
+\t\t\t\t\t\t\t<a href=\"{{ path('app_login') }}\">Connexion</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t{% endif %}
+\t\t\t\t</ul>
+\t\t\t</nav>
+\t\t</header>
+\t\t{% block body %}{% endblock %}
+\t\t<footer>
+\t\t\t<section>
+\t\t\t\t<h4>Copyright © 2023-2024 BUFFARD Alexandre</h4>
+\t\t\t\t<h5>Licence CC Creative Commons BY-NC</h5>
+\t\t\t\t<h5>Contact:
+\t\t\t\t\t<a href=\"mailto:buffardalex492@hotmail.fr\">buffardalex492@hotmail.fr</a>
+\t\t\t\t</h5>
+\t\t\t</section>
+\t\t\t<img src=\"{{ asset('./img/by-nc.png') }}\" alt=\"Licence Creative Commons BY-NC\">
+\t\t</footer>
+\t</body>
 </html>
 ", "base.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\base.html.twig");
     }

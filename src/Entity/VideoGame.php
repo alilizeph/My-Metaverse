@@ -65,7 +65,7 @@ class VideoGame
      * 14 = XBox One
      * 15 = XBox Series
      */
-    #[ORM\ManyToOne(targetEntity:Platform::class, inversedBy: 'videoGames', cascade: ["persist"])]
+    #[ORM\ManyToOne(targetEntity: Platform::class, inversedBy: 'videoGames', cascade: ["persist"])]
     private Platform $platform;
 
     #[ORM\Column(length: 1255)]
@@ -77,30 +77,30 @@ class VideoGame
 
 
     // the videogame box file
-    #[Vich\UploadableField(mapping: 'videogame_box', fileNameProperty:'imgBoxFileName', size: 'imgBoxSize')]
+    #[Vich\UploadableField(mapping: 'videogame_box', fileNameProperty: 'imgBoxFileName', size: 'imgBoxSize')]
     private ?File $imgBox = null;
 
-    #[ORM\Column(nullable:true)]
+    #[ORM\Column(nullable: true)]
     private ?string $imgBoxFileName = null;
 
-    #[ORM\Column(nullable:true)]
+    #[ORM\Column(nullable: true)]
     private ?int $imgBoxSize = null;
 
 
     // the videogame theme file
-    #[Vich\UploadableField(mapping: 'videogame_themes', fileNameProperty:'imgThemeFileName', size: 'imgThemeSize')]
+    #[Vich\UploadableField(mapping: 'videogame_themes', fileNameProperty: 'imgThemeFileName', size: 'imgThemeSize')]
     private ?File $imgTheme = null;
 
-    #[ORM\Column(nullable:true)]
+    #[ORM\Column(nullable: true)]
     private ?string $imgThemeFileName = null;
 
-    #[ORM\Column(nullable:true)]
+    #[ORM\Column(nullable: true)]
     private ?int $imgThemeSize = null;
-    
+
 
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\Range(min:0, max:100)]
+    #[Assert\Range(min: 0, max: 100)]
     private ?int $grade = null;
 
     /**
@@ -118,9 +118,9 @@ class VideoGame
      * 11 = Tactique
      * 12 = Stratégie
      */
-    #[ORM\ManyToMany(targetEntity:Gender::class, inversedBy:"videoGames", cascade: ["persist"])]
+    #[ORM\ManyToMany(targetEntity: Gender::class, inversedBy: "videoGames", cascade: ["persist"])]
     private Collection $genders;
-    
+
     #[ORM\Column]
     private ?DateTime $releaseDate = null;
 
@@ -130,23 +130,31 @@ class VideoGame
     #[ORM\Column]
     private ?float $averagePrice = null;
 
-    #[ORM\Column(length: 500)]
+    #[ORM\Column(length: 2500)]
     private ?string $link = null;
 
-    #[ORM\OneToOne(targetEntity:"Likes", cascade: ["persist"])]
+    #[ORM\OneToOne(targetEntity: "Likes", cascade: ["persist"])]
     private Likes $likes;
 
-    #[ORM\Column(type:'integer')]
-    #[Assert\Range(min:0, max:100)]
-    private ?int $averageUsersGrade = null; 
+    #[ORM\Column(type: 'integer')]
+    #[Assert\Range(min: 0, max: 100)]
+    private ?int $averageUsersGrade = null;
 
-    #[ORM\OneToMany(targetEntity:Comments::class, mappedBy:"videoGame", cascade: ["persist"])]
+    #[ORM\OneToMany(targetEntity: Comments::class, mappedBy: "videoGame", cascade: ["persist"])]
     private Collection $comments;
 
-    public function __construct(string $name = "", Platform $platform = new Platform(), DateTime $releaseDate = new DateTime(),
-        string $description = "", string $advice = "", int $grade = 0, float $averagePrice = 0.0, 
-        bool $disponibility = false, string $link = "", Likes $likes = new Likes(0))
-    {
+    public function __construct(
+        string $name = "",
+        Platform $platform = new Platform(),
+        DateTime $releaseDate = new DateTime(),
+        string $description = "",
+        string $advice = "",
+        int $grade = 0,
+        float $averagePrice = 0.0,
+        bool $disponibility = false,
+        string $link = "",
+        Likes $likes = new Likes(0)
+    ) {
         $this->name = $name;
         $this->platform = $platform;
         $this->description = $description;
@@ -161,7 +169,6 @@ class VideoGame
 
         $this->genders = new ArrayCollection();
         $this->comments = new ArrayCollection();
-
     }
 
     public function getId(): ?int
@@ -236,7 +243,7 @@ class VideoGame
         return $this;
     }
 
-    public function getGenders():PersistentCollection
+    public function getGenders(): PersistentCollection
     {
         return $this->genders;
     }
@@ -256,13 +263,13 @@ class VideoGame
     public function getGenderById(int $id): ?Gender
     {
         $gender = null;
-        foreach($this->genders as $g) {
-            if($g->id === $id) {
+        foreach ($this->genders as $g) {
+            if ($g->id === $id) {
                 $gender = $g;
             }
         }
-        
-        if($gender){
+
+        if ($gender) {
             return $gender;
         } else {
             throw new Error("Utilisateur introuvable !");
@@ -270,12 +277,13 @@ class VideoGame
         }
     }
 
-    public function setGenderById(Gender $gender) {
+    public function setGenderById(Gender $gender)
+    {
         $g = $this->getGenderById($gender->getId());
-        if($g){
-            for($i = 0; $i < sizeof($this->genders); $i++) {
-                if($this->genders[$i]->id === $g->getId()){
-                    $this->genders[$i] = $gender;       
+        if ($g) {
+            for ($i = 0; $i < sizeof($this->genders); $i++) {
+                if ($this->genders[$i]->id === $g->getId()) {
+                    $this->genders[$i] = $gender;
                     break;
                 }
             }
@@ -306,19 +314,19 @@ class VideoGame
         return $this;
     }
 
-    public function getLink(): string 
+    public function getLink(): string
     {
         return $this->link;
     }
 
-    public function setLink(string $link): static 
+    public function setLink(string $link): static
     {
         $this->link = $link;
 
         return $this;
     }
 
-    public function getDisponibility(): bool 
+    public function getDisponibility(): bool
     {
         return $this->disponibility;
     }
@@ -342,7 +350,7 @@ class VideoGame
         return $this;
     }
 
-    public function getAverageUsersGrade():int
+    public function getAverageUsersGrade(): int
     {
         return $this->averageUsersGrade;
     }
@@ -354,7 +362,7 @@ class VideoGame
         return $this;
     }
 
-    
+
     public function getComments(): Collection
     {
         return $this->comments;
@@ -367,10 +375,10 @@ class VideoGame
         return $this;
     }
 
-    
+
     /**
      * Get the value of imgBox
-     */ 
+     */
     public function getImgBox()
     {
         return $this->imgBox;
@@ -380,7 +388,7 @@ class VideoGame
      * Set the value of imgBox
      *
      * @return  self
-     */ 
+     */
     public function setImgBox($imgBox)
     {
         $this->imgBox = $imgBox;
@@ -390,7 +398,7 @@ class VideoGame
 
     /**
      * Get the value of imgBoxFileName
-     */ 
+     */
     public function getImgBoxFileName()
     {
         return $this->imgBoxFileName;
@@ -400,7 +408,7 @@ class VideoGame
      * Set the value of imgBoxFileName
      *
      * @return  self
-     */ 
+     */
     public function setImgBoxFileName($imgBoxFileName)
     {
         $this->imgBoxFileName = $imgBoxFileName;
@@ -410,7 +418,7 @@ class VideoGame
 
     /**
      * Get the value of imgBoxSize
-     */ 
+     */
     public function getImgBoxSize()
     {
         return $this->imgBoxSize;
@@ -420,7 +428,7 @@ class VideoGame
      * Set the value of imgBoxSize
      *
      * @return  self
-     */ 
+     */
     public function setImgBoxSize($imgBoxSize)
     {
         $this->imgBoxSize = $imgBoxSize;
@@ -430,7 +438,7 @@ class VideoGame
 
     /**
      * Get the value of imgTheme
-     */ 
+     */
     public function getImgTheme()
     {
         return $this->imgTheme;
@@ -440,7 +448,7 @@ class VideoGame
      * Set the value of imgTheme
      *
      * @return  self
-     */ 
+     */
     public function setImgTheme($imgTheme)
     {
         $this->imgTheme = $imgTheme;
@@ -450,7 +458,7 @@ class VideoGame
 
     /**
      * Get the value of imgThemeFileName
-     */ 
+     */
     public function getImgThemeFileName()
     {
         return $this->imgThemeFileName;
@@ -460,7 +468,7 @@ class VideoGame
      * Set the value of imgThemeFileName
      *
      * @return  self
-     */ 
+     */
     public function setImgThemeFileName($imgThemeFileName)
     {
         $this->imgThemeFileName = $imgThemeFileName;
@@ -470,7 +478,7 @@ class VideoGame
 
     /**
      * Get the value of imgThemeSize
-     */ 
+     */
     public function getImgThemeSize()
     {
         return $this->imgThemeSize;
@@ -480,7 +488,7 @@ class VideoGame
      * Set the value of imgThemeSize
      *
      * @return  self
-     */ 
+     */
     public function setImgThemeSize($imgThemeSize)
     {
         $this->imgThemeSize = $imgThemeSize;
@@ -488,11 +496,13 @@ class VideoGame
         return $this;
     }
 
-    public function updateImgBoxFileName() {
-        $this->setImgBoxFileName($this->imgBox->getFilename().'.'.$this->imgBox->getExtension());
+    public function updateImgBoxFileName()
+    {
+        $this->setImgBoxFileName($this->imgBox->getFilename() . '.' . $this->imgBox->getExtension());
     }
 
-    public function updateImgThemeNewFileName() {
-        $this->setImgThemeFileName($this->imgTheme->getFilename().'.'.$this->imgTheme->getExtension());
+    public function updateImgThemeNewFileName()
+    {
+        $this->setImgThemeFileName($this->imgTheme->getFilename() . '.' . $this->imgTheme->getExtension());
     }
 }

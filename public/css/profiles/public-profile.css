@@ -1,20 +1,20 @@
 @media all {
   .profile-public {
     background-color: rgb(20, 20, 30);
-    color:rgb(240, 240, 250);
+    color: rgb(240, 240, 250);
     box-shadow: 0 0 10px rgba(0, 0, 0, .45);
     padding: 20px;
     border: 4px solid rgb(235, 163, 39);
   }
 
-  .profile-public .profile-public-head h3, 
+  .profile-public .profile-public-head h3,
   .profile-public .profile-public-head h4,
-  .profile-public .profile-public-presentation-bloc h3, 
+  .profile-public .profile-public-presentation-bloc h3,
   .profile-public .profile-public-presentation-bloc h4,
-  .profile-public .profile-public-stats h3, 
-  .profile-public .profile-public-stats h4, 
+  .profile-public .profile-public-stats h3,
+  .profile-public .profile-public-stats h4,
   .comments {
-    color:rgb(235, 163, 39);
+    color: rgb(235, 163, 39);
     font-family: 'Poppins';
   }
 
@@ -28,20 +28,20 @@
     height: 150px;
     width: 150px;
   }
-  
+
   .profile-public-avatar img {
-    height:fit-content;
+    height: fit-content;
     width: fit-content;
   }
 
   .profile-public-info h3 {
-      text-transform: uppercase;
-      padding: 15px;
+    text-transform: uppercase;
+    padding: 15px;
   }
 
   .profile-public-info h4 {
-      text-transform: uppercase;
-      padding: 10px;
+    text-transform: uppercase;
+    padding: 10px;
   }
 
   .profile-public-info h5 {
@@ -51,17 +51,17 @@
   .profile-public-info h5 a {
     transition: text-decoration 400ms 550ms ease-out;
     text-decoration: underline;
-    cursor:pointer;
-    color: rgb( 250, 250, 255);
+    cursor: pointer;
+    color: rgb(250, 250, 255);
   }
 
   .profile-public-info h5 a:hover {
     transition: text-decoration 350ms 450ms ease-in;
   }
 
-  .profile-public-info h5 a:hover ~ .hidden-text {
+  .profile-public-info h5 a:hover~.hidden-text {
     opacity: 1;
-    transition:all 250ms 550ms ease-in;
+    transition: all 250ms 550ms ease-in;
   }
 
   .profile-public-info .hidden-text {
@@ -70,15 +70,15 @@
     background-color: rgba(220, 220, 230, .97);
     color: rgb(20, 20, 30);
     position: absolute;
-    width:fit-content;
+    width: fit-content;
     text-transform: none;
     opacity: 0;
-    transition:all 200ms 450ms ease-out;
+    transition: all 200ms 450ms ease-out;
   }
 
   .profile-public .profile-public-presentation-bloc {
     margin-top: 15px;
-    border:  rgb(235, 163, 39) solid 3px;
+    border: rgb(235, 163, 39) solid 3px;
     border-radius: .355em;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, .45);
   }
@@ -98,7 +98,7 @@
     width: 80%;
     margin-left: 2.5%;
     padding-top: 10px;
-    text-justify:auto;
+    text-justify: auto;
   }
 
   .profile-public .profile-public-stats h4 {
@@ -144,7 +144,7 @@
 
   .profile-public-randomcom-list .profile-public-randomcom-elmt {
     width: 100%;
-    margin-top:  75px;
+    margin-top: 75px;
   }
 
   .profile-public-randomcom-elmt h4 {
@@ -163,11 +163,11 @@
   .profile-public {
     margin-bottom: 50px;
     padding: 20px;
-    margin-top:150px;
+    margin-top: 150px;
     width: 96%;
     margin-left: 0.25%;
   }
-  
+
   .profile-public .profile-public-head {
     width: 67.5%;
     margin-top: 15px;
@@ -187,7 +187,8 @@
     width: 150px;
   }
 
-  .profile-public .profile-public-head, .profile-public-info {
+  .profile-public .profile-public-head,
+  .profile-public-info {
     width: 100%;
   }
 
@@ -211,14 +212,14 @@
     padding: 7px 20px;
     margin-left: -225px;
     margin-top: 25px;
-    width:fit-content;
+    width: fit-content;
     font-size: 14px;
   }
 
   .profile-public-presentation-bloc {
     width: 100%;
     margin-top: 15px;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 
   .profile-public .profile-public-presentation-bloc .profile-public-presentation {
@@ -252,7 +253,7 @@
   .profile-public-stats h4 {
     font-size: 150%;
     padding: 15px;
-    margin:15px;
+    margin: 15px;
     margin-left: 10%;
   }
 
@@ -261,12 +262,12 @@
     width: 100%;
     text-align: center;
     display: flex;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 
   .profile-public-stats .profile-public-stats-zone .profile-public-stats-group {
-    width:auto;
-    margin:auto;
+    width: auto;
+    margin: auto;
   }
 
   .profile-public-stats .profile-public-stats-zone .profile-public-stats-group h5 {
@@ -287,7 +288,7 @@
   .profile-public .profile-public-randomcom {
     width: 97.25%;
     margin-top: 35px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     padding: 20px;
     display: block;
   }
@@ -296,15 +297,15 @@
     width: 100%;
     padding: 15px;
     font-size: 150%;
-    margin-bottom:0px;
-    padding-bottom:0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
 
   .profile-public-randomcom .profile-public-randomcom-list {
     width: 110%;
     margin-left: -10%;
     margin-top: 0px;
-    margin-bottom:0px;
+    margin-bottom: 0px;
   }
 
   .profile-public-randomcom-list .profile-public-randomcom-elmt {
@@ -324,11 +325,11 @@
   .profile-public {
     margin-bottom: 50px;
     padding: 20px;
-    margin-top:150px;
+    margin-top: 150px;
     width: 96%;
     margin-left: 0.25%;
   }
-  
+
   .profile-public .profile-public-head {
     width: 67.5%;
     margin-top: 15px;
@@ -348,7 +349,8 @@
     width: 150px;
   }
 
-  .profile-public .profile-public-head, .profile-public-info {
+  .profile-public .profile-public-head,
+  .profile-public-info {
     width: 100%;
   }
 
@@ -372,14 +374,14 @@
     padding: 7px 20px;
     margin-left: -225px;
     margin-top: 25px;
-    width:fit-content;
+    width: fit-content;
     font-size: 14px;
   }
 
   .profile-public-presentation-bloc {
     width: 100%;
     margin-top: 15px;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 
   .profile-public .profile-public-presentation-bloc .profile-public-presentation {
@@ -413,7 +415,7 @@
   .profile-public-stats h4 {
     font-size: 150%;
     padding: 15px;
-    margin:15px;
+    margin: 15px;
     margin-left: 10%;
   }
 
@@ -422,12 +424,12 @@
     width: 100%;
     text-align: center;
     display: flex;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 
   .profile-public-stats .profile-public-stats-zone .profile-public-stats-group {
-    width:auto;
-    margin:auto;
+    width: auto;
+    margin: auto;
   }
 
   .profile-public-stats .profile-public-stats-zone .profile-public-stats-group h5 {
@@ -448,7 +450,7 @@
   .profile-public .profile-public-randomcom {
     width: 97.25%;
     margin-top: 35px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     padding: 20px;
     display: block;
   }
@@ -457,13 +459,13 @@
     width: 100%;
     padding: 15px;
     font-size: 150%;
-    margin-bottom:0px;
-    padding-bottom:0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
 
   .profile-public-randomcom .profile-public-randomcom-list {
     width: 95%;
-    margin:0px;
+    margin: 0px;
   }
 
   .profile-public-randomcom-list .profile-public-randomcom-elmt {
@@ -482,11 +484,11 @@
   .profile-public {
     margin-bottom: 50px;
     padding: 20px;
-    margin-top:140px;
+    margin-top: 140px;
     width: 95%;
     margin-left: 0.25%;
   }
-  
+
   .profile-public .profile-public-head {
     width: 67.5%;
     margin-top: 15px;
@@ -506,7 +508,8 @@
     width: 150px;
   }
 
-  .profile-public .profile-public-head, .profile-public-info {
+  .profile-public .profile-public-head,
+  .profile-public-info {
     width: 100%;
   }
 
@@ -530,14 +533,14 @@
     padding: 7px 20px;
     margin-left: -225px;
     margin-top: 25px;
-    width:fit-content;
+    width: fit-content;
     font-size: 14px;
   }
 
   .profile-public-presentation-bloc {
     width: 100%;
     margin-top: 15px;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 
   .profile-public .profile-public-presentation-bloc .profile-public-presentation {
@@ -571,7 +574,7 @@
   .profile-public-stats h4 {
     font-size: 150%;
     padding: 15px;
-    margin:15px;
+    margin: 15px;
     margin-left: 10%;
   }
 
@@ -580,12 +583,12 @@
     width: 100%;
     text-align: center;
     display: flex;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 
   .profile-public-stats .profile-public-stats-zone .profile-public-stats-group {
-    width:auto;
-    margin:auto;
+    width: auto;
+    margin: auto;
   }
 
   .profile-public-stats .profile-public-stats-zone .profile-public-stats-group h5 {
@@ -606,7 +609,7 @@
   .profile-public .profile-public-randomcom {
     width: 97.25%;
     margin-top: 35px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     padding: 20px;
     display: block;
   }
@@ -615,13 +618,13 @@
     width: 100%;
     padding: 15px;
     font-size: 150%;
-    margin-bottom:0px;
-    padding-bottom:0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
 
   .profile-public-randomcom .profile-public-randomcom-list {
     width: 95%;
-    margin:0px;
+    margin: 0px;
   }
 
   .profile-public-randomcom-list .profile-public-randomcom-elmt {
@@ -640,11 +643,11 @@
   .profile-public {
     margin-bottom: 50px;
     padding: 20px;
-    margin-top:140px;
+    margin-top: 140px;
     width: 94%;
     margin-left: 0.25%;
   }
-  
+
   .profile-public .profile-public-head {
     width: 67.5%;
     margin-top: 15px;
@@ -664,7 +667,8 @@
     width: 150px;
   }
 
-  .profile-public .profile-public-head, .profile-public-info {
+  .profile-public .profile-public-head,
+  .profile-public-info {
     width: 100%;
   }
 
@@ -688,14 +692,14 @@
     padding: 7px 20px;
     margin-left: -225px;
     margin-top: 25px;
-    width:fit-content;
+    width: fit-content;
     font-size: 14px;
   }
 
   .profile-public-presentation-bloc {
     width: 100%;
     margin-top: 15px;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 
   .profile-public .profile-public-presentation-bloc .profile-public-presentation {
@@ -729,7 +733,7 @@
   .profile-public-stats h4 {
     font-size: 150%;
     padding: 15px;
-    margin:15px;
+    margin: 15px;
     margin-left: 10%;
   }
 
@@ -738,12 +742,12 @@
     width: 100%;
     text-align: center;
     display: flex;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 
   .profile-public-stats .profile-public-stats-zone .profile-public-stats-group {
-    width:auto;
-    margin:auto;
+    width: auto;
+    margin: auto;
   }
 
   .profile-public-stats .profile-public-stats-zone .profile-public-stats-group h5 {
@@ -764,7 +768,7 @@
   .profile-public .profile-public-randomcom {
     width: 95.5%;
     margin-top: 35px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     padding: 20px;
     display: block;
   }
@@ -773,13 +777,13 @@
     width: 100%;
     padding: 15px;
     font-size: 150%;
-    margin-bottom:0px;
-    padding-bottom:0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
 
   .profile-public-randomcom .profile-public-randomcom-list {
     width: 95%;
-    margin:0px;
+    margin: 0px;
   }
 
   .profile-public-randomcom-list .profile-public-randomcom-elmt {
@@ -828,11 +832,11 @@
     text-align: center;
     position: absolute;
     margin-left: 50px;
-    width:fit-content;
+    width: fit-content;
     font-size: 14px;
     text-transform: none;
     opacity: 0;
-    transition:all 200ms 450ms ease-out;
+    transition: all 200ms 450ms ease-out;
   }
 
   .profile-public-info h3 {
@@ -855,7 +859,7 @@
     padding: 7px 20px;
     margin-left: -225px;
     margin-top: 25px;
-    width:fit-content;
+    width: fit-content;
     font-size: 14px;
   }
 
@@ -934,7 +938,7 @@
   .profile-public .profile-public-randomcom {
     width: 95.5%;
     margin-top: 35px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     padding: 20px;
     display: block;
   }
@@ -943,13 +947,13 @@
     width: 100%;
     padding: 15px;
     font-size: 150%;
-    margin-bottom:0px;
-    padding-bottom:0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
 
   .profile-public-randomcom .profile-public-randomcom-list {
     width: 95%;
-    margin:0px;
+    margin: 0px;
   }
 
   .profile-public-randomcom-list .profile-public-randomcom-elmt {
@@ -998,11 +1002,11 @@
     text-align: center;
     position: absolute;
     margin-left: 50px;
-    width:fit-content;
+    width: fit-content;
     font-size: 14px;
     text-transform: none;
     opacity: 0;
-    transition:all 200ms 450ms ease-out;
+    transition: all 200ms 450ms ease-out;
   }
 
   .profile-public-info h3 {
@@ -1025,7 +1029,7 @@
     padding: 7px 20px;
     margin-left: -225px;
     margin-top: 25px;
-    width:fit-content;
+    width: fit-content;
     font-size: 14px;
   }
 
@@ -1107,7 +1111,7 @@
     width: 100%;
     margin-left: -3%;
     margin-top: 425px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     padding: 10px;
     display: block;
   }

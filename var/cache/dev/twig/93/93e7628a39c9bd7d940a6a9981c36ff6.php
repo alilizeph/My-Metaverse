@@ -92,10 +92,14 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
         echo "    <main>
         <article class='admin-homepage hide-1'>
             <h3>Espace administrateur </h3>
+            <h4>Bienvenue ";
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 10, $this->source); })()), "username", [], "any", false, false, false, 10), "html", null, true);
+        echo "<h4>
             <section class=\"admin-group hide-2\">
                 <h5>Ajouter une nouvelle critique :</h5>
                 <a href=\"";
-        // line 12
+        // line 13
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_new");
         echo "\">
                     <button>Ajouter</button>
@@ -139,7 +143,7 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
      */
     public function getDebugInfo()
     {
-        return array (  99 => 12,  92 => 7,  82 => 6,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  103 => 13,  97 => 10,  92 => 7,  82 => 6,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -153,6 +157,7 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
     <main>
         <article class='admin-homepage hide-1'>
             <h3>Espace administrateur </h3>
+            <h4>Bienvenue {{ user.username }}<h4>
             <section class=\"admin-group hide-2\">
                 <h5>Ajouter une nouvelle critique :</h5>
                 <a href=\"{{ path('app_admin_new') }}\">

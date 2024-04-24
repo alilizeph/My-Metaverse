@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,10 +26,6 @@ class EditUserProfileFormType extends AbstractType
                 ])
             ->add('firstName', TextType::class, [
                 'label' => 'Votre nom',
-                'required' => true
-                ])
-            ->add('password', PasswordType::class, [
-                'label' => 'Votre mot de passe',
                 'required' => true
                 ])
             ->add('gender', ChoiceType:: class, [
@@ -54,6 +51,9 @@ class EditUserProfileFormType extends AbstractType
             ->add('presentation', TextareaType::class, [
                 'label' => 'Présentation',
                 "required" => false
+                ])
+            ->add('Confirmer', SubmitType::class, [
+
                 ])
         ;
     }

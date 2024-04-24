@@ -15,7 +15,7 @@
         {{ form_label(form.username) }}
         {{ form_widget(form.username) }}
     </div>
-     {% if app.flashes('error') %}
+    {% if app.flashes('error') %}
         <p class="warning">Cette adresse email ou ce nom utilisateur existent déjà</p>
     {% endif %}
     <div class="form-group hide-2">
@@ -29,11 +29,14 @@
     <div class="form-group hide-2">
         {{ form_label(form.birthday) }}
         {{ form_widget(form.birthday) }}
-        
+
     </div>
     {% if isMinimumAgeMet is defined %}
         {% if not isMinimumAgeMet %}
-            <p class="warning">** L'âge requis pour s'inscrire à <span class="warning-2">My Metaverse</span> est de <span class="warning-2">12 ans</span>.</p>
+            <p class="warning">** L'âge requis pour s'inscrire à
+                <span class="warning-2">My Metaverse</span>
+                est de
+                <span class="warning-2">12 ans</span>.</p>
         {% endif %}
     {% endif %}
     <div class="form-group hide-2">
@@ -45,12 +48,17 @@
             <p class="warning">** Votre fichier doit être de type .png, .jpg ou .jpeg</p>
         {% endif %}
     {% else %}
-        <p class="info">** Votre fichier doit être de type <span class="warning-2">.png</span> <span class="warning-2">.jpg</span> ou <span class="warning-2">.jpeg</span> </p>
+        <p class="info">** Votre fichier doit être de type
+            <span class="warning-2">.png</span>
+            <span class="warning-2">.jpg</span>
+            ou
+            <span class="warning-2">.jpeg</span>
+        </p>
     {% endif %}
     <div class="form-group hide-2">
         {{ form_label(form.presentation) }}
         {{ form_widget(form.presentation) }}
     </div>
-    
+
     <button type="submit" class="btn hide-3">{{ button_label|default("Inscription") }}</button>
 {{ form_end(form) }}

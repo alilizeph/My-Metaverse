@@ -7,6 +7,7 @@
     <main>
         <article class='admin-homepage hide-1'>
             <h3>Espace administrateur </h3>
+            <h4>Bienvenue {{ user.username }}<h4>
             <section class="admin-group hide-2">
                 <h5>Ajouter une nouvelle critique :</h5>
                 <a href="{{ path('app_admin_new') }}">

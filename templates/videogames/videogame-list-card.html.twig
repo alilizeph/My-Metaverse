@@ -1,117 +1,161 @@
-
 {% block vglist %}
-        <article class="video-game-card hide"> 
-            <section class="video-game-card-theme hide-2">
-                <img src="{{ vich_uploader_asset(videoGame, 'imgTheme') }}" alt="{{ videoGame.name }}">
-            </section>
-            <section class="video-game-card-head hide-2">
-                <div class="video-game-pres hide-2">
-                    <h3 class=" hide-2">{{ videoGame.name }}</h3>
-                    
-                    {% if videoGame.platform.platformName == 1 %}
-                    <h4 class=" hide-2">Sur : <span>Nintendo Switch</span></h4>
-                    {% elseif videoGame.platform.platformName == 2 %}
-                    <h4 class=" hide-2">Sur : <span>PC Steam</span></h4>
-                    {% elseif videoGame.platform.platformName == 3 %}
-                    <h4 class=" hide-2">Sur : <span>PlayStation 5</span></h4>
-                    {% elseif videoGame.platform.platformName == 4 %}
-                    <h4 class=" hide-2">Sur : <span>GameBoy Advanced</span></h4>
-                    {% elseif videoGame.platform.platformName == 5 %}
-                    <h4 class=" hide-2">Sur : <span>GameBoy / GameBoy Color</span></h4>
-                    {% elseif videoGame.platform.platformName == 6 %}
-                    <h4 class=" hide-2">Sur : <span>PlayStation 4</span></h4>
-                    {% elseif videoGame.platform.platformName == 7 %}
-                    <h4 class=" hide-2">Sur : <span>Nintendo DS</span></h4>
-                    {% elseif videoGame.platform.platformName == 8 %}
-                    <h4 class=" hide-2">Sur : <span>Nintendo 3DS</span></h4>
-                    {% elseif videoGame.platform.platformName == 9 %}
-                    <h4 class=" hide-2">Sur : <span>PlayStation 3</span></h4>
-                    {% elseif videoGame.platform.platformName == 10 %}
-                    <h4 class=" hide-2">Sur : <span>PlayStation 2</span></h4>
-                    {% elseif videoGame.platform.platformName == 11 %}
-                    <h4 class=" hide-2">Sur : <span>PlayStation</span></h4>
-                    {% elseif videoGame.platform.platformName == 12 %}
-                    <h4 class=" hide-2">Sur : <span>XBox</span></h4>
-                    {% elseif videoGame.platform.platformName == 13 %}
-                    <h4 class=" hide-2">Sur : <span>XBox 360</span></h4>
-                    {% elseif videoGame.platform.platformName == 14 %}
-                    <h4 class=" hide-2">Sur : <span>XBox One</span></h4>
-                    {% elseif videoGame.platform.platformName == 15 %}
-                    <h4 class=" hide-2">Sur : <span>XBox Series</span></h4>
-                    {% endif %}
-                    <p class="perso-grade hide-2">Note personnelle :</p>
-                    {% if videoGame.grade >= 75 %}
-                    <h4 class="video-game-grade verygood hide-3">{{ videoGame.grade }}</h4>
-                    {% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
-                    <h4 class="video-game-grade good hide-3">{{ videoGame.grade }}</h4>
-                    {% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
-                    <h4 class="video-game-grade medium hide-3">{{ videoGame.grade }}</h4>
-                    {% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
-                    <h4 class="video-game-grade notenough hide-3">{{ videoGame.grade }}</h4>
-                    {% elseif videoGame.grade <= 34 %}
-                    <h4 class="video-game-grade bad hide-3">{{ videoGame.grade }}</h4>
-                    {% endif %}
-                    <p class="hide-3"><span>Date de sortie</span> : le {{ videoGame.releaseDate | date('d F Y') }}</p>
-                    <p class=" hide-3"><span>Prix moyen</span> : {{ videoGame.averagePrice }} €</p>
-                    <div class="video-game-genders-box hide-3">
-                        <ul class="video-game-genders-list">
-                            {% for gender in videoGame.genders %}
-                                {% if gender.id == 1 %}
-                                <li class="video-game-gender rpg">
-                                    RPG
-                                </li>
-                                {% elseif gender.id == 2 %}
-                                <li class="video-game-gender avent">
-                                    Aventure
-                                </li>
-                                {% elseif gender.id == 3 %}
-                                <li class="video-game-gender fant">
-                                    Fantastique
-                                </li>
-                                {% elseif gender.id == 4 %}
-                                <li class="video-game-gender crea">
-                                    Création
-                                </li>
-                                {% elseif gender.id == 5 %}
-                                <li class="video-game-gender ow">
-                                    Open-World
-                                </li>
-                                {% elseif gender.id == 6 %}
-                                <li class="video-game-gender gestion">
-                                    Gestion
-                                </li>
-                                {% elseif gender.id == 7 %}
-                                <li class="video-game-gender refl">
-                                    Réflexion
-                                </li>
-                                {% elseif gender.id == 8 %}
-                                <li class="video-game-gender ecolo">
-                                    Écologie
-                                </li>
-                                {% elseif gender.id == 9 %}
-                                <li class="video-game-gender sante">
-                                    Santé
-                                </li>
-                                {% elseif gender.id == 10 %}
-                                <li class="video-game-gender survie">
-                                    Survie
-                                </li>
-                                {% elseif gender.id == 11 %}
-                                <li class="video-game-gender tact">
-                                    Tactique
-                                </li>
-                                {% elseif gender.id == 12 %}
-                                <li class="video-game-gender strat">
-                                    Stratégie
-                                </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section class="video-game-content hide-4">
-                <a class="go-to-vg" href="{{ path('videogame_card', { 'id': videoGame.id }) }}">Accéder à l'Avis</a>
-            </section>
-        </article>
+	<article class="video-game-card hide">
+		<section class="video-game-card-theme hide-2">
+			<img src="{{ vich_uploader_asset(videoGame, 'imgTheme') }}" alt="{{ videoGame.name }}">
+		</section>
+		<section class="video-game-card-head hide-2">
+			<div class="video-game-pres hide-2">
+				<h3 class=" hide-2">{{ videoGame.name }}</h3>
+
+				{% if videoGame.platform.platformName == 1 %}
+					<h4 class=" hide-2">Sur :
+						<span>Nintendo Switch</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 2 %}
+					<h4 class=" hide-2">Sur :
+						<span>PC Steam</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 3 %}
+					<h4 class=" hide-2">Sur :
+						<span>PlayStation 5</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 4 %}
+					<h4 class=" hide-2">Sur :
+						<span>GameBoy Advanced</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 5 %}
+					<h4 class=" hide-2">Sur :
+						<span>GameBoy / GameBoy Color</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 6 %}
+					<h4 class=" hide-2">Sur :
+						<span>PlayStation 4</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 7 %}
+					<h4 class=" hide-2">Sur :
+						<span>Nintendo DS</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 8 %}
+					<h4 class=" hide-2">Sur :
+						<span>Nintendo 3DS</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 9 %}
+					<h4 class=" hide-2">Sur :
+						<span>PlayStation 3</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 10 %}
+					<h4 class=" hide-2">Sur :
+						<span>PlayStation 2</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 11 %}
+					<h4 class=" hide-2">Sur :
+						<span>PlayStation</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 12 %}
+					<h4 class=" hide-2">Sur :
+						<span>XBox</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 13 %}
+					<h4 class=" hide-2">Sur :
+						<span>XBox 360</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 14 %}
+					<h4 class=" hide-2">Sur :
+						<span>XBox One</span>
+					</h4>
+				{% elseif videoGame.platform.platformName == 15 %}
+					<h4 class=" hide-2">Sur :
+						<span>XBox Series</span>
+					</h4>
+				{% endif %}
+				<p class="perso-grade hide-2">Note personnelle :</p>
+				{% if videoGame.grade >= 75 %}
+					<h4 class="video-game-grade verygood hide-3">{{ videoGame.grade }}</h4>
+				{% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
+					<h4 class="video-game-grade good hide-3">{{ videoGame.grade }}</h4>
+				{% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
+					<h4 class="video-game-grade medium hide-3">{{ videoGame.grade }}</h4>
+				{% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
+					<h4 class="video-game-grade notenough hide-3">{{ videoGame.grade }}</h4>
+				{% elseif videoGame.grade <= 34 %}
+					<h4 class="video-game-grade bad hide-3">{{ videoGame.grade }}</h4>
+				{% endif %}
+				<p class="hide-3">
+					<span>Date de sortie</span>
+					: le
+					{{ videoGame.releaseDate | date('d F Y') }}</p>
+				<p class=" hide-3">
+					<span>Prix moyen</span>
+					:
+					{{ videoGame.averagePrice }}
+					€</p>
+				<div class="video-game-genders-box hide-3">
+					<ul class="video-game-genders-list">
+						{% for gender in videoGame.genders %}
+							{% if gender.id == 1 %}
+								<li class="video-game-gender rpg">
+									RPG
+								</li>
+							{% elseif gender.id == 2 %}
+								<li class="video-game-gender avent">
+									Aventure
+								</li>
+							{% elseif gender.id == 3 %}
+								<li class="video-game-gender fant">
+									Fantastique
+								</li>
+							{% elseif gender.id == 4 %}
+								<li class="video-game-gender crea">
+									Création
+								</li>
+							{% elseif gender.id == 5 %}
+								<li class="video-game-gender ow">
+									Open-World
+								</li>
+							{% elseif gender.id == 6 %}
+								<li class="video-game-gender gestion">
+									Gestion
+								</li>
+							{% elseif gender.id == 7 %}
+								<li class="video-game-gender refl">
+									Réflexion
+								</li>
+							{% elseif gender.id == 8 %}
+								<li class="video-game-gender ecolo">
+									Écologie
+								</li>
+							{% elseif gender.id == 9 %}
+								<li class="video-game-gender sante">
+									Santé
+								</li>
+							{% elseif gender.id == 10 %}
+								<li class="video-game-gender survie">
+									Survie
+								</li>
+							{% elseif gender.id == 11 %}
+								<li class="video-game-gender tact">
+									Tactique
+								</li>
+							{% elseif gender.id == 12 %}
+								<li class="video-game-gender strat">
+									Stratégie
+								</li>
+							{% elseif gender.id == 13 %}
+								<li class="video-game-gender chill">
+									Chill
+								</li>
+							{% elseif gender.id == 14 %}
+								<li class="video-game-gender postapo">
+									Post-Apocalyptique
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="video-game-content hide-4">
+			<a class="go-to-vg" href="{{ path('videogame_card', { 'id': videoGame.id }) }}">Accéder à l'Avis</a>
+		</section>
+	</article>
 {% endblock %}

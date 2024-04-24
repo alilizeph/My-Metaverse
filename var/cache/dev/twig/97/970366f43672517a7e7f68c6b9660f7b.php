@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* videogames/videogame-list-card.html.twig */
+/* ./videogames/videogame-list-card.html.twig */
 class __TwigTemplate_2c06d535dd99382d2306311501ec47bf extends Template
 {
     private $source;
@@ -35,15 +35,12 @@ class __TwigTemplate_2c06d535dd99382d2306311501ec47bf extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "videogames/videogame-list-card.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "./videogames/videogame-list-card.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "videogames/videogame-list-card.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "./videogames/videogame-list-card.html.twig"));
 
         // line 1
-        echo "
-";
-        // line 2
         $this->displayBlock('vglist', $context, $blocks);
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -62,258 +59,310 @@ class __TwigTemplate_2c06d535dd99382d2306311501ec47bf extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "vglist"));
 
-        // line 3
-        echo "        <article class=\"video-game-card hide\"> 
-            <section class=\"video-game-card-theme hide-2\">
-                <img src=\"";
-        // line 5
-        echo twig_escape_filter($this->env, $this->env->getRuntime('Vich\UploaderBundle\Twig\Extension\UploaderExtensionRuntime')->asset((isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 5, $this->source); })()), "imgTheme"), "html", null, true);
+        // line 2
+        echo "\t<article class=\"video-game-card hide\">
+\t\t<section class=\"video-game-card-theme hide-2\">
+\t\t\t<img src=\"";
+        // line 4
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Vich\UploaderBundle\Twig\Extension\UploaderExtensionRuntime')->asset((isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 4, $this->source); })()), "imgTheme"), "html", null, true);
         echo "\" alt=\"";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 5, $this->source); })()), "name", [], "any", false, false, false, 5), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 4, $this->source); })()), "name", [], "any", false, false, false, 4), "html", null, true);
         echo "\">
-            </section>
-            <section class=\"video-game-card-head hide-2\">
-                <div class=\"video-game-pres hide-2\">
-                    <h3 class=\" hide-2\">";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 9, $this->source); })()), "name", [], "any", false, false, false, 9), "html", null, true);
+\t\t</section>
+\t\t<section class=\"video-game-card-head hide-2\">
+\t\t\t<div class=\"video-game-pres hide-2\">
+\t\t\t\t<h3 class=\" hide-2\">";
+        // line 8
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 8, $this->source); })()), "name", [], "any", false, false, false, 8), "html", null, true);
         echo "</h3>
-                    
-                    ";
-        // line 11
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 11, $this->source); })()), "platform", [], "any", false, false, false, 11), "platformName", [], "any", false, false, false, 11) == 1)) {
-            // line 12
-            echo "                    <h4 class=\" hide-2\">Sur : <span>Nintendo Switch</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 13
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 13, $this->source); })()), "platform", [], "any", false, false, false, 13), "platformName", [], "any", false, false, false, 13) == 2)) {
-            // line 14
-            echo "                    <h4 class=\" hide-2\">Sur : <span>PC Steam</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 15
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 15, $this->source); })()), "platform", [], "any", false, false, false, 15), "platformName", [], "any", false, false, false, 15) == 3)) {
-            // line 16
-            echo "                    <h4 class=\" hide-2\">Sur : <span>PlayStation 5</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 17
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 17, $this->source); })()), "platform", [], "any", false, false, false, 17), "platformName", [], "any", false, false, false, 17) == 4)) {
-            // line 18
-            echo "                    <h4 class=\" hide-2\">Sur : <span>GameBoy Advanced</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 19
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 19, $this->source); })()), "platform", [], "any", false, false, false, 19), "platformName", [], "any", false, false, false, 19) == 5)) {
-            // line 20
-            echo "                    <h4 class=\" hide-2\">Sur : <span>GameBoy / GameBoy Color</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 21
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 21, $this->source); })()), "platform", [], "any", false, false, false, 21), "platformName", [], "any", false, false, false, 21) == 6)) {
-            // line 22
-            echo "                    <h4 class=\" hide-2\">Sur : <span>PlayStation 4</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 23
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 23, $this->source); })()), "platform", [], "any", false, false, false, 23), "platformName", [], "any", false, false, false, 23) == 7)) {
-            // line 24
-            echo "                    <h4 class=\" hide-2\">Sur : <span>Nintendo DS</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 25
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 25, $this->source); })()), "platform", [], "any", false, false, false, 25), "platformName", [], "any", false, false, false, 25) == 8)) {
-            // line 26
-            echo "                    <h4 class=\" hide-2\">Sur : <span>Nintendo 3DS</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 27
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 27, $this->source); })()), "platform", [], "any", false, false, false, 27), "platformName", [], "any", false, false, false, 27) == 9)) {
-            // line 28
-            echo "                    <h4 class=\" hide-2\">Sur : <span>PlayStation 3</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 29
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 29, $this->source); })()), "platform", [], "any", false, false, false, 29), "platformName", [], "any", false, false, false, 29) == 10)) {
-            // line 30
-            echo "                    <h4 class=\" hide-2\">Sur : <span>PlayStation 2</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 31
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 31, $this->source); })()), "platform", [], "any", false, false, false, 31), "platformName", [], "any", false, false, false, 31) == 11)) {
-            // line 32
-            echo "                    <h4 class=\" hide-2\">Sur : <span>PlayStation</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 33
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 33, $this->source); })()), "platform", [], "any", false, false, false, 33), "platformName", [], "any", false, false, false, 33) == 12)) {
-            // line 34
-            echo "                    <h4 class=\" hide-2\">Sur : <span>XBox</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 35
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 35, $this->source); })()), "platform", [], "any", false, false, false, 35), "platformName", [], "any", false, false, false, 35) == 13)) {
-            // line 36
-            echo "                    <h4 class=\" hide-2\">Sur : <span>XBox 360</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 37
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 37, $this->source); })()), "platform", [], "any", false, false, false, 37), "platformName", [], "any", false, false, false, 37) == 14)) {
-            // line 38
-            echo "                    <h4 class=\" hide-2\">Sur : <span>XBox One</span></h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 39
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 39, $this->source); })()), "platform", [], "any", false, false, false, 39), "platformName", [], "any", false, false, false, 39) == 15)) {
-            // line 40
-            echo "                    <h4 class=\" hide-2\">Sur : <span>XBox Series</span></h4>
-                    ";
-        }
-        // line 42
-        echo "                    <p class=\"perso-grade hide-2\">Note personnelle :</p>
-                    ";
-        // line 43
-        if ((twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 43, $this->source); })()), "grade", [], "any", false, false, false, 43) >= 75)) {
-            // line 44
-            echo "                    <h4 class=\"video-game-grade verygood hide-3\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 44, $this->source); })()), "grade", [], "any", false, false, false, 44), "html", null, true);
-            echo "</h4>
-                    ";
-        } elseif (((twig_get_attribute($this->env, $this->source,         // line 45
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 45, $this->source); })()), "grade", [], "any", false, false, false, 45) <= 74) && (twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 45, $this->source); })()), "grade", [], "any", false, false, false, 45) >= 60))) {
-            // line 46
-            echo "                    <h4 class=\"video-game-grade good hide-3\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 46, $this->source); })()), "grade", [], "any", false, false, false, 46), "html", null, true);
-            echo "</h4>
-                    ";
-        } elseif (((twig_get_attribute($this->env, $this->source,         // line 47
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 47, $this->source); })()), "grade", [], "any", false, false, false, 47) <= 59) && (twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 47, $this->source); })()), "grade", [], "any", false, false, false, 47) >= 50))) {
-            // line 48
-            echo "                    <h4 class=\"video-game-grade medium hide-3\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 48, $this->source); })()), "grade", [], "any", false, false, false, 48), "html", null, true);
-            echo "</h4>
-                    ";
-        } elseif (((twig_get_attribute($this->env, $this->source,         // line 49
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 49, $this->source); })()), "grade", [], "any", false, false, false, 49) <= 49) && (twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 49, $this->source); })()), "grade", [], "any", false, false, false, 49) >= 35))) {
-            // line 50
-            echo "                    <h4 class=\"video-game-grade notenough hide-3\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 50, $this->source); })()), "grade", [], "any", false, false, false, 50), "html", null, true);
-            echo "</h4>
-                    ";
-        } elseif ((twig_get_attribute($this->env, $this->source,         // line 51
-(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 51, $this->source); })()), "grade", [], "any", false, false, false, 51) <= 34)) {
-            // line 52
-            echo "                    <h4 class=\"video-game-grade bad hide-3\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 52, $this->source); })()), "grade", [], "any", false, false, false, 52), "html", null, true);
-            echo "</h4>
-                    ";
-        }
-        // line 54
-        echo "                    <p class=\"hide-3\"><span>Date de sortie</span> : le ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 54, $this->source); })()), "releaseDate", [], "any", false, false, false, 54), "d F Y"), "html", null, true);
-        echo "</p>
-                    <p class=\" hide-3\"><span>Prix moyen</span> : ";
-        // line 55
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 55, $this->source); })()), "averagePrice", [], "any", false, false, false, 55), "html", null, true);
-        echo " €</p>
-                    <div class=\"video-game-genders-box hide-3\">
-                        <ul class=\"video-game-genders-list\">
-                            ";
-        // line 58
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 58, $this->source); })()), "genders", [], "any", false, false, false, 58));
-        foreach ($context['_seq'] as $context["_key"] => $context["gender"]) {
+
+\t\t\t\t";
+        // line 10
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 10, $this->source); })()), "platform", [], "any", false, false, false, 10), "platformName", [], "any", false, false, false, 10) == 1)) {
+            // line 11
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>Nintendo Switch</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 14
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 14, $this->source); })()), "platform", [], "any", false, false, false, 14), "platformName", [], "any", false, false, false, 14) == 2)) {
+            // line 15
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PC Steam</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 18
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 18, $this->source); })()), "platform", [], "any", false, false, false, 18), "platformName", [], "any", false, false, false, 18) == 3)) {
+            // line 19
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation 5</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 22
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 22, $this->source); })()), "platform", [], "any", false, false, false, 22), "platformName", [], "any", false, false, false, 22) == 4)) {
+            // line 23
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>GameBoy Advanced</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 26
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 26, $this->source); })()), "platform", [], "any", false, false, false, 26), "platformName", [], "any", false, false, false, 26) == 5)) {
+            // line 27
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>GameBoy / GameBoy Color</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 30
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 30, $this->source); })()), "platform", [], "any", false, false, false, 30), "platformName", [], "any", false, false, false, 30) == 6)) {
+            // line 31
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation 4</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 34
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 34, $this->source); })()), "platform", [], "any", false, false, false, 34), "platformName", [], "any", false, false, false, 34) == 7)) {
+            // line 35
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>Nintendo DS</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 38
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 38, $this->source); })()), "platform", [], "any", false, false, false, 38), "platformName", [], "any", false, false, false, 38) == 8)) {
+            // line 39
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>Nintendo 3DS</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 42
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 42, $this->source); })()), "platform", [], "any", false, false, false, 42), "platformName", [], "any", false, false, false, 42) == 9)) {
+            // line 43
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation 3</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 46
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 46, $this->source); })()), "platform", [], "any", false, false, false, 46), "platformName", [], "any", false, false, false, 46) == 10)) {
+            // line 47
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation 2</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 50
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 50, $this->source); })()), "platform", [], "any", false, false, false, 50), "platformName", [], "any", false, false, false, 50) == 11)) {
+            // line 51
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 54
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 54, $this->source); })()), "platform", [], "any", false, false, false, 54), "platformName", [], "any", false, false, false, 54) == 12)) {
+            // line 55
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>XBox</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 58
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 58, $this->source); })()), "platform", [], "any", false, false, false, 58), "platformName", [], "any", false, false, false, 58) == 13)) {
             // line 59
-            echo "                                ";
-            if ((twig_get_attribute($this->env, $this->source, $context["gender"], "id", [], "any", false, false, false, 59) == 1)) {
-                // line 60
-                echo "                                <li class=\"video-game-gender rpg\">
-                                    RPG
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 63
-$context["gender"], "id", [], "any", false, false, false, 63) == 2)) {
-                // line 64
-                echo "                                <li class=\"video-game-gender avent\">
-                                    Aventure
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 67
-$context["gender"], "id", [], "any", false, false, false, 67) == 3)) {
-                // line 68
-                echo "                                <li class=\"video-game-gender fant\">
-                                    Fantastique
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 71
-$context["gender"], "id", [], "any", false, false, false, 71) == 4)) {
-                // line 72
-                echo "                                <li class=\"video-game-gender crea\">
-                                    Création
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 75
-$context["gender"], "id", [], "any", false, false, false, 75) == 5)) {
-                // line 76
-                echo "                                <li class=\"video-game-gender ow\">
-                                    Open-World
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 79
-$context["gender"], "id", [], "any", false, false, false, 79) == 6)) {
-                // line 80
-                echo "                                <li class=\"video-game-gender gestion\">
-                                    Gestion
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 83
-$context["gender"], "id", [], "any", false, false, false, 83) == 7)) {
-                // line 84
-                echo "                                <li class=\"video-game-gender refl\">
-                                    Réflexion
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 87
-$context["gender"], "id", [], "any", false, false, false, 87) == 8)) {
-                // line 88
-                echo "                                <li class=\"video-game-gender ecolo\">
-                                    Écologie
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 91
-$context["gender"], "id", [], "any", false, false, false, 91) == 9)) {
-                // line 92
-                echo "                                <li class=\"video-game-gender sante\">
-                                    Santé
-                                </li>
-                                ";
-            } elseif ((twig_get_attribute($this->env, $this->source,             // line 95
-$context["gender"], "id", [], "any", false, false, false, 95) == 10)) {
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>XBox 360</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 62
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 62, $this->source); })()), "platform", [], "any", false, false, false, 62), "platformName", [], "any", false, false, false, 62) == 14)) {
+            // line 63
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>XBox One</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 66
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 66, $this->source); })()), "platform", [], "any", false, false, false, 66), "platformName", [], "any", false, false, false, 66) == 15)) {
+            // line 67
+            echo "\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>XBox Series</span>
+\t\t\t\t\t</h4>
+\t\t\t\t";
+        }
+        // line 71
+        echo "\t\t\t\t<p class=\"perso-grade hide-2\">Note personnelle :</p>
+\t\t\t\t";
+        // line 72
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 72, $this->source); })()), "grade", [], "any", false, false, false, 72) >= 75)) {
+            // line 73
+            echo "\t\t\t\t\t<h4 class=\"video-game-grade verygood hide-3\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 73, $this->source); })()), "grade", [], "any", false, false, false, 73), "html", null, true);
+            echo "</h4>
+\t\t\t\t";
+        } elseif (((twig_get_attribute($this->env, $this->source,         // line 74
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 74, $this->source); })()), "grade", [], "any", false, false, false, 74) <= 74) && (twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 74, $this->source); })()), "grade", [], "any", false, false, false, 74) >= 60))) {
+            // line 75
+            echo "\t\t\t\t\t<h4 class=\"video-game-grade good hide-3\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 75, $this->source); })()), "grade", [], "any", false, false, false, 75), "html", null, true);
+            echo "</h4>
+\t\t\t\t";
+        } elseif (((twig_get_attribute($this->env, $this->source,         // line 76
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 76, $this->source); })()), "grade", [], "any", false, false, false, 76) <= 59) && (twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 76, $this->source); })()), "grade", [], "any", false, false, false, 76) >= 50))) {
+            // line 77
+            echo "\t\t\t\t\t<h4 class=\"video-game-grade medium hide-3\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 77, $this->source); })()), "grade", [], "any", false, false, false, 77), "html", null, true);
+            echo "</h4>
+\t\t\t\t";
+        } elseif (((twig_get_attribute($this->env, $this->source,         // line 78
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 78, $this->source); })()), "grade", [], "any", false, false, false, 78) <= 49) && (twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 78, $this->source); })()), "grade", [], "any", false, false, false, 78) >= 35))) {
+            // line 79
+            echo "\t\t\t\t\t<h4 class=\"video-game-grade notenough hide-3\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 79, $this->source); })()), "grade", [], "any", false, false, false, 79), "html", null, true);
+            echo "</h4>
+\t\t\t\t";
+        } elseif ((twig_get_attribute($this->env, $this->source,         // line 80
+(isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 80, $this->source); })()), "grade", [], "any", false, false, false, 80) <= 34)) {
+            // line 81
+            echo "\t\t\t\t\t<h4 class=\"video-game-grade bad hide-3\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 81, $this->source); })()), "grade", [], "any", false, false, false, 81), "html", null, true);
+            echo "</h4>
+\t\t\t\t";
+        }
+        // line 83
+        echo "\t\t\t\t<p class=\"hide-3\">
+\t\t\t\t\t<span>Date de sortie</span>
+\t\t\t\t\t: le
+\t\t\t\t\t";
+        // line 86
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 86, $this->source); })()), "releaseDate", [], "any", false, false, false, 86), "d F Y"), "html", null, true);
+        echo "</p>
+\t\t\t\t<p class=\" hide-3\">
+\t\t\t\t\t<span>Prix moyen</span>
+\t\t\t\t\t:
+\t\t\t\t\t";
+        // line 90
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 90, $this->source); })()), "averagePrice", [], "any", false, false, false, 90), "html", null, true);
+        echo "
+\t\t\t\t\t€</p>
+\t\t\t\t<div class=\"video-game-genders-box hide-3\">
+\t\t\t\t\t<ul class=\"video-game-genders-list\">
+\t\t\t\t\t\t";
+        // line 94
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 94, $this->source); })()), "genders", [], "any", false, false, false, 94));
+        foreach ($context['_seq'] as $context["_key"] => $context["gender"]) {
+            // line 95
+            echo "\t\t\t\t\t\t\t";
+            if ((twig_get_attribute($this->env, $this->source, $context["gender"], "id", [], "any", false, false, false, 95) == 1)) {
                 // line 96
-                echo "                                <li class=\"video-game-gender survie\">
-                                    Survie
-                                </li>
-                                ";
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender rpg\">
+\t\t\t\t\t\t\t\t\tRPG
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
             } elseif ((twig_get_attribute($this->env, $this->source,             // line 99
-$context["gender"], "id", [], "any", false, false, false, 99) == 11)) {
+$context["gender"], "id", [], "any", false, false, false, 99) == 2)) {
                 // line 100
-                echo "                                <li class=\"video-game-gender tact\">
-                                    Tactique
-                                </li>
-                                ";
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender avent\">
+\t\t\t\t\t\t\t\t\tAventure
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
             } elseif ((twig_get_attribute($this->env, $this->source,             // line 103
-$context["gender"], "id", [], "any", false, false, false, 103) == 12)) {
+$context["gender"], "id", [], "any", false, false, false, 103) == 3)) {
                 // line 104
-                echo "                                <li class=\"video-game-gender strat\">
-                                    Stratégie
-                                </li>
-                                ";
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender fant\">
+\t\t\t\t\t\t\t\t\tFantastique
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 107
+$context["gender"], "id", [], "any", false, false, false, 107) == 4)) {
+                // line 108
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender crea\">
+\t\t\t\t\t\t\t\t\tCréation
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 111
+$context["gender"], "id", [], "any", false, false, false, 111) == 5)) {
+                // line 112
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender ow\">
+\t\t\t\t\t\t\t\t\tOpen-World
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 115
+$context["gender"], "id", [], "any", false, false, false, 115) == 6)) {
+                // line 116
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender gestion\">
+\t\t\t\t\t\t\t\t\tGestion
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 119
+$context["gender"], "id", [], "any", false, false, false, 119) == 7)) {
+                // line 120
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender refl\">
+\t\t\t\t\t\t\t\t\tRéflexion
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 123
+$context["gender"], "id", [], "any", false, false, false, 123) == 8)) {
+                // line 124
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender ecolo\">
+\t\t\t\t\t\t\t\t\tÉcologie
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 127
+$context["gender"], "id", [], "any", false, false, false, 127) == 9)) {
+                // line 128
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender sante\">
+\t\t\t\t\t\t\t\t\tSanté
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 131
+$context["gender"], "id", [], "any", false, false, false, 131) == 10)) {
+                // line 132
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender survie\">
+\t\t\t\t\t\t\t\t\tSurvie
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 135
+$context["gender"], "id", [], "any", false, false, false, 135) == 11)) {
+                // line 136
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender tact\">
+\t\t\t\t\t\t\t\t\tTactique
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 139
+$context["gender"], "id", [], "any", false, false, false, 139) == 12)) {
+                // line 140
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender strat\">
+\t\t\t\t\t\t\t\t\tStratégie
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 143
+$context["gender"], "id", [], "any", false, false, false, 143) == 13)) {
+                // line 144
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender chill\">
+\t\t\t\t\t\t\t\t\tChill
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 147
+$context["gender"], "id", [], "any", false, false, false, 147) == 14)) {
+                // line 148
+                echo "\t\t\t\t\t\t\t\t<li class=\"video-game-gender postapo\">
+\t\t\t\t\t\t\t\t\tPost-Apocalyptique
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t";
             }
-            // line 108
-            echo "                            ";
+            // line 152
+            echo "\t\t\t\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['gender'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 109
-        echo "                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section class=\"video-game-content hide-4\">
-                <a class=\"go-to-vg\" href=\"";
-        // line 114
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_card", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 114, $this->source); })()), "id", [], "any", false, false, false, 114)]), "html", null, true);
+        // line 153
+        echo "\t\t\t\t\t</ul>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</section>
+\t\t<section class=\"video-game-content hide-4\">
+\t\t\t<a class=\"go-to-vg\" href=\"";
+        // line 158
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_card", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["videoGame"]) || array_key_exists("videoGame", $context) ? $context["videoGame"] : (function () { throw new RuntimeError('Variable "videoGame" does not exist.', 158, $this->source); })()), "id", [], "any", false, false, false, 158)]), "html", null, true);
         echo "\">Accéder à l'Avis</a>
-            </section>
-        </article>
+\t\t</section>
+\t</article>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -328,7 +377,7 @@ $context["gender"], "id", [], "any", false, false, false, 103) == 12)) {
      */
     public function getTemplateName()
     {
-        return "videogames/videogame-list-card.html.twig";
+        return "./videogames/videogame-list-card.html.twig";
     }
 
     /**
@@ -336,128 +385,172 @@ $context["gender"], "id", [], "any", false, false, false, 103) == 12)) {
      */
     public function getDebugInfo()
     {
-        return array (  313 => 114,  306 => 109,  300 => 108,  294 => 104,  292 => 103,  287 => 100,  285 => 99,  280 => 96,  278 => 95,  273 => 92,  271 => 91,  266 => 88,  264 => 87,  259 => 84,  257 => 83,  252 => 80,  250 => 79,  245 => 76,  243 => 75,  238 => 72,  236 => 71,  231 => 68,  229 => 67,  224 => 64,  222 => 63,  217 => 60,  214 => 59,  210 => 58,  204 => 55,  199 => 54,  193 => 52,  191 => 51,  186 => 50,  184 => 49,  179 => 48,  177 => 47,  172 => 46,  170 => 45,  165 => 44,  163 => 43,  160 => 42,  156 => 40,  154 => 39,  151 => 38,  149 => 37,  146 => 36,  144 => 35,  141 => 34,  139 => 33,  136 => 32,  134 => 31,  131 => 30,  129 => 29,  126 => 28,  124 => 27,  121 => 26,  119 => 25,  116 => 24,  114 => 23,  111 => 22,  109 => 21,  106 => 20,  104 => 19,  101 => 18,  99 => 17,  96 => 16,  94 => 15,  91 => 14,  89 => 13,  86 => 12,  84 => 11,  79 => 9,  70 => 5,  66 => 3,  47 => 2,  44 => 1,);
+        return array (  362 => 158,  355 => 153,  349 => 152,  343 => 148,  341 => 147,  336 => 144,  334 => 143,  329 => 140,  327 => 139,  322 => 136,  320 => 135,  315 => 132,  313 => 131,  308 => 128,  306 => 127,  301 => 124,  299 => 123,  294 => 120,  292 => 119,  287 => 116,  285 => 115,  280 => 112,  278 => 111,  273 => 108,  271 => 107,  266 => 104,  264 => 103,  259 => 100,  257 => 99,  252 => 96,  249 => 95,  245 => 94,  238 => 90,  231 => 86,  226 => 83,  220 => 81,  218 => 80,  213 => 79,  211 => 78,  206 => 77,  204 => 76,  199 => 75,  197 => 74,  192 => 73,  190 => 72,  187 => 71,  181 => 67,  179 => 66,  174 => 63,  172 => 62,  167 => 59,  165 => 58,  160 => 55,  158 => 54,  153 => 51,  151 => 50,  146 => 47,  144 => 46,  139 => 43,  137 => 42,  132 => 39,  130 => 38,  125 => 35,  123 => 34,  118 => 31,  116 => 30,  111 => 27,  109 => 26,  104 => 23,  102 => 22,  97 => 19,  95 => 18,  90 => 15,  88 => 14,  83 => 11,  81 => 10,  76 => 8,  67 => 4,  63 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("
-{% block vglist %}
-        <article class=\"video-game-card hide\"> 
-            <section class=\"video-game-card-theme hide-2\">
-                <img src=\"{{ vich_uploader_asset(videoGame, 'imgTheme') }}\" alt=\"{{ videoGame.name }}\">
-            </section>
-            <section class=\"video-game-card-head hide-2\">
-                <div class=\"video-game-pres hide-2\">
-                    <h3 class=\" hide-2\">{{ videoGame.name }}</h3>
-                    
-                    {% if videoGame.platform.platformName == 1 %}
-                    <h4 class=\" hide-2\">Sur : <span>Nintendo Switch</span></h4>
-                    {% elseif videoGame.platform.platformName == 2 %}
-                    <h4 class=\" hide-2\">Sur : <span>PC Steam</span></h4>
-                    {% elseif videoGame.platform.platformName == 3 %}
-                    <h4 class=\" hide-2\">Sur : <span>PlayStation 5</span></h4>
-                    {% elseif videoGame.platform.platformName == 4 %}
-                    <h4 class=\" hide-2\">Sur : <span>GameBoy Advanced</span></h4>
-                    {% elseif videoGame.platform.platformName == 5 %}
-                    <h4 class=\" hide-2\">Sur : <span>GameBoy / GameBoy Color</span></h4>
-                    {% elseif videoGame.platform.platformName == 6 %}
-                    <h4 class=\" hide-2\">Sur : <span>PlayStation 4</span></h4>
-                    {% elseif videoGame.platform.platformName == 7 %}
-                    <h4 class=\" hide-2\">Sur : <span>Nintendo DS</span></h4>
-                    {% elseif videoGame.platform.platformName == 8 %}
-                    <h4 class=\" hide-2\">Sur : <span>Nintendo 3DS</span></h4>
-                    {% elseif videoGame.platform.platformName == 9 %}
-                    <h4 class=\" hide-2\">Sur : <span>PlayStation 3</span></h4>
-                    {% elseif videoGame.platform.platformName == 10 %}
-                    <h4 class=\" hide-2\">Sur : <span>PlayStation 2</span></h4>
-                    {% elseif videoGame.platform.platformName == 11 %}
-                    <h4 class=\" hide-2\">Sur : <span>PlayStation</span></h4>
-                    {% elseif videoGame.platform.platformName == 12 %}
-                    <h4 class=\" hide-2\">Sur : <span>XBox</span></h4>
-                    {% elseif videoGame.platform.platformName == 13 %}
-                    <h4 class=\" hide-2\">Sur : <span>XBox 360</span></h4>
-                    {% elseif videoGame.platform.platformName == 14 %}
-                    <h4 class=\" hide-2\">Sur : <span>XBox One</span></h4>
-                    {% elseif videoGame.platform.platformName == 15 %}
-                    <h4 class=\" hide-2\">Sur : <span>XBox Series</span></h4>
-                    {% endif %}
-                    <p class=\"perso-grade hide-2\">Note personnelle :</p>
-                    {% if videoGame.grade >= 75 %}
-                    <h4 class=\"video-game-grade verygood hide-3\">{{ videoGame.grade }}</h4>
-                    {% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
-                    <h4 class=\"video-game-grade good hide-3\">{{ videoGame.grade }}</h4>
-                    {% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
-                    <h4 class=\"video-game-grade medium hide-3\">{{ videoGame.grade }}</h4>
-                    {% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
-                    <h4 class=\"video-game-grade notenough hide-3\">{{ videoGame.grade }}</h4>
-                    {% elseif videoGame.grade <= 34 %}
-                    <h4 class=\"video-game-grade bad hide-3\">{{ videoGame.grade }}</h4>
-                    {% endif %}
-                    <p class=\"hide-3\"><span>Date de sortie</span> : le {{ videoGame.releaseDate | date('d F Y') }}</p>
-                    <p class=\" hide-3\"><span>Prix moyen</span> : {{ videoGame.averagePrice }} €</p>
-                    <div class=\"video-game-genders-box hide-3\">
-                        <ul class=\"video-game-genders-list\">
-                            {% for gender in videoGame.genders %}
-                                {% if gender.id == 1 %}
-                                <li class=\"video-game-gender rpg\">
-                                    RPG
-                                </li>
-                                {% elseif gender.id == 2 %}
-                                <li class=\"video-game-gender avent\">
-                                    Aventure
-                                </li>
-                                {% elseif gender.id == 3 %}
-                                <li class=\"video-game-gender fant\">
-                                    Fantastique
-                                </li>
-                                {% elseif gender.id == 4 %}
-                                <li class=\"video-game-gender crea\">
-                                    Création
-                                </li>
-                                {% elseif gender.id == 5 %}
-                                <li class=\"video-game-gender ow\">
-                                    Open-World
-                                </li>
-                                {% elseif gender.id == 6 %}
-                                <li class=\"video-game-gender gestion\">
-                                    Gestion
-                                </li>
-                                {% elseif gender.id == 7 %}
-                                <li class=\"video-game-gender refl\">
-                                    Réflexion
-                                </li>
-                                {% elseif gender.id == 8 %}
-                                <li class=\"video-game-gender ecolo\">
-                                    Écologie
-                                </li>
-                                {% elseif gender.id == 9 %}
-                                <li class=\"video-game-gender sante\">
-                                    Santé
-                                </li>
-                                {% elseif gender.id == 10 %}
-                                <li class=\"video-game-gender survie\">
-                                    Survie
-                                </li>
-                                {% elseif gender.id == 11 %}
-                                <li class=\"video-game-gender tact\">
-                                    Tactique
-                                </li>
-                                {% elseif gender.id == 12 %}
-                                <li class=\"video-game-gender strat\">
-                                    Stratégie
-                                </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section class=\"video-game-content hide-4\">
-                <a class=\"go-to-vg\" href=\"{{ path('videogame_card', { 'id': videoGame.id }) }}\">Accéder à l'Avis</a>
-            </section>
-        </article>
+        return new Source("{% block vglist %}
+\t<article class=\"video-game-card hide\">
+\t\t<section class=\"video-game-card-theme hide-2\">
+\t\t\t<img src=\"{{ vich_uploader_asset(videoGame, 'imgTheme') }}\" alt=\"{{ videoGame.name }}\">
+\t\t</section>
+\t\t<section class=\"video-game-card-head hide-2\">
+\t\t\t<div class=\"video-game-pres hide-2\">
+\t\t\t\t<h3 class=\" hide-2\">{{ videoGame.name }}</h3>
+
+\t\t\t\t{% if videoGame.platform.platformName == 1 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>Nintendo Switch</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 2 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PC Steam</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 3 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation 5</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 4 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>GameBoy Advanced</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 5 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>GameBoy / GameBoy Color</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 6 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation 4</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 7 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>Nintendo DS</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 8 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>Nintendo 3DS</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 9 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation 3</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 10 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation 2</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 11 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>PlayStation</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 12 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>XBox</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 13 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>XBox 360</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 14 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>XBox One</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% elseif videoGame.platform.platformName == 15 %}
+\t\t\t\t\t<h4 class=\" hide-2\">Sur :
+\t\t\t\t\t\t<span>XBox Series</span>
+\t\t\t\t\t</h4>
+\t\t\t\t{% endif %}
+\t\t\t\t<p class=\"perso-grade hide-2\">Note personnelle :</p>
+\t\t\t\t{% if videoGame.grade >= 75 %}
+\t\t\t\t\t<h4 class=\"video-game-grade verygood hide-3\">{{ videoGame.grade }}</h4>
+\t\t\t\t{% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
+\t\t\t\t\t<h4 class=\"video-game-grade good hide-3\">{{ videoGame.grade }}</h4>
+\t\t\t\t{% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
+\t\t\t\t\t<h4 class=\"video-game-grade medium hide-3\">{{ videoGame.grade }}</h4>
+\t\t\t\t{% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
+\t\t\t\t\t<h4 class=\"video-game-grade notenough hide-3\">{{ videoGame.grade }}</h4>
+\t\t\t\t{% elseif videoGame.grade <= 34 %}
+\t\t\t\t\t<h4 class=\"video-game-grade bad hide-3\">{{ videoGame.grade }}</h4>
+\t\t\t\t{% endif %}
+\t\t\t\t<p class=\"hide-3\">
+\t\t\t\t\t<span>Date de sortie</span>
+\t\t\t\t\t: le
+\t\t\t\t\t{{ videoGame.releaseDate | date('d F Y') }}</p>
+\t\t\t\t<p class=\" hide-3\">
+\t\t\t\t\t<span>Prix moyen</span>
+\t\t\t\t\t:
+\t\t\t\t\t{{ videoGame.averagePrice }}
+\t\t\t\t\t€</p>
+\t\t\t\t<div class=\"video-game-genders-box hide-3\">
+\t\t\t\t\t<ul class=\"video-game-genders-list\">
+\t\t\t\t\t\t{% for gender in videoGame.genders %}
+\t\t\t\t\t\t\t{% if gender.id == 1 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender rpg\">
+\t\t\t\t\t\t\t\t\tRPG
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 2 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender avent\">
+\t\t\t\t\t\t\t\t\tAventure
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 3 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender fant\">
+\t\t\t\t\t\t\t\t\tFantastique
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 4 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender crea\">
+\t\t\t\t\t\t\t\t\tCréation
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 5 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender ow\">
+\t\t\t\t\t\t\t\t\tOpen-World
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 6 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender gestion\">
+\t\t\t\t\t\t\t\t\tGestion
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 7 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender refl\">
+\t\t\t\t\t\t\t\t\tRéflexion
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 8 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender ecolo\">
+\t\t\t\t\t\t\t\t\tÉcologie
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 9 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender sante\">
+\t\t\t\t\t\t\t\t\tSanté
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 10 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender survie\">
+\t\t\t\t\t\t\t\t\tSurvie
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 11 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender tact\">
+\t\t\t\t\t\t\t\t\tTactique
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 12 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender strat\">
+\t\t\t\t\t\t\t\t\tStratégie
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 13 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender chill\">
+\t\t\t\t\t\t\t\t\tChill
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% elseif gender.id == 14 %}
+\t\t\t\t\t\t\t\t<li class=\"video-game-gender postapo\">
+\t\t\t\t\t\t\t\t\tPost-Apocalyptique
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t{% endfor %}
+\t\t\t\t\t</ul>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</section>
+\t\t<section class=\"video-game-content hide-4\">
+\t\t\t<a class=\"go-to-vg\" href=\"{{ path('videogame_card', { 'id': videoGame.id }) }}\">Accéder à l'Avis</a>
+\t\t</section>
+\t</article>
 {% endblock %}
-", "videogames/videogame-list-card.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\videogames\\videogame-list-card.html.twig");
+", "./videogames/videogame-list-card.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\videogames\\videogame-list-card.html.twig");
     }
 }
