@@ -1,0 +1,81 @@
+body main {
+    margin-top: 155px;
+    padding-bottom: 70px;
+}
+
+.admin-form-card {
+    width: 95%;
+    margin-left: 2.5%;
+    background-color: rgb(235, 163, 39);
+    color: rgb(25, 25, 40);
+    text-transform: 750;
+    padding-bottom: 25px;
+    font-size: 16px;
+}
+
+.admin-form-card h3 {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-transform: uppercase;
+    font-size: 32px;
+    text-align: center;
+}
+
+.admin-form-card .admin-form {
+    padding-top: 15px;
+    padding-bottom: 25px;
+    width: 90%;
+    font-weight: 800;
+    margin-left: 5%;
+    display: flexbox;
+}
+
+.admin-form section {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.admin-form .form-group {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+}
+
+.form-group label {
+    width: 50%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-group input {
+    width: 50%;
+    border-radius: 0.25em;
+}
+
+.form-group .check {
+    width: auto;
+}
+
+
+
+form button {
+    font-size: 32px !important;
+    margin-left: 40%;
+    margin-top: 25px;
+    border: 3px solid rgba(56, 99, 200, .15);
+    color: white;
+    background-color: rgb(15, 15, 25);
+    width: 300px;
+    padding: 5px;
+    transition: 350ms 450ms ease-out;
+    transform: translate(-2px, -2px);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    border-radius: 1.225em;
+    cursor:pointer;
+}
+
+button:hover {
+    transform: translate(2px, 2px);
+}

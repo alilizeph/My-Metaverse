@@ -9,8 +9,8 @@
     <parameter key="kernel.runtime_mode.cli">%env(not:default:kernel.runtime_mode.web:)%</parameter>
     <parameter key="kernel.runtime_mode.worker">%env(bool:default::key:worker:default:kernel.runtime_mode:)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev</parameter>
-    <parameter key="kernel.cache_dir">C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev</parameter>
+    <parameter key="kernel.build_dir">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev</parameter>
+    <parameter key="kernel.cache_dir">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -116,12 +116,12 @@
     <parameter key="asset.request_context.base_path">null</parameter>
     <parameter key="asset.request_context.secure">null</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
-    <parameter key="router.cache_dir">C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev</parameter>
+    <parameter key="router.cache_dir">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
     <parameter key="cache.prefix.seed">_C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse.App_KernelDevDebugContainer</parameter>
@@ -137,11 +137,11 @@
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
-    <parameter key="validator.mapping.cache.file">C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/profiler</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>@VichUploader/Form/fields.html.twig</parameter>
       <parameter>form_div_layout.html.twig</parameter>
@@ -213,7 +213,7 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.enable_lazy_ghost_objects">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -513,7 +513,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.ZGRwMgt"/>
+      <argument type="service" id=".service_locator.bHJINJ4"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -594,7 +594,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/http_cache</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -604,7 +604,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -1272,7 +1272,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1291,7 +1291,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/app</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -2025,7 +2025,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.ZGRwMgt"/>
+      <argument type="service" id=".service_locator.bHJINJ4"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -2128,7 +2128,7 @@
       <argument type="service" id=".service_locator.8NWUArH.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev</argument>
+        <argument key="cache_dir">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -2285,7 +2285,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/sessions</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -2479,10 +2479,10 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/validation.php</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" constructor="create">
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/validation.php</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory">
@@ -2840,7 +2840,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/profiler</argument>
+      <argument>file:C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -2899,7 +2899,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/App_KernelDevDebugContainer</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id=".virtual_request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -3199,7 +3199,7 @@
       <tag name="container.preload" class="Twig\TemplateWrapper"/>
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
-        <argument key="cache">C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/twig</argument>
+        <argument key="cache">C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -4061,7 +4061,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -5525,7 +5525,7 @@
       </argument>
     </service>
     <service id="vich_uploader.metadata.cache.file_cache" class="Metadata\Cache\FileCache">
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/vich_uploader</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/vich_uploader</argument>
     </service>
     <service id="vich_uploader.metadata_factory" class="Metadata\MetadataFactory">
       <argument type="service" id="vich_uploader.metadata_driver.chain"/>
@@ -5540,7 +5540,7 @@
     </service>
     <service id="Vich\UploaderBundle\Metadata\CacheWarmer" class="Vich\UploaderBundle\Metadata\CacheWarmer">
       <tag name="kernel.cache_warmer"/>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/vich_uploader</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/vich_uploader</argument>
       <argument type="service" id="vich_uploader.metadata_reader"/>
     </service>
     <service id="vich_uploader.property_mapping_resolver" class="Vich\UploaderBundle\Mapping\PropertyMappingResolver">
@@ -6187,11 +6187,12 @@
         <argument key="videoGame" type="service_closure" id=".errored..service_locator..b29EWt.App\Entity\VideoGame"/>
       </argument>
     </service>
-    <service id=".service_locator.ZGRwMgt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.bHJINJ4" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::admin" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\AdminController::adminAddVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
+        <argument key="App\Controller\AdminController::adminRemoveVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController::index" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController::videogamesCard" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController::videogamesList" type="service_closure" id=".service_locator.9kKwU2t"/>
@@ -6212,6 +6213,7 @@
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Controller\AdminController:admin" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\AdminController:adminAddVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
+        <argument key="App\Controller\AdminController:adminRemoveVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController:index" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController:videogamesCard" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController:videogamesList" type="service_closure" id=".service_locator.9kKwU2t"/>
@@ -7615,7 +7617,7 @@
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument>nijF0NNMu3</argument>
       <argument>0</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/app</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -7625,7 +7627,7 @@
       <argument>yOcEgSrcLN</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7633,7 +7635,7 @@
       <argument>WcZ4KwvVIv</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7641,7 +7643,7 @@
       <argument>YJdrzYFllf</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7649,7 +7651,7 @@
       <argument>mY93FpYyK2</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7657,7 +7659,7 @@
       <argument>aMjF9QI+MN</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7667,7 +7669,7 @@
       <argument>A8PCTJ6kom</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7675,7 +7677,7 @@
       <argument>UknBMPt2sh</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7683,7 +7685,7 @@
       <argument>0MuEXwJOkW</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/robocop/Desktop/REVISIONS WEB/FIRST PROJECTS/MyMetaverseV2.0/MyMetaverse/var/cache/dev/pools/system</argument>
+      <argument>C:\Users\robocop\Desktop\REVISIONS WEB\FIRST PROJECTS\MyMetaverseV2.0\MyMetaverse\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7824,7 +7826,7 @@
     <service id="Vich\UploaderBundle\Form\Type\VichImageType" alias="vich_uploader.form.type.image"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ZGRwMgt"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.bHJINJ4"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>

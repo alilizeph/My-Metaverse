@@ -16,6 +16,8 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'app_admin', '_controller' => 'App\\Controller\\AdminController::admin'], null, null, null, false, false, null]],
         '/admin/new' => [[['_route' => 'app_admin_new', '_controller' => 'App\\Controller\\AdminController::adminAddVideoGame'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/edit' => [[['_route' => 'app_admin_edit', '_controller' => 'App\\Controller\\AdminController::adminEditVideoGame'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
+        '/admin/remove' => [[['_route' => 'app_admin_remove', '_controller' => 'App\\Controller\\AdminController::adminRemoveVideoGame'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
         '/' => [[['_route' => 'homepage', '_controller' => 'App\\Controller\\DefaultController::index'], null, ['GET' => 0, 'HEAD' => 1], null, false, false, null]],
         '/videogames' => [[['_route' => 'videogames_list', '_controller' => 'App\\Controller\\DefaultController::videogamesList'], null, ['GET' => 0], null, false, false, null]],
         '/registration' => [[['_route' => 'app_registration', '_controller' => 'App\\Controller\\SecurityController::registration'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
@@ -45,22 +47,18 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/admin/(?'
-                    .'|edit/([1-999]\\d*)(*:229)'
-                    .'|remove/([1-999]\\d*)(*:256)'
-                .')'
-                .'|/videogames/([1-999]\\d*)(*:289)'
+                .'|/videogames/([1-999]\\d*)(*:226)'
                 .'|/([^/]++)/p(?'
-                    .'|ublic(*:316)'
+                    .'|ublic(*:253)'
                     .'|rivate(?'
-                        .'|(*:333)'
-                        .'|/edit(*:346)'
+                        .'|(*:270)'
+                        .'|/edit(*:283)'
                     .')'
                 .')'
                 .'|/videogame/([^/]++)(?'
-                    .'|(*:378)'
-                    .'|/edit(*:391)'
-                    .'|(*:399)'
+                    .'|(*:315)'
+                    .'|/edit(*:328)'
+                    .'|(*:336)'
                 .')'
             .')/?$}sDu',
     ],
@@ -73,15 +71,13 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        229 => [[['_route' => 'app_admin_edit', '_controller' => 'App\\Controller\\AdminController::adminEditVideoGame'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        256 => [[['_route' => 'app_admin_remove', '_controller' => 'App\\Controller\\AdminController::adminRemoveVideoGame'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        289 => [[['_route' => 'videogame_card', '_controller' => 'App\\Controller\\DefaultController::videogamesCard'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        316 => [[['_route' => 'user_public_profile', '_controller' => 'App\\Controller\\UserController::publicProfile'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        333 => [[['_route' => 'user_private_profile', '_controller' => 'App\\Controller\\UserController::privateProfile'], ['id'], ['GET' => 0], null, false, false, null]],
-        346 => [[['_route' => 'update_user', '_controller' => 'App\\Controller\\UserController::updateProfileFields'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        378 => [[['_route' => 'app_video_game_show', '_controller' => 'App\\Controller\\VideoGameController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        391 => [[['_route' => 'app_video_game_edit', '_controller' => 'App\\Controller\\VideoGameController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        399 => [
+        226 => [[['_route' => 'videogame_card', '_controller' => 'App\\Controller\\DefaultController::videogamesCard'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        253 => [[['_route' => 'user_public_profile', '_controller' => 'App\\Controller\\UserController::publicProfile'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        270 => [[['_route' => 'user_private_profile', '_controller' => 'App\\Controller\\UserController::privateProfile'], ['id'], ['GET' => 0], null, false, false, null]],
+        283 => [[['_route' => 'update_user', '_controller' => 'App\\Controller\\UserController::updateProfileFields'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        315 => [[['_route' => 'app_video_game_show', '_controller' => 'App\\Controller\\VideoGameController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        328 => [[['_route' => 'app_video_game_edit', '_controller' => 'App\\Controller\\VideoGameController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        336 => [
             [['_route' => 'app_video_game_delete', '_controller' => 'App\\Controller\\VideoGameController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

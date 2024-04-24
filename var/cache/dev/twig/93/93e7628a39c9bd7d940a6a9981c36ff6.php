@@ -102,15 +102,22 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
         // line 13
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_new");
         echo "\">
-                    <button>Ajouter</button>
+                    <button>Continuer</button>
                 </a>
             <section>
             <section class=\"admin-group hide-2\">
-                <p>A venir</p>
-            </section>
+                <h5>Modifier une critique :</h5>
+                <p>a venir</p>
+            <section>
             <section class=\"admin-group hide-2\">
-                <p>A venir</p>
-            </section>
+                <h5>Supprimer une critique :</h5>
+                <a href=\"";
+        // line 23
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_remove");
+        echo "\">
+                    <button>Continuer</button>
+                </a>
+            <section>
         </article>
     </main>
 ";
@@ -143,7 +150,7 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
      */
     public function getDebugInfo()
     {
-        return array (  103 => 13,  97 => 10,  92 => 7,  82 => 6,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  116 => 23,  103 => 13,  97 => 10,  92 => 7,  82 => 6,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -161,15 +168,19 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
             <section class=\"admin-group hide-2\">
                 <h5>Ajouter une nouvelle critique :</h5>
                 <a href=\"{{ path('app_admin_new') }}\">
-                    <button>Ajouter</button>
+                    <button>Continuer</button>
                 </a>
             <section>
             <section class=\"admin-group hide-2\">
-                <p>A venir</p>
-            </section>
+                <h5>Modifier une critique :</h5>
+                <p>a venir</p>
+            <section>
             <section class=\"admin-group hide-2\">
-                <p>A venir</p>
-            </section>
+                <h5>Supprimer une critique :</h5>
+                <a href=\"{{ path('app_admin_remove') }}\">
+                    <button>Continuer</button>
+                </a>
+            <section>
         </article>
     </main>
 {% endblock %}

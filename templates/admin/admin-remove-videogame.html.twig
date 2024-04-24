@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+	<link rel="stylesheet" href="{{ asset('./css/admin/admin-remove.css') }}">
+{% endblock %}
+
+{% block body %}
+    <main>
+        <article class='admin-form-card'>
+            <h3>Supprimer une nouvelle critique
+			</h3>
+			<section class="admin-form">
+            {{ form_start(form)}}
+					<div class="form-group">
+                        {{ form_label(form.videogame)}}
+                        {{ form_widget(form.videogame)}}
+                    </div>
+					<div class="form-group">
+                        <label>Êtes vous sûr(e) de votre choix ? </label>
+                        <input type="checkbox" name="question" class="check">
+                    </div> 
+                <button type=submit>Supprimer</button>
+            {{ form_end(form) }}
+            </section>
+        </article>
+    </main>
+{% endblock %}
