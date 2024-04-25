@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* ./videogames/videogame-list-card.html.twig */
+/* videogames/videogame-list-card.html.twig */
 class __TwigTemplate_2c06d535dd99382d2306311501ec47bf extends Template
 {
     private $source;
@@ -35,10 +35,10 @@ class __TwigTemplate_2c06d535dd99382d2306311501ec47bf extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "./videogames/videogame-list-card.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "videogames/videogame-list-card.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "./videogames/videogame-list-card.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "videogames/videogame-list-card.html.twig"));
 
         // line 1
         $this->displayBlock('vglist', $context, $blocks);
@@ -377,7 +377,7 @@ $context["gender"], "id", [], "any", false, false, false, 147) == 14)) {
      */
     public function getTemplateName()
     {
-        return "./videogames/videogame-list-card.html.twig";
+        return "videogames/videogame-list-card.html.twig";
     }
 
     /**
@@ -551,6 +551,6 @@ $context["gender"], "id", [], "any", false, false, false, 147) == 14)) {
 \t\t</section>
 \t</article>
 {% endblock %}
-", "./videogames/videogame-list-card.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\videogames\\videogame-list-card.html.twig");
+", "videogames/videogame-list-card.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\videogames\\videogame-list-card.html.twig");
     }
 }

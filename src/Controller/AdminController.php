@@ -4,16 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Platform;
 use App\Entity\VideoGame;
-use App\Form\AdminNewVideoGameFormType;
-use App\Form\AdminRemoveFormType;
-use DateTime;
+use App\Form\AdminEditFormType as AdminEditFormType;
+use App\Form\AdminNewVideoGameFormType as AdminNewVideoGameFormType;
+use App\Form\AdminRemoveFormType as AdminRemoveFormType;
+use App\Form\AdminFirstEditVGFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Error;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\ButtonType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -21,14 +18,35 @@ use Symfony\Component\Routing\Attribute\Route;
 class AdminController extends AbstractController
 {
     #[Route('/admin', name: 'app_admin')]
-    public function admin(EntityManagerInterface $em): Response
+    public function admin(EntityManagerInterface $em, Request $request): Response
     {
         $videoGamesList = $em->getRepository(VideoGame::class)->findAll();
         $user = $this->getUser();
+
+        $form = $this->createForm(AdminFirstEditVGFormType::class);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted())
+        {
+            /** @var VideoGame */
+            $vg = $form->get('videogame')->getData();
+
+            if($vg) {
+                $id = $vg->getId();
+
+                return $this->redirectToRoute('app_admin_edit', ['id' => $id]);
+            } else {
+                throw new Error('erreur à la sélection du jeu');
+            }
+        }
+
+
         return $this->render('admin/admin-home.html.twig', [
             'controller_name' => 'AdminController',
             'videogames' => $videoGamesList,
-            'user' => $user
+            'user' => $user,
+            'form' => $form
         ]);
     }
 
@@ -39,12 +57,12 @@ class AdminController extends AbstractController
         $platforms = $em->getRepository(Platform::class)->findAll();
         $form = $this->createForm(
             AdminNewVideoGameFormType::class,
-            $videoGame, [
+            $videoGame,
+            [
                 'attr' => [
                     'enctype' => 'multipart/form-data'
                 ]
-                ]
-                ,
+            ]
         );
 
         $isAvailable = $form->get('disponibility')->getData();
@@ -66,11 +84,25 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/edit/', name:'app_admin_edit', requirements:['id' => '[1-999]\d*'], methods:["GET", "POST"])]
-    public function  adminEditVideoGame(): Response
+    #[Route('/admin/edit/{id}', name:'app_admin_edit', requirements:['id' => '[1-999]\d*'], methods:["GET", "POST"])]
+    public function  adminEditVideoGame(EntityManagerInterface $em, Request $request, int $id = 1): Response
     {
+        $videogame = $em->getRepository(VideoGame::class)->findOneBy(['id' => $id]);
+
+        $form = $this->createForm(AdminEditFormType::class, $videogame); // passez l'objet $videogame au formulaire
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Les données du formulaire ont été soumises, vous n'avez donc pas besoin de modifier les données du jeu ici
+            $em->flush();
+
+            return $this->redirectToRoute('videogame_card', ['id' => $videogame->getId()]);
+        }
+
         return $this->render('admin/admin-edit-videogame.html.twig', [
             'controller_name' => 'AdminController',
+            'videogame' => $videogame,
+            'form' => $form->createView() // Utilisez createView() pour passer le formulaire à la vue
         ]);
     }
     

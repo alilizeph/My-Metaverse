@@ -257,9 +257,10 @@ class __TwigTemplate_912a4c147e944e6ab424849145a99590 extends Template
         // line 78
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 78, $this->source); })()), 'form_end');
         echo "
-\t\t\t\t<section></article>
-\t\t\t</main>
-\t\t";
+\t\t\t\t<section>
+\t\t\t</article>
+\t\t</main>
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -372,9 +373,10 @@ class __TwigTemplate_912a4c147e944e6ab424849145a99590 extends Template
 \t\t\t\t</section>
 \t\t\t\t<button type=\"submit\">Envoyer</button>
 \t\t\t\t{{ form_end(form)}}
-\t\t\t\t<section></article>
-\t\t\t</main>
-\t\t{% endblock %}
+\t\t\t\t<section>
+\t\t\t</article>
+\t\t</main>
+{% endblock %}
 ", "admin/admin-add-videogame.html.twig", "C:\\Users\\robocop\\Desktop\\REVISIONS WEB\\FIRST PROJECTS\\MyMetaverseV2.0\\MyMetaverse\\templates\\admin\\admin-add-videogame.html.twig");
     }
 }

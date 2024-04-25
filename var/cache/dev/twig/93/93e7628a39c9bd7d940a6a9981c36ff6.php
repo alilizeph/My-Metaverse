@@ -96,28 +96,44 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
         // line 10
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 10, $this->source); })()), "username", [], "any", false, false, false, 10), "html", null, true);
         echo "<h4>
-            <section class=\"admin-group hide-2\">
-                <h5>Ajouter une nouvelle critique :</h5>
-                <a href=\"";
-        // line 13
+            <section class=\"admin-content\">
+                <section class=\"admin-group g1 hide-2\">
+                    <h5>Ajouter une nouvelle critique :</h5>
+                    <a href=\"";
+        // line 14
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_new");
         echo "\">
-                    <button>Continuer</button>
-                </a>
-            <section>
-            <section class=\"admin-group hide-2\">
-                <h5>Modifier une critique :</h5>
-                <p>a venir</p>
-            <section>
-            <section class=\"admin-group hide-2\">
-                <h5>Supprimer une critique :</h5>
-                <a href=\"";
-        // line 23
+                        <button>Continuer</button>
+                    </a>
+                <section>
+                <section class=\"admin-group g2 hide-2\">
+                    <h5>Modifier une critique :</h5>
+                    ";
+        // line 20
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), 'form_start');
+        echo "
+                        <div class=\"form-group\">
+                            ";
+        // line 22
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "videogame", [], "any", false, false, false, 22), 'widget');
+        echo "
+                        </div>
+                        <button type=\"submit\">Continuer</button>
+                    ";
+        // line 25
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), 'form_end');
+        echo "
+                <section>
+                <section class=\"admin-group g3 hide-2\">
+                    <h5>Supprimer une critique :</h5>
+                    <a href=\"";
+        // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_remove");
         echo "\">
-                    <button>Continuer</button>
-                </a>
-            <section>
+                        <button>Continuer</button>
+                    </a>
+                <section>
+            </section>
         </article>
     </main>
 ";
@@ -150,7 +166,7 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
      */
     public function getDebugInfo()
     {
-        return array (  116 => 23,  103 => 13,  97 => 10,  92 => 7,  82 => 6,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  131 => 29,  124 => 25,  118 => 22,  113 => 20,  104 => 14,  97 => 10,  92 => 7,  82 => 6,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -165,22 +181,29 @@ class __TwigTemplate_0545e9d35ed55b3baa05fa98b4a5edbd extends Template
         <article class='admin-homepage hide-1'>
             <h3>Espace administrateur </h3>
             <h4>Bienvenue {{ user.username }}<h4>
-            <section class=\"admin-group hide-2\">
-                <h5>Ajouter une nouvelle critique :</h5>
-                <a href=\"{{ path('app_admin_new') }}\">
-                    <button>Continuer</button>
-                </a>
-            <section>
-            <section class=\"admin-group hide-2\">
-                <h5>Modifier une critique :</h5>
-                <p>a venir</p>
-            <section>
-            <section class=\"admin-group hide-2\">
-                <h5>Supprimer une critique :</h5>
-                <a href=\"{{ path('app_admin_remove') }}\">
-                    <button>Continuer</button>
-                </a>
-            <section>
+            <section class=\"admin-content\">
+                <section class=\"admin-group g1 hide-2\">
+                    <h5>Ajouter une nouvelle critique :</h5>
+                    <a href=\"{{ path('app_admin_new') }}\">
+                        <button>Continuer</button>
+                    </a>
+                <section>
+                <section class=\"admin-group g2 hide-2\">
+                    <h5>Modifier une critique :</h5>
+                    {{ form_start(form) }}
+                        <div class=\"form-group\">
+                            {{ form_widget(form.videogame)}}
+                        </div>
+                        <button type=\"submit\">Continuer</button>
+                    {{ form_end(form) }}
+                <section>
+                <section class=\"admin-group g3 hide-2\">
+                    <h5>Supprimer une critique :</h5>
+                    <a href=\"{{ path('app_admin_remove') }}\">
+                        <button>Continuer</button>
+                    </a>
+                <section>
+            </section>
         </article>
     </main>
 {% endblock %}

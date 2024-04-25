@@ -8,22 +8,29 @@
         <article class='admin-homepage hide-1'>
             <h3>Espace administrateur </h3>
             <h4>Bienvenue {{ user.username }}<h4>
-            <section class="admin-group hide-2">
-                <h5>Ajouter une nouvelle critique :</h5>
-                <a href="{{ path('app_admin_new') }}">
-                    <button>Continuer</button>
-                </a>
-            <section>
-            <section class="admin-group hide-2">
-                <h5>Modifier une critique :</h5>
-                <p>a venir</p>
-            <section>
-            <section class="admin-group hide-2">
-                <h5>Supprimer une critique :</h5>
-                <a href="{{ path('app_admin_remove') }}">
-                    <button>Continuer</button>
-                </a>
-            <section>
+            <section class="admin-content">
+                <section class="admin-group g1 hide-2">
+                    <h5>Ajouter une nouvelle critique :</h5>
+                    <a href="{{ path('app_admin_new') }}">
+                        <button>Continuer</button>
+                    </a>
+                <section>
+                <section class="admin-group g2 hide-2">
+                    <h5>Modifier une critique :</h5>
+                    {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_widget(form.videogame)}}
+                        </div>
+                        <button type="submit">Continuer</button>
+                    {{ form_end(form) }}
+                <section>
+                <section class="admin-group g3 hide-2">
+                    <h5>Supprimer une critique :</h5>
+                    <a href="{{ path('app_admin_remove') }}">
+                        <button>Continuer</button>
+                    </a>
+                <section>
+            </section>
         </article>
     </main>
 {% endblock %}

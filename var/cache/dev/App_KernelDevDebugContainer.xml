@@ -439,6 +439,9 @@
     <service id="App\Form\AdminEditFormType" class="App\Form\AdminEditFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\AdminFirstEditVGFormType" class="App\Form\AdminFirstEditVGFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\AdminNewVideoGameFormType" class="App\Form\AdminNewVideoGameFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -455,9 +458,6 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
-    <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\VideoGameType" class="App\Form\VideoGameType" autowire="true" autoconfigure="true">
@@ -486,6 +486,7 @@
     <service id="App\Repository\VideoGameRepository" class="App\Repository\VideoGameRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="App\Security\MyMetaverseAuthenticator" class="App\Security\MyMetaverseAuthenticator" autowire="true" autoconfigure="true">
       <argument type="service" id="router.default"/>
@@ -513,7 +514,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.bHJINJ4"/>
+      <argument type="service" id=".service_locator.UG1iHHj"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1116,13 +1117,13 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\AdminEditFormType</argument>
+        <argument>App\Form\AdminFirstEditVGFormType</argument>
         <argument>App\Form\AdminNewVideoGameFormType</argument>
         <argument>App\Form\AdminRemoveFormType</argument>
         <argument>App\Form\CommentsGuestFormType</argument>
         <argument>App\Form\CommentsUserFormType</argument>
         <argument>App\Form\EditUserProfileFormType</argument>
         <argument>App\Form\RegistrationFormType</argument>
-        <argument>App\Form\UserType</argument>
         <argument>App\Form\VideoGameType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -2025,7 +2026,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.bHJINJ4"/>
+      <argument type="service" id=".service_locator.UG1iHHj"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -2353,7 +2354,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator._J6ecAM"/>
+      <argument type="service" id=".service_locator.2rqdW21"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5728,6 +5729,8 @@
     <service id=".abstract.instanceof.App\DataFixtures\MyMetaverseFixtures" class="App\DataFixtures\MyMetaverseFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminEditFormType" class="App\Form\AdminEditFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AdminEditFormType" class="App\Form\AdminEditFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminFirstEditVGFormType" class="App\Form\AdminFirstEditVGFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\AdminFirstEditVGFormType" class="App\Form\AdminFirstEditVGFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminNewVideoGameFormType" class="App\Form\AdminNewVideoGameFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AdminNewVideoGameFormType" class="App\Form\AdminNewVideoGameFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminRemoveFormType" class="App\Form\AdminRemoveFormType" autowire="true" abstract="true"/>
@@ -5740,8 +5743,6 @@
     <service id=".abstract.instanceof.App\Form\EditUserProfileFormType" class="App\Form\EditUserProfileFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\VideoGameType" class="App\Form\VideoGameType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\VideoGameType" class="App\Form\VideoGameType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentsRepository" class="App\Repository\CommentsRepository" autowire="true" abstract="true"/>
@@ -6187,11 +6188,12 @@
         <argument key="videoGame" type="service_closure" id=".errored..service_locator..b29EWt.App\Entity\VideoGame"/>
       </argument>
     </service>
-    <service id=".service_locator.bHJINJ4" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.UG1iHHj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::admin" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\AdminController::adminAddVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
+        <argument key="App\Controller\AdminController::adminEditVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\AdminController::adminRemoveVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController::index" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController::videogamesCard" type="service_closure" id=".service_locator.9kKwU2t"/>
@@ -6213,6 +6215,7 @@
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Controller\AdminController:admin" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\AdminController:adminAddVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
+        <argument key="App\Controller\AdminController:adminEditVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\AdminController:adminRemoveVideoGame" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController:index" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DefaultController:videogamesCard" type="service_closure" id=".service_locator.9kKwU2t"/>
@@ -6309,17 +6312,17 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator._J6ecAM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.2rqdW21" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AdminEditFormType" type="service_closure" id="App\Form\AdminEditFormType"/>
+        <argument key="App\Form\AdminFirstEditVGFormType" type="service_closure" id="App\Form\AdminFirstEditVGFormType"/>
         <argument key="App\Form\AdminNewVideoGameFormType" type="service_closure" id="App\Form\AdminNewVideoGameFormType"/>
         <argument key="App\Form\AdminRemoveFormType" type="service_closure" id="App\Form\AdminRemoveFormType"/>
         <argument key="App\Form\CommentsGuestFormType" type="service_closure" id="App\Form\CommentsGuestFormType"/>
         <argument key="App\Form\CommentsUserFormType" type="service_closure" id="App\Form\CommentsUserFormType"/>
         <argument key="App\Form\EditUserProfileFormType" type="service_closure" id="App\Form\EditUserProfileFormType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
-        <argument key="App\Form\UserType" type="service_closure" id="App\Form\UserType"/>
         <argument key="App\Form\VideoGameType" type="service_closure" id="App\Form\VideoGameType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
@@ -7826,7 +7829,7 @@
     <service id="Vich\UploaderBundle\Form\Type\VichImageType" alias="vich_uploader.form.type.image"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.bHJINJ4"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.UG1iHHj"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
