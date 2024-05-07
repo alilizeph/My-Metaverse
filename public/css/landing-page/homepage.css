@@ -1,0 +1,955 @@
+@media all {
+  button {
+    cursor: pointer;
+  }
+
+
+  .stay {
+    opacity: 1;
+  }
+
+  main {
+    margin-bottom: 25px;
+    padding: 0px;
+  }
+
+  main .popup {
+    background-color: rgb(235, 163, 39);
+    box-shadow: 3px 4px 4px rgba(19, 35, 72, 0.25);
+    padding: 20px 0px 50px 0px;
+  }
+
+  main .examples {
+    color: rgb(200, 120, 20)!important;
+  }
+
+  main h2 {
+    text-align: center;
+    font-weight: 800;
+    padding: 20px 0px;
+    text-transform: uppercase;
+  }
+
+  .popup h3 {
+    font-size: 135%;
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 950;
+  }
+
+  main button {
+    border: 3px solid rgba(56, 99, 200, .15);
+    color: white;
+    background-color: rgb(15, 15, 35) !important;
+    box-shadow: 3px 4px 4px rgba(19, 35, 72, 0.5);
+    text-transform: uppercase;
+    border-radius: 2em;
+    font-weight: 800;
+    font-size: 120%;
+    transition: all 250ms 250ms ease-out;
+  }
+
+  main button:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  main .carousel {
+    font-weight: 800;
+    border: 2px solid rgb(235, 163, 39);
+    background-color: transparent;
+    color: rgb(220, 220, 230);
+    margin-top: 50px;
+    margin-bottom: 75px;
+    background-color: rgb(15, 15, 35) !important;
+    box-shadow: 3px 4px 4px rgba(19, 35, 72, 0.25);
+  }
+
+  main .carousel h2 {
+    padding: 10px 5px;
+    width: 99.15%;
+    font-weight: 800;
+    background-color: rgb(20, 20, 35);
+    color: rgb(220, 220, 230);
+    border-bottom: 5px solid rgb(235, 163, 39);
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  main .carousel .carousel-inner {
+    margin-left: 5px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .contact-form .contact-form-footer input {
+    border: 3px solid rgba(56, 99, 200, .15);
+    margin-top: 15px;
+    color: white;
+    background-color: rgb(30, 30, 40);
+    box-shadow: 6px 4px 4px rgba(19, 35, 72, 0.25);
+    text-transform: uppercase;
+    border-radius: 0.25em;
+    font-weight: 800;
+    transition: all 250ms 250ms ease-out;
+  }
+
+  main .contact-block {
+    box-shadow: 6px 4px 4px rgba(19, 35, 72, 0.25);
+    background-color: rgba(235, 163, 39, .65);
+  }
+
+  main .contact-block h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    padding: 20px;
+  }
+}
+
+
+
+@media (min-width:1400px) {
+  main {
+    margin-top: 150px;
+  }
+
+  main .popup {
+    margin-left: 0%;
+    width: 100%;
+    padding-bottom: 25px;
+  }
+
+  .popup h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+    text-align: center;
+  }
+
+  .popup p {
+    width: 95%;
+    margin-top: 25px;
+    margin-left: 2.5%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .popup button {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  .popup button:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  main .carousel {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .carousel h2 {
+    font-size: 35px;
+    width: 100%;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .carousel-inner .carrousel-card {
+    width: 45%;
+    margin-bottom: 15px;
+  }
+
+  .contact-block {
+    width: 100%;
+    margin-left: 5%;
+  }
+
+  .contact-block h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+  }
+
+  .contact-form {
+    width: 90%;
+    margin-left: 2.5%;
+  }
+
+
+  .contact-form .contact-form-head .contact-form-group,
+  .contact-form .contact-form-content .contact-form-group,
+  .contact-form .contact-form-footer .contact-form-group {
+    padding: 15px;
+    margin-left: 5%;
+    width: 90%;
+    display: flex;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+    width: 30%;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .contact-form input {
+    width: 60%;
+    border-radius: 0.5em;
+  }
+
+  .contact-form input:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form textarea {
+    width: 60%;
+    height: 150px;
+    border-radius: 0.5em;
+  }
+
+  .contact-form textarea:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form .contact-form-footer input {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+  }
+
+  .contact-form .contact-form-footer input:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  .contact-form .contact-form-footer #advertisement {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+@media (max-width:1399px) and (min-width:1200px) {
+  main {
+    margin-top: 140px;
+  }
+
+  main .popup {
+    margin-left: 0%;
+    width: 100%;
+    padding-bottom: 25px;
+  }
+
+  .popup h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+    text-align: center;
+  }
+
+  .popup p {
+    width: 95%;
+    margin-top: 25px;
+    margin-left: 2.5%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .popup button {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+    margin-top: 20px;
+  }
+
+  .popup button:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  main .carousel {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .carousel h2 {
+    font-size: 35px;
+    width: 100%;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .carousel-inner .carrousel-card {
+    width: 45%;
+    margin-bottom: 15px;
+  }
+
+
+  .contact-block {
+    width: 85%;
+    margin-left: 7.5%;
+  }
+
+  .contact-block h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+  }
+
+  .contact-form {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .contact-form .contact-form-head .contact-form-group,
+  .contact-form .contact-form-content .contact-form-group,
+  .contact-form .contact-form-footer .contact-form-group {
+    padding: 15px;
+    margin-left: 5%;
+    width: 90%;
+    display: flex;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+    width: 30%;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .contact-form input {
+    width: 60%;
+    border-radius: 0.5em;
+  }
+
+  .contact-form input:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form textarea {
+    width: 60%;
+    height: 150px;
+    border-radius: 0.5em;
+  }
+
+  .contact-form textarea:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form .contact-form-footer input {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+    margin-top: 15px;
+  }
+
+  .contact-form .contact-form-footer input:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  .contact-form .contact-form-footer #advertisement {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+@media (max-width:1199px) and (min-width:993px) {
+  main {
+    margin-top: 130px;
+  }
+
+  main .popup {
+    margin-left: 0%;
+    width: 100%;
+    padding-bottom: 25px;
+  }
+
+  .popup h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+    text-align: center;
+  }
+
+  .popup p {
+    width: 95%;
+    margin-top: 25px;
+    margin-left: 2.5%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .popup button {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+    margin-top: 20px;
+  }
+
+  .popup button:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  main .carousel {
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .carousel h2 {
+    font-size: 35px;
+    width: 100%;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .carousel-inner .carrousel-card {
+    width: 45%;
+    margin-bottom: 15px;
+  }
+
+
+  .contact-block {
+    width: 85%;
+    margin-left: 7.5%;
+  }
+
+  .contact-block h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+  }
+
+  .contact-form {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+
+  .contact-form .contact-form-head .contact-form-group,
+  .contact-form .contact-form-content .contact-form-group,
+  .contact-form .contact-form-footer .contact-form-group {
+    padding: 15px;
+    margin-left: 5%;
+    width: 90%;
+    display: flex;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+    width: 30%;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .contact-form input {
+    width: 60%;
+    border-radius: 0.5em;
+  }
+
+  .contact-form input:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form textarea {
+    width: 60%;
+    height: 150px;
+    border-radius: 0.5em;
+  }
+
+  .contact-form textarea:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form .contact-form-footer input {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+    margin-top: 15px;
+  }
+
+  .contact-form .contact-form-footer input:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  .contact-form .contact-form-footer #advertisement {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+@media (max-width:992px) and (min-width:768px) {
+  main {
+    margin-top: 130px;
+  }
+
+  main .popup {
+    margin-left: 0%;
+    width: 100%;
+    padding-bottom: 25px;
+  }
+
+  .popup h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+    text-align: center;
+  }
+
+  .popup p {
+    width: 95%;
+    margin-top: 25px;
+    margin-left: 2.5%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .popup button {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 35%;
+    margin-top: 20px;
+  }
+
+  .popup button:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+  }
+
+  main .carousel {
+    width: 70%;
+    margin-left: 15%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .carousel h2 {
+    font-size: 35px;
+    width: 100%;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .carousel-inner .carrousel-card {
+    width: 90%;
+    margin-bottom: 15px;
+    margin-left: 4%;
+  }
+
+  .contact-block {
+    width: 85%;
+    margin-left: 7.5%;
+  }
+
+  .contact-block h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+  }
+
+  .contact-form {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+
+  .contact-form .contact-form-head .contact-form-group,
+  .contact-form .contact-form-content .contact-form-group,
+  .contact-form .contact-form-footer .contact-form-group {
+    padding: 15px;
+    margin-left: 5%;
+    width: 90%;
+    display: flex;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+    width: 30%;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .contact-form input {
+    width: 60%;
+    border-radius: 0.5em;
+  }
+
+  .contact-form input:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form textarea {
+    width: 60%;
+    height: 150px;
+    border-radius: 0.5em;
+  }
+
+  .contact-form textarea:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form .contact-form-footer input {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+    margin-top: 15px;
+  }
+
+  .contact-form .contact-form-footer input:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  .contact-form .contact-form-footer #advertisement {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+@media (max-width:767px) and (min-width:576px) {
+  main {
+    width: 100%;
+    margin-top: 120px;
+  }
+
+  main .popup {
+    margin-left: 0%;
+    width: 100%;
+    padding-bottom: 25px;
+  }
+
+  .popup h2 {
+    width: 95%;
+    margin-left: 2.5%;
+    font-size: 38px;
+    padding: 10px 0px;
+    text-align: center;
+  }
+
+  .popup p {
+    width: 95%;
+    margin-top: 15px;
+    margin-left: 2.5%;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .popup button {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 25%;
+    margin-top: 20px;
+  }
+
+  .popup button:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  main .carousel {
+    width: 85%;
+    margin-left: 8.5%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .carousel h2 {
+    font-size: 35px;
+    width: 100%;
+  }
+
+  .contact-card {
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    display: inline-block;
+    overflow-y: scroll;
+  }
+
+  .carousel-inner .carrousel-card {
+    width: 90%;
+    margin-bottom: 15px;
+    margin-left: 4%;
+  }
+
+  .contact-block {
+    width: 85%;
+    margin-left: 7.5%;
+  }
+
+  .contact-block h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+  }
+
+  .contact-form {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+
+  .contact-form .contact-form-head .contact-form-group,
+  .contact-form .contact-form-content .contact-form-group,
+  .contact-form .contact-form-footer .contact-form-group {
+    padding: 15px;
+    margin-left: 5%;
+    width: 90%;
+    display: flex;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+    width: 30%;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .contact-form input {
+    width: 60%;
+    border-radius: 0.5em;
+  }
+
+  .contact-form input:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form textarea {
+    width: 60%;
+    height: 150px;
+    border-radius: 0.5em;
+  }
+
+  .contact-form textarea:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form .contact-form-footer input {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+    margin-top: 15px;
+  }
+
+  .contact-form .contact-form-footer input:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  .contact-form .contact-form-footer #advertisement {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+@media (max-width:575px) {
+  main {
+    margin-top: 120px;
+  }
+
+  main .popup {
+    margin-left: 0%;
+    width: 100%;
+    padding-bottom: 25px;
+  }
+
+  .popup h2 {
+    width: 98%;
+    margin-left: 1%;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .popup p {
+    width: 95%;
+    margin-top: 5px;
+    margin-left: 2.5%;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .popup button {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 15%;
+    margin-top: 20px;
+  }
+
+  .popup button:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  main .carousel {
+    width: 95%;
+    margin-left: 2.5%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .carousel h2 {
+    font-size: 35px;
+    width: 100%;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .carousel-inner .carrousel-card {
+    width: 95%;
+    margin-bottom: 15px;
+    margin-left: 2%;
+  }
+
+  .carrousel-card a img {
+    height: 200px;
+  }
+
+  .contact-block {
+    width: 85%;
+    margin-left: 7.5%;
+  }
+
+  .contact-block h2 {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 38px;
+  }
+
+  .contact-form {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+
+  .contact-form .contact-form-head .contact-form-group,
+  .contact-form .contact-form-content .contact-form-group,
+  .contact-form .contact-form-footer .contact-form-group {
+    padding: 15px;
+    margin-left: 5%;
+    width: 90%;
+    display: flex;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+    width: 30%;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .contact-form input {
+    width: 60%;
+    border-radius: 0.5em;
+  }
+
+  .contact-form input:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form textarea {
+    width: 60%;
+    height: 150px;
+    border-radius: 0.5em;
+  }
+
+  .contact-form textarea:invalid {
+    border: rgb(178, 32, 32) solid 2px;
+  }
+
+  .contact-form .contact-form-footer input {
+    position: relative;
+    font-size: 125%;
+    padding: 10px 50px;
+    margin-left: 40%;
+    margin-top: 15px;
+  }
+
+  .contact-form .contact-form-footer input:hover {
+    transform: translate(5px, 2px);
+    transition: all 250ms 350ms ease-in;
+    box-shadow: none;
+  }
+
+  .contact-form .contact-form-footer #advertisement {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}

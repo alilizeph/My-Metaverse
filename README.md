@@ -68,11 +68,103 @@ I will have a long work but this is my goal in three stages and the three of the
 
 ## My Metaverse's backend : Symfony
 
+<<<<<<< Updated upstream
+=======
+This is my **Symfony project part** I named **__"My Metaverse"__**. It's a website based on the theme of __videogames reviews with my own advice and a little description, with a grade__.
+The user will can create his account profile, give his own opinion about the videogame or my advice.
+
+I will have a long work but this is my goal in three stages and the three of them will be independent of each other parts :
+1. **Actually off** : Creating an __Angular "My Metaverse"__ application
+2. **Since November 2023** : Creating the same project but with the __backend Framework Symfony__
+3. **to finish** : Creating an __API using Angular for the frontend and Symfony for the backend__
+
+## My Metaverse's frontend : Angular 
+
+| **__Version__**  | **__Description__** |
+|:--------:|:---------|
+| **__My Metaverse Symfony V1.*__**| - Creating each pages from Angular Project : <br> o homepage, o videogame reviews, o registration and login, o comments system, o public and private user's profile, <br> o admin space (in progress : I will had the possibility to add videogame, to make changes on videogame, to delete videogame ) <br> o an editing private page for the user <br><br> - Design updated compared to Angular version <br><br> - VichUploader installed to upload videogames Themes and Box images and User's Avatar |
+|**__My Metaverse Symfony V2.0__** | - Adding few new elements compared with latest version and Angular version :<br> o in the menu : **moving 'MES CRITERES'** to the right board and **adding the Genders** in a submenu of 'MES CRITIQUES'<br> o upgrading the VideoGame's grade system by adding **4 criterias** : **graphics** __$graphicsGrade__, **gameplay** __$gameplayGrade__, **Storyline** __$storylineGrade__, **Execution** __$executionGrade__, and a last one already exists : $grade became an average grade<br> o Adding a property __$privateFieldsDisponibility__ possibility to the **User** to choose if he wants to post up his personal data on the public profile (__$firstName__, __$surname__ ... By default, the value is false, so his personal data will be not available) <br> |
+
+>>>>>>> Stashed changes
 <br><br>
 
 
+<<<<<<< Updated upstream
 **Thank you for your attention**
 
 #### By BUFFARD Alexandre
 #### Email : buffardalex492@hotmail.fr
 #### LinkedIn : [My LinkedIn profile](https://www.linkedin.com/in/alexandre-buffard-973997153/)
+=======
+#### **__App\Entity\VideoGame__** :
+* __$id__: ?int
+* __$name__: ?string
+* __$platform__: App\Entity\Platform ( ORM\ManyToOne(inversedBy:videoGames) )
+* __$description__: ?string
+* __$advice__: string
+* __$imgThemeFile__ : ?Symfony\Component\HttpFoundation\File\File
+* __$imgThemeNewFileName__ : ?string
+* __$imgThemeFileSize__ : ?int
+* __$imgBoxFile__ : ?Symfony\Component\HttpFoundation\File\File
+* __$imgBoxNewFileName__ : ?string
+* __$imgBoxFileSize__ : ?int
+* __$genders__ : Doctrine\Common\Collections\Collection ( ORM\ManyToMany(App\Entity\Gender) )
+* __$graphicsGrade__ : ?int (min: 0, max: 100)
+* __$gameplayGrade__ : ?int (min: 0, max: 100)
+* __$storylineGrade__ : ?int (min: 0, max: 100)
+* __$executionGrade__ : ?int (min: 0, max: 100)
+* __$grade__ : ?int (min: 0, max: 100)
+* __$releaseDate__: ?DateTime
+* __$averagePrice__: ?float
+* __$disponibility__: ?bool
+* __$link__: ?string
+* __$likes__ : App\Entity\Likes ( ORM\OneToOne(App\Entity\Likes) )
+* __$averageUsersGrade__ : ?int
+* __$comments__ : Doctrine\Common\Collections\Collection ( ORM\ManyToMany(App\Entity\Comments) )
+
+#### **__App\Entity\Gender__** :
+* __$id__ : ?int
+* __$genderName__ : ?string
+* __$videoGames__ : Doctrine\Common\Collections\Collection ( ORM\ManyToMany(App\Entity\VideoGame) )
+
+#### **__App\Entity\Platform__** :
+* __$id__ : ?int
+* __$paltformName__ : ?string
+* __$videoGames__ : Doctrine\Common\Collections\Collection ( ORM\OneToMany(App\Entity\VideoGame) )
+
+#### **__App\Entity\Likes__** :
+* __$id__ : ?int
+* __$nbLikes__ : ?int
+* __$users__ : Doctrine\Common\Collections\Collection ( ORM\ManyToMany(App\Entity\User) )
+
+
+#### **__App\Entity\Users__** :
+* __$id__ : ?int
+* __$surname__ : ?string
+* __$firstName__ : ?string
+* __$privateFieldsDisponibility__ : ?bool
+* __$email__ : ?string
+* __$username__ : ?string
+* __$password__ : ?string 
+* __$gender__ : ?string
+* __$birthday__ : ?DateTime
+* __$nbComments__ : ?int
+* __$nbLikes__ : ?int
+* __$avatar__ : ?string
+* __$isAdmin__ : ?bool
+* __$connected__ : ?bool
+* __$avatarFile__ : ?Symfony\Component\HttpFoundation\File\File
+* __$avatarNewFileName__ : ?string
+* __$avatarFileSize__ : ?int
+* __$likes__ : ?Doctrine\Common\Collections\Collection ( ORM\OneToMany(App\Entity\Likes) )
+* __$comments__ : ?Doctrine\Common\Collections\Collection ( ORM\OneToMany(App\Entity\Comments) )
+
+#### **__App\Entity\Comments__** :
+* __$id__ : ?int
+* __$user__ : ?App\Entity\User
+* __$videoGame__ : ?App\Entity\VideoGame
+* __$title__ : ?string
+* __$content__ : ?string
+* __$grade__ : ?int
+* __$postDate__ : ?DateTime
+>>>>>>> Stashed changes

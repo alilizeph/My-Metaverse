@@ -1,0 +1,66 @@
+{{ form_start(form) }}
+    <section class="form-group hide-2">
+        {{ form_label(form.surname) }}
+        {{ form_widget(form.surname) }}
+    </section>
+    <section class="form-group hide-2">
+        {{ form_label(form.firstName) }}
+        {{ form_widget(form.firstName) }}
+    </section>
+    <section class="form-group hide-2">
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+    </section>
+    <section class="form-group hide-2">
+        {{ form_label(form.username) }}
+        {{ form_widget(form.username) }}
+    </section>
+    {% if app.flashes('error') %}
+        <p class="warning">Cette adresse email ou ce nom utilisateur existent déjà</p>
+    {% endif %}
+    <section class="form-group hide-2">
+        {{ form_label(form.password) }}
+        {{ form_widget(form.password) }}
+    </section>
+    <section class="form-group hide-2">
+        {{ form_label(form.gender) }}
+        {{ form_widget(form.gender) }}
+    </section>
+    <section class="form-group hide-2">
+        {{ form_label(form.birthday) }}
+        {{ form_widget(form.birthday) }}
+    </section>
+    {% if isMinimumAgeMet is defined %}
+        {% if not isMinimumAgeMet %}
+            <p class="warning">** L'âge requis pour s'inscrire à
+                <span class="warning-2">My Metaverse</span>
+                est de
+                <span class="warning-2">12 ans</span>.</p>
+        {% endif %}
+    {% endif %}
+    <section class="form-group hide-2">
+        {{ form_label(form.avatarFile) }}
+        {{ form_widget(form.avatarFile) }}
+    </section>
+    {% if isAvatarValid is defined %}
+        {% if not isAvatarValid %}
+            <p class="warning">** Votre fichier doit être de type .png, .jpg ou .jpeg</p>
+        {% endif %}
+    {% else %}
+        <p class="info">** Votre fichier doit être de type
+            <span class="warning-2">.png</span>
+            <span class="warning-2">.jpg</span>
+            ou
+            <span class="warning-2">.jpeg</span>
+        </p>
+    {% endif %}
+    <section class="form-group hide-2">
+        {{ form_label(form.presentation) }}
+        {{ form_widget(form.presentation) }}
+    </section>
+    <section class="form-group hide-2 private-fields-dispo">
+        {{ form_label(form.privateFieldsDisponibility) }}
+        {{ form_widget(form.privateFieldsDisponibility) }}
+    </section>
+    <button type="submit" class="btn hide-3">{{ button_label|default("Inscription") }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,25 @@
+
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('./css/landing-page/videogame-carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/landing-page/homepage.css') }}">
+{% endblock %}
+
+{% block carousel %}
+  <section class="carrousel-card">
+    <a href="{{ path('videogame_card', { 'id': videoGame.id }) }}" style="color:rgb(230, 230, 235); text-decoration:none;">
+      <img src="{{ vich_uploader_asset(videoGame, 'imgTheme') }}" alt="{{ videoGame.name }}">
+    
+    <p>{{ videoGame.name }}</p></a>
+      {% if videoGame.grade >= 75 %}
+        <h4 class="video-game-grade verygood">{{ videoGame.grade }}</h4>
+      {% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
+        <h4 class="video-game-grade good">{{ videoGame.grade }}</h4>
+      {% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
+        <h4 class="video-game-grade medium">{{ videoGame.grade }}</h4>
+      {% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
+        <h4 class="video-game-grade notenough">{{ videoGame.grade }}</h4>
+      {% elseif videoGame.grade <= 34 %}
+        <h4 class="video-game-grade bad">{{ videoGame.grade }}</h4>
+      {% endif %}
+  </section>
+{% endblock %}

@@ -1,0 +1,249 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+	<link rel="stylesheet" href="{{ asset('./css/videogames/video-game-card.css') }}">
+	<link rel="stylesheet" gref="{{ asset('./css/users/login.css') }}">
+	<link rel="stylesheet" gref="{{ asset('./css/styles.css') }}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+{% endblock %}
+
+{% block body %}
+	<main>
+		<article class="video-game-card hide">
+			<section class="video-game-card-theme hide-2">
+				<img src="{{ vich_uploader_asset(videoGame, 'imgTheme') }}" alt="{{ videoGame.name }}" class="hide-2">
+			</section>
+			<section class="video-game-card-head hide-2">
+				<section class="video-game-pres hide-2">
+					<h3 class=" hide-2">{{ videoGame.titleReview }}</h3>
+					<h4 class="name hide-2">Jeu : {{ videoGame.name }}</h4>
+					<h4 class="platform hide-2">Sur : {{ videoGame.platform.platformName }}</h4>
+					<p class="hide-3">
+						<span>Date de sortie</span>
+						: le
+						{{ videoGame.releaseDate | date('d F Y') }}
+					</p>
+					<p class=" hide-3">
+						<span>Prix moyen</span>
+						:
+						{{ videoGame.averagePrice }}
+						€
+					</p>
+					<section class="video-game-box-zone">
+						<img class="video-game-box" src="{{ vich_uploader_asset(videoGame, 'imgBox') }}" alt="boîte de {{ videoGame.name }}">
+					</section>
+					<section class="video-game-genders-box hide-3">
+						<ul class="video-game-genders-list">
+							{% for gender in videoGame.genders %}
+								{% if gender.id == 1 %}
+									<li class="video-game-gender rpg">
+										RPG
+									</li>
+								{% elseif gender.id == 2 %}
+									<li class="video-game-gender avent">
+										Aventure
+									</li>
+								{% elseif gender.id == 3 %}
+									<li class="video-game-gender fant">
+										Fantastique
+									</li>
+								{% elseif gender.id == 4 %}
+									<li class="video-game-gender crea">
+										Création
+									</li>
+								{% elseif gender.id == 5 %}
+									<li class="video-game-gender ow">
+										Open-World
+									</li>
+								{% elseif gender.id == 6 %}
+									<li class="video-game-gender gestion">
+										Gestion
+									</li>
+								{% elseif gender.id == 7 %}
+									<li class="video-game-gender refl">
+										Réflexion
+									</li>
+								{% elseif gender.id == 8 %}
+									<li class="video-game-gender ecolo">
+										Écologie
+									</li>
+								{% elseif gender.id == 9 %}
+									<li class="video-game-gender sante">
+										Santé
+									</li>
+								{% elseif gender.id == 10 %}
+									<li class="video-game-gender survie">
+										Survie
+									</li>
+								{% elseif gender.id == 11 %}
+									<li class="video-game-gender tact">
+										Tactique
+									</li>
+								{% elseif gender.id == 12 %}
+									<li class="video-game-gender strat">
+										Stratégie
+									</li>
+								{% elseif gender.id == 13 %}
+									<li class="video-game-gender chill">
+										Chill
+									</li>
+								{% elseif gender.id == 14 %}
+									<li class="video-game-gender postapo">
+										Post-Apocalyptique
+									</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					</section>
+					<section class="video-game-grades-box hide-3">
+						<ul class="video-games-grades-list">
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="graphics">Graphismes</p>
+									{% if videoGame.graphicsGrade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% elseif videoGame.graphicsGrade <= 74 and videoGame.graphicsGrade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% elseif videoGame.graphicsGrade <= 59 and videoGame.graphicsGrade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% elseif videoGame.graphicsGrade <= 49 and videoGame.graphicsGrade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% elseif videoGame.graphicsGrade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="gameplay">Gameplay</p>
+									{% if videoGame.gameplayGrade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% elseif videoGame.gameplayrade <= 74 and videoGame.gameplayrade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% elseif videoGame.gameplayrade <= 59 and videoGame.gameplayrade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% elseif videoGame.gameplayGrade <= 49 and videoGame.gameplayGrade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% elseif videoGame.gameplayGrade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="storyline">Scénario</pc>
+									{% if videoGame.storylineGrade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% elseif videoGame.storylineGrade <= 74 and videoGame.storylineGrade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% elseif videoGame.storylineGrade <= 59 and videoGame.storylineGrade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% elseif videoGame.storylineGrade <= 49 and videoGame.storylineGrade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% elseif videoGame.storylineGrade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="execution">Réalisation</p>
+									{% if videoGame.executionGrade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.executionGrade }}</h4>
+									{% elseif videoGame.executionGrade <= 74 and videoGame.executionGrade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.executionGrade }}</h4>
+									{% elseif videoGame.executionGrade <= 59 and videoGame.executionGrade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.executionGrade }}</h4>
+									{% elseif videoGame.executionGrade <= 49 and videoGame.executionGrade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.executionGrade }}</h4>
+									{% elseif videoGame.executionGrade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.executionGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							<li class="video-game-grades-elmt average">
+								<section>
+									<p class="perso-grade">Note globale</p>
+									{% if videoGame.grade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.grade }}</h4>
+									{% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.grade }}</h4>
+									{% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.grade }}</h4>
+									{% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.grade }}</h4>
+									{% elseif videoGame.grade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.grade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							{% if videoGame.averageUsersGrade != 0 %}
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="users-grade">Note utilisateurs</p>
+									{% if videoGame.averageUsersGrade >= 75 %}
+										<h4 class="video-game-users-grade verygood hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% elseif videoGame.averageUsersGrade <= 74 and videoGame.averageUsersGrade >= 60 %}
+										<h4 class="video-game-users-grade good hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% elseif videoGame.averageUsersGrade <= 59 and videoGame.averageUsersGrade >= 50 %}
+										<h4 class="video-game-users-grade medium hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% elseif videoGame.averageUsersGrade <= 49 and videoGame.averageUsersGrade >= 35 %}
+										<h4 class="video-game-users-grade notenough hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% elseif videoGame.averageUsersGrade <= 34 %}
+										<h4 class="video-game-users-grade bad hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							{% endif %}
+						</ul>
+					</section>
+				</section>
+			</section>
+			{#
+				<section class="video-game-likes">
+					<input type="checkbox" id="thumb-rotate">
+					<span class="material-symbols-outlined thumb">
+						thumb_up
+					</span>
+					<h4>{{ videoGame.likes.nblikes }}</h4>
+				</section>
+			#}
+			<section class="video-game-content hide-3">
+				<section class="video-game-description hide-4">
+					<h4>Description du jeu :</h4>
+					<p>
+						{{ videoGame.description }}
+					</p>
+				</section>
+				<section class="video-game-advice hide-4">
+					<h4>Avis et Critiques sur le jeu :</h4>
+					<p>
+						{{ videoGame.advice}}
+					</p>
+				</section>
+				<button id="return-to-list" class="hide-4">Retour à la liste</button>
+			</section>
+
+			<script>
+				let btn = document.getElementById("return-to-list");
+btn.addEventListener('click', function () {
+window.location.href ="{{ path('videogames_list') }}";
+});
+			</script>
+		</article>
+		<section class="comment-form">
+			{% if (is_granted("IS_AUTHENTICATED_FULLY")) %}
+				{% include 'comments/form-comments.html.twig' with {'user': app.user, 'vg': videoGame, 'form': form} %}
+			{% else %}
+				{% include 'comments/form-comments-guest.html.twig' with { 'vg': videoGame, 'guestForm': guestForm } %}
+			{% endif %}
+		</section>
+		<section class="comments-list">
+			{% block comments %}
+				{% for comment in comments %}
+					{% include '/comments/comment-videogame-card.html.twig' with { 'comment' : comment } %}
+				{% endfor %}
+			{% endblock %}
+		</section>
+	</main>
+{% endblock %}

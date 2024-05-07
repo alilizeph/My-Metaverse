@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+	<link rel="stylesheet" href="{{ asset('./css/landing-page/homepage.css') }}">
+
+{% endblock %}
+
+{% block title %}Hello DefaultController! Homepage
+{% endblock %}
+
+{% block body %}
+	<main>
+		{% if errorAvatar is defined %}
+			<section>
+				<p>{{ errorAvatar }}</p>
+			</section>
+		{% endif %}
+		<article class="popup hide">
+			<h2 class="hide-2">Bienvenue sur My Metaverse</h2>
+			{% if(app.user and is_granted('AUTHENTICATED_FULLY')) %}
+				<h3 class="hide-2">{{ app.user.username }}</h3>
+			{% endif %}
+			<p class="hide-3">
+				My Metaverse est un site Web de notation de jeu vidéo selon mes critères personnels.
+			</p>
+			<p class="hide-3">
+				Il s'agit de mon tout 1er projet Symfony professionnel.
+				<br>J'ai donc choisi un sujet qui me plait beaucoup et qui peut être très intéressant à exploiter : les Jeux
+				        Vidéos.
+			</p>
+			<p class="hide-3">
+				Merci pour l'attention que vous portez à ce projet qui me plaît.
+			</p>
+			<button id="access" class="hide-4">Accéder aux avis</button>
+			<script>
+				let btn = document.getElementById('access');
+					btn.addEventListener('click', function () {
+					window.location.href ="{{ path('videogames_list') }}";
+				});
+			</script>
+		</article>
+		{% if videoGames is defined %}
+			<article class="carousel hide">
+				<h2 class="examples">exemples de jeux testés</h2>
+				<section class="carousel-inner">
+					{% for videoGame in videoGames %}
+						{% include './default/videogame-carousel-card.html.twig' with {'videoGame' : videoGame } %}
+					{% endfor %}
+				</section>
+			</article>
+		{% endif %}
+		{% include("./default/contact-form.html.twig") %}
+	</main>
+{% endblock %}

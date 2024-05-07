@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+	<link rel="stylesheet" href="{{ asset('./css/admin/admin-forms.css') }}">
+{% endblock %}
+
+{% block body %}
+	<main>
+		<article class='admin-form-card'>
+			<h3>Ajouter une nouvelle critique
+			</h3>
+			<section class="admin-form">
+				{{ form_start(form) }}
+				<section class="form-head">
+					<section class="form-group">
+						{{ form_label(form.name) }}
+						{{ form_widget(form.name) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.description) }}
+						{{ form_widget(form.description, {'attr': {'style': 'width: 50%; height:100px; margin-left: 5%;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.advice) }}
+						{{ form_widget(form.advice, {'attr': {'style': 'width: 50%; height:100px; margin-left: 5%;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.graphicsGrade) }}
+						{{ form_widget(form.graphicsGrade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.gameplayGrade) }}
+						{{ form_widget(form.gameplayGrade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.storylineGrade) }}
+						{{ form_widget(form.storylineGrade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.executionGrade) }}
+						{{ form_widget(form.executionGrade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
+					</section>
+				</section>
+				<section class="form-content">
+					<section class="form-group">
+						{{ form_label(form.imgBox) }}
+						{{ form_widget(form.imgBox) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.imgTheme) }}
+						{{ form_widget(form.imgTheme) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.releaseDate) }}
+						{{ form_widget(form.releaseDate, {'attr': {'style': 'width: auto;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.disponibility) }}
+						{{ form_widget(form.disponibility, {'attr': {'style': 'width: auto; height: 20px; width: 20px; margin-top: 7px;'}}) }}
+					</section>
+					{% if form.disponibility %}
+					<section class="form-group">
+						{{ form_label(form.link) }}
+						{{ form_widget(form.link) }}
+					</section>
+					{% endif %}
+					<section class="form-group">
+						{{ form_label(form.averagePrice) }}
+						{{ form_widget(form.averagePrice) }}
+					</section>
+				</section>
+				<section class="form-footer">
+					<section class="form-group platform">
+						{{ form_label(form.platform) }}
+						{{ form_widget(form.platform) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.genders, 'Genres :', {'attr': {'class': 'genders-label'}}) }}
+						<section class="genders-checkbox-list">
+							{% for gender in form.genders %}
+								<section class="gender-checkbox">
+									{{ form_widget(gender, {'attr': {'class': 'gender-checkbox-input'}}) }}
+									{{ form_label(gender, null, {'label_attr': {'class': 'gender-checkbox-label' }}) }}
+								</section>
+							{% endfor %}
+						</section>
+					</section>
+				</section>
+				<button type="submit">Envoyer</button>
+				{{ form_end(form)}}
+				<section>
+			</article>
+		</main>
+{% endblock %}

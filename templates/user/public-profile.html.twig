@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User
+{% endblock %}
+
+{% block head %}
+	<link rel="stylesheet" href="{{ asset('./css/profiles/public-profile.css') }}">
+{% endblock %}
+
+{% block body %}
+	<main>
+		{% if(nbRandomComments is defined and nbRandomComments == 2) %}
+			<article class="profile-public profile-public-with-comments hide">
+			{% elseif(nbRandomComments is defined and nbRandomComments == 1) %}
+				<article class="profile-public profile-public-with-comment hide">
+				{% else %}
+					<article class="profile-public hide">
+					{% endif %}
+					<section class="profile-public-head hide-2">
+						<section class="profile-public-avatar hide-2">
+							{% if user.avatarNewFileName != null %}
+								<img src="{{ vich_uploader_asset(user, 'avatarFile') }}" alt="{{ user.username }}" class="avatar hide-2">
+							{% endif %}
+						</section>
+						<section class="profile-public-info hide-2">
+							{% if user.privateFieldsDisponibility %}
+							<h3>{{ user.username }}</h3>
+							<h4>{{ user.surname }}
+								{{ user.firstName }}
+							</h4>
+							{% endif %}
+							<h5>
+								Email:
+								<a href="mailto:{{ user.email }}">{{ user.email }}</a>
+								{% if(user.id > 1) %}
+									<span class="hidden-text">* ces adresses mail sont fictives</span>
+								{% endif %}
+							</h5>
+						</section>
+					</section>
+					<section class="profile-public-presentation-bloc hide-3">
+						<div class="profile-public-presentation hide-3">
+							<h4 class=" hide-3">Présentation</h4>
+							<h6>
+								<span>Genre :
+								</soan>
+								{{ user.gender }}</h6>
+							<p>{{ user.presentation }}</p>
+						</section>
+						<section class="profile-public-SG">
+							<section class="profile-public-stats hide-3">
+								<h4 class=" hide-3">Statistiques</h4>
+								<section class="profile-public-stats-zone hide-3">
+									<section class="profile-public-stats-group hide-3">
+										<h5>Nb commentaires</h5>
+										<h6>{{ user.nbComments }}</h6>
+									</section>
+									<section class="profile-public-stats-group hide-3">
+										<h5>Nb Likes</h5>
+										<h6>{{ nbLikes }}</h6>
+									</section>
+									{% if averageComments is defined %}
+										<section class="profile-public-stats-group hide-3">
+											<h5>Note moyenne</h5>
+											<h6>{{ averageComments }}</h6>
+										</section>
+									{% endif %}
+								</section>
+							</section>
+							{% if genders is defined %}
+							<section class="profile-public-genders hide-3">
+								<h4 class=" hide-3">Genres de Jeux Vidéo appréciés :</h4>
+								<section class="profile-public-genders-bloc">
+									<ul class="profile-public-genders">
+										{% for gender in genders %}
+											{% if gender.id == 1 %}
+												<li class="video-game-gender rpg">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 2 %}
+												<li class="video-game-gender avent">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 3 %}
+												<li class="video-game-gender fant">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 4 %}
+												<li class="video-game-gender crea">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 5 %}
+												<li class="video-game-gender ow">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 6 %}
+												<li class="video-game-gender gestion">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 7 %}
+												<li class="video-game-gender refl">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 8 %}
+												<li class="video-game-gender sante">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 9 %}
+												<li class="video-game-gender survie">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 10 %}
+												<li class="video-game-gender tact">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 12 %}
+												<li class="video-game-gender strat">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 13 %}
+												<li class="video-game-gender chill">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% elseif gender.id == 14 %}
+												<li class="video-game-gender postapo">
+													<h5>{{ gender.genderName }}</h5>
+												</li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+								</section>
+							</section>
+						</section>
+						{% endif %}
+					</section>
+					{% if(randomComments is defined)  %}
+						<section class="profile-public-randomcom hide-3">
+							<h3 class="hide-3 comments">Commentaires aléatoires</h3>
+							<section class="profile-public-randomcom-list hide-4">
+								{% for comment in randomComments %}
+									{% include '/comments/comment-profile-public.html.twig' with { 'comment' : comment } %}
+								{% endfor %}
+							</section>
+						</section>
+					{% endif %}
+				</article>
+			</main>
+		{% endblock %}
