@@ -147,7 +147,6 @@ I will have a long work but this is my goal in three stages and the three of the
 * __$birthday__ : ?DateTime
 * __$nbComments__ : ?int
 * __$nbLikes__ : ?int
-* __$avatar__ : ?string
 * __$isAdmin__ : ?bool
 * __$connected__ : ?bool
 * __$avatarFile__ : ?Symfony\Component\HttpFoundation\File\File
