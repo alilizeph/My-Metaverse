@@ -4,12 +4,12 @@ main .signin-card {
     box-shadow: 6px 4px 4px rgba(19, 35, 72, 0.25);
     padding: 20px 0px 50px 0px;
     margin-top: 150px;
-    margin-bottom: 120px;
+    margin-bottom:120px;
 }
 
 .signin-card h3 {
     text-align: center;
-    font-weight: 1500 !important;
+    font-weight: 1500!important;
     padding: 20px 0px;
     font-size: 220%;
     text-transform: uppercase;
@@ -40,7 +40,7 @@ form .form-group {
     width: 50%;
     margin-left: 2.5%;
     padding: 3px 10px;
-    border-radius: 0.355em;
+    border-radius:0.355em;
     font-size: 16px;
 }
 
@@ -52,11 +52,11 @@ form .form-group {
 }
 
 form button {
-    font-size: 32px !important;
+    font-size: 32px!important;
     border-radius: 2em;
     margin-left: 40%;
     margin-top: 25px;
-    border: 3px solid rgba(56, 99, 200, 0.15);
+    border: 3px solid rgba(56, 99, 200, .15);
     color: white;
     background-color: rgb(15, 15, 25);
     width: 300px;
@@ -67,14 +67,14 @@ form button {
     margin-bottom: 15px;
 }
 
-form button:hover {
+ form button:hover {
     box-shadow: none;
     transition: 350ms 550ms ease-in-out;
     transform: translate(2px, 2px);
 }
 
-.contact-form-head,
-.contact-form-content,
+.contact-form-head, 
+.contact-form-content, 
 .contact-form-footer {
     margin: 10px 15px;
 }
@@ -83,7 +83,7 @@ footer {
     margin-bottom: 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width:767px) {
     form .form-group {
         width: 95%;
         padding: 10px;
@@ -95,21 +95,21 @@ footer {
         width: 80%;
         padding-left: 5%;
         padding-right: 5%;
-        text-align: center !important;
+        text-align: center!important;
     }
 
-    .form-group input,
-    .form-group textarea {
+    .form-group input, .form-group textarea {
         width: 90%;
         margin-left: 0px;
         padding: 3px 10px;
-        border-radius: 0.355em;
+        border-radius:0.355em;
         font-size: 16px;
     }
+    
 
     form button {
         font-size: 24px;
         margin-left: 10%;
-        cursor: pointer;
+        cursor:pointer;
     }
 }

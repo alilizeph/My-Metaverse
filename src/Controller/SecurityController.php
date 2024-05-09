@@ -2,19 +2,16 @@
 
 namespace App\Controller;
 
-use App\Entity\AvatarPicture;
+use DateTime;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
-use App\Service\AvatarUploaderService;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 
 
@@ -35,7 +32,7 @@ class SecurityController extends AbstractController
     #[Route('/registration', name: 'app_registration', methods: ['GET', 'POST'])]
     public function registration(EntityManagerInterface $em, Request $request): Response 
     {
-        $user = new User('', '', '', '', '', 'Indéterminé', new DateTime(), false, "", "", true);
+        $user = new User('', '', false, '', '', '', 'Indéterminé', new DateTime(), false, "", "", true);
         $isMinimumAgeMet = false;
         
         // generating a registration form

@@ -12,24 +12,23 @@
         padding: 5px;
     }
 
-    .comment-card .comment-head h4,
-    h5 {
+    .comment-card .comment-head h4, h5 {
         text-transform: uppercase;
         font-weight: 800;
     }
 
     .comment-card .comment-head h4 {
-        padding: 10px;
+        padding:10px;
     }
 
     .comment-card .comment-head h5 {
-        padding: 5px;
+        padding:5px;
     }
-
+    
 
     h4 a {
-        color: rgb(220, 220, 230) !important;
-        text-transform: none !important;
+        color: rgb(220, 220, 230)!important;
+        text-transform: none!important;
         text-decoration: none;
     }
 
@@ -46,7 +45,7 @@
     }
 
     .comment-card .comment-head img {
-        width: 110%;
+        width:110%;
         z-index: -1;
         opacity: .25;
         margin-left: -8%;
@@ -56,39 +55,39 @@
     .comment-avatar-verygood {
         border: rgb(8, 78, 25) solid 4px;
         color: whitesmoke;
-        text-decoration: none !important;
+        text-decoration: none!important;
     }
 
     .comment-avatar-good {
         border: rgb(8, 199, 56) solid 4px;
-        text-decoration: none !important;
+        text-decoration: none!important;
     }
 
     .comment-avatar-medium {
-        text-decoration: none !important;
+        text-decoration: none!important;
         border: rgb(196, 199, 8) solid 4px;
     }
 
     .comment-avatar-notenough {
-        text-decoration: none !important;
+        text-decoration: none!important;
         border: rgb(199, 126, 8) solid 4px;
     }
 
     .comment-avatar-bad {
-        text-decoration: none !important;
+        text-decoration: none!important;
         border: rgb(199, 68, 8) solid 4px;
     }
 
 
     .comment-card .comment-grade {
-        height: 60px;
+        height:60px;
         width: 60px;
         padding: 20px;
         border-radius: 0.345em;
         position: absolute;
         z-index: 50;
         font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
-        text-decoration: none !important;
+        text-decoration: none!important;
         box-shadow: 5px 3px 3px rgba(10, 10, 10, .25);
     }
 
@@ -99,10 +98,10 @@
     }
 
     .comment-card .comment-body h5 {
-        font-size: 22px;
+        font-size:22px;
         text-transform: uppercase;
         margin-left: 15%;
-        margin-bottom: 15px;
+        margin-bottom:15px;
         font-family: 'Poppins', sans-serif;
         font-weight: 850;
         text-decoration: none;
@@ -113,25 +112,25 @@
         background-color: rgba(8, 78, 25, 0.75);
         color: white;
     }
-
+    
     .good-comment {
         border: rgb(8, 199, 56) 3px solid;
         background-color: rgba(11, 133, 41, 0.35);
         color: white;
     }
-
+    
     .medium-comment {
         border: rgb(196, 199, 8) 3px solid;
         background-color: rgba(196, 199, 8, .75);
         color: white;
     }
-
+    
     .notenough-comment {
         border: rgb(199, 126, 8) 3px solid;
         background-color: rgba(199, 126, 8, .65);
         color: white;
     }
-
+    
     .bad-comment {
         border: rgb(199, 68, 8) 3px solid;
         background-color: rgba(199, 68, 8, .75);
@@ -143,8 +142,8 @@
 
 @media (min-width: 1400px) {
     .comment-card {
-        width: 99.5%;
-        margin-left: 12.5%;
+        width:99.5%;
+        margin-left:12.5%;
         height: 350px;
         display: flex;
     }
@@ -168,17 +167,17 @@
     .bad-comment-head {
         border-right: rgb(199, 68, 8) solid 4px;
     }
-
+    
     .comment-card .comment-head {
         width: 25%;
-        margin-left: 0px;
-        height: 100%;
+        margin-left:0px;
+        height:100%;
     }
-
+    
     .comment-head .avatar {
-        height: 35%;
-        width: auto;
-        margin-left: 30%;
+        height:35%;
+        width:auto;
+        margin-left:30%;
         margin-top: 205px;
         position: absolute;
     }
@@ -186,7 +185,7 @@
     .comment-card .comment-head h4 {
         width: 100%;
         text-align: center;
-        font-size: 24px;
+        font-size:24px;
         position: absolute;
         text-decoration: none;
         margin-top: 130px;
@@ -217,7 +216,7 @@
 
     .comment-card .user-isAdmin {
         font-size: 175%;
-        text-align: center;
+        text-align:center;
         margin-left: 20px;
         width: auto;
     }
@@ -227,8 +226,8 @@
 
 @media (max-width:1399px) and (min-width:1200px) {
     .comment-card {
-        width: 99.5%;
-        margin-left: 0%;
+        width:99.5%;
+        margin-left:0%;
         height: 350px;
         display: flex;
     }
@@ -252,17 +251,17 @@
     .bad-comment-head {
         border-right: rgb(199, 68, 8) solid 4px;
     }
-
+    
     .comment-card .comment-head {
         width: 25%;
-        margin-left: 0px;
-        height: 100%;
+        margin-left:0px;
+        height:100%;
     }
-
+    
     .comment-head .avatar {
-        height: 35%;
-        width: auto;
-        margin-left: 30%;
+        height:35%;
+        width:auto;
+        margin-left:30%;
         margin-top: 205px;
         position: absolute;
     }
@@ -270,7 +269,7 @@
     .comment-card .comment-head h4 {
         width: 100%;
         text-align: center;
-        font-size: 24px;
+        font-size:24px;
         position: absolute;
         margin-top: 130px;
         text-decoration: none;
@@ -298,7 +297,7 @@
 
     .comment-card .user-isAdmin {
         font-size: 175%;
-        text-align: center;
+        text-align:center;
         margin-left: 20px;
         width: auto;
     }
@@ -308,8 +307,8 @@
 
 @media (max-width:1199px) and (min-width: 993px) {
     .comment-card {
-        width: 99.5%;
-        margin-left: 0%;
+        width:99.5%;
+        margin-left:0%;
         height: 325px;
         display: flex;
     }
@@ -333,17 +332,17 @@
     .bad-comment-head {
         border-right: rgb(199, 68, 8) solid 4px;
     }
-
+    
     .comment-card .comment-head {
         width: 25%;
-        margin-left: 0px;
-        height: 100%;
+        margin-left:0px;
+        height:100%;
     }
-
+    
     .comment-head .avatar {
-        height: 32.5%;
-        width: auto;
-        margin-left: 25%;
+        height:32.5%;
+        width:auto;
+        margin-left:25%;
         margin-top: 205px;
         position: absolute;
     }
@@ -351,7 +350,7 @@
     .comment-card .comment-head h4 {
         width: 100%;
         text-align: center;
-        font-size: 24px;
+        font-size:24px;
         position: absolute;
         margin-top: 130px;
         text-decoration: none;
@@ -379,7 +378,7 @@
 
     .comment-card .user-isAdmin {
         font-size: 175%;
-        text-align: center;
+        text-align:center;
         margin-left: 20px;
         width: auto;
     }
@@ -388,8 +387,8 @@
 
 @media (max-width:992px) and (min-width:768px) {
     .comment-card {
-        width: 99%;
-        margin-left: 0%;
+        width:99%;
+        margin-left:0%;
         height: 275px;
         display: flex;
     }
@@ -413,17 +412,17 @@
     .bad-comment-head {
         border-right: rgb(199, 68, 8) solid 4px;
     }
-
+    
     .comment-card .comment-head {
         width: 30%;
-        margin-left: 0px;
-        height: 100%;
+        margin-left:0px;
+        height:100%;
     }
-
+    
     .comment-head .avatar {
-        height: 32.5%;
-        width: auto;
-        margin-left: 30%;
+        height:32.5%;
+        width:auto;
+        margin-left:30%;
         margin-top: 175px;
         position: absolute;
     }
@@ -431,7 +430,7 @@
     .comment-card .comment-head h4 {
         width: 100%;
         text-align: center;
-        font-size: 22px;
+        font-size:22px;
         position: absolute;
         margin-top: 100px;
         text-decoration: none;
@@ -461,7 +460,7 @@
 
     .comment-card .user-isAdmin {
         font-size: 175%;
-        text-align: center;
+        text-align:center;
         margin-left: 20px;
         width: auto;
     }
@@ -471,12 +470,12 @@
 
 @media (max-width:767px) and (min-width:620px) {
     .comment-card {
-        width: 99%;
-        margin-left: 0%;
+        width:99%;
+        margin-left:0%;
         height: 275px;
         display: flex;
     }
-
+    
     .verygood-comment-head {
         border-right: rgb(8, 78, 25) solid 4px;
     }
@@ -496,17 +495,17 @@
     .bad-comment-head {
         border-right: rgb(199, 68, 8) solid 4px;
     }
-
+    
     .comment-card .comment-head {
         width: 30%;
-        margin-left: 0px;
-        height: 100%;
+        margin-left:0px;
+        height:100%;
     }
-
+    
     .comment-head .avatar {
-        height: 32.5%;
-        width: auto;
-        margin-left: 30%;
+        height:32.5%;
+        width:auto;
+        margin-left:30%;
         margin-top: 175px;
         position: absolute;
     }
@@ -514,7 +513,7 @@
     .comment-card .comment-head h4 {
         width: 100%;
         text-align: center;
-        font-size: 22px;
+        font-size:22px;
         position: absolute;
         margin-top: 110px;
     }
@@ -543,7 +542,7 @@
 
     .comment-card .user-isAdmin {
         font-size: 175%;
-        text-align: center;
+        text-align:center;
         margin-left: 20px;
         width: auto;
     }
@@ -552,26 +551,25 @@
 
 @media (max-width:619px) {
     .comment-card {
-        width: 95%;
-        margin-left: 0.5%;
+        width:95%;
+        margin-left:0.5%;
     }
 
 
     .comment-card .comment-head {
         width: 70%;
         margin: 1.5% 200px;
-        height: 100px;
+        height:100px;
     }
 
-    .comment-card .comment-head h4,
-    h5 {
+    .comment-card .comment-head h4, h5 {
         text-transform: uppercase;
         font-weight: 800;
     }
 
     .comment-card .comment-head h4 {
-        font-size: 24px;
-        padding: 10px;
+        font-size:24px;
+        padding:10px;
     }
 
     .comment-card .comment-head h5 {
@@ -589,10 +587,10 @@
 
 
     .comment-card .comment-avatar {
-        height: 125px;
-        width: 125px;
-        margin-left: 0px;
-        margin-top: -130px;
+        height:125px;
+        width:125px;
+        margin-left:0px;
+        margin-top:-130px;
     }
 
     .comment-card .comment-avatar img {
@@ -614,7 +612,7 @@
         font-size: 16px;
         padding-bottom: 25px;
     }
-
+    
 
     .comment-card .user-isAdmin {
         padding: 2px 5px;

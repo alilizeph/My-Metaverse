@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: PlatformRepository::class)]
 class Platform
 {
-
+    
     /**
      * _____________________________________________________________________________________________________________________________________________________________________
      *        |                  type                |  property name  |          constraints / Relations             |                  informations
@@ -27,7 +27,7 @@ class Platform
     #[ORM\Column(length: 255)]
     private ?string $platformName = null;
 
-    #[ORM\OneToMany(targetEntity: VideoGame::class, mappedBy: 'platform', cascade: ["persist"])]
+    #[ORM\OneToMany(targetEntity:VideoGame::class, mappedBy:'platform', cascade: ["persist"])]
     private Collection $videoGames;
 
     public function __construct(string $platformName = "")

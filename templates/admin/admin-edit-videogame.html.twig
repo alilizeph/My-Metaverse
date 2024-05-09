@@ -12,68 +12,79 @@
 			<section class="admin-form">
 				{{ form_start(form) }}
 				<section class="form-head">
-					<div class="form-group">
+					<section class="form-group">
 						{{ form_label(form.name) }}
 						{{ form_widget(form.name) }}
-					</div>
-					<div class="form-group">
+					</section>
+					<section class="form-group">
 						{{ form_label(form.description) }}
 						{{ form_widget(form.description, {'attr': {'style': 'width: 50%; height:100px; margin-left: 5%;'}}) }}
-					</div>
-					<div class="form-group">
+					</section>
+					<section class="form-group">
 						{{ form_label(form.advice) }}
 						{{ form_widget(form.advice, {'attr': {'style': 'width: 50%; height:100px; margin-left: 5%;'}}) }}
-					</div>
-					<div class="form-group">
-						{{ form_label(form.grade) }}
-						{{ form_widget(form.grade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
-					</div>
+					</section>
+					<section class="form-group">
+						{{ form_label(form.graphicsGrade) }}
+						{{ form_widget(form.graphicsGrade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.gameplayGrade) }}
+						{{ form_widget(form.gameplayGrade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.storylineGrade) }}
+						{{ form_widget(form.storylineGrade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
+					</section>
+					<section class="form-group">
+						{{ form_label(form.executionGrade) }}
+						{{ form_widget(form.executionGrade, {'attr': {'style': 'width: auto; margin-left: 5%;'}}) }}
+					</section>
 				</section>
 				<section class="form-content">
-					<div class="form-group">
+					<section class="form-group">
 						{{ form_label(form.imgBox) }}
 						{{ form_widget(form.imgBox) }}
-					</div>
-					<div class="form-group">
+					</section>
+					<section class="form-group">
 						{{ form_label(form.imgTheme) }}
 						{{ form_widget(form.imgTheme) }}
-					</div>
-					<div class="form-group">
+					</section>
+					<section class="form-group">
 						{{ form_label(form.releaseDate) }}
 						{{ form_widget(form.releaseDate, {'attr': {'style': 'width: auto;'}}) }}
-					</div>
-					<div class="form-group">
+					</section>
+					<section class="form-group">
 						{{ form_label(form.disponibility) }}
 						{{ form_widget(form.disponibility, {'attr': {'style': 'width: auto; height: 20px; width: 20px; margin-top: 7px;'}}) }}
-					</div>
+					</section>
 					{% if form.disponibility %}
-					<div class="form-group">
+					<section class="form-group">
 						{{ form_label(form.link) }}
 						{{ form_widget(form.link) }}
-					</div>
+					</section>
 					{% endif %}
-					<div class="form-group">
+					<section class="form-group">
 						{{ form_label(form.averagePrice) }}
 						{{ form_widget(form.averagePrice) }}
-					</div>
-
+					</section>
 				</section>
 				<section class="form-footer">
-					<div class="form-group platform">
+					<section class="form-group platform">
 						{{ form_label(form.platform) }}
 						{{ form_widget(form.platform) }}
-					</div>
-					<div class="form-group">
+					</section>
+					<section class="form-group">
 						{{ form_label(form.genders, 'Genres :', {'attr': {'class': 'genders-label'}}) }}
-						<div class="genders-checkbox-list">
+						<section class="genders-checkbox-list">
 							{% for gender in form.genders %}
-								<div class="gender-checkbox">
+								<section class="gender-checkbox">
 									{{ form_widget(gender, {'attr': {'class': 'gender-checkbox-input'}}) }}
 									{{ form_label(gender, null, {'label_attr': {'class': 'gender-checkbox-label' }}) }}
-								</div>
+								</section>
 							{% endfor %}
-						</div>
-					</div>
+						</section>
+					</section>
 				</section>
 				<button type="submit">Envoyer</button>
 				{{ form_end(form)}}

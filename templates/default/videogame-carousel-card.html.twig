@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block carousel %}
-  <div class="carrousel-card">
+  <section class="carrousel-card">
     <a href="{{ path('videogame_card', { 'id': videoGame.id }) }}" style="color:rgb(230, 230, 235); text-decoration:none;">
       <img src="{{ vich_uploader_asset(videoGame, 'imgTheme') }}" alt="{{ videoGame.name }}">
     
@@ -21,5 +21,5 @@
       {% elseif videoGame.grade <= 34 %}
         <h4 class="video-game-grade bad">{{ videoGame.grade }}</h4>
       {% endif %}
-  </div>
+  </section>
 {% endblock %}

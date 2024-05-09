@@ -1,13 +1,59 @@
 @media all {
   main {
     margin-bottom: 25px;
-    margin-top: 140px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
 
-  main .video-game-card {
+  #video-game-list>.title {
+    width: 100%;
+    font-size: 200%;
+    margin-bottom: 55px;
+    text-align: center;
+  }
+
+
+  #video-game-list>.title .videogame-gender {
+    font-size: 20px;
+    width: 150px;
+    border-radius: 1.225em;
+    padding: 5px 35px;
+    position: absolute;
+    margin-left: -24%;
+    margin-top: 40px;
+    color: rgb(230, 230, 230) !important;
+    text-transform: none !important;
+  }
+
+  #video-game-list>.title .postapo {
+    width: 200px;
+  }
+
+  #video-game-list .link {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #video-game-list .link a {
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+    width: 100%;
+    text-align: center;
+  }
+
+  #video-game-list .link a:hover {
+    text-decoration: underline;
+    transition: all 350ms 550ms ease-in;
+  }
+
+  main #video-game-list {
+    margin-top: 175px;
+    width: 100%;
+  }
+
+  main #video-game-list .video-game-card {
     margin-top: 15px;
     margin-bottom: 15px;
     background-color: rgb(25, 25, 35);
@@ -180,8 +226,9 @@
 
 
 @media (min-width:1400px) {
-  .video-game-card {
+  #video-game-list .video-game-card {
     width: 80%;
+    margin-left: 10%;
   }
 
   .video-game-card-theme img {
@@ -199,9 +246,26 @@
   }
 
 
-  .video-game-pres .name,
+  .sort {
+    position: absolute;
+    margin-top: 50px;
+    width: 50%;
+    z-index: 5;
+    text-align: center;
+  }
+
+  .filters h5 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .video-game-pres .name {
+    font-size: 24px;
+    color: rgb(220, 150, 25);
+  }
+
   .video-game-pres .platform {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 800;
   }
 
@@ -264,9 +328,13 @@
 
 
 @media(max-width:1399px) and (min-width:1300px) {
-  .video-game-card {
+  #video-game-list {
+    width: 100%;
+  }
+
+  #video-game-list .video-game-card {
     width: 85%;
-    margin-left: initial;
+    margin-left: 7.5%;
     padding-bottom: 25px;
   }
 
@@ -318,7 +386,7 @@
   }
 
   .video-game-content .go-to-vg {
-    margin-left: 70%;
+    margin-left: 60%;
     margin-top: -55px;
   }
 }
@@ -326,7 +394,11 @@
 
 
 @media (max-width:1299px) and (min-width:1200px) {
-  .video-game-card {
+  #video-game-list {
+    width: 100%;
+  }
+
+  #video-game-list .video-game-card {
     width: 85%;
     margin-left: 7.5%;
     padding-bottom: 25px;

@@ -81,6 +81,7 @@
     border: rgb(235, 163, 39) solid 3px;
     border-radius: .355em;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, .45);
+    padding-bottom: 15px;
   }
 
   .profile-public-presentation h4 {
@@ -101,10 +102,57 @@
     text-justify: auto;
   }
 
-  .profile-public .profile-public-stats h4 {
+  .profile-public .profile-public-stats h4,
+  .profile-public .profile-public-genders h4 {
     padding: 15px;
     text-transform: uppercase;
     text-decoration: underline;
+    font-size: 22px;
+    color:rgb(235, 163, 39);
+  }
+
+  .profile-public .profile-public-genders h4 {
+    margin-left: 12.5%;
+  }
+
+  .profile-public .profile-public-SG {
+    width: 100%;
+    margin-top: 15px;
+    border: rgb(235, 163, 39) solid 3px;
+    border-radius: .355em;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, .45);
+    padding-bottom: 15px;
+  }
+
+
+  .profile-public-genders-bloc .profile-public-genders {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-public-genders .video-game-gender {
+    width: 20%;
+    margin-left: 2.5%;
+  }
+
+  .video-game-gender h5 {
+    text-transform: none!important;
+    width: 70%;
+    margin-left: 15%;
+    font-size: 22px!important;
+    text-align: center;
+    padding: 5px 0px 8px 0px;
+    font-weight: 800;
+    border-radius: 1.255em!important;
+  }
+
+  .video-game-gender .postapo {
+    width: 85%;
+    margin-left: 7.5%;
   }
 
   .profile-public-stats-group h5 {
@@ -166,6 +214,10 @@
     margin-top: 150px;
     width: 96%;
     margin-left: 0.25%;
+  }
+
+  .profile-public-genders {
+    width: 100%;
   }
 
   .profile-public .profile-public-head {

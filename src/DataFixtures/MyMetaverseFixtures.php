@@ -76,6 +76,7 @@ class MyMetaverseFixtures extends Fixture
         $u1 = new User(
             "Buffard",
             "Alexandre",
+            true,
             "ab@gmail.com",
             "alilizeph",
             "",
@@ -99,6 +100,7 @@ class MyMetaverseFixtures extends Fixture
         $u2 = new User(
             "Dupont",
             "Arthur",
+            false,
             "arthur-dupont@hotmail.fr",
             "arthurdu92",
             "",
@@ -113,6 +115,7 @@ class MyMetaverseFixtures extends Fixture
         $u3 = new User(
             "Kurosaki",
             "Ichigo",
+            true,
             "ichi.kuro@gmail.com",
             "ichikuro",
             "",
@@ -134,6 +137,7 @@ class MyMetaverseFixtures extends Fixture
         $u4 = new User(
             "La Cookie",
             "Lamia",
+            false,
             "lamia.lacookie.etudiant@univ-lr.fr",
             "elDiableteDu17",
             "MmEUwp567f89Bd",
@@ -143,11 +147,12 @@ class MyMetaverseFixtures extends Fixture
             "Salut, je m'appelle Lamia, je suis une amie de Alexandre, alilizeph, avec qui j'ai passé une partie de mes études à L'Université de La Rochelle en licence informatique. Le développement Web c'est ma spécialité, actuellement, je suis en train de faire une licence professionnelle. \nQuand j'ai le temps, et j'en ai que trop peu à cause de la LP, je joue aux jeux vidéo et parfois, on essaye de se voir avec mon ami, mais c'est pas facile parce qu'il est actuellement dans sa campagne. (il fait pas d'effort aussi, l'Université encore moins !)",
             true //, $this->avatarUploader
         );
-        $u4->setPassword($this->passwordEncoder->hashPassword($u4, "elDiableteDu17"));
+        $u4->setPassword($this->passwordEncoder->hashPassword($u4, "s-)E92M3jv"));
         $manager->persist($u4);
         $u5 = new User(
             "Doe",
             "John",
+            true,
             "john.doe@gmail.com",
             "johndoe",
             "",
@@ -162,6 +167,7 @@ class MyMetaverseFixtures extends Fixture
         $u6 = new User(
             "Smith",
             "Alice",
+            false,
             "asmith@outlook.fr",
             "alsmith",
             "",
@@ -171,11 +177,12 @@ class MyMetaverseFixtures extends Fixture
             "Bonjour à tous, je suis Alice Smith. Je suis une passionnée de photographie et de voyage. J'adore capturer des moments spéciaux à travers mon objectif et partager mes aventures avec le monde. Si vous partagez ces intérêts ou si vous avez des conseils de voyage à partager, faites-moi signe !",
             true //, $this->avatarUploader
         );
-        $u6->setPassword($this->passwordEncoder->hashPassword($u6, "pwdN6PaSec"));
+        $u6->setPassword($this->passwordEncoder->hashPassword($u6, "p9^mN?T4x2"));
         $manager->persist($u6);
         $u7 = new User(
             "Brown",
             "Robert",
+            false,
             "brob@orange.fr",
             "brob",
             "",
@@ -190,6 +197,7 @@ class MyMetaverseFixtures extends Fixture
         $u8 = new User(
             "Johnson",
             "Emily",
+            true,
             "emily.johnson@wanadoo.fr",
             "jemily",
             "",
@@ -204,6 +212,7 @@ class MyMetaverseFixtures extends Fixture
         $u9 = new User(
             "Lee",
             "Michael",
+            false,
             "lckael@gmail.com",
             "lkal",
             "",
@@ -218,6 +227,7 @@ class MyMetaverseFixtures extends Fixture
         $u10 = new User(
             "Wang",
             "Lily",
+            true,
             "lily.wang@univ-bdx.fr",
             "lilyWang",
             "",
@@ -225,13 +235,14 @@ class MyMetaverseFixtures extends Fixture
             new DateTime("1995-02-18"),
             false,
             "",
-            true //, $this->avatarUploader
+            true
         );
         $u10->setPassword($this->passwordEncoder->hashPassword($u10, "p(wdN108P<aSec"));
         $manager->persist($u10);
         $u11 = new User(
             "Garcia",
             "Davis",
+            true,
             "dave.garcia@gmail.com",
             "garvis",
             "",
@@ -240,13 +251,13 @@ class MyMetaverseFixtures extends Fixture
             false,
             "",
             true
-            //, $this->avatarUploader
         );
         $u11->setPassword($this->passwordEncoder->hashPassword($u6, "pw&dN11Pa4Se~c"));
         $manager->persist($u11);
         $u12 = new User(
             "Kim",
             "Sophia",
+            true,
             "ksophia@hotmail.com",
             "ksophia",
             "",
@@ -255,7 +266,7 @@ class MyMetaverseFixtures extends Fixture
             false,
             "",
             "",
-            true //, $this->avatarUploader
+            true
         );
         $u12->setPassword($this->passwordEncoder->hashPassword($u12, "p#w9dN12P^aSec"));
         $manager->persist($u12);
@@ -323,6 +334,10 @@ class MyMetaverseFixtures extends Fixture
             $l12->addUser($u);
         }
         $manager->persist($l12);
+        $l11 = new Likes(0); //, array($u1, $u6, $u3, $u7));
+        foreach (array($u1, $u6, $u3, $u7) as $u) {
+            $l11->addUser($u);
+        }
 
         $manager->flush();
 
@@ -367,12 +382,16 @@ class MyMetaverseFixtures extends Fixture
          * OBJECTS VideoGame
          */
         $vg1 = new VideoGame(
+            "Bonnes idées de jeu, mais mal explotées ... Mais changements agréables.",
             "Pokémon: Légendes Arceus",
             $p1,
             new DateTime("2022-01-28"),
             "Pokémon : Légendes Arceus est un opus de la saga Pokémon sorti en janvier 2022. Le héros se retrouve transporté dans le passé dans la région de Sinho, anciennement nommée Hisui. Le dieu des Pokémons Arceus vous donne pour mission de régler les différents problèmes qui s'abattent sur la région.",
             "Ce jeu est un semi-openworld, l'histoire est intéressante et il est très intéressant de se retrouver dans la région de Sinho dans le passé. On peut y trouver de nombreux Pokémons, l'histoire est intéressante et remplir le Pokédex est, pour ma part, enfin amusant pour cataloguer les différentes espèces présentes dans la région de Hisui.",
-            71,
+            56,
+            78,
+            60,
+            50,
             54.99,
             true,
             "https://www.amazon.fr/L%C3%A9gendes-Pok%C3%A9mon-Arceus-Nintendo-Switch/dp/B096FZ5ZRQ/ref=sr_1_1?keywords=pok%C3%A9mon+legend+arceus&qid=1689945200&sprefix=pok%C3%A9mon+legen%2Caps%2C162&sr=8-1",
@@ -398,12 +417,16 @@ class MyMetaverseFixtures extends Fixture
 
 
         $vg2 = new VideoGame(
+            "Aurait eu besoin de plus de temps de développement !",
             "Pokémon: version Écarlate et Violet",
             $p1,
             new DateTime("2022-11-18"),
             "Pokémon : Violet et Pokémon : Écarlate est un opus de la saga Pokémon sorti en novembre 2022. Dans ce nouvel opus, vous pourrez découvrir la région de Paldéa, région inspirée de l'Espagne. Vous pourrez l'explorer à pieds ou sur une monture : Koraidon (pour Écarlate) ou Miraidon (pour Violet), 2 pokémons que vous rencontrez lors de votre arrivée dans cette vaste région. Vous intégrerez l'académie Orange (pour Écarlate) ou l'académie Violette (pour Violet) qui vous proposera la grande chasse aux trésors, le but : découvrir quel est votre plus précieux trésor, est-ce remporter le titre de Maître de la Ligue Pokémon de Paldéa, est-ce de découvrir les Épices Secrètes sensées guérir les maux, ou est-ce de défaire la Team Star qui semblent poser des problèmes à l'académie et aux élèves.",
             "Comme souvent depuis la 6ème génération, une nouvelle mécanique de jeu apparaît : la Téracristalisation ! Elle permet au Pokémon de changer temporairement de type pour adopter son Type Téracristal, ce qui peut donner un Pikachu de type Vol ! ",
-            58,
+            38,
+            62,
+            55,
+            40,
             59.99,
             true,
             "https://www.amazon.fr/Nintendo-Pok%C3%A9mon-%C3%89carlate/dp/B0B31VDKKV/ref=sr_1_1?keywords=pok%C3%A9mon+%C3%A9carlate+switch&qid=1689945103&sprefix=pok%C3%A9mon+%C3%A9ca%2Caps%2C87&sr=8-1",
@@ -428,12 +451,16 @@ class MyMetaverseFixtures extends Fixture
 
 
         $vg3 = new VideoGame(
+            "Quel bonheur de découvrir le passé de Poudlard !",
             "Hogwarts Legacy : L'Héritage de Poudlard",
             $p3,
             new DateTime("2023-02-10"),
             "Hogwarts Legacy prend place au 19ème siècle environ dans la plus célèbre des écoles de magie : Poudlard de J.K. Rowling ! Vous incarnez un(e) jeune élève sur le point d'intégrer la 5ème année de l'école. Accompagné(e) du professeur Fig, vous allez découvrir des phénomènes liés à une magie ancienne que vous semblez pouvoir utiliser. A vous de découvrir le monde qui entoure l'école, de choisir entre Gryffondor, Serdaigle, Poufsouffle et Serpentard et partez à l'aventure avec d'autres élèves !",
             "Ce jeu a été pour moi une excellente aventure ! Étant un grand fan de la saga Harry Potter et des Animaux Fantastiques, découvrir l'école de Poudlard au 19ème siècle a été un pur plaisir ! Ce jeu rend honneur à la saga, les personnages pouvant vous accompagner sont attachants, (Poppy <3 ), rien de plus agréable que de partir à la rescousse de créatures fantastiques qui sont mis à mal par les braconniers de Rockwood. L'apprentissage des sorts, comment les utiliser, lesquels vont avec les autres etc... L'histoire en elle-même est prenante, on découvre une magie ancienne qui semble puissante et dangereuse entre de mauvaises mains, et Ranrok semble la convoiter pour monter sa rébellion.",
-            83,
+            80,
+            85,
+            75,
+            78,
             79.99,
             true,
             "https://www.amazon.fr/HOGWARTS-LEGACY-LHERITAGE-DE-POUDLARD/dp/B09M96C12Z/ref=sr_1_1?keywords=hogwarts+legacy+ps5&qid=1689945252&sprefix=howart%2Caps%2C130&sr=8-1",
@@ -458,13 +485,17 @@ class MyMetaverseFixtures extends Fixture
 
 
         $vg4 = new VideoGame(
+            "Bon remake de la 1G Pokémon",
             "Pokémon Rouge Feu/Vert Feuille",
             $p4,
             new DateTime("2004-01-29"),
             "Pokémon Rouge Feu est un remake des opus originaux de Pokémon : Pokémon Rouge et Vert (Bleu en France) et il reprend donc l'histoire de ces jeux avec de meilleurs graphiques, des chaussures de sport, choisissez entre Bulbizarre, Salamèche et Carapuce et partez à l'exploration de Kanto en affrontant les champions d'arène et en complétant votre Pokédex pour atteindre l'objectif final : arriver à bout de la Ligue Pokémon de Peter, spécialiste des Pokémons de type Dragon. ",
             "Ce jeu est pour moi empli de nostalgie, je ne suis donc pas très objectif, mais j'ai pris un plaisir sincère à chaque fois que je me suis refait ce jeu ! Il s'agit d'un remake, avec donc de meilleurs graphismes que les originaux, tout en y incorporant les mécaniques ajoutées entre les originaux et Pokémon Rubis et Saphir, comme la reproduction, les Pokémons chromatiques, les capacités spéciales (talents) etc... C'est un jeu sorti avant les jeux de la 3DS (qui s'étaient mis à faciliter le gameplay en aidant parfois trop le joueur) et donc rien que cela est un plaisir : un peu de difficulté dans un jeu Pokémon ! (juste ce qu'il faut)",
+            65,
+            75,
             68,
-            39.99,
+            76,
+            79.99,
             false,
             "",
             $l4
@@ -488,12 +519,16 @@ class MyMetaverseFixtures extends Fixture
 
 
         $vg5 = new VideoGame(
+            "Le jeu de gestion écologique ultime !",
             "Terra Nil",
             $p2,
             new DateTime("2023-03-28"),
             "Terra Nil est un jeu sur le thème de l'environnement. Vous vous retrouvez sur une planète ravagée par la pollution, vous devez donc réabiliter cette terres stérile en écosystème dans la propérité et l'harmonie. A vous de trouver le moyen de ramener la vie sur cette planète !",
             "Terra Nil est un jeu stratégique et de gestion sur le thème de l'environnement. Il s'agit d'un jeu visuellement très agréable, avec des musiques calmes et qui évoluent au fur et à mesure que vous restaurez votre environnement. Le jeu est au début un peu difficile le temps de comprendre les mécaniques de chaque élément de jeu, mais une fois que le jeu est compris, le jeu a un côté très détente. J'ai pris beaucoup de plaisir à le découvrir, à faire des restaurations, notamment car ce jeu se base sur des valeurs que tout le monde devrait suivre.",
+            83,
+            91,
             78,
+            86,
             24.99,
             true,
             "https://store.steampowered.com/app/1593030/Terra_Nil/",
@@ -518,12 +553,16 @@ class MyMetaverseFixtures extends Fixture
 
 
         $vg6 = new VideoGame(
+            "Peut mieux faire ... Mais reste en \"Early Access\"",
             "Farthest Frontier",
             $p2,
             new DateTime("2018-06-12"),
             "Farthest Frontier est un jeu de gestion dans lequel il faut bâtir sa ville, la faire propérer, elle, tout comme faire propérer ses habitants. Il faudra relever les défis donnés par la nature, récolter des matériaux pour la création de bâtiments et faire vivre les villageois, tout en prenant en compte leurs besoins et exigeances. (certains bâtiments déplairont aux habitants trop proches de son rayon d'action par exemple)",
             "Farthest Frontier est un jeu en accès limité au moment où je rédige cette critique. Je l'ai découvert en regardant une vidéo Youtube de Joueur du Grenier, il m'avait convaincu suffisamment pour que je l'achète, appréciant les jeux de gestion. Résultat, comme on le voit à la note, je suis majoritairement déçu ... Je me suis rapidement ennuyé et parfois été mis bêtement en difficultés à cause de ma méconnaissance du jeu.",
-            47,
+            51,
+            48,
+            42,
+            38,
             28.99,
             true,
             "https://store.steampowered.com/app/1044720/Farthest_Frontier/"
@@ -547,12 +586,16 @@ class MyMetaverseFixtures extends Fixture
 
 
         $vg7 = new VideoGame(
+            "Le jeu de gestion sur les dinos ultime ?",
             "Jurassic World Evolution",
             $p2,
             new DateTime("2022-08-09"),
             "Jurassic World Évolution est un jeu qui se déroule après les évènements du film Jurassic World où les gérants tentent de faire renaître de nouveau Jurassic Park. C'est donc à vous que revient cette tâche de faire grandir votre parc sur les îles des 5 morts ! C'est donc à vous de vous de subvenir aux besoins des visiteurs et de vos dinosaures avec les infrastructures à votre disposition et l'aide des différents services du parc.",
             "Jurassic World est un jeu de gestion exceptionnel ! Je ne compte plus les dizaines d'heures que j'ai passées à créer et recréer mon parc... Le jeu est bien équilibré et chaque île a ses spécificités : l'une est calme, une autre peut-être régulièrement prise dans une tempête tandis qu'une autre peut être endettée. A vous de trouver une solution aux problématiques et de faire des profits pour débloquer de nouvelles infrastructures.",
-            82,
+            83,
+            85,
+            75,
+            80,
             44.99,
             true,
             "https://store.steampowered.com/app/648350/Jurassic_World_Evolution/"
@@ -576,12 +619,16 @@ class MyMetaverseFixtures extends Fixture
 
 
         $vg8 = new VideoGame(
+            "Vraiment très limité et pas très passionnant ...",
             "Project Hospital",
             $p2,
             new DateTime("2018-09-28"),
             "Project Hospital est un jeu de gestion dans le domaine de la santé. A vous de créer et de gérer votre propre hôpital, recrutez des médecins spécialistes et généralistes. Trouvez l'équilibre pour subvenir aux besoins de vos patients, mais aussi de vos salariés.",
             "Project Hospital est un jeu aux graohismes assez moyens, voire pas terribles, il est très lent comme jeu de gestion et augmenter la vitesse c'est prendre le risque de faire dégénérer les choses. Pour prendre du plaisir pour jouer à ce jeu il faut être extrèmement patient ... Hormis pendant les promotions Steam, je trouve qu'il ne vaut pas son prix de vente de base.",
-            31,
+            25,
+            35,
+            30,
+            28,
             24.99,
             true,
             "https://store.steampowered.com/app/868360/Project_Hospital/"
@@ -605,12 +652,16 @@ class MyMetaverseFixtures extends Fixture
 
 
         $vg9 = new VideoGame(
+            "Un jeu de gestion sur Mars calme et agréable",
             "Terraformers",
             $p2,
             new DateTime("2022-04-21"),
             "Terraformers est un jeu dont le but est de coloniser notre planète voisine : Mars. Choisissez la zone de votre première colonie, installez des habitations, des infrastructures et partez à l'exploration de la planète pour trouver des ressources et installer d'autres colonies.",
             "Terraformers est un jeu de gestion stratégique très intéressant. On passe par différentes phases de colonisation pour finalement rendre notre nouvelle planète habitable. Là encore, c'est une question d'équilibre, il faut commercer avec la Terre pour recevoir des ressources nécessaires à la construction d'infrastructure par exemple ... A vous de faire le bon choix. Le jeu n'est pas difficile en soit, le faut juste prendre le temps de comprendre les mécaniques de jeux, j'y ai personnellement pris beaucoup de plaisir à rendre habitable cette belle planète rouge.",
-            64,
+            75,
+            70,
+            65,
+            70,
             19.99,
             true,
             "https://store.steampowered.com/app/1244800/Terraformers/"
@@ -633,13 +684,49 @@ class MyMetaverseFixtures extends Fixture
         $manager->persist($vg9);
 
 
+        $vg11 = new VideoGame(
+            "De longues heures de jeu en perspective : l'Open-World parfait ?",
+            "The Legend Of Zelda : Breath of the Wild",
+            $p1,
+            new DateTime("2017-03-03"),
+            "The Legend of Zelda : Breath of the Wild est difficile à placer dans la chronologie des jeux de la licence Zelda. Vous êtes Link et vous vous faites réveiller par une voix ... Vous êtes allongé dans une sorte de cuve qui vous a certainement soigné. Vous allez découvrir la Tablette Sheikah, un artéfact Sheikah très pratique. Vous sortez de l'endroit où vous vous trouviez et vous vous rendez rapidement compte que vous vous trouvez sur un Plateau isolé du monde ... Puis vous voyez un homme auquel vous vous adressez, il semble que vous ayez tout d'abord perdu la mémoire, impossible de vous rappeler de qui provenait cette voix qui vous obsède ... Vous comprenez juste que vous allez devoir affronter de grands dangers et notamment visiter des sanctuaires pour vous renforcer.",
+            "Ce jeu de la licence Zelda est juste génial. Le gameplay vous isolant du reste d'Hyrule au début pour apprendre, évidemment, à jouer Link, est une bonne idée. Les terres d'Hyrule sont vastes, les possibilités sont grandes, vous pouvez suivre l'histoire tranquillement, tout comme finir le Plateau du Prélude et affronter à vos risques et périls Ganon ... A vous de choisir, j'aime personnellement prendre monn temps, visiter le monde qui m'attend, ce que j'ai fait avec tant de plaisir !",
+            80,
+            95,
+            97,
+            95,
+            54.99,
+            true,
+            "https://www.amazon.fr/Legend-Zelda-Breath-Wild/dp/B01MUAFFPA/ref=sr_1_1?keywords=breath+of+the+wild&qid=1691411304&sprefix=breat%2Caps%2C88&sr=8-1"
+        );
+
+        $imgPathBox = $basePath . '/public/dl/box/zelda_botw-boite.jpg';
+        $imgBox = new UploadedFile($imgPathBox, 'zelda_botw-boite.jpg', 'image/jpeg', null, true);
+        $vg11->setImgBox($imgBox);
+        $vg11->setImgBoxSize($imgBox->getSize());
+        $vg11->updateImgBoxFileName();
+
+        $imgPathTheme = $basePath . "/public/dl/themes/zelda_botw-theme.jpeg";
+        $imgTheme = new UploadedFile($imgPathTheme, 'zelda_botw-theme.jpeg', 'image/jpeg', null, true);
+        $vg11->setImgTheme($imgTheme);
+        $vg11->setImgThemeSize($imgTheme->getSize());
+        $vg11->updateImgThemeNewFileName();
+
+        foreach (array($g1, $g2, $g5, $g12, $g3, $g7, $g13, $g14) as $g)
+            $vg11->addGender($g);
+        $manager->persist($vg11);
+
         $vg10 = new VideoGame(
+            "Une suite qui fait honneur à son prédécesseur !",
             "The Legend Of Zelda : Tears of the Kingdom",
             $p1,
             new DateTime("2023-05-12"),
             "Quelques années après leur victoire face à Ganon, Link et Zelda explorent les souterrains du château d'Hyrule. Ces souterrains semblent envahis par des miasmes rendant malade toute personne s'y aventurant. C'est à ce moment qu'ils découvrirent tout d'abord des statues et des gravures Sonneau, une civilisation perdue, décrivant une guerre nommée la \"Guerre du Sceau\". S'enfonçant de plus en plus sous le château, ils se retrouvèrent fasse à une momie reprenant vie. Elle semble tout d'abord connaître leurs prénoms, blessa grièvement Link avec ses miasmes, projeta le château dans les airs ... Link et Zelda chutèrent, Zelda disparut tandis que Link fut rattrapé par un gant étrange. A son réveil, Link se retrouva sur une île dans les cieux.",
             "Je n'ai pas de mot pour décrire comme ce jeu est extraordinaire ... Il avait la lourde tâche de succéder à The Legend of Zelda : Breath of the Wild et il a réussi avec brio ! Entre les mécaniques donnant une infinité de possibilités de gameplay, l'histoire qui est très prenante, l'Open World qui est tout bonnement gigantesque entre la surface, les îles célestes et les profondeurs, moi qui suis fan d'aventure, je suis plus que servi ! Je vais lui reconnaître un défaut : là où son prédécesseur était accessible à tous, Tears of the Kingdom est très difficile et a une difficulté croissante avec des ennemis de plus en plus puissants et résistants, la prudence est donc de mise pour ceux qui ne sont pas habitués au gameplay de Breath of the Wild ... Mais quel plaisir, j'ai déjà dépassé les 100h de jeu pour arriver à Ganondorf (qui a du répondant ! Ce qui a dû en décourager certains ... ) et je suis en train de le recommencer ... BREF, un pur plaisir pour ma part. Que de bonheurs m'attendent ... La prochaine chose à faire est de refaire BOTW puis aussitôt TOTK, à vous de jouer ! ;)",
+            85,
+            95,
             98,
+            95,
             54.99,
             true,
             "https://www.amazon.fr/Nintendo-Legend-Zelda-Kingdom-Switch/dp/B07SNRGQC4/ref=sr_1_1?keywords=tears+of+the+kingdom&qid=1691410380&sprefix=tears%2Caps%2C134&sr=8-1"
@@ -662,42 +749,17 @@ class MyMetaverseFixtures extends Fixture
         $manager->persist($vg10);
 
 
-        $vg11 = new VideoGame(
-            "The Legend Of Zelda : Breath of the Wild",
-            $p1,
-            new DateTime("2017-03-03"),
-            "The Legend of Zelda : Breath of the Wild est difficile à placer dans la chronologie des jeux de la licence Zelda. Vous êtes Link et vous vous faites réveiller par une voix ... Vous êtes allongé dans une sorte de cuve qui vous a certainement soigné. Vous allez découvrir la Tablette Sheikah, un artéfact Sheikah très pratique. Vous sortez de l'endroit où vous vous trouviez et vous vous rendez rapidement compte que vous vous trouvez sur un Plateau isolé du monde ... Puis vous voyez un homme auquel vous vous adressez, il semble que vous ayez tout d'abord perdu la mémoire, impossible de vous rappeler de qui provenait cette voix qui vous obsède ... Vous comprenez juste que vous allez devoir affronter de grands dangers et notamment visiter des sanctuaires pour vous renforcer.",
-            "Ce jeu de la licence Zelda est juste génial. Le gameplay vous isolant du reste d'Hyrule au début pour apprendre, évidemment, à jouer Link, est une bonne idée. Les terres d'Hyrule sont vastes, les possibilités sont grandes, vous pouvez suivre l'histoire tranquillement, tout comme finir le Plateau du Prélude et affronter à vos risques et périls Ganon ... A vous de choisir, j'aime personnellement prendre monn temps, visiter le monde qui m'attend, ce que j'ai fait avec tant de plaisir !",
-            98,
-            54.99,
-            true,
-            "https://www.amazon.fr/Legend-Zelda-Breath-Wild/dp/B01MUAFFPA/ref=sr_1_1?keywords=breath+of+the+wild&qid=1691411304&sprefix=breat%2Caps%2C88&sr=8-1"
-        );
-
-        $imgPathBox = $basePath . '/public/dl/box/zelda_botw-boite.jpg';
-        $imgBox = new UploadedFile($imgPathBox, 'zelda_botw-boite.jpg', 'image/jpeg', null, true);
-        $vg11->setImgBox($imgBox);
-        $vg11->setImgBoxSize($imgBox->getSize());
-        $vg11->updateImgBoxFileName();
-
-        $imgPathTheme = $basePath . "/public/dl/themes/zelda_botw-theme.jpeg";
-        $imgTheme = new UploadedFile($imgPathTheme, 'zelda_botw-theme.jpeg', 'image/jpeg', null, true);
-        $vg11->setImgTheme($imgTheme);
-        $vg11->setImgThemeSize($imgTheme->getSize());
-        $vg11->updateImgThemeNewFileName();
-
-        foreach (array($g1, $g2, $g5, $g12, $g3, $g7, $g13, $g14) as $g)
-            $vg11->addGender($g);
-        $manager->persist($vg11);
-
-
         $vg12 = new VideoGame(
+            "Un jeu qui fait honneur à la licence Dragon Quest ?",
             "Dragon Quest XI : Les Combattants de la Destinée",
             $p1,
             new DateTime("2017-07-23"),
             "Dragon Quest XI se déroule dans le royaume d'Helréa. Vous incarnez un jeune homme au village de Caubaltin. Vous avez atteint la majorité et vous devez passer un rite spécifique au village, avec votre amie Gemma. Vous la passez sans grande difficulté malgré quelques monstres ... et arrivé tout en haut, un monstre puissant apparaît, il s'apprête à vous attaquer quand soudain votre main se met à s'illuminer : un éclair s'abat sur le monstre et il s'enfuit. Le rite fini, vous revenez au village et on vous explique que vous êtes en fait l'Éclairé ! Un héro légendaire qui se réincarne régulièrement pour vaincre le mal absolu ...",
             "Dragon Quest XI est un jeu que j'ai découvert sur PC mais j'y ai plus joué sur Nintendo Switch. Hormis un léger défaut dans la version Switch, ce jeu est super, l'histoire contient de multiples bouleversements, et ce dès le début ! Mais sans cela, jamais vous n'auriez rencontré votre précieux 1er compagnon : Érik le voleur ! Vous rencontrez d'autres compagnons, chacun ayant sa particularité, son caractère ... Les mécaniques de jeu sont intéressantes, notamment pour l'arbre de compétences, à vous de bien choisir quelles compétences débloquer, quelle arme vous choisiriez entre l'épée à une main et l'épée longue pour votre héros. Le jeu a une longue durée de vie sans trop de rajout inutile (à part le défaut cité précédemment pour la version Switch ...) et à la fin du jeu, vous avez même la possibilité de vous marier, ce que je trouve amusant : choisirez vous Gemma, votre amie d'enfance qui semble avoir des sentiments pour vous ?",
-            73,
+            80,
+            75,
+            80,
+            70,
             54.99,
             true,
             "https://www.amazon.fr/Dragon-Quest-XI-Elusive-Definitive/dp/B07SJFWCSL/ref=sr_1_6?crid=HA6R71H41LCS&keywords=dragon+quest+switch&qid=1691759327&sprefix=%2Caps%2C130&sr=8-6"
@@ -719,7 +781,79 @@ class MyMetaverseFixtures extends Fixture
             $vg12->addGender($g);
         $manager->persist($vg12);
 
+        
+
+        /**
+         * SINCE THIS @var VideoGame, WE CONSIDER THESE ARE NEW VideoGame POSTED RECENTY SO WITHOUT ANY Comments
+         */
+        $l = new Likes(0);
+        $vg13 = new VideoGame(
+            "Quel jeu Chill ! Mélange tellement de genres de jeu",
+            "Rune Factory 5",
+            $p1,
+            new DateTime("2022-03-22"),
+            "Vous incarnez un jeune homme ou une jeune fille qui se réveille, évanoui(e) dans une forêt, la mémoire vous fait défaut … Lorsque vous entendez le cri d’une petite fille loup-garou ! Elle est perdue, pourchassée par des monstres … Vous brandissez l'épée au sol non loin de vous, et vous vous jetez à son secours : c'est là que l'histoire que commence. Vous êtes hébergé dans un grand village nommé Rigbarth. De fils en aiguilles, vous vous retrouvez membre de la SEED, une société protectrice de l'environnement chargée de veiller au bon fonctionnement des Runes. Vous serez aidé(e) des villageois, qui en retour vous demanderont un coup de main. Être membre de la SEED, c'est également s'occuper de l'agriculture du village, car oui, d'après la cheffe du QG local, vous avez la main verte … Prenez votre houe et votre arrosoir et prenez soin de votre champ pour être rémunéré en conséquence.",
+            "Un jeu très « chill » (zen) pour lequel j'ai ajouté une catégorie rien que pour lui. C'est un jeu, un peu difficile dont la difficulté est parfois un peu difficile à appréhender, mais rien n'est insurmontable s'il on s'entraîne, que l'on se prépare bien. Que de bons moments sur ce jeu, je n'arrive pas à m'arrêter ! Je peux passer des heures à m'occuper de mes champs le matin, explorer ou farmer des composants de craft l'après-midi. Évidemment, je n'oublie pas l'un des points les plus importants du jeu : les relations avec les PNJ, leur parler régulièrement vous permettra d'en découvrir plus sur eux bien sûr, mais aussi de débloquer de nouvelles choses. A vous de choisir parmi les 10 prétendant(e)s avec qui vous lier d'amitié ou plus si affinité (sans distinction des sexes)",
+            64,
+            84,
+            75,
+            78,
+            39.49,
+            true,
+            "https://www.amazon.fr/Rune-Factory-5-Nintendo-Switch/dp/B09B3ZT1MD/ref=sr_1_1?crid=1S5R2YVJBCRQD&dib=eyJ2IjoiMSJ9.3Kl3TRrFOIzKKwQ7pQ6YuC9f6LSXXw6pSnOwENEfisXAgovvV735hyLrbU67PvzVMsQNry7x37y7MMzgxrpbmJOiW-RsE6y0U8qvZxIah_V5WZ7Me5BtR5IYxfsSWpEfMlRSUnMt2sn8TB0QWotB-QBqla2Lwj966rAdKo0Vko5cFRWriiUfnarC3XCIkCjMfI6EVYOJW53ypUZsJq6girJbj44Jw168qldLiOgfCfLxPxXQWL4yqeiQc0uD_L-8hA8NX2CmBw_6yxHTOfHDKpQQKLOMeanCI9Mi7e4aqYs.f9h6YQT-2fxr_-4-69gXz3fBObIcCMagFzU-7Gl9Xsg&dib_tag=se&keywords=rune+factory+5&qid=1713959512&sprefix=rune+fact%2Caps%2C105&sr=8-1",
+            $l
+        );
+
+        $imgPathBox = $basePath . '/public/dl/box/rune-factory-5_box.jpg';
+        $imgBox = new UploadedFile($imgPathBox, 'rune-factory-5_box.jpg', 'image/jpg', null, true);
+        $vg12->setImgBox($imgBox);
+        $vg12->setImgBoxSize($imgBox->getSize());
+        $vg12->updateImgBoxFileName();
+
+        $imgPathTheme = $basePath . "/public/dl/themes/rune-factory-5_theme.png";
+        $imgTheme = new UploadedFile($imgPathTheme, 'rune-factory-5_theme.png', 'image/png', null, true);
+        $vg13->setImgTheme($imgTheme);
+        $vg13->setImgThemeSize($imgTheme->getSize());
+        $vg13->updateImgThemeNewFileName();
+
+        foreach (array($g1, $g2, $g3, $g4, $g6, $g7, $g8, $g11, $g13) as $g)
+            $vg13->addGender($g);
+        $manager->persist($vg13);
+
+        $vg14 = new VideoGame(
+            "Le meilleur remake Pokémon ?",
+            "Pokémon Or HeartGold",
+            $p7,
+            new DateTime("2009-09-12"),
+            "Pokémon Or HeartGold et Pokémon Argent SoulSilver sur Nintendo DS sont les remakes des excellents jeux Pokémon Or et Argent. Vous jouez un jeune homme dans la région de Johto, et comme dans tous les jeux de la licence, votre but est de devenir le meilleur des dresseurs Pokémon ! Vous devrez affronter des champions des différentes arènes et le Conseil des 4, explorer la région de Johto et de Kanto, ou encore déjouez les plans de la machiavélique Team Rocket qui essaie de renaître de ses cendres depuis sa dissolution à cause d'un jeune homme mystérieux que vous rencontrerez peut-être un jour ... Qui sait ?",
+            "Que dire de ce remake ? Si ce n'est que je me suis déplacé sur 200km pour pouvoir me l'acheter à un EasyCash il y a 10 ans tant la nostalgie était et reste grande ! Entre la reprise parfaite des jeux originaux, des contenus ajoutés (la Voltorbataille, le Pokéathlon, le Parc Safari de Dukorum ...). Il y a aussi un mélange avec Pokémon Cristal, Suicune ayant un rôle important dans l'histoire ... Bref, j'ai adoré ce remake et je ne compte plus le nombre de fois où je l'ai refait. Après, on peut lui reprocher une certaine lenteur pendant les combats (Leuphorie ...) et dans l'exploration.",
+            80,
+            75,
+            83,
+            80,
+            69.99,
+            false,
+            ""
+        );
+
+        $imgPathBox = $basePath . '/public/dl/box/pokemon-HG_box.jpg';
+        $imgBox = new UploadedFile($imgPathBox, 'pokemon-HG_box.jpg', 'image/jpg', null, true);
+        $vg14->setImgBox($imgBox);
+        $vg14->setImgBoxSize($imgBox->getSize());
+        $vg14->updateImgBoxFileName();
+
+        $imgPathTheme = $basePath . "/public/dl/themes/pokemon-HG_theme.jpg";
+        $imgTheme = new UploadedFile($imgPathTheme, 'pokemon-HG_theme.jpg', 'image/jpg', null, true);
+        $vg14->setImgTheme($imgTheme);
+        $vg14->setImgThemeSize($imgBox->getSize());
+        $vg14->updateImgThemeNewFileName();
+
+        foreach (array($g1, $g3, $g2, $g5, $g11) as $g)
+            $vg14->addGender($g);
+        $manager->persist($vg14);
+
         $manager->flush();
+
 
 
         /**
@@ -753,7 +887,7 @@ class MyMetaverseFixtures extends Fixture
             new DateTime("2023-02-05")
         );
         $manager->persist($c3);
-        $u = new User("", "Jack", "", "", "", "Indéterminé", new DateTime(), false, "", "", false);
+        $u = new User("", "Jack", false, "", "", "", "Indéterminé", new DateTime(), false, "", "", false);
         do {
             $s = $u->getSurname() . strval($u->getId());
         } while ($manager->getRepository(User::class)->findBy(['username' => $s]));
@@ -816,7 +950,7 @@ class MyMetaverseFixtures extends Fixture
         $manager->persist($c9);
         //  COMMENTS FOR Hogwarts Legacy
         //$u = new User("", "Daphnée", "Indéterminé", "", "", "", new DateTime(), false, "", "", false, $this->avatarUploader);
-        $u = new User("", "Daphnée", "", "", "", "Indéterminé", new DateTime(), false, "", false);
+        $u = new User("", "Daphnée", false, "", "", "", "Indéterminé", new DateTime(), false, "", false);
         $u->setAvatarFile(null);
         do {
             $s = $u->getSurname() . strval($u->getId());
@@ -869,7 +1003,7 @@ class MyMetaverseFixtures extends Fixture
         );
         $manager->persist($c14);
         //$u = new User("", "Julie", "Indéterminé", "", "", "", new DateTime(), false, "", "", false, $this->avatarUploader);
-        $u = new User("", "Julie", "", "", "", "Indéterminé", new DateTime(), false, "", false);
+        $u = new User("", "Julie", false, "", "", "", "Indéterminé", new DateTime(), false, "", false);
         do {
             $s = $u->getSurname() . strval($u->getId());
         } while ($manager->getRepository(User::class)->findBy(['username' => $s]));
@@ -934,7 +1068,7 @@ class MyMetaverseFixtures extends Fixture
         $manager->persist($c20);
         // COMMENTS FOR Jurassic World Evolution
         //$u = new User("", "René", "Indéterminé", "", "", "", new DateTime(), false, "", "", false, $this->avatarUploader);
-        $u = new User("", "René", "", "", "", "Indéterminé", new DateTime(), false, "", false);
+        $u = new User("", "René", false, "", "", "", "Indéterminé", new DateTime(), false, "", false);
         do {
             $s = $u->getSurname() . strval($u->getId());
         } while ($manager->getRepository(User::class)->findBy(['username' => $s]));
@@ -1007,7 +1141,7 @@ class MyMetaverseFixtures extends Fixture
         );
         $manager->persist($c27);
         //$u = new User("", "Charlie", "Indéterminé", "", "", "", new DateTime(), false, "", "", false, $this->avatarUploader);
-        $u = new User("", "Charlie", "", "", "", "Indéterminé", new DateTime(), false, "", false);
+        $u = new User("", "Charlie", false, "", "", "", "Indéterminé", new DateTime(), false, "", false);
         do {
             $s = $u->getSurname() . strval($u->getId());
         } while ($manager->getRepository(User::class)->findBy(['username' => $s]));

@@ -54,10 +54,10 @@ class MyMetaverseAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        if ($userId)
+        if($userId)
             return new RedirectResponse($this->urlGenerator->generate('user_private_profile', ["id" => $userId]));
         else
-            throw new Error("Problème avec l'Id utilisateur !");
+            Throw new Error("Problème avec l'Id utilisateur !");
     }
 
     protected function getLoginUrl(Request $request): string

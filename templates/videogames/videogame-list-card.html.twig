@@ -4,8 +4,9 @@
 			<img src="{{ vich_uploader_asset(videoGame, 'imgTheme') }}" alt="{{ videoGame.name }}">
 		</section>
 		<section class="video-game-card-head hide-2">
-			<div class="video-game-pres hide-2">
-				<h3 class=" hide-2">{{ videoGame.name }}</h3>
+			<section class="video-game-pres hide-2">
+				<h3 class=" hide-2">{{ videoGame.titleReview }}</h3>
+				<h4 class="name hide-2">Jeu : {{ videoGame.name }}</h4>
 
 				{% if videoGame.platform.platformName == 1 %}
 					<h4 class=" hide-2">Sur :
@@ -89,7 +90,7 @@
 					:
 					{{ videoGame.averagePrice }}
 					€</p>
-				<div class="video-game-genders-box hide-3">
+				<section class="video-game-genders-box hide-3">
 					<ul class="video-game-genders-list">
 						{% for gender in videoGame.genders %}
 							{% if gender.id == 1 %}
@@ -151,8 +152,8 @@
 							{% endif %}
 						{% endfor %}
 					</ul>
-				</div>
-			</div>
+				</section>
+			</section>
 		</section>
 		<section class="video-game-content hide-4">
 			<a class="go-to-vg" href="{{ path('videogame_card', { 'id': videoGame.id }) }}">Accéder à l'Avis</a>

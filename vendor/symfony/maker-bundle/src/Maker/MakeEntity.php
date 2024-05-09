@@ -306,7 +306,7 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
             }
 
             foreach ($fileManagerOperations as $path => $manipulatorOrMessage) {
-                if (\is_string($manipulatorOrMessage)) {
+                if (\is_string($manipulatorOrMessage)) {     /* @phpstan-ignore-line - https://github.com/symfony/maker-bundle/issues/1509 */
                     $io->comment($manipulatorOrMessage);
                 } else {
                     $this->fileManager->dumpFile($path, $manipulatorOrMessage->getSourceCode());
@@ -340,6 +340,7 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
         ORMDependencyBuilder::buildDependencies($dependencies);
     }
 
+    /** @param string[] $fields */
     private function askForNextField(ConsoleStyle $io, array $fields, string $entityClass, bool $isFirstField): EntityRelation|ClassProperty|null
     {
         $io->writeln('');
@@ -422,13 +423,13 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
 
         if ('string' === $type) {
             // default to 255, avoid the question
-            $classProperty->length = $io->ask('Field length', 255, Validator::validateLength(...));
+            $classProperty->length = $io->ask('Field length', '255', Validator::validateLength(...));
         } elseif ('decimal' === $type) {
             // 10 is the default value given in \Doctrine\DBAL\Schema\Column::$_precision
-            $classProperty->precision = $io->ask('Precision (total number of digits stored: 100.00 would be 5)', 10, Validator::validatePrecision(...));
+            $classProperty->precision = $io->ask('Precision (total number of digits stored: 100.00 would be 5)', '10', Validator::validatePrecision(...));
 
             // 0 is the default value given in \Doctrine\DBAL\Schema\Column::$_scale
-            $classProperty->scale = $io->ask('Scale (number of decimals to store: 100.00 would be 2)', 0, Validator::validateScale(...));
+            $classProperty->scale = $io->ask('Scale (number of decimals to store: 100.00 would be 2)', '0', Validator::validateScale(...));
         }
 
         if ($io->confirm('Can this field be null in the database (nullable)', false)) {
@@ -772,12 +773,18 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
         return $relation;
     }
 
-    private function askRelationType(ConsoleStyle $io, string $entityClass, string $targetEntityClass)
+    private function askRelationType(ConsoleStyle $io, string $entityClass, string $targetEntityClass): string
     {
         $io->writeln('What type of relationship is this?');
 
         $originalEntityShort = Str::getShortClassName($entityClass);
         $targetEntityShort = Str::getShortClassName($targetEntityClass);
+        if ($originalEntityShort === $targetEntityShort) {
+            [$originalDiscriminator, $targetDiscriminator] = Str::getHumanDiscriminatorBetweenTwoClasses($entityClass, $targetEntityClass);
+            $originalEntityShort = trim($originalDiscriminator.'\\'.$originalEntityShort, '\\');
+            $targetEntityShort = trim($targetDiscriminator.'\\'.$targetEntityShort, '\\');
+        }
+
         $rows = [];
         $rows[] = [
             EntityRelation::MANY_TO_ONE,
@@ -855,6 +862,7 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
         $regenerator->regenerateEntities($classOrNamespace);
     }
 
+    /** @return string[] */
     private function getPropertyNames(string $class): array
     {
         if (!class_exists($class)) {
@@ -871,6 +879,7 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
         return $this->doctrineHelper->getEntityNamespace();
     }
 
+    /** @return string[] */
     private function getTypesMap(): array
     {
         return Type::getTypesMap();

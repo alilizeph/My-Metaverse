@@ -18,31 +18,43 @@ use Symfony\Component\Validator\Constraints as Assert;
 class VideoGame
 {
     /**
-     * ______________________________________________________________________________________________________________________________________________________________________________________________________________
-     *        |                  type                |    property name    |          constraints / Relations            |  informations
-     * ______________________________________________________________________________________________________________________________________________________________________________________________________________
-     * @param ?int                                     $id                                                                 the object's id
-     * @param ?string                                  $name                ORM\Column(length: 255)                        the VideoGame's name ( Example : Pokémon Écarlate )
-     * @param App\Entity\Platform                      $platform            ORM\ManyToOne(App\Entity\Platform::class)      the VideoGame's platform ( Example : 'Nintendo Switch' )
-     * @param ?string                                  $description         ORM\Column(length: 1255)                       the VideoGame's description (some explanations about the story, the gameplay etc... )
-     * @param ?string                                  $advide              ORM\Column(length: 1255)                       my personal advice about the VideoGame
-     * @param ?string                                  $imgTheme                                                           (will change soon for an object VideoGameThemePicture)
-     * @param ?string                                  $imgBox                                                             (will change soon for an object VideoGameBoxPicture)
-     * @param ?int                                     $grade               Assert\Range(min:0, max:100)                   my personal grade about the VideoGame
-     * @param Doctrine\Common\Collections\Collection   $genders             ORM\ManyToMany(App\Entity\Gender::class)       the VideoGame's genders ( Example :  'RPG' )
-     * @param ?DateTime                                $releaseDate                                                        the VideoGame's release date
-     * @param ?bool                                    $disponibility                                                      true if the VideoGame is available in shop and/or websites like Amazon
-     * @param ?float                                   $averagePrice                                                       the average price actually
-     * @param ?string                                  $link                ORM\Column(length: 500)                        the link from Amazon
-     * @param ?App\Entity\Likes                        $likes               ORM\OneToOne(Likes::class)                     represents the likes given by the users (in progress)
-     * @param ?int                                     $averageUsersGrade                                                  the average grade calculated on Comments grades
-     * @param Doctrine\Common\Collections\Collection   $comments            ORM\ManyToMany(App\Entity\Comments::class)     the VideoGame's Comments
-     * ______________________________________________________________________________________________________________________________________________________________________________________________________________
+     * ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     *        |                  type                      |    property name    |          constraints / Relations                            |  informations
+     * ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     * @param ?int                                           $id                                                                                 the object's id
+     * @param ?string                                        $titleReview         ORM\Column(length: 255)                                        the VideoGame's title reviews
+     * @param ?string                                        $name                ORM\Column(length: 255)                                        the VideoGame's name ( Example : Pokémon Écarlate )
+     * @param App\Entity\Platform                            $platform            ORM\ManyToOne(App\Entity\Platform::class)                      the VideoGame's platform ( Example : 'Nintendo Switch' )
+     * @param ?string                                        $description         ORM\Column(length: 1255)                                       the VideoGame's description (some explanations about the story, the gameplay etc... )
+     * @param ?string                                        $advide              ORM\Column(length: 1255)                                       my personal advice about the VideoGame
+     * @param ?Symfony\Component\HttpFoundation\File\File    $imgBox              Vich\UploadableField(mapping: 'videogame_box)                  the VideoGame's box's image File
+     * @param ?string                                        $imgBoxFileName      ORM\Column(length: 1255)                                       the new box's image location and filename after download
+     * @param ?int                                           $imgThemeFileSize    #[ORM\Column(type: 'integer')]                                 the new box's image size after download
+     * @param ?Symfony\Component\HttpFoundation\File\File    $imgTheme            Vich\UploadableField(mapping: 'videogame_themes)               the VideoGame's theme's image File
+     * @param ?string                                        $imgThemeFileName    ORM\Column(length: 1255)                                       the new theme's image location and filename after download
+     * @param ?int                                           $imgThemeFileSize    #[ORM\Column(type: 'integer')]                                 the new theme's image size after download
+     * @param ?int                                           $graphicsGrade       #[ORM\Column(type: 'integer')] Assert\Range(min:0, max:100)    the VideoGame's graphics's grade
+     * @param ?int                                           $gameplayGrade       #[ORM\Column(type: 'integer')] Assert\Range(min:0, max:100)    the VideoGame's gameplay's grade
+     * @param ?int                                           $storylineGrade      #[ORM\Column(type: 'integer')] Assert\Range(min:0, max:100)    the VideoGame's storyline's grade
+     * @param ?int                                           $executionGrade      #[ORM\Column(type: 'integer')] Assert\Range(min:0, max:100)    the VideoGame's execution's grade
+     * @param ?int                                           $grade               #[ORM\Column(type: 'integer')] Assert\Range(min:0, max:100)    the VideoGame's average grade about the VideoGame (calculated with the other grades ($graphicsGrade, $gameplayGrade, $storylineGrade, $executionGrade))
+     * @param Doctrine\Common\Collections\Collection         $genders             ORM\ManyToMany(App\Entity\Gender::class)                       the VideoGame's genders ( Example :  'RPG' )
+     * @param ?DateTime                                      $releaseDate                                                                        the VideoGame's release date
+     * @param ?bool                                          $disponibility                                                                      true if the VideoGame is available in shop and/or websites like Amazon
+     * @param ?float                                         $averagePrice                                                                       the average price actually
+     * @param ?string                                        $link                ORM\Column(length: 500)                                        the link from Amazon
+     * @param ?App\Entity\Likes                              $likes               ORM\OneToOne(Likes::class)                                     corresponds to the likes given by the users (in progress)
+     * @param ?int                                           $averageUsersGrade                                                                  the average grade calculated on Comments grades
+     * @param Doctrine\Common\Collections\Collection         $comments            ORM\ManyToMany(App\Entity\Comments::class)                     the VideoGame's Comments
+     * ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $titleReview = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -83,7 +95,7 @@ class VideoGame
     #[ORM\Column(nullable: true)]
     private ?string $imgBoxFileName = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $imgBoxSize = null;
 
 
@@ -94,10 +106,25 @@ class VideoGame
     #[ORM\Column(nullable: true)]
     private ?string $imgThemeFileName = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $imgThemeSize = null;
 
 
+    #[ORM\Column(type: 'integer')]
+    #[Assert\Range(min: 0, max: 100)]
+    private ?int $graphicsGrade = null;
+
+    #[ORM\Column(type: 'integer')]
+    #[Assert\Range(min: 0, max: 100)]
+    private ?int $gameplayGrade = null;
+
+    #[ORM\Column(type: 'integer')]
+    #[Assert\Range(min: 0, max: 100)]
+    private ?int $storylineGrade = null;
+
+    #[ORM\Column(type: 'integer')]
+    #[Assert\Range(min: 0, max: 100)]
+    private ?int $executionGrade = null;
 
     #[ORM\Column(type: 'integer')]
     #[Assert\Range(min: 0, max: 100)]
@@ -117,10 +144,11 @@ class VideoGame
      * 10 = Survie
      * 11 = Tactique
      * 12 = Stratégie
+     * 13 = Chill
+     * 14 = Post-Apo
      */
     #[ORM\ManyToMany(targetEntity: Gender::class, inversedBy: "videoGames", cascade: ["persist"])]
     private Collection $genders;
-
     #[ORM\Column]
     private ?DateTime $releaseDate = null;
 
@@ -144,23 +172,34 @@ class VideoGame
     private Collection $comments;
 
     public function __construct(
+        string $titleReview = "",
         string $name = "",
         Platform $platform = new Platform(),
         DateTime $releaseDate = new DateTime(),
         string $description = "",
         string $advice = "",
-        int $grade = 0,
+        int $graphicsGrade = 0,
+        int $gameplayGrade = 0,
+        int $storylineGrade = 0,
+        int $executionGrade = 0,
         float $averagePrice = 0.0,
         bool $disponibility = false,
         string $link = "",
         Likes $likes = new Likes(0)
     ) {
+        $this->titleReview = $titleReview;
         $this->name = $name;
         $this->platform = $platform;
         $this->description = $description;
         $this->advice = $advice;
         $this->releaseDate = $releaseDate;
-        $this->grade = $grade;
+
+        $this->graphicsGrade = $graphicsGrade;
+        $this->gameplayGrade = $gameplayGrade;
+        $this->storylineGrade = $storylineGrade;
+        $this->executionGrade = $executionGrade;
+        $this->setGrade();
+
         $this->link = $link;
         $this->disponibility = $disponibility;
         $this->likes = $likes;
@@ -179,6 +218,18 @@ class VideoGame
     public function setId(int $id): static
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    public function getTitleReview()
+    {
+        return $this->titleReview;
+    }
+
+    public function setTitleReview($titleReview)
+    {
+        $this->titleReview = $titleReview;
 
         return $this;
     }
@@ -236,13 +287,12 @@ class VideoGame
         return $this->grade;
     }
 
-    public function setGrade(int $grade): static
+    public function setGrade(): static
     {
-        $this->grade = $grade;
+        $this->grade = intval(ceil(($this->getGraphicsGrade() + $this->getGameplayGrade() + $this->getStorylineGrade() + $this->getExecutionGrade()) / 4));
 
         return $this;
     }
-
     public function getGenders(): PersistentCollection
     {
         return $this->genders;
@@ -255,9 +305,12 @@ class VideoGame
         return $this;
     }
 
-    public function addGender(Gender $gender)
+    public function addGender(Gender $gender): static
     {
-        $this->genders->add($gender);
+        if (!$this->genders->contains($gender)) {
+            $this->genders->add($gender);
+        }
+        return $this;
     }
 
     public function getGenderById(int $id): ?Gender
@@ -504,5 +557,86 @@ class VideoGame
     public function updateImgThemeNewFileName()
     {
         $this->setImgThemeFileName($this->imgTheme->getFilename() . '.' . $this->imgTheme->getExtension());
+    }
+
+
+    /**
+     * Get the value of graphicsGrade
+     */ 
+    public function getGraphicsGrade()
+    {
+        return $this->graphicsGrade;
+    }
+
+    /**
+     * Set the value of graphicsGrade
+     *
+     * @return  self
+     */ 
+    public function setGraphicsGrade($graphicsGrade)
+    {
+        $this->graphicsGrade = $graphicsGrade;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of gameplayGrade
+     */ 
+    public function getGameplayGrade()
+    {
+        return $this->gameplayGrade;
+    }
+
+    /**
+     * Set the value of gameplayGrade
+     *
+     * @return  self
+     */ 
+    public function setGameplayGrade($gameplayGrade)
+    {
+        $this->gameplayGrade = $gameplayGrade;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of storylineGrade
+     */ 
+    public function getStorylineGrade()
+    {
+        return $this->storylineGrade;
+    }
+
+    /**
+     * Set the value of storylineGrade
+     *
+     * @return  self
+     */ 
+    public function setStorylineGrade($storylineGrade)
+    {
+        $this->storylineGrade = $storylineGrade;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of executionGrade
+     */ 
+    public function getExecutionGrade()
+    {
+        return $this->executionGrade;
+    }
+
+    /**
+     * Set the value of executionGrade
+     *
+     * @return  self
+     */ 
+    public function setExecutionGrade($executionGrade)
+    {
+        $this->executionGrade = $executionGrade;
+
+        return $this;
     }
 }

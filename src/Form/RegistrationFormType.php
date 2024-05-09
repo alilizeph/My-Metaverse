@@ -3,24 +3,17 @@
 namespace App\Form;
 
 use App\Entity\User;
-use App\Transformers\AvatarPictureToUploadedFileTransformer;
-use App\Validator\Constraints\AvatarPictureValidator;
-use App\Validator\Constraints\NoSpecialCharactersValidator;
-use App\Validator\Constraints\ValidAvatarPicture;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\File;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Constraints\Image;
-use Symfony\Component\Validator\Constraints\Valid;
 
 class RegistrationFormType extends AbstractType
 {
@@ -70,6 +63,10 @@ class RegistrationFormType extends AbstractType
             ->add('presentation', TextareaType::class, [
                 'label' => 'Présentation',
                 "required" => false
+            ])
+            ->add('privateFieldsDisponibility', CheckboxType::class, [
+                'label' => 'Voulez-vous rendre vos informations personnelles (nom, prénom) disponibles ? (par défaut, les informations ne seront pas disponibles ;) )',
+                'required' => false,
             ]);
         //$builder->get('avatar')->addModelTransformer(new AvatarPictureToUploadedFileTransformer());
     }

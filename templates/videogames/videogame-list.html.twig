@@ -8,13 +8,107 @@
 {% endblock %}
 {% block body %}
 	<main>
+	{#	
+		SOME FILTERS MAYBE I'LL RETURN ON IT SOON BUT I HAVE ALREADY DO FILTER WITH GENDERS AND I THINK IT'S ENOUGH
+		<nav class="sort">
+			<h5>Trier la liste</h5>
+			<section class="sort-group">
+				<input type="checkbox" name="alpha" id="alpha">
+				<label for="alpha">Par ordre alphabétique</label>
+			</section>
+			<section class="sort-group">
+				<input type="checkbox" name="grade" id="grade">
+				<label for="grade">Par ordre des notes</label>
+			</section>
+			<section class="sort-group">
+				<input type="checkbox" name="price" id="price">
+				<label for="price">Par ordre de prix</label>
+			</section>
+			<section class="sort-group">
+				<input type="checkbox" name="random" id="random">
+				<label for="random">Par aléatoire</label>
+			</section>
+		</nav>
+		<script type="text/javascript">
+					let alphaSort = {{ alpha ? 'false' : 'true' }};
+					document.getElementById('alpha').addEventListener('change', () => {
+						if(!alphaSort)
+							alphaSort = true;
+						else
+							alphaSort = false;
 
-		{% block vglist %}
-			{% for videoGame in videoGames %}
-				{% include './videogames/videogame-list-card.html.twig' with {'videoGame' : videoGame } %}
-			{% endfor %}
+						fetch('/videogames', {
+							method: 'POST',
+							body: JSON.stringify({ alpha: alphaSort }),
+							headers: {
+								'Content-Type': 'application/json'
+							}
+						})
+						.then(response => {
+							if (response.ok) {
+								return response.text();
+							} else {
+								console.error('Erreur lors de la mise à jour de la variable.');
+							}
+						})
+						.then(data => {
+								
+								document.querySelector('#video-game-list').innerHTML = data;
+							});
+					});
+				</script>
+		<section id="video-game-list">
+			{% block vglist %}
+				{% if alpha %}
+					{% include 'videogames/videogame-list-partial.html.twig' with { 'videoGames': alphaSortedVideoGames } %}
+				{% else %}
+					{% include 'videogames/videogame-list-partial.html.twig' with { 'videoGames': videoGames } %}
+				{% endif %}
+			{% endblock %}
+		</section>
+	#}
 
-		{% endblock %}
-
+		<section id="video-game-list">
+			{% if gender_name is defined %}
+				<h2 class="title">
+					Liste des critiques des jeux 
+					{% if gender_name == 'RPG' %}
+					<span class="videogame-gender rpg">{{ gender_name }}</span>
+					{% elseif gender_name == 'Aventure' %}
+						<span class="videogame-gender avent">{{ gender_name }}</span>
+					{% elseif gender_name == 'Fantastique' %}
+						<span class="videogame-gender fant">{{ gender_name }}</span>
+					{% elseif gender_name == 'Création' %}
+						<span class="videogame-gender crea">{{ gender_name }}</span>
+					{% elseif gender_name == 'Open World' %}
+						<span class="videogame-gender ow">{{ gender_name }}</span>
+					{% elseif gender_name == 'Gestion' %}
+						<span class="videogame-gender gestion">{{ gender_name }}</span>
+					{% elseif gender_name == 'Réflexion' %}
+						<span class="videogame-gender refl">{{ gender_name }}</span>
+					{% elseif gender_name == 'Santé' %}
+						<span class="videogame-gender sante">{{ gender_name }}</span>
+					{% elseif gender_name == 'Survie' %}
+						<span class="videogame-gender survie">{{ gender_name }}</span>
+					{% elseif gender_name == 'Tactique' %}
+						<span class="videogame-gender tact">{{ gender_name }}</span>
+					{% elseif gender_name == 'Stratégie' %}
+						<span class="videogame-gender strat">{{ gender_name }}</span>
+					{% elseif gender_name == 'Chill' %}
+						<span class="videogame-gender chill">{{ gender_name }}</span>
+					{% elseif gender_name == 'Écologie' %}
+						<span class="videogame-gender ecolo">{{ gender_name }}</span>
+					{% else %}
+					<span class="videogame-gender postapo">{{ gender_name }}</span>
+					{% endif %}
+				</h2>
+				<h5 class="link"><a href="{{ path('videogames_list')}}">Voir tous les jeux vidéo maintenant</a><h5>
+			{% else %}
+				<h2 class="title">Liste de toutes les critiques<h2>
+			{% endif %}
+			{% block vglist %}
+				{% include 'videogames/videogame-list-partial.html.twig' with { 'videoGames': videoGames } %}
+			{% endblock %}
+		</section>
 	</main>
 {% endblock %}

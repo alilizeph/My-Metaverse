@@ -5,9 +5,9 @@ body main {
 
 .admin-form-card {
     width: 95%;
-    margin-left: 2.5%;
+    margin-left:2.5%;
     background-color: rgb(235, 163, 39);
-    color: rgb(25, 25, 40);
+    color:rgb(25, 25, 40);
     text-transform: 750;
     padding-bottom: 25px;
     font-size: 16px;
@@ -18,7 +18,7 @@ body main {
     padding-top: 25px;
     padding-bottom: 25px;
     text-transform: uppercase;
-    font-size: 32px;
+    font-size:32px;
     text-align: center;
 }
 
@@ -27,7 +27,8 @@ body main {
     padding-bottom: 25px;
     width: 90%;
     font-weight: 800;
-    margin-left: 5%;
+    margin-left:5%;
+    display: flexbox;
 }
 
 .admin-form section {
@@ -36,7 +37,7 @@ body main {
 
 .admin-form .form-group {
     width: 100%;
-    margin-top: 15px;
+    margin-top:15px;
     display: flex;
 }
 
@@ -49,49 +50,20 @@ body main {
 .form-group input {
     width: 50%;
     margin-left: 5%;
-    border-radius: 0.25em;
 }
 
 .form-group .genders-label {
-    width: 35%;
+    width: 30%;
 }
 
 .form-group .genders-checkbox-list {
     width: 100%;
     display: flexbox;
-    flex-wrap: wrap;
-    flex-basis: 100%;
-    justify-content: center;
-    margin-left: -5%;
+    flex-wrap:wrap;
+    flex-basis:50%;
+    justify-content:flex-start;
 }
 
 .gender-checkbox {
     display: inline-block;
-    width: 45%;
-}
-
-.platform select {
-    margin-left: 5%;
-}
-
-
-form button {
-    font-size: 32px !important;
-    margin-left: 40%;
-    margin-top: 25px;
-    border: 3px solid rgba(56, 99, 200, .15);
-    color: white;
-    background-color: rgb(15, 15, 25);
-    width: 300px;
-    padding: 5px;
-    transition: 350ms 450ms ease-out;
-    transform: translate(-2px, -2px);
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    border-radius: 1.225em;
-    cursor:pointer;
-}
-
-button:hover {
-    transform: translate(2px, 2px);
 }

@@ -1,46 +1,15 @@
 # <h1 style="text-align:center">My Metaverse Project</h1>
 
-
-<br>
-
-**Thank you for your attention**
-
-#### By BUFFARD Alexandre
-#### Email : buffardalex492@hotmail.fr
-#### LinkedIn : [My LinkedIn profile](https://www.linkedin.com/in/alexandre-buffard-973997153/)
-
-<br>
-
-***
-
-#### SUMMARY
-
-* [My First Great Project with frontend and backend](#introduction)
-* [My Metaverse's frontend : Angular](#angular)
-* [My Metaverse's backend : Symfony](#symfony)
-
-<br>
-
-***
-
-<br>
-
-<a id="introduction" style="opacity:0%;"></a>
 ## My First Great Project with frontend and backend
 
 This is my first Angular project I named **__"My Metaverse"__**. It's a website based on the theme of __videogames reviews with my own advice and a little description, with a grade__.
 The user will can create his account profile, give his own opinion about the videogame or my advice.
 
 I will have a long work but this is my goal in three stages and the three of them will be independent of each other parts :
-1. **Actually off** : Creating an __Angular "My Metaverse"__ application
-2. **Since November 2023** : Creating the same project but with the __backend Framework Symfony__
+1. **Actually** : Creating an __Angular "My Metaverse"__ application
+2. **Since Today** : Creating the same project but with the __backend Framework Symfony__
 3. **to finish** : Creating an __API using Angular for the frontend and Symfony for the backend__
 
-<br><br>
-***
-<br>
-
-<a id="angular" style="opacity:0%;"></a>
 ## My Metaverse's frontend : Angular 
 
 | **__Version__**  | **__Description__** |
@@ -49,12 +18,12 @@ I will have a long work but this is my goal in three stages and the three of the
 | __My Metaverse V1.3__ | - Creating the __module system__ <br><br> - Adding some properties in the __VideoGames compoents__ like the possibility to add a __new VideoGame for the admin__ |
 | __My Metaverse V1.4__ | - Adding a __ProfileComponent__ that the user will can access, <br><br> - Trying to add a __Guards system__ to protect some routes but replaced by some functions to redirect automatically the time to find a solution,<br><br> - Beginning of the __responsive design work__,<br><br>- Setting up of the Lazy Loading system and Updating the routing system accordingly |
 | __My Metaverse V1.5__ | - Changing all properties into english names,<br><br>- Adding a class named __Comments__ with its model and service |
-| __My Metaverse V1.6__ | - Completing this __README.md__ file,<br><br>- Trying to make functionnal the __Guards__<br><br> - Completing the __Profile's template__<br><br> - Preparing the possible database system for this project and learning how does it work. (so actually not really completed) |
+| **__My Metaverse V1.6__** | - Completing this __README.md__ file,<br><br>- Trying to make functionnal the __Guards__<br><br> - Completing the __Profile's template__<br><br> - Preparing the possible database system for this project and learning how does it work. (so actually not really completed) |
 | **__My Metavere V1.7__** | - Adding several objects in each tables of MyMetaverseService<br><br>- Working on few functions, in particular for the property __'averageUsersGrade'__ of VideoGame model (that partially works) and __'nbComments'__ of __Users model__ (that works) <br><br>- Starting and finishing of the __Comments__ system (A component to look at a __Comments__ : __CommentsCardComponent__, Another one to add a __Comments__ if you are connected : __CommentsUserComponent__ and a last one if you aren't connected : __CommentsFormComponent__)<br><br>- Centralization of storage in the __Comments class__ : if I want to access to the Comments from a __particular User__ or most generally the __comments of a VideoGame__, I go through few __Comments functions__<br><br>- Adding a new __ProfilePublic Component__ in the Users Module. The __user__ can access it when he clicks on the __'username'__ in a __Comments component__. Unlike the private profile, you can access to few statistics on this public profile (like __'nbComments'__ or an __'averageUsersCommentsGrade'__) and finally I created a new component __CommentsCardProfile__ which it looks like the __CommentsCard__ Component, so a profile visitor can see 1 or 2 random comments from the __User__<br><br>- I wait a bit to work on the database system and begin the Symfony version of My Metaverse <br><br> - Perhaps beginning of the __Symfony version__ of __My Metaverse__, trying to add a likes system for the VideoGames in the __Angular version__ |
 
 <br><br>
 
-### Actual Angular classes versions :
+### Actual class versions :
 
 #### **__VideoGame__** :
 * __id__: number
@@ -95,14 +64,11 @@ I will have a long work but this is my goal in three stages and the three of the
 * __postDate__ : Date
 
 **__\* : properties in progress__**
-
 <br><br>
-***
-<br>
 
-<a id="symfony" style="opacity:0%;"></a>
 ## My Metaverse's backend : Symfony
 
+=======
 This is my **Symfony project part** I named **__"My Metaverse"__**. It's a website based on the theme of __videogames reviews with my own advice and a little description, with a grade__.
 The user will can create his account profile, give his own opinion about the videogame or my advice.
 
@@ -116,20 +82,35 @@ I will have a long work but this is my goal in three stages and the three of the
 | **__Version__**  | **__Description__** |
 |:--------:|:---------|
 | **__My Metaverse Symfony V1.*__**| - Creating each pages from Angular Project : <br> o homepage, o videogame reviews, o registration and login, o comments system, o public and private user's profile, <br> o admin space (in progress : I will had the possibility to add videogame, to make changes on videogame, to delete videogame ) <br> o an editing private page for the user <br><br> - Design updated compared to Angular version <br><br> - VichUploader installed to upload videogames Themes and Box images and User's Avatar |
-
+|**__My Metaverse Symfony V2.0__** | - Adding few new elements compared with latest version and Angular version :<br> o in the menu : **moving 'MES CRITERES'** to the right board and **adding the Genders** in a submenu of 'MES CRITIQUES'<br> o upgrading the VideoGame's grade system by adding **4 criterias** : **graphics** __$graphicsGrade__, **gameplay** __$gameplayGrade__, **Storyline** __$storylineGrade__, **Execution** __$executionGrade__, and a last one already exists : $grade became an average grade<br> o Adding a property __$privateFieldsDisponibility__ possibility to the **User** to choose if he wants to post up his personal data on the public profile (__$firstName__, __$surname__ ... By default, the value is false, so his personal data will be not available) <br> |
 
 <br><br>
 
-### Actual Symfony classes versions :
 
+**Thank you for your attention**
+
+#### By BUFFARD Alexandre
+#### Email : buffardalex492@hotmail.fr
+#### LinkedIn : [My LinkedIn profile](https://www.linkedin.com/in/alexandre-buffard-973997153/)
+=======
 #### **__App\Entity\VideoGame__** :
 * __$id__: ?int
 * __$name__: ?string
 * __$platform__: App\Entity\Platform ( ORM\ManyToOne(inversedBy:videoGames) )
 * __$description__: ?string
 * __$advice__: string
+* __$imgThemeFile__ : ?Symfony\Component\HttpFoundation\File\File
+* __$imgThemeNewFileName__ : ?string
+* __$imgThemeFileSize__ : ?int
+* __$imgBoxFile__ : ?Symfony\Component\HttpFoundation\File\File
+* __$imgBoxNewFileName__ : ?string
+* __$imgBoxFileSize__ : ?int
 * __$genders__ : Doctrine\Common\Collections\Collection ( ORM\ManyToMany(App\Entity\Gender) )
-* __$grade__ : ?int
+* __$graphicsGrade__ : ?int (min: 0, max: 100)
+* __$gameplayGrade__ : ?int (min: 0, max: 100)
+* __$storylineGrade__ : ?int (min: 0, max: 100)
+* __$executionGrade__ : ?int (min: 0, max: 100)
+* __$grade__ : ?int (min: 0, max: 100)
 * __$releaseDate__: ?DateTime
 * __$averagePrice__: ?float
 * __$disponibility__: ?bool
@@ -137,12 +118,6 @@ I will have a long work but this is my goal in three stages and the three of the
 * __$likes__ : App\Entity\Likes ( ORM\OneToOne(App\Entity\Likes) )
 * __$averageUsersGrade__ : ?int
 * __$comments__ : Doctrine\Common\Collections\Collection ( ORM\ManyToMany(App\Entity\Comments) )
-* __$imgThemeFile__ : ?Symfony\Component\HttpFoundation\File\File
-* __$imgThemeNewFileName__ : ?string
-* __$imgThemeFileSize__ : ?int
-* __$imgBoxFile__ : ?Symfony\Component\HttpFoundation\File\File
-* __$imgBoxNewFileName__ : ?string
-* __$imgBoxFileSize__ : ?int
 
 #### **__App\Entity\Gender__** :
 * __$id__ : ?int
@@ -164,6 +139,7 @@ I will have a long work but this is my goal in three stages and the three of the
 * __$id__ : ?int
 * __$surname__ : ?string
 * __$firstName__ : ?string
+* __$privateFieldsDisponibility__ : ?bool
 * __$email__ : ?string
 * __$username__ : ?string
 * __$password__ : ?string 

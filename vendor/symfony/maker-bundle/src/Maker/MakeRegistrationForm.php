@@ -12,11 +12,14 @@
 namespace Symfony\Bundle\MakerBundle\Maker;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Column;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\MakerBundle\ConsoleStyle;
 use Symfony\Bundle\MakerBundle\DependencyBuilder;
 use Symfony\Bundle\MakerBundle\Doctrine\DoctrineHelper;
@@ -24,6 +27,7 @@ use Symfony\Bundle\MakerBundle\Exception\RuntimeCommandException;
 use Symfony\Bundle\MakerBundle\FileManager;
 use Symfony\Bundle\MakerBundle\Generator;
 use Symfony\Bundle\MakerBundle\InputConfiguration;
+use Symfony\Bundle\MakerBundle\Maker\Common\CanGenerateTestsTrait;
 use Symfony\Bundle\MakerBundle\Renderer\FormTypeRenderer;
 use Symfony\Bundle\MakerBundle\Security\InteractiveSecurityHelper;
 use Symfony\Bundle\MakerBundle\Security\Model\Authenticator;
@@ -68,18 +72,20 @@ use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
  */
 final class MakeRegistrationForm extends AbstractMaker
 {
-    private $userClass;
-    private $usernameField;
-    private $passwordField;
-    private $willVerifyEmail = false;
-    private $verifyEmailAnonymously = false;
-    private $idGetter;
-    private $emailGetter;
-    private $fromEmailAddress;
-    private $fromEmailName;
+    use CanGenerateTestsTrait;
+
+    private string $userClass;
+    private string $usernameField;
+    private string $passwordField;
+    private bool $willVerifyEmail = false;
+    private bool $verifyEmailAnonymously = false;
+    private string $idGetter;
+    private string $emailGetter;
+    private string $fromEmailAddress;
+    private string $fromEmailName;
     private ?Authenticator $autoLoginAuthenticator = null;
-    private $redirectRouteName;
-    private $addUniqueEntityConstraint;
+    private string $redirectRouteName;
+    private bool $addUniqueEntityConstraint = false;
 
     public function __construct(
         private FileManager $fileManager,
@@ -99,11 +105,13 @@ final class MakeRegistrationForm extends AbstractMaker
         return 'Create a new registration form system';
     }
 
-    public function configureCommand(Command $command, InputConfiguration $inputConf): void
+    public function configureCommand(Command $command, InputConfiguration $inputConfig): void
     {
         $command
             ->setHelp(file_get_contents(__DIR__.'/../Resources/help/MakeRegistrationForm.txt'))
         ;
+
+        $this->configureCommandWithTestsOption($command);
     }
 
     public function interact(InputInterface $input, ConsoleStyle $io, Command $command): void
@@ -135,13 +143,12 @@ final class MakeRegistrationForm extends AbstractMaker
 
         // see if it makes sense to add the UniqueEntity constraint
         $userClassDetails = new ClassDetails($this->userClass);
-        $this->addUniqueEntityConstraint = false;
 
         if (!$userClassDetails->hasAttribute(UniqueEntity::class)) {
-            $this->addUniqueEntityConstraint = $io->confirm(sprintf('Do you want to add a <comment>#[UniqueEntity]</comment> validation attribute to your <comment>%s</comment> class to make sure duplicate accounts aren\'t created?', Str::getShortClassName($this->userClass)));
+            $this->addUniqueEntityConstraint = (bool) $io->confirm(sprintf('Do you want to add a <comment>#[UniqueEntity]</comment> validation attribute to your <comment>%s</comment> class to make sure duplicate accounts aren\'t created?', Str::getShortClassName($this->userClass)));
         }
 
-        $this->willVerifyEmail = $io->confirm('Do you want to send an email to verify the user\'s email address after registration?', true);
+        $this->willVerifyEmail = (bool) $io->confirm('Do you want to send an email to verify the user\'s email address after registration?');
 
         if ($this->willVerifyEmail) {
             $this->checkComponentsExist($io);
@@ -151,7 +158,7 @@ final class MakeRegistrationForm extends AbstractMaker
             $emailText[] = 'having to log in. To allow multi device email verification, we can embed a user id in the verification link.';
             $io->text($emailText);
             $io->newLine();
-            $this->verifyEmailAnonymously = $io->confirm('Would you like to include the user id in the verification link to allow anonymous email verification?', false);
+            $this->verifyEmailAnonymously = (bool) $io->confirm('Would you like to include the user id in the verification link to allow anonymous email verification?', false);
 
             $this->idGetter = $interactiveSecurityHelper->guessIdGetter($io, $this->userClass);
             $this->emailGetter = $interactiveSecurityHelper->guessEmailGetter($io, $this->userClass, 'email');
@@ -181,8 +188,11 @@ final class MakeRegistrationForm extends AbstractMaker
             $routeNames = array_keys($this->router->getRouteCollection()->all());
             $this->redirectRouteName = $io->choice('What route should the user be redirected to after registration?', $routeNames);
         }
+
+        $this->interactSetGenerateTests($input, $io);
     }
 
+    /** @param array<string, mixed> $securityData */
     private function interactAuthenticatorQuestions(ConsoleStyle $io, InteractiveSecurityHelper $interactiveSecurityHelper, array $securityData): void
     {
         // get list of authenticators
@@ -233,7 +243,18 @@ final class MakeRegistrationForm extends AbstractMaker
             'Security\\'
         );
 
+        $verifyEmailVars = ['will_verify_email' => $this->willVerifyEmail];
+
         if ($this->willVerifyEmail) {
+            $verifyEmailVars = [
+                'will_verify_email' => $this->willVerifyEmail,
+                'email_verifier_class_details' => $verifyEmailServiceClassNameDetails,
+                'verify_email_anonymously' => $this->verifyEmailAnonymously,
+                'from_email' => $this->fromEmailAddress,
+                'from_email_name' => addslashes($this->fromEmailName),
+                'email_getter' => $this->emailGetter,
+            ];
+
             $useStatements = new UseStatementGenerator([
                 EntityManagerInterface::class,
                 TemplatedEmail::class,
@@ -242,6 +263,7 @@ final class MakeRegistrationForm extends AbstractMaker
                 UserInterface::class,
                 VerifyEmailExceptionInterface::class,
                 VerifyEmailHelperInterface::class,
+                $userClassNameDetails->getFullName(),
             ]);
 
             $generator->generateClass(
@@ -252,6 +274,7 @@ final class MakeRegistrationForm extends AbstractMaker
                     'id_getter' => $this->idGetter,
                     'email_getter' => $this->emailGetter,
                     'verify_email_anonymously' => $this->verifyEmailAnonymously,
+                    'user_class_name' => $userClassNameDetails->getShortName(),
                 ],
                     $userRepoVars
                 )
@@ -333,17 +356,12 @@ final class MakeRegistrationForm extends AbstractMaker
                 'form_class_name' => $formClassDetails->getShortName(),
                 'user_class_name' => $userClassNameDetails->getShortName(),
                 'password_field' => $this->passwordField,
-                'will_verify_email' => $this->willVerifyEmail,
-                'email_verifier_class_details' => $verifyEmailServiceClassNameDetails,
-                'verify_email_anonymously' => $this->verifyEmailAnonymously,
-                'from_email' => $this->fromEmailAddress,
-                'from_email_name' => addslashes($this->fromEmailName),
-                'email_getter' => $this->emailGetter,
-                'redirect_route_name' => $this->redirectRouteName,
+                'redirect_route_name' => $this->redirectRouteName ?? null,
                 'translator_available' => $isTranslatorAvailable,
             ],
                 $userRepoVars,
                 $autoLoginVars,
+                $verifyEmailVars,
             )
         );
 
@@ -386,12 +404,42 @@ final class MakeRegistrationForm extends AbstractMaker
             $userManipulator->addProperty(
                 name: 'isVerified',
                 defaultValue: false,
-                attributes: [$userManipulator->buildAttributeNode(Column::class, ['type' => 'boolean'], 'ORM')]
+                attributes: [$userManipulator->buildAttributeNode(attributeClass: Column::class, options: [], attributePrefix: 'ORM')],
+                propertyType: 'bool'
             );
             $userManipulator->addAccessorMethod('isVerified', 'isVerified', 'bool', false);
             $userManipulator->addSetter('isVerified', 'bool', false);
 
             $this->fileManager->dumpFile($classDetails->getPath(), $userManipulator->getSourceCode());
+        }
+
+        // Generate PHPUnit Tests
+        if ($this->shouldGenerateTests()) {
+            $testClassDetails = $generator->createClassNameDetails(
+                'RegistrationControllerTest',
+                'Test\\'
+            );
+
+            $useStatements = new UseStatementGenerator([
+                EntityManager::class,
+                KernelBrowser::class,
+                TemplatedEmail::class,
+                WebTestCase::class,
+                $userRepoVars['repository_full_class_name'],
+            ]);
+
+            $generator->generateFile(
+                targetPath: sprintf('tests/%s.php', $testClassDetails->getShortName()),
+                templateName: $this->willVerifyEmail ? 'registration/Test.WithVerify.tpl.php' : 'registration/Test.WithoutVerify.tpl.php',
+                variables: array_merge([
+                    'use_statements' => $useStatements,
+                    'from_email' => $this->fromEmailAddress ?? null,
+                ], $userRepoVars)
+            );
+
+            if (!class_exists(WebTestCase::class)) {
+                $io->caution('You\'ll need to install the `symfony/test-pack` to execute the tests for your new controller.');
+            }
         }
 
         $generator->writeChanges();

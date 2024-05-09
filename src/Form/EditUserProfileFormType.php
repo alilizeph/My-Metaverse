@@ -6,6 +6,7 @@ use App\Entity\Likes;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -52,6 +53,10 @@ class EditUserProfileFormType extends AbstractType
                 'label' => 'Présentation',
                 "required" => false
                 ])
+            ->add('privateFieldsDisponibility', CheckboxType::class, [
+                'label' => 'Voulez-vous rendre vos informations personnelles (nom, prénom) disponibles ? (par défaut, les informations ne seront pas disponibles ;) )',
+                'required' => false,
+            ])
             ->add('Confirmer', SubmitType::class, [
 
                 ])

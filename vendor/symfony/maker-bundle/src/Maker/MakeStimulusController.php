@@ -50,8 +50,8 @@ final class MakeStimulusController extends AbstractMaker
     public function interact(InputInterface $input, ConsoleStyle $io, Command $command): void
     {
         $command->addArgument('extension', InputArgument::OPTIONAL);
-        $command->addArgument('targets', InputArgument::OPTIONAL, '', []);
-        $command->addArgument('values', InputArgument::OPTIONAL, '', []);
+        $command->addArgument('targets', InputArgument::OPTIONAL);
+        $command->addArgument('values', InputArgument::OPTIONAL);
 
         $chosenExtension = $io->choice(
             'Language (<fg=yellow>JavaScript</> or <fg=yellow>TypeScript</>)',
@@ -131,6 +131,7 @@ final class MakeStimulusController extends AbstractMaker
         ]);
     }
 
+    /** @param string[] $targets */
     private function askForNextTarget(ConsoleStyle $io, array $targets, bool $isFirstTarget): ?string
     {
         $questionText = 'New target name (press <return> to stop adding targets)';
@@ -139,7 +140,7 @@ final class MakeStimulusController extends AbstractMaker
             $questionText = 'Add another target? Enter the target name (or press <return> to stop adding targets)';
         }
 
-        $targetName = $io->ask($questionText, null, function (?string $name) use ($targets) {
+        $targetName = $io->ask($questionText, validator: function (?string $name) use ($targets) {
             if (\in_array($name, $targets)) {
                 throw new \InvalidArgumentException(sprintf('The "%s" target already exists.', $name));
             }
@@ -150,6 +151,11 @@ final class MakeStimulusController extends AbstractMaker
         return !$targetName ? null : $targetName;
     }
 
+    /**
+     * @param array<string, array<string, string>> $values
+     *
+     * @return array<string, string>|null
+     */
     private function askForNextValue(ConsoleStyle $io, array $values, bool $isFirstValue): ?array
     {
         $questionText = 'New value name (press <return> to stop adding values)';
@@ -215,6 +221,7 @@ final class MakeStimulusController extends AbstractMaker
         }
     }
 
+    /** @return string[] */
     private function getValuesTypes(): array
     {
         return [

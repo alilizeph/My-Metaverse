@@ -1,36 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {%block head %}
-	<link rel="stylesheet" href="{{ asset('./css/profiles/private-profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/profiles/private-profile.css') }}">
 {% endblock %}
 
 {% block body %}
-	<main>
-		<article class="profile hide">
-			<section class="profile-head hide-2">
-				<section class="profile-head-avatar hide-2">
-					{% if user.avatarNewFileName != null %}
-						<img src="{{ vich_uploader_asset(user, 'avatarFile') }}" alt="{{ user.username }}" class="avatar hide-2">
-					{% endif %}
-				</section>
-				<section class="profile-head-group hide-2">
-					<h3 *ngIf="user">{{  user.username }}</h3>
-					<h4 *ngIf="user">{{ user.firstName }}
-						{{ user.surname }}</h4>
-				</section>
-			</section>
-			<section class="profile-presentation hide-2">
-				<h5 class=" hide-3">Présentation
-				</h5>
-				{% if app.user.presentation != null and app.user.presentation != "" %}
-					<p class="profile-presentation-content hide-3">{{ user.presentation }}</p>
-				{% endif %}
-			</section>
-			<section>
-				<a href="{{ path('update_user', { 'id' : user.id } ) }}">
-					<button>Mettre à jour mes informations</button>
-				</a>
-			</section>
-		</article>
-	</main>
+    <main>
+        <article class="profile hide">
+            <section class="profile-head hide-2">
+                <section class="profile-head-avatar hide-2">
+                {% if user.avatarNewFileName != null %}
+                    <img src="{{ vich_uploader_asset(user, 'avatarFile') }}" alt="{{ user.username }}" class="avatar hide-2">
+                {% endif %}
+                </section>
+                <section class="profile-head-group hide-2">
+                <h3 *ngIf="user">{{  user.username }}</h3>
+                <h4 *ngIf="user">{{ user.firstName }} {{ user.surname }}</h4>
+                </section>
+            </section>
+            <section class="profile-presentation hide-2">
+                <h5 class=" hide-3">Présentation </h5>
+                {% if app.user.presentation != null and app.user.presentation != "" %}
+                    <p class="profile-presentation-content hide-3">{{ user.presentation }}</p>
+                {% endif %}
+            </section>
+            <section>
+                <a href="{{ path('update_user', { 'id' : user.id } ) }}">
+                    <button>Mettre à jour mes informations</button>
+                </a>
+            </section>
+        </article>
+    </main>
 {% endblock %}

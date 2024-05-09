@@ -18,14 +18,22 @@
     width: auto;
     background-color: rgb(45, 45, 55);
     padding-bottom: 0;
-    height: min-content;
+    margin:0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
 
   body main {
     width: 100%;
+    flex: 1;
   }
 
+  .video-game-gender {
+    color:rgb(220, 220, 220);
+    border-radius: 1.555em;
+  }
 
   .rpg {
     background-color: rgb(200, 97, 50);
@@ -41,12 +49,11 @@
   }
 
   .gestion {
-    background-color: rgb(40, 129, 170);
+    background-color: rgb(82, 31, 77);
   }
 
   .refl {
-    background-color: rgb(185, 200, 50);
-    color: black !important;
+    background-color: rgb(121, 18, 46);
   }
 
   .fant {
@@ -54,29 +61,46 @@
   }
 
   .ecolo {
-    background-color: rgb(59, 174, 39);
-    color: black !important;
+    background: repeating-linear-gradient(
+      -45deg,
+      rgb(35, 147, 78),
+      rgb(35, 147, 78) 20px,
+      rgb(39, 151, 174) 10px,
+      rgb(39, 151, 174) 30px
+    );
+    color: rgb(25, 25, 35)!important;
   }
 
   .ow {
-    background-color: rgb(30, 103, 20);
-  }
-
-  .survie {
-    background-color: rgb(207, 83, 11);
-  }
-
-  .avent {
-    background-color: rgb(174, 39, 39);
-  }
-
-  .crea {
     background-color: rgb(39, 151, 174);
   }
 
+  .survie {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgb(90, 60, 10),
+      rgb(90, 60, 10) 20px,
+      rgb(108, 118, 20) 10px,
+      rgb(108, 118, 20) 30px
+    );
+  }
+
+  .avent {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgb(147, 50, 35),
+      rgb(147, 50, 35) 20px,
+      rgb(12, 67, 135) 10px,
+      rgb(12, 67, 135) 30px
+    );
+  }
+
+  .crea {
+    background-color: rgb(21, 108, 14);
+  }
+
   .sante {
-    background-color: rgb(65, 234, 211);
-    color: rgb(25, 25, 35);
+    background-color: rgb(31, 88, 80);
   }
 
   .chill {
@@ -84,9 +108,19 @@
   }
 
   .postapo {
-    background-color: rgb(23, 39, 65);
+    background: repeating-linear-gradient(
+      -45deg,
+      rgb(23, 39, 65),
+      rgb(23, 39, 65) 20px,
+      rgb(92, 56, 11) 10px,
+      rgb(92, 56, 11) 30px
+    );
   }
 
+
+
+
+  
   .verygood {
     background-color: rgb(8, 78, 25);
     color: white;
@@ -149,6 +183,7 @@
 
   header nav {
     font-weight: 750;
+    padding-bottom: 10px;
   }
 
   header nav ul {
@@ -196,6 +231,7 @@
   }
 
 
+  
 
   /**
     FOOOTER
@@ -207,7 +243,6 @@
     height: 100px;
     width: 100%;
     margin: 0px;
-    margin-bottom: 0 !important;
   }
 
   footer section {
@@ -259,6 +294,75 @@
     font-size: 52px;
   }
 
+
+  #reviews-menu .videogame-list-nav {
+    display: none;
+    opacity: 0;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav, #reviews-menu:hover .videogame-list-nav li, #reviews-menu:hover .videogame-list-nav a {
+    opacity: 1;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav {
+    position: absolute;
+    margin-top: 5px;
+    left: 0px;
+    display: flex;
+    list-style: none;
+    flex-flow: row wrap;
+    font-weight: 750;
+    background-color: rgb(15, 15, 25);
+    z-index: 99999;
+    text-transform: none!important;
+    justify-content:center!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav li {
+    font-size:16px;
+    background-color: none;
+    border:none;
+    text-align: center;
+    padding: 5px 0px 8px 0px!important;
+  }
+
+  .videogame-list-nav li:hover {
+    background-color: none;
+    border:none;
+    text-align: center;
+  }
+
+  #reviews-menu:hover .videogame-list-nav a {
+    padding: 5px;
+    margin: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    color: whitesmoke;
+    border-radius: 1.75em;
+    padding: 5px 0px;
+    box-shadow: 2px 1px 2px rgb(30, 30, 40);
+    width: 50%;
+    display: flex;
+    margin-left: 25%;
+    text-align: center;
+  }
+
+  .videogame-list-nav a span {
+    width: 100%;
+    text-align: center;
+  }
+
+  #reviews-menu:hover .videogame-list-nav .postapo {
+    width: 65%;
+    margin-left: 17.5%;
+  }
+
+  .all {
+    background-color: rgb(91, 88, 93);
+    color: rgb(25, 25, 30);
+  }
 
   header #open,
   header #menu-burger,
@@ -372,6 +476,74 @@
     width: 20%;
   }
 
+  #reviews-menu .videogame-list-nav {
+    display: none;
+    opacity: 0;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav, #reviews-menu:hover .videogame-list-nav li, #reviews-menu:hover .videogame-list-nav a {
+    opacity: 1;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav {
+    position: absolute;
+    margin-top: 5px;
+    left: 0px;
+    display: flex;
+    list-style: none;
+    flex-flow: row wrap;
+    font-weight: 750;
+    background-color: rgb(15, 15, 25);
+    z-index: 99999;
+    text-transform: none!important;
+    justify-content:center!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav li {
+    font-size:16px;
+    background-color: none;
+    border:none;
+    text-align: center;
+    padding: 5px 0px 8px 0px!important;
+  }
+
+  .videogame-list-nav li:hover {
+    background-color: none;
+    border:none;
+    text-align: center;
+  }
+
+  #reviews-menu:hover .videogame-list-nav a {
+    padding: 5px;
+    margin: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    color: whitesmoke;
+    border-radius: 1.75em;
+    padding: 5px 0px;
+    box-shadow: 2px 1px 2px rgb(30, 30, 40);
+    width: 50%;
+    display: flex;
+    margin-left: 25%;
+    text-align: center;
+  }
+
+  .videogame-list-nav a span {
+    width: 100%;
+    text-align: center;
+  }
+
+  #reviews-menu:hover .videogame-list-nav .postapo {
+    width: 65%;
+    margin-left: 17.5%;
+  }
+
+  .all {
+    background-color: rgb(91, 88, 93);
+    color: rgb(25, 25, 30);
+  }
 
 
   /**
@@ -446,6 +618,66 @@
     width: 20%;
   }
 
+  #reviews-menu .videogame-list-nav {
+    display: none;
+    opacity: 0;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav, #reviews-menu:hover .videogame-list-nav li, #reviews-menu:hover .videogame-list-nav a {
+    opacity: 1;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav {
+    position: absolute;
+    margin-top: -3px;
+  }
+
+  #reviews-menu:hover .videogame-list-nav li {
+    font-size:16px;
+    background-color: none;
+    border:none;
+    text-align: center;
+    padding: 5px 0px 8px 0px!important;
+  }
+
+  .videogame-list-nav li:hover {
+    background-color: none;
+    border:none;
+    text-align: center;
+  }
+
+  #reviews-menu:hover .videogame-list-nav a {
+    padding: 5px;
+    margin: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    color: whitesmoke;
+    border-radius: 1.75em;
+    padding: 5px 0px;
+    box-shadow: 2px 1px 2px rgb(30, 30, 40);
+    width: 60%;
+    display: flex;
+    margin-left: 20%;
+    text-align: center;
+  }
+
+  .videogame-list-nav a span {
+    width: 100%;
+    text-align: center;
+  }
+
+  #reviews-menu:hover .videogame-list-nav .postapo {
+    width: 80%;
+    margin-left: 10%;
+    padding-left: 20px 5px;
+  }
+
+  .all {
+    background-color: rgb(91, 88, 93);
+    color: rgb(25, 25, 30);
+  }
 
 
   /**
@@ -519,6 +751,75 @@
   }
 
 
+  #reviews-menu .videogame-list-nav {
+    display: none;
+    opacity: 0;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav, #reviews-menu:hover .videogame-list-nav li, #reviews-menu:hover .videogame-list-nav a {
+    opacity: 1;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav {
+    position: absolute;
+    margin-top: 5px;
+    left: 0px;
+    display: flex;
+    list-style: none;
+    flex-flow: row wrap;
+    font-weight: 750;
+    background-color: rgb(15, 15, 25);
+    z-index: 99999;
+    text-transform: none!important;
+  }
+
+  #reviews-menu:hover .videogame-list-nav li {
+    font-size:16px;
+    background-color: none;
+    border:none;
+    text-align: center;
+    padding: 5px 0px 8px 0px!important;
+  }
+
+  .videogame-list-nav li:hover {
+    background-color: none;
+    border:none;
+    text-align: center;
+  }
+
+  #reviews-menu:hover .videogame-list-nav a {
+    padding: 5px;
+    margin: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    color: whitesmoke;
+    border-radius: 1.75em;
+    padding: 5px 0px;
+    box-shadow: 2px 1px 2px rgb(30, 30, 40);
+    width: 80%;
+    display: flex;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+  .videogame-list-nav a span {
+    width: 100%;
+    text-align: center;
+  }
+
+  #reviews-menu:hover .videogame-list-nav .postapo {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .all {
+    background-color: rgb(91, 88, 93);
+    color: rgb(25, 25, 30);
+  }
+
+
 
   /**
     FOOTER
@@ -572,6 +873,7 @@
     display: block;
     top: 20px;
     right: 10px;
+    cursor: pointer;
   }
 
   #menu-icon span {
@@ -583,6 +885,7 @@
     height: 3px;
     background-color: rgb(220, 220, 230);
     transition: all 250ms 450ms cubic-bezier(.35, 0, 0, 1);
+    cursor: pointer;
   }
 
   header #menu-burger {
@@ -593,6 +896,7 @@
     width: 60px;
     opacity: 0;
     z-index: 1000;
+    cursor: pointer;
   }
 
 
@@ -612,11 +916,13 @@
     height: 3px;
     background-color: rgb(220, 220, 230);
     transition: all 250ms 550ms cubic-bezier(.35, 0, 0, 1);
+    cursor: pointer;
   }
 
   #menu-icon span::after {
     transform: translateY(-30px);
     transition: all 250ms 550ms cubic-bezier(.35, 0, 0, 1);
+    cursor: pointer;
   }
 
 
@@ -627,16 +933,19 @@
   #menu-burger:checked+#menu-icon span {
     background-color: transparent;
     transition: all 250ms 550ms ease-in;
+    cursor: pointer;
   }
 
   #menu-burger:checked+#menu-icon span::before {
     transform: translateY(0px) rotate(45deg);
     transition: all 250ms 550ms cubic-bezier(.35, 0, 0, 1);
+    cursor: pointer;
   }
 
   #menu-burger:checked+#menu-icon span::after {
     transform: translateY(0px) rotate(-45deg);
     transition: all 250ms 550ms cubic-bezier(.35, 0, 0, 1);
+    cursor: pointer;
   }
 
 
@@ -646,9 +955,10 @@
     opacity: 1;
     display: block;
     height: 750px;
-    width: 105.5%;
+    width: 107%;
     padding-top: 10px;
     transition: all 250ms 550ms cubic-bezier(.35, 0, 0, 1);
+    cursor: pointer;
   }
 
   header #menu-burger:checked~nav ul {
@@ -657,6 +967,7 @@
     margin-left: 5%;
     margin-top: 50px;
     opacity: 1;
+    cursor: pointer;
   }
 
   header #menu-burger:checked~nav ul li {
@@ -664,6 +975,7 @@
     opacity: 1;
     margin-top: 15px;
     width: 100%;
+    cursor: pointer;
   }
 
 
@@ -673,6 +985,7 @@
     font-size: 28px;
     text-decoration: none;
     width: 100%;
+    cursor: pointer;
   }
 
   header li:hover {
@@ -685,11 +998,13 @@
     width: 20%;
   }
 
+  #resp-genders-menu {
+    display: none;
+  }
+  
   header nav {
     margin-left: -6%;
-    display: flex;
     height: 0px;
-    width: 100%;
     opacity: 0;
     transition: all 250ms 450ms ease-out;
   }
@@ -710,6 +1025,66 @@
     border-bottom: 0.2em rgb(220 220 230) solid;
     transition: all 200ms 450ms cubic-bezier(.54, 0, .3, .99);
   }
+
+  #reviews-menu .videogame-list-nav {
+    position: absolute;
+    left: -35px;
+    top: 350px;
+    display:flex!important;
+    width: 100%;
+    font-weight: 750;
+    background-color: rgb(15, 15, 25);
+    flex-wrap: wrap;
+    overflow-x: auto; 
+    white-space: nowrap;
+    justify-content:baseline!important;
+    height: 225px;
+  }
+
+  .videogame-list-nav:hover {
+    background-color: none;
+    border-bottom: none;
+    transition: none;
+  }
+
+  #reviews-menu .videogame-list-nav li {
+    background-color: none;
+    border:none;
+    width:32%!important;
+    box-sizing:border-box!important;
+    text-align: center;
+    text-transform: none!important;
+    display: flex!important;
+  }
+
+  #reviews-menu .videogame-list-nav a {
+    padding: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    color: whitesmoke;
+    border-radius: 1.75em;
+    padding: 5px 0px;
+    box-shadow: 2px 1px 2px rgb(30, 30, 40);
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+  }
+
+  .videogame-list-nav a span {
+    width: 100%;
+    text-align: center;
+  }
+
+  #reviews-menu .videogame-list-nav .postapo {
+    width: 95%;
+    margin-left: 2.5%;
+  }
+
+  .all {
+    background-color: rgb(91, 88, 93);
+    color: rgb(25, 25, 30);
+  }
+
 
   /**
     FOOTER
@@ -898,7 +1273,68 @@
     transition: all 200ms 450ms cubic-bezier(.54, 0, .3, .99);
   }
 
+  #reviews-menu .videogame-list-nav {
+    position: absolute;
+    left: -20px;
+    top: 350px;
+    display:flex!important;
+    font-weight: 750;
+    background-color: rgb(15, 15, 25);
+    flex-wrap: wrap;
+    overflow-x: auto; 
+    white-space: nowrap;
+    justify-content:center!important;
+    height: 225px;
+  }
 
+  .videogame-list-nav:hover {
+    background-color: none;
+    border-bottom: none;
+    transition: none;
+  }
+
+  #reviews-menu .videogame-list-nav li {
+    background-color: none;
+    border:none;
+    width:50%!important;
+    box-sizing:border-box!important;
+    text-align: center;
+    text-transform: none!important;
+    display: flex!important;
+  }
+
+  #reviews-menu .videogame-list-nav a {
+    padding: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    color: whitesmoke;
+    border-radius: 1.75em;
+    padding: 5px 0px;
+    box-shadow: 2px 1px 2px rgb(30, 30, 40);
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+  }
+
+  .videogame-list-nav a span {
+    width: 100%;
+    text-align: center;
+  }
+
+  #reviews-menu .videogame-list-nav .postapo {
+    width: 300%;
+    margin-left: 2.5%;
+    font-size: 14px;
+  }
+
+  .li-postapo {
+    width:200%!important;
+  }
+
+  .all {
+    background-color: rgb(91, 88, 93);
+    color: rgb(25, 25, 30);
+  }
 
 
   /**

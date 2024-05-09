@@ -19,6 +19,10 @@
     padding: 20px 0px 50px 0px;
   }
 
+  main .examples {
+    color: rgb(200, 120, 20)!important;
+  }
+
   main h2 {
     text-align: center;
     font-weight: 800;

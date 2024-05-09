@@ -4,9 +4,9 @@ body main {
 }
 
 .admin-homepage {
-    height: 600px;
+    height: 400px;
     width: 95%;
-    margin-left: 2.5%;
+    margin-left:2.5%;
     border: 3px solid rgb(235, 163, 39);
     background-color: rgb(25, 25, 40);
 }
@@ -14,19 +14,12 @@ body main {
 .admin-homepage h3 {
     width: 100%;
     padding-top: 25px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     font-size: 38px;
     text-align: center;
-    color: rgb(230, 230, 230);
+    text-transform: uppercase;
+    color:rgb(230, 230, 230);
     text-decoration: underline;
-}
-
-.admin-homepage h4 {
-    width: 100%;
-    color: rgb(230, 230, 230);
-    padding-bottom: 35px;
-    text-align: center;
-    font-size:26px;
 }
 
 .admin-homepage h5 {
@@ -36,32 +29,27 @@ body main {
     text-align: center;
 }
 
-.admin-content .admin-group {
-    margin-bottom: 20px;
-    margin-top: 15px;
-}
-
 .admin-homepage button {
     margin-top: 10px;
     font-size: 22px;
     border: none;
     position: relative;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    width: 250px;
+    padding-top:12px;
+    padding-bottom:12px;
+    width: 20%;
+    margin-left: 40%;
     background-color: rgb(235, 163, 39);
     text-decoration: none;
-    color: rgb(30, 30, 45);
+    color:rgb(30, 30, 45);
     text-transform: uppercase;
     border-radius: 2em;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 20px;
     transition: all 250ms 250ms ease-out;
     box-shadow: 4px 3px 3px rgb(25, 25, 50);
-    cursor: pointer;
+    cursor:pointer;
 }
 
 button:hover {
-    transform: translate(3px, 2px);
+    transform : translate(3px, 2px);
 }

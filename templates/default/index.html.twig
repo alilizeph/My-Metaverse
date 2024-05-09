@@ -34,19 +34,19 @@
 			<button id="access" class="hide-4">Accéder aux avis</button>
 			<script>
 				let btn = document.getElementById('access');
-          btn.addEventListener('click', function () {
-          window.location.href ="{{ path('videogames_list') }}";
-        });
+					btn.addEventListener('click', function () {
+					window.location.href ="{{ path('videogames_list') }}";
+				});
 			</script>
 		</article>
 		{% if videoGames is defined %}
 			<article class="carousel hide">
-				<h2>exemples de jeux testés</h2>
-				<div class="carousel-inner">
+				<h2 class="examples">exemples de jeux testés</h2>
+				<section class="carousel-inner">
 					{% for videoGame in videoGames %}
 						{% include './default/videogame-carousel-card.html.twig' with {'videoGame' : videoGame } %}
 					{% endfor %}
-				</div>
+				</section>
 			</article>
 		{% endif %}
 		{% include("./default/contact-form.html.twig") %}

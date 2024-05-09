@@ -14,106 +14,25 @@
 				<img src="{{ vich_uploader_asset(videoGame, 'imgTheme') }}" alt="{{ videoGame.name }}" class="hide-2">
 			</section>
 			<section class="video-game-card-head hide-2">
-				<div class="video-game-pres hide-2">
-					<h3 class=" hide-2">{{ videoGame.name }}</h3>
-					{% if platformName == 1 %}
-						<h4 class=" hide-2">Sur :
-							<span>Nintendo Switch</span>
-						</h4>
-					{% elseif platformName == 2 %}
-						<h4 class=" hide-2">Sur :
-							<span>PC Steam</span>
-						</h4>
-					{% elseif platformName == 3 %}
-						<h4 class=" hide-2">Sur :
-							<span>PlayStation 5</span>
-						</h4>
-					{% elseif platformName == 4 %}
-						<h4 class=" hide-2">Sur :
-							<span>GameBoy Advanced</span>
-						</h4>
-					{% elseif platformName == 5 %}
-						<h4 class=" hide-2">Sur :
-							<span>GameBoy / GameBoy Color</span>
-						</h4>
-					{% elseif platformName == 6 %}
-						<h4 class=" hide-2">Sur :
-							<span>PlayStation 4</span>
-						</h4>
-					{% elseif platformName == 7 %}
-						<h4 class=" hide-2">Sur :
-							<span>Nintendo DS</span>
-						</h4>
-					{% elseif platformName == 8 %}
-						<h4 class=" hide-2">Sur :
-							<span>Nintendo 3DS</span>
-						</h4>
-					{% elseif platformName == 9 %}
-						<h4 class=" hide-2">Sur :
-							<span>PlayStation 3</span>
-						</h4>
-					{% elseif platformName == 10 %}
-						<h4 class=" hide-2">Sur :
-							<span>PlayStation 2</span>
-						</h4>
-					{% elseif platformName == 11 %}
-						<h4 class=" hide-2">Sur :
-							<span>PlayStation</span>
-						</h4>
-					{% elseif platformName == 12 %}
-						<h4 class=" hide-2">Sur :
-							<span>XBox</span>
-						</h4>
-					{% elseif platformName == 13 %}
-						<h4 class=" hide-2">Sur :
-							<span>XBox 360</span>
-						</h4>
-					{% elseif platformName == 14 %}
-						<h4 class=" hide-2">Sur :
-							<span>XBox One</span>
-						</h4>
-					{% elseif platformName == 15 %}
-						<h4 class=" hide-2">Sur :
-							<span>XBox Series</span>
-						</h4>
-					{% endif %}
-					<p class="perso-grade hide-2">Note personnelle :</p>
-					{% if videoGame.grade >= 75 %}
-						<h4 class="video-game-grade verygood hide-3">{{ videoGame.grade }}</h4>
-					{% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
-						<h4 class="video-game-grade good hide-3">{{ videoGame.grade }}</h4>
-					{% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
-						<h4 class="video-game-grade medium hide-3">{{ videoGame.grade }}</h4>
-					{% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
-						<h4 class="video-game-grade notenough hide-3">{{ videoGame.grade }}</h4>
-					{% elseif videoGame.grade <= 34 %}
-						<h4 class="video-game-grade bad hide-3">{{ videoGame.grade }}</h4>
-					{% endif %}
-					{% if videoGame.averageUsersGrade != 0 %}
-						<p class="users-grade hide-2">Note utilisateur :</p>
-						<h4 class="video-game-users-grade hide-3">{{ videoGame.averageUsersGrade }}</h4>
-						{% if videoGame.averageUsersGrade >= 75 %}
-							<h4 class="video-game-users-grade verygood hide-3">{{ videoGame.averageUsersGrade }}</h4>
-						{% elseif videoGame.averageUsersGrade <= 74 and videoGame.averageUsersGrade >= 60 %}
-							<h4 class="video-game-users-grade good hide-3">{{ videoGame.averageUsersGrade }}</h4>
-						{% elseif videoGame.averageUsersGrade <= 59 and videoGame.averageUsersGrade >= 50 %}
-							<h4 class="video-game-users-grade medium hide-3">{{ videoGame.averageUsersGrade }}</h4>
-						{% elseif videoGame.averageUsersGrade <= 49 and videoGame.averageUsersGrade >= 35 %}
-							<h4 class="video-game-users-grade notenough hide-3">{{ videoGame.averageUsersGrade }}</h4>
-						{% elseif videoGame.averageUsersGrade <= 34 %}
-							<h4 class="video-game-users-grade bad hide-3">{{ videoGame.averageUsersGrade }}</h4>
-						{% endif %}
-					{% endif %}
-					<p class=" hide-3">
+				<section class="video-game-pres hide-2">
+					<h3 class=" hide-2">{{ videoGame.titleReview }}</h3>
+					<h4 class="name hide-2">Jeu : {{ videoGame.name }}</h4>
+					<h4 class="platform hide-2">Sur : {{ videoGame.platform.platformName }}</h4>
+					<p class="hide-3">
 						<span>Date de sortie</span>
 						: le
-						{{ videoGame.releaseDate | date('d F Y') }}</p>
+						{{ videoGame.releaseDate | date('d F Y') }}
+					</p>
 					<p class=" hide-3">
 						<span>Prix moyen</span>
 						:
 						{{ videoGame.averagePrice }}
-						€</p>
-					<div class="video-game-genders-box hide-3">
+						€
+					</p>
+					<section class="video-game-box-zone">
+						<img class="video-game-box" src="{{ vich_uploader_asset(videoGame, 'imgBox') }}" alt="boîte de {{ videoGame.name }}">
+					</section>
+					<section class="video-game-genders-box hide-3">
 						<ul class="video-game-genders-list">
 							{% for gender in videoGame.genders %}
 								{% if gender.id == 1 %}
@@ -175,34 +94,133 @@
 								{% endif %}
 							{% endfor %}
 						</ul>
-					</div>
-					<div class="video-game-box-zone">
-						<img class="video-game-box" src="{{ vich_uploader_asset(videoGame, 'imgBox') }}" alt="boîte de {{ videoGame.name }}">
-					</div>
-				</div>
+					</section>
+					<section class="video-game-grades-box hide-3">
+						<ul class="video-games-grades-list">
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="graphics">Graphismes</p>
+									{% if videoGame.graphicsGrade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% elseif videoGame.graphicsGrade <= 74 and videoGame.graphicsGrade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% elseif videoGame.graphicsGrade <= 59 and videoGame.graphicsGrade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% elseif videoGame.graphicsGrade <= 49 and videoGame.graphicsGrade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% elseif videoGame.graphicsGrade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.graphicsGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="gameplay">Gameplay</p>
+									{% if videoGame.gameplayGrade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% elseif videoGame.gameplayrade <= 74 and videoGame.gameplayrade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% elseif videoGame.gameplayrade <= 59 and videoGame.gameplayrade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% elseif videoGame.gameplayGrade <= 49 and videoGame.gameplayGrade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% elseif videoGame.gameplayGrade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.gameplayGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="storyline">Scénario</pc>
+									{% if videoGame.storylineGrade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% elseif videoGame.storylineGrade <= 74 and videoGame.storylineGrade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% elseif videoGame.storylineGrade <= 59 and videoGame.storylineGrade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% elseif videoGame.storylineGrade <= 49 and videoGame.storylineGrade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% elseif videoGame.storylineGrade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.storylineGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="execution">Réalisation</p>
+									{% if videoGame.executionGrade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.executionGrade }}</h4>
+									{% elseif videoGame.executionGrade <= 74 and videoGame.executionGrade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.executionGrade }}</h4>
+									{% elseif videoGame.executionGrade <= 59 and videoGame.executionGrade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.executionGrade }}</h4>
+									{% elseif videoGame.executionGrade <= 49 and videoGame.executionGrade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.executionGrade }}</h4>
+									{% elseif videoGame.executionGrade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.executionGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							<li class="video-game-grades-elmt average">
+								<section>
+									<p class="perso-grade">Note globale</p>
+									{% if videoGame.grade >= 75 %}
+										<h4 class="video-game-grade verygood hide-3">{{ videoGame.grade }}</h4>
+									{% elseif videoGame.grade <= 74 and videoGame.grade >= 60 %}
+										<h4 class="video-game-grade good hide-3">{{ videoGame.grade }}</h4>
+									{% elseif videoGame.grade <= 59 and videoGame.grade >= 50 %}
+										<h4 class="video-game-grade medium hide-3">{{ videoGame.grade }}</h4>
+									{% elseif videoGame.grade <= 49 and videoGame.grade >= 35 %}
+										<h4 class="video-game-grade notenough hide-3">{{ videoGame.grade }}</h4>
+									{% elseif videoGame.grade <= 34 %}
+										<h4 class="video-game-grade bad hide-3">{{ videoGame.grade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							{% if videoGame.averageUsersGrade != 0 %}
+							<li class="video-game-grades-elmt">
+								<section>
+									<p class="users-grade">Note utilisateurs</p>
+									{% if videoGame.averageUsersGrade >= 75 %}
+										<h4 class="video-game-users-grade verygood hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% elseif videoGame.averageUsersGrade <= 74 and videoGame.averageUsersGrade >= 60 %}
+										<h4 class="video-game-users-grade good hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% elseif videoGame.averageUsersGrade <= 59 and videoGame.averageUsersGrade >= 50 %}
+										<h4 class="video-game-users-grade medium hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% elseif videoGame.averageUsersGrade <= 49 and videoGame.averageUsersGrade >= 35 %}
+										<h4 class="video-game-users-grade notenough hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% elseif videoGame.averageUsersGrade <= 34 %}
+										<h4 class="video-game-users-grade bad hide-3">{{ videoGame.averageUsersGrade }}</h4>
+									{% endif %}
+								</section>
+							</li>
+							{% endif %}
+						</ul>
+					</section>
+				</section>
 			</section>
 			{#
-										            <section class="video-game-likes">
-										                <input type="checkbox" id="thumb-rotate">
-										                <span class="material-symbols-outlined thumb">
-										                    thumb_up
-										                </span>
-										                <h4>{{ videoGame.likes.nblikes }}</h4>
-										            </section>
-										            #}
+				<section class="video-game-likes">
+					<input type="checkbox" id="thumb-rotate">
+					<span class="material-symbols-outlined thumb">
+						thumb_up
+					</span>
+					<h4>{{ videoGame.likes.nblikes }}</h4>
+				</section>
+			#}
 			<section class="video-game-content hide-3">
-				<div class="video-game-description hide-4">
+				<section class="video-game-description hide-4">
 					<h4>Description du jeu :</h4>
 					<p>
 						{{ videoGame.description }}
 					</p>
-				</div>
-				<div class="video-game-advice hide-4">
+				</section>
+				<section class="video-game-advice hide-4">
 					<h4>Avis et Critiques sur le jeu :</h4>
 					<p>
 						{{ videoGame.advice}}
 					</p>
-				</div>
+				</section>
 				<button id="return-to-list" class="hide-4">Retour à la liste</button>
 			</section>
 

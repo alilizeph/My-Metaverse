@@ -70,6 +70,17 @@ form .form-group {
     display: inline-flex;
 }
 
+.private-fields-dispo label {
+    font-size: 16px;
+    text-decoration: underline;
+    color: rgb(175, 56, 5);
+}
+
+.private-fields-dispo input {
+    height: 25px;
+    width: 25px;
+}
+
 form p {
     font-size: 14px;
     width: 50%;

@@ -25,6 +25,10 @@ class AdminEditFormType extends AbstractType
         $grades = range(0, 100);
 
         $builder
+            ->add('titleReview', TextType::class, [
+                'label' => 'Nom de la critique',
+                'required' => true
+                ])
             ->add('name', TextType::class, [
                 'label' => 'Nom du jeu',
                 'required' => true
@@ -47,8 +51,23 @@ class AdminEditFormType extends AbstractType
                 'required' => 'false',
                 'data_class' => null
                 ])
-            ->add('grade', ChoiceType::class, [
-                'label' => 'Note du jeu',
+            ->add('graphicsGrade', ChoiceType::class, [
+                'label' => 'Note sur les Graphismes',
+                'required' => 'true',
+                'choices' => array_combine($grades, $grades)
+                ])
+            ->add('gameplayGrade', ChoiceType::class, [
+                'label' => 'Note sur le GamePlay',
+                'required' => 'true',
+                'choices' => array_combine($grades, $grades)
+                ])
+            ->add('storylineGrade', ChoiceType::class, [
+                'label' => 'Note sur le Scénario',
+                'required' => 'true',
+                'choices' => array_combine($grades, $grades)
+                ])
+            ->add('executionGrade', ChoiceType::class, [
+                'label' => 'Note sur la Réalisation',
                 'required' => 'true',
                 'choices' => array_combine($grades, $grades)
                 ])

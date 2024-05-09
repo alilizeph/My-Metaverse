@@ -18,7 +18,7 @@ class Gender
      * @param ?string                                   $genderName      ORM\Column(length: 255)             the gender name of a VideoGame (Example: 'RPG')
      * @param Doctrine\Common\Collections\Collection    $videoGames      ORM\ManyToMany(VideoGame::class)    the relation with the class VideoGame
      * __________________________________________________________________________________________________________________________________________________________
-     */
+    */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -27,7 +27,7 @@ class Gender
     #[ORM\Column(length: 255)]
     private string $genderName;
 
-    #[ORM\ManyToMany(targetEntity: VideoGame::class, mappedBy: "genders", cascade: ["persist"])]
+    #[ORM\ManyToMany(targetEntity:VideoGame::class, mappedBy:"genders", cascade: ["persist"])]
     private Collection $videoGames;
 
     public function __construct(string $genderName = "")
@@ -63,4 +63,5 @@ class Gender
 
         return $this;
     }
+
 }

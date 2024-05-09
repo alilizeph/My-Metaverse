@@ -55,6 +55,8 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 use Symfony\Component\Yaml\Yaml;
 
 /**
+ * @deprecated since MakerBundle v1.59.0, use any of the Security/Make* instead.
+ *
  * @author Ryan Weaver   <ryan@symfonycasts.com>
  * @author Jesse Rushlow <jr@rushlow.dev>
  *
@@ -95,6 +97,10 @@ final class MakeAuthenticator extends AbstractMaker
 
     public function interact(InputInterface $input, ConsoleStyle $io, Command $command): void
     {
+        trigger_deprecation('symfony/maker-bundle', 'v1.59.0', 'The "%s" class is deprecated, use any of the Security\Make* commands instead.', self::class);
+
+        $io->caution('"make:auth" is deprecated, use any of the "make:security" commands instead.');
+
         if (!$this->fileManager->fileExists($path = 'config/packages/security.yaml')) {
             throw new RuntimeCommandException('The file "config/packages/security.yaml" does not exist. PHP & XML configuration formats are currently not supported.');
         }
@@ -280,7 +286,8 @@ final class MakeAuthenticator extends AbstractMaker
         );
     }
 
-    private function generateAuthenticatorClass(array $securityData, string $authenticatorType, string $authenticatorClass, $userClass, $userNameField, bool $supportRememberMe): void
+    /** @param array<mixed> $securityData */
+    private function generateAuthenticatorClass(array $securityData, string $authenticatorType, string $authenticatorClass, ?string $userClass, ?string $userNameField, bool $supportRememberMe): void
     {
         $useStatements = new UseStatementGenerator([
             Request::class,
@@ -401,7 +408,8 @@ final class MakeAuthenticator extends AbstractMaker
         );
     }
 
-    private function generateNextMessage(bool $securityYamlUpdated, string $authenticatorType, string $authenticatorClass, $userClass, bool $logoutSetup, bool $supportRememberMe, bool $alwaysRememberMe): array
+    /** @return string[] */
+    private function generateNextMessage(bool $securityYamlUpdated, string $authenticatorType, string $authenticatorClass, ?string $userClass, bool $logoutSetup, bool $supportRememberMe, bool $alwaysRememberMe): array
     {
         $nextTexts = ['Next:'];
         $nextTexts[] = '- Customize your new authenticator.';
@@ -432,6 +440,7 @@ final class MakeAuthenticator extends AbstractMaker
         return $nextTexts;
     }
 
+    /** @param array<mixed> $securityData */
     private function userClassHasEncoder(array $securityData, string $userClass): bool
     {
         $userNeedsEncoder = false;

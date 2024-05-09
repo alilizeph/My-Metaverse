@@ -1,22 +1,22 @@
 <h3>Donnez votre avis</h3>
 <form class="hide-2" method="post">
-	{{ form_start(guestForm) }}
-        <div class="form-group hide-2">
-            {{ form_label(guestForm.user_username) }}
-            {{ form_widget(guestForm.user_username) }}
-        </div>
-        <div class="form-group hide-2">
-            {{ form_label(guestForm.title) }}
-            {{ form_widget(guestForm.title) }}
-        </div>
-        <div class="form-group hide-2">
-            {{ form_label(guestForm.content) }}
-            {{ form_widget(guestForm.content) }}
-        </div>
-        <div class="form-group hide-2">
-            {{ form_label(guestForm.grade) }}
-            {{ form_widget(guestForm.grade) }}
-        </div>
-        <button type="submit" class="btn hide-3">{{ button_label|default("Envoyer") }}</button>
-	{{ form_end(guestForm) }}
+{{ form_start(guestForm) }}
+    <div class="form-group hide-2">
+        {{ form_label(guestForm.user_username) }}
+        {{ form_widget(guestForm.user_username) }}
+    </div>
+    <div class="form-group hide-2">
+        {{ form_label(guestForm.title) }}
+        {{ form_widget(guestForm.title) }}
+    </div>
+    <div class="form-group hide-2">
+        {{ form_label(guestForm.content) }}
+        {{ form_widget(guestForm.content) }}
+    </div>
+    <div class="form-group hide-2">
+        {{ form_label(guestForm.grade) }}
+        {{ form_widget(guestForm.grade) }}
+    </div>
+    <button type="submit" class="btn hide-3">{{ button_label|default("Envoyer") }}</button>
+{{ form_end(guestForm) }}
 </form>

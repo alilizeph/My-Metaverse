@@ -24,7 +24,7 @@ class VideoGameController extends AbstractController
     }
 
     #[Route('/new', name: 'app_video_game_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, AuthorizationCheckerInterface $authChecker): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
@@ -74,7 +74,7 @@ class VideoGameController extends AbstractController
     #[Route('/{id}', name: 'app_video_game_delete', methods: ['POST'])]
     public function delete(Request $request, VideoGame $videoGame, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $videoGame->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$videoGame->getId(), $request->request->get('_token'))) {
             $entityManager->remove($videoGame);
             $entityManager->flush();
         }
